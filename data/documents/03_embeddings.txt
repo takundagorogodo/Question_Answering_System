@@ -1,0 +1,13 @@
+Word and Sentence Embeddings
+
+An embedding is a way of representing a piece of text, whether a single word or an entire sentence, as a list of numbers called a vector. This numerical representation allows a computer to work with the meaning of language mathematically, rather than treating text as an opaque sequence of characters.
+
+The key idea behind embeddings is that words or sentences with similar meanings should end up with similar vectors. If we imagine each vector as a point in a high-dimensional space, then words like "king" and "queen" would land close together, while a word like "banana" would land far away from both. This closeness in the vector space is what lets a computer measure semantic similarity: how alike two pieces of text are in meaning, not just in spelling.
+
+Early word embedding methods, such as Word2Vec and GloVe, learned a single fixed vector for each word by analyzing which words tend to appear near each other across a huge collection of text. These methods captured surprisingly rich relationships. A famous example is that the vector arithmetic "king minus man plus woman" produces a vector very close to "queen," showing that the embedding space had implicitly learned something about gender and royalty.
+
+A major limitation of these early methods was that each word had only one vector, regardless of context. The word "bank" would have the same embedding whether it appeared in "river bank" or "savings bank." Modern transformer-based models solve this by producing contextual embeddings: the vector for a word changes depending on the sentence it appears in, because the model considers the surrounding words when generating the representation.
+
+Sentence embeddings extend this same idea to entire sentences or paragraphs, producing a single vector that represents the overall meaning of a longer piece of text. This is especially important for retrieval-augmented generation systems, where we need to compare the meaning of a user's question against the meaning of many stored passages, in order to find which passages are actually relevant.
+
+Two pieces of text that are worded very differently but mean the same thing, such as "What is NLP?" and "Explain natural language processing," should produce sentence embeddings that are very close together in vector space, even though they share almost no words in common. This is the property that makes embeddings so useful for semantic search: they let a system understand what a question means, rather than just matching keywords.

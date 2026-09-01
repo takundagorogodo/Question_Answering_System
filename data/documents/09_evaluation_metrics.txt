@@ -1,0 +1,15 @@
+Evaluating Question Answering Systems
+
+Evaluating a question answering system rigorously requires more than checking whether answers "look right" by eye. Several standard metrics exist, each suited to different kinds of QA systems, and choosing the right ones is an important part of demonstrating that a system actually works.
+
+Exact Match is one of the simplest metrics: it checks whether the generated answer is identical, word for word, to a reference answer. This metric works reasonably well for extractive QA, where the answer is expected to be a specific short span of text, but it is a poor fit for generative QA, since a generative model might produce a correct answer phrased in a completely different way from the reference, and Exact Match would incorrectly score it as wrong.
+
+F1 score, borrowed from classification tasks, measures the overlap between the words in the generated answer and the words in a reference answer, balancing precision (how much of the generated answer is correct) against recall (how much of the reference answer was captured). It is more forgiving than Exact Match, since partial word overlap still counts for something, but it can still unfairly penalize a generative answer that is correct but uses entirely different vocabulary from the reference.
+
+BLEU and ROUGE are metrics originally developed for machine translation and summarization respectively. Both measure overlap of word sequences, called n-grams, between generated and reference text. They can give a rough sense of fluency and content overlap for generated answers, but like Exact Match and F1, they penalize valid paraphrasing.
+
+Semantic similarity metrics take a different approach: instead of comparing exact words, they compare the embedding vectors of the generated answer and the reference answer, and measure how close those vectors are in meaning. This makes semantic similarity much better suited to evaluating generative QA specifically, since a correct answer that is worded completely differently from the reference will still score well, as long as it means the same thing.
+
+For the retrieval half of a RAG system, separate metrics are used. Recall at K measures whether the correct source passage appears somewhere within the top K retrieved results, while Precision at K measures what fraction of the top K retrieved results are actually relevant. These metrics evaluate the retrieval step in isolation from the generation step, which is important because a wrong final answer could be caused either by poor retrieval or by poor generation, and separating the two makes it possible to diagnose which part of the pipeline needs improvement.
+
+Finally, human evaluation, where real people judge the quality, correctness, and helpfulness of generated answers, remains an important complement to automatic metrics, since no single automatic metric perfectly captures everything a human reader would care about, such as clarity, tone, or whether an answer actually resolves the user's underlying question.

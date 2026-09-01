@@ -1,0 +1,15 @@
+Natural Language Processing
+
+Natural Language Processing, commonly abbreviated as NLP, is a subfield of computer science and artificial intelligence that focuses on enabling computers to understand, interpret, and generate human language. Human languages such as English, Spanish, or Mandarin are highly irregular and context-dependent, which makes them fundamentally different from the structured, unambiguous languages that computers were originally designed to process, such as programming languages.
+
+The roots of NLP trace back to the 1950s, when early researchers explored whether machines could translate text between languages or engage in basic conversation. Early systems relied heavily on hand-written rules: a linguist or programmer would encode grammatical rules and dictionaries directly into the software. This rule-based approach worked for narrow, controlled situations but struggled badly with the sheer variety and ambiguity of real language.
+
+Over the following decades, the field shifted toward statistical methods. Instead of hand-coding rules, researchers built systems that learned patterns from large collections of real text, called corpora. This statistical era made tasks like machine translation and speech recognition dramatically more practical, since the system could improve simply by being shown more data rather than requiring a human to write more rules.
+
+The most recent shift, beginning in the 2010s, has been toward deep learning and, more specifically, neural network architectures called transformers. These models learn rich, flexible representations of language directly from massive amounts of text, and they now form the backbone of nearly all modern NLP systems, including translation tools, chatbots, and question answering systems.
+
+NLP is generally divided into two broad directions: natural language understanding (NLU), which focuses on extracting meaning from text, and natural language generation (NLG), which focuses on producing fluent, coherent text as output. A generative question answering system, like the one built in this project, relies on both: it must understand what a user is asking, and then generate a natural-language answer in response.
+
+Typical NLP tasks include text classification (sorting text into categories), named entity recognition (identifying names of people, places, or organizations), sentiment analysis (judging whether text expresses a positive or negative opinion), machine translation, summarization, and question answering. Each of these tasks has its own challenges, but they increasingly share the same underlying technology: large neural language models trained on text.
+
+Despite enormous progress, NLP systems still face real limitations. They can struggle with sarcasm, ambiguity, rare languages or dialects, and situations that require common-sense reasoning outside the text they were trained on. Modern generative systems can also produce fluent-sounding but factually incorrect statements, a problem known as hallucination, which is a central concern for anyone building a trustworthy question answering system.

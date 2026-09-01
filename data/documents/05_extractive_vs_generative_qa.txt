@@ -1,0 +1,13 @@
+Extractive versus Generative Question Answering
+
+Question answering systems can be broadly divided into two categories based on how they produce their answers: extractive and generative.
+
+An extractive question answering system finds the answer to a question by locating and copying an exact span of text from a source passage. Given a passage of text and a question, the system predicts the start and end position of the answer within that passage, then returns that exact substring as the answer. For example, if a passage states "The Transformer architecture was introduced in 2017," and the question is "When was the Transformer architecture introduced?", an extractive system would identify and return the substring "2017." Extractive systems cannot say anything that is not literally present, word for word, somewhere in the source text.
+
+A generative question answering system works differently. Instead of locating and copying a span of existing text, it uses a language model to compose a brand new answer in natural language. The generative model may draw on relevant source material, often supplied through a retrieval step, but it produces the final wording itself, which means it can paraphrase, combine information from multiple places, summarize, or explain a concept in a way that never appears verbatim anywhere in the source material.
+
+The trade-offs between these two approaches are significant. Extractive QA tends to be more reliable and less prone to inventing false information, since every answer is guaranteed to be a real quote from the source. However, it is inflexible: if the exact answer is not present as a contiguous span of text, an extractive system simply cannot answer well, even if the necessary information is scattered across a passage.
+
+Generative QA is far more flexible and produces answers that read more naturally, since it can synthesize information rather than being limited to copying a single span. This flexibility comes at a cost, however: because the model is composing new text rather than quoting, it can occasionally generate statements that sound fluent and confident but are not actually supported by the source material, a failure mode known as hallucination.
+
+Modern systems increasingly combine both ideas through architectures like retrieval-augmented generation, where a retrieval step first finds the most relevant passages, and a generative model then composes a natural-language answer grounded in that retrieved content. This hybrid approach aims to capture the flexibility of generative answers while reducing the risk of hallucination through explicit grounding in real source text.
