@@ -15,9 +15,9 @@ Question:
 
 Instructions:
 Answer the question using only the provided context.
+Give a complete, explanatory answer in at least one full sentence, not a single word.
 If the answer cannot be found in the context, say that sufficient information is unavailable.
 """
-
 
 def build_prompt(question, retrieved_chunks):
     """
@@ -27,7 +27,6 @@ def build_prompt(question, retrieved_chunks):
     context = "\n\n".join(chunk["text"] for chunk in retrieved_chunks)
     return PROMPT_TEMPLATE.format(context=context, question=question)
 
-
 def generate_answer(question, retrieved_chunks, max_length=150):
     """
     Build the prompt, run it through FLAN-T5-base, and return the generated answer.
@@ -35,11 +34,17 @@ def generate_answer(question, retrieved_chunks, max_length=150):
     prompt = build_prompt(question, retrieved_chunks)
 
     inputs = _tokenizer(prompt, return_tensors="pt", truncation=True, max_length=512)
-    outputs = _model.generate(**inputs, max_length=max_length)
+    outputs = _model.generate(
+        **inputs,
+        max_length=max_length,
+        min_length=30,           # forces the model to keep generating past a single word
+        num_beams=4,             # beam search instead of greedy decoding — better quality
+        no_repeat_ngram_size=3,  # avoids repetitive loops
+        early_stopping=True
+    )
 
     answer = _tokenizer.decode(outputs[0], skip_special_tokens=True)
     return answer
-
 
 if __name__ == "__main__":
     from src.preprocessing import load_documents
