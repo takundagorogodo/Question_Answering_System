@@ -6,22 +6,15 @@ MODEL_NAME = "google/flan-t5-base"
 _tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 _model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
 
-
-PROMPT_TEMPLATE = """You are a friendly tutor explaining NLP concepts to a beginner student.
+PROMPT_TEMPLATE = """Answer the question in simple, everyday language using only the context below. Use 2-3 short sentences. If the answer is not in the context, say you don't have enough information.
 
 Context:
 {context}
 
-Question:
-{question}
+Question: {question}
 
-Instructions:
-- Answer using only the information in the context above.
-- Explain it simply, in your own words, like you're talking to someone new to the topic.
-- Do not copy sentences directly from the context - rephrase them simply.
-- Keep the answer to 2-3 short, clear sentences.
-- If the answer is not in the context, say so honestly instead of guessing.
-"""
+Answer:"""
+
 
 def build_prompt(question, retrieved_chunks):
     """
