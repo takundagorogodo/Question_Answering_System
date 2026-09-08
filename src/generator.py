@@ -18,7 +18,7 @@ Answer:"""
 
 def build_prompt(question, retrieved_chunks):
     """
-    Combine retrieved chunk texts into a single context block,
+    Combine retrieved chunk tes into a single context block,
     then insert into our prompt template alongside the question.
     """
     context = "\n\n".join(chunk["text"] for chunk in retrieved_chunks)
