@@ -1,0 +1,19 @@
+# ============================================================================
+# requirements.txt  —  INTENTIONALLY EMPTY FOR NOW
+#
+# We will fill this in Stage 3 (Environment Setup), on YOUR machine, and we
+# will pin the exact versions pip reports there. That way the project is
+# reproducible: anyone who clones this repo and runs
+#     pip install -r requirements.txt
+# gets the same library versions we tested with.
+#
+# Planned dependencies (names only — versions pinned in Stage 3):
+#   torch                 - tensor math / model inference backend
+#   transformers          - load + run the generative model
+#   sentence-transformers - load + run the embedding model
+#   faiss-cpu             - vector store (nearest-neighbour search)
+#   pandas / numpy        - data handling + cosine similarity
+#   scikit-learn          - TF-IDF baseline (Stage 18) + evaluation metrics
+#   streamlit             - user interface (Stage 15)
+#   rouge-score / nltk    - BLEU / ROUGE evaluation (Stage 17)
+# ============================================================================
