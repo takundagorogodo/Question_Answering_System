@@ -1,4 +1,3 @@
-
 """
 Central configuration for the Generative QA project.
 
@@ -7,26 +6,30 @@ one file. All other modules import from here.
 """
 from pathlib import Path
 
-# Project root = the folder that CONTAINS src/ (one level above this file)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # ---- data folders ----------------------------------------------------------
-CORPUS_DIR    = PROJECT_ROOT / "data" / "documents"   # raw corpus (Stage 4)
-PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"   # cleaned JSONL (Stage 5)
-INDEX_DIR     = PROJECT_ROOT / "data" / "index"       # FAISS index (Stage 8)
+CORPUS_DIR    = PROJECT_ROOT / "data" / "documents"
+PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
+INDEX_DIR     = PROJECT_ROOT / "data" / "index"
 
 # ---- other folders ----------------------------------------------------------
 MODELS_DIR = PROJECT_ROOT / "models"
 LOGS_DIR   = PROJECT_ROOT / "logs"
 
-# ---- models (used from Stage 7 / 10 onward) --------------------------------
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"  # ~23M params, 384-dim
-GENERATOR_MODEL = "google/flan-t5-base"  # C1 candidate; benchmarked vs C2 in Stage 11
+# ---- models ----------------------------------------------------------------
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+GENERATOR_MODEL = "google/flan-t5-base"  # Stage 10 winner, measured 0.803 context
 
-# ---- retrieval knobs (Stages 9/13 - tune with measurements, not guesses) ----
-RETRIEVAL_TOP_K = 3          # how many chunks the generator receives
-SIMILARITY_THRESHOLD = 0.35  # below this -> "insufficient information" (Stage 13)
+# ---- retrieval knobs (measured, not guessed) -------------------------------
+# From your probe:
+# in-domain: 0.803 (tokenization), 0.678 (RAG), 0.830 (hallucination)
+# OOD: 0.157 (chocolate cake)
+# Gap 0.40 vs 0.16 -> threshold 0.35 protects paraphrase (~0.45) while blocking OOD
+RETRIEVAL_TOP_K = 3
+SIMILARITY_THRESHOLD = 0.35
 
-# ---- chunking (Stage 6) ------------------------------------------------------
-CHUNK_MAX_CHARS = 500     # target chunk size in characters
-CHUNK_OVERLAP_CHARS = 100 # overlap so a cut never loses context mid-thought
+# ---- chunking --------------------------------------------------------------
+CHUNK_MAX_CHARS = 500
+CHUNK_OVERLAP_CHARS = 100
+
