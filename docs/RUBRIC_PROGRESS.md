@@ -73,6 +73,6 @@ Stage 16-18 - evaluation + baseline
 evaluate.py: 9 questions, overall accuracy 1.00, grounded_rate 1.00 in-domain, correct_refusal 1.00 OOD
 baseline_tfidf.py: TF-IDF 0.203 vs dense 0.803 for tokenization, TF-IDF returns irrelevant chunk for OOD cake (0.165) while RAG correctly refuses
 Saved data/processed/eval_results.jsonl
-Next: Stage 19-20 report + presentation
+Next: Stage 19-200 report + presentation
 Report sections: use these real numbers, no fabrication
 Slides: show Flask screenshot (0.828), evaluation table (0.735 vs 0.108), threshold justification, WDAC fix as engineering story
