@@ -1,0 +1,3 @@
+Lemmatization
+
+Lemmatization is the process of reducing a word to its base dictionary form called a lemma. Unlike stemming which chops endings crudely, lemmatization uses vocabulary and morphological analysis. For example, the words "running", "ran", and "runs" all lemmatize to "run", and "better" lemmatizes to "good". It is used in NLP to normalize text so that different forms of the same word are treated as the same token, improving search and analysis.
