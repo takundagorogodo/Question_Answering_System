@@ -1,11 +1,1218 @@
+TOKENIZATION IN NATURAL LANGUAGE PROCESSING
+
+1. INTRODUCTION TO TOKENIZATION
+
+Tokenization is one of the most important preprocessing techniques in Natural Language Processing (NLP).
+
+Tokenization is the process of breaking text into smaller units called tokens.
+
+A token can be:
+
+- A word
+- A sentence
+- A subword
+- A character
+- A punctuation mark
+- A special symbol
+
+The purpose of tokenization is to convert unstructured natural language into smaller units that an NLP system can process.
+
+Example:
+
+Input:
+"Natural Language Processing is interesting."
+
+Word tokens:
+
+Natural
+Language
+Processing
+is
+interesting
+.
+
+The exact tokenization method depends on the NLP system and the model being used.
+
+
+2. WHAT IS A TOKEN?
+
+A token is an individual unit produced after tokenization.
+
+For example:
+
+Input:
+"Python is easy."
+
+Tokens:
+
+Python
+is
+easy
+.
+
+Therefore, the sentence contains four tokens if punctuation is treated as a separate token.
+
+Tokens are the basic units that NLP models process.
+
+In modern NLP systems, a token does not necessarily correspond to a complete word. A token can also represent a subword or character sequence.
+
+
+3. WHAT IS TOKENIZATION?
+
+Tokenization is the process of dividing a text into meaningful units called tokens.
+
+Example:
+
+Input:
+"I love NLP."
+
+Output:
+
+["I", "love", "NLP", "."]
+
+Tokenization helps convert human-readable text into a structured sequence that can be processed by NLP algorithms.
+
+
+4. WHY IS TOKENIZATION IMPORTANT?
+
+Computers cannot directly process natural language in the same way humans understand it.
+
+Tokenization converts text into manageable units that can be processed by algorithms and language models.
+
+Major reasons for tokenization include:
+
+1. Breaking text into manageable units.
+2. Preparing text for NLP algorithms.
+3. Identifying words or subwords.
+4. Preparing input for machine-learning models.
+5. Creating numerical representations of language.
+6. Supporting text classification.
+7. Supporting sentiment analysis.
+8. Supporting information extraction.
+9. Supporting machine translation.
+10. Supporting question answering.
+11. Supporting language generation.
+
+
+5. TYPES OF TOKENIZATION
+
+Major types of tokenization include:
+
+1. Sentence Tokenization
+2. Word Tokenization
+3. Subword Tokenization
+4. Character Tokenization
+5. Whitespace Tokenization
+6. Regular Expression-Based Tokenization
+
+
+6. SENTENCE TOKENIZATION
+
+Sentence tokenization is the process of dividing a paragraph or document into individual sentences.
+
+Example:
+
+Input:
+
+"NLP is interesting. Tokenization is an important NLP technique. It is used during preprocessing."
+
+Output:
+
+Sentence 1:
+"NLP is interesting."
+
+Sentence 2:
+"Tokenization is an important NLP technique."
+
+Sentence 3:
+"It is used during preprocessing."
+
+Sentence tokenization is useful when an NLP system needs to process or analyze one sentence at a time.
+
+Applications include:
+
+- Text summarization
+- Machine translation
+- Information extraction
+- Sentiment analysis
+- Document analysis
+
+
+7. WORD TOKENIZATION
+
+Word tokenization divides a sentence into individual words and, depending on the tokenizer, punctuation marks or other symbols.
+
+Example:
+
+Input:
+
+"NLP is powerful."
+
+Output:
+
+["NLP", "is", "powerful", "."]
+
+Word tokenization is commonly used in traditional NLP preprocessing.
+
+However, simple word tokenization can have problems with:
+
+- Punctuation
+- Contractions
+- Hyphenated words
+- Abbreviations
+- URLs
+- Email addresses
+- Special symbols
+- Unknown words
+
+
+8. WHITESPACE TOKENIZATION
+
+Whitespace tokenization splits text whenever whitespace occurs.
+
+Example:
+
+Input:
+
+"Natural Language Processing"
+
+Output:
+
+["Natural", "Language", "Processing"]
+
+It is one of the simplest tokenization techniques.
+
+Advantages:
+
+- Simple
+- Fast
+- Easy to implement
+
+Limitations:
+
+- Does not properly handle punctuation in many cases.
+- May not correctly handle contractions.
+- May not work well with languages that do not use spaces between words.
+- May treat punctuation as part of words.
+
+Example:
+
+Input:
+
+"Hello, world!"
+
+Whitespace tokenization may produce:
+
+["Hello,", "world!"]
+
+Here, punctuation remains attached to the words.
+
+
+9. CHARACTER TOKENIZATION
+
+Character tokenization divides text into individual characters.
+
+Example:
+
+Input:
+
+"cat"
+
+Output:
+
+["c", "a", "t"]
+
+Character tokenization can be useful when handling:
+
+- Unknown words
+- Spelling variations
+- Morphological patterns
+- Languages with complex word formation
+- Very small vocabulary requirements
+
+Advantages:
+
+- Can represent any word using individual characters.
+- Reduces the problem of unknown words.
+- Can capture character-level patterns.
+
+Disadvantages:
+
+- Produces many tokens.
+- Results in longer sequences.
+- May make it harder for a model to understand word-level meaning.
+
+
+10. SUBWORD TOKENIZATION
+
+Subword tokenization divides words into smaller meaningful or frequently occurring pieces called subwords.
+
+It is widely used by modern transformer-based language models.
+
+Example:
+
+A word such as:
+
+"unhappiness"
+
+may be represented as:
+
+"un" + "happiness"
+
+or as smaller pieces depending on the tokenizer.
+
+Another word may be divided into:
+
+"play" + "ing"
+
+The exact tokens depend on the vocabulary and tokenizer used by the model.
+
+Subword tokenization provides a balance between word-level and character-level tokenization.
+
+
+11. WHY SUBWORD TOKENIZATION IS IMPORTANT
+
+Word-level tokenization can suffer from the Out-of-Vocabulary problem.
+
+For example, if a model has never seen the word:
+
+"unbelievability"
+
+it may not know how to represent it as a complete word.
+
+Subword tokenization can divide it into smaller pieces that may already exist in the vocabulary.
+
+Therefore, subword tokenization:
+
+- Reduces unknown-word problems.
+- Allows models to represent new or rare words.
+- Handles morphological variations.
+- Keeps the vocabulary smaller than a complete word-level vocabulary.
+- Works well with modern language models.
+
+
+12. COMMON SUBWORD TOKENIZATION METHODS
+
+Important subword tokenization approaches include:
+
+1. Byte Pair Encoding (BPE)
+2. WordPiece
+3. SentencePiece
+4. Unigram Language Model
+5. Byte-level BPE
+
+These approaches differ in how they construct and select subword units.
+
+
+13. BYTE PAIR ENCODING (BPE)
+
+Byte Pair Encoding, commonly called BPE, is a subword tokenization technique.
+
+The basic idea is to start with small units and repeatedly merge frequently occurring pairs.
+
+Simplified process:
+
+1. Start with characters or basic units.
+2. Count frequently occurring adjacent pairs.
+3. Merge the most frequent pair.
+4. Repeat the process.
+5. Build a vocabulary of frequently occurring subword units.
+
+For example, if a training corpus frequently contains:
+
+"low"
+"lowest"
+"lower"
+
+the tokenizer can learn frequently occurring subword combinations.
+
+BPE is useful because it can represent both common words and previously unseen words through combinations of known subwords.
+
+
+14. WORDPIECE
+
+WordPiece is a subword tokenization method associated with several transformer-based language models.
+
+Instead of simply splitting text into complete words, WordPiece represents words using subword units.
+
+Example:
+
+A word might be represented conceptually as:
+
+"playing"
+
+→ "play" + "##ing"
+
+The "##" notation is used by some WordPiece tokenizers to indicate that a subword continues an existing word.
+
+The exact representation depends on the tokenizer vocabulary.
+
+WordPiece helps reduce the number of unknown words and allows models to represent rare words using smaller components.
+
+
+15. SENTENCEPIECE
+
+SentencePiece is a tokenizer framework that can perform subword tokenization directly from raw text.
+
+An important characteristic of SentencePiece is that it does not require text to be pre-split into words using whitespace.
+
+This makes it useful for multilingual NLP and languages where word boundaries are not represented by spaces in the same way as English.
+
+SentencePiece can be used with approaches such as:
+
+- BPE
+- Unigram Language Model
+
+It is widely used in modern NLP models.
+
+
+16. UNIGRAM LANGUAGE MODEL TOKENIZATION
+
+The Unigram Language Model approach treats tokenization as a probabilistic problem.
+
+Instead of only building tokens through repeated merging, it starts with a large vocabulary of possible subwords and selects a smaller vocabulary based on probabilities.
+
+The tokenizer attempts to find a segmentation of the input that is likely according to the learned model.
+
+This approach can provide multiple possible segmentations and select an appropriate one based on learned probabilities.
+
+
+17. BYTE-LEVEL TOKENIZATION
+
+Byte-level tokenization operates on byte representations of text.
+
+It can represent arbitrary text and reduces dependence on a fixed list of complete words.
+
+Byte-level approaches are useful for handling:
+
+- Rare words
+- Unknown words
+- Special characters
+- Different writing systems
+- Unusual text
+
+Byte-level BPE combines byte-level representation with subword merging.
+
+
+18. SPECIAL TOKENS
+
+Modern NLP models often use special tokens to represent specific functions.
+
+Examples include:
+
+[CLS]
+[SEP]
+[PAD]
+[UNK]
+[MASK]
+
+Their exact meaning depends on the model and tokenizer.
+
+[CLS]:
+
+A classification or sequence-level representation token used by some models such as BERT.
+
+[SEP]:
+
+Used by some models to separate sequences or indicate the end of a sequence.
+
+[PAD]:
+
+Used to make sequences the same length when required by a model.
+
+[UNK]:
+
+Represents an unknown token in tokenizers that use an unknown-token mechanism.
+
+[MASK]:
+
+Used in masked-language-model training for models such as BERT.
+
+
+19. TOKENIZATION AND PUNCTUATION
+
+Tokenizers must decide how punctuation should be handled.
+
+Example:
+
+Input:
+
+"Hello, world!"
+
+Possible tokens:
+
+["Hello", ",", "world", "!"]
+
+However, different tokenizers may produce different token sequences.
+
+Punctuation can be important because it can affect meaning.
+
+Example:
+
+"Let's eat, John."
+
+and
+
+"Let's eat John."
+
+have different meanings because of punctuation.
+
+Therefore, punctuation should not always be removed automatically.
+
+
+20. TOKENIZATION OF CONTRACTIONS
+
+Contractions can create challenges for tokenization.
+
+Examples:
+
+"I'm"
+"don't"
+"can't"
+"you're"
+
+Depending on the tokenizer, a contraction may be treated as:
+
+["don't"]
+
+or divided into multiple pieces.
+
+Modern subword tokenizers may split contractions into several tokens.
+
+The exact result depends on the tokenizer vocabulary and algorithm.
+
+
+21. TOKENIZATION OF NUMBERS
+
+Numbers can also be tokenized in different ways.
+
+Examples:
+
+"2026"
+"3.14"
+"$100"
+"25%"
+
+A tokenizer may represent them as complete tokens or divide them into smaller pieces.
+
+The appropriate treatment depends on the NLP task and tokenizer.
+
+
+22. TOKENIZATION OF URLs AND EMAILS
+
+URLs and email addresses contain special characters and may be difficult for simple tokenizers.
+
+Examples:
+
+https://example.com
+
+student@example.com
+
+A tokenizer may represent them as:
+
+- One token
+- Several subword tokens
+- Multiple character-level tokens
+
+Modern tokenizers are generally designed to handle a wide range of such text.
+
+
+23. TOKENIZATION IN DIFFERENT LANGUAGES
+
+Tokenization is language dependent.
+
+English generally uses spaces to separate words.
+
+However, some languages do not use spaces in the same way.
+
+Therefore, a simple whitespace tokenizer may not work equally well for every language.
+
+Multilingual NLP systems need tokenization methods that can handle:
+
+- Different scripts
+- Different word-boundary rules
+- Different writing systems
+- Morphologically rich languages
+- Multilingual text
+
+
+24. TOKENIZATION AND CODE-MIXING
+
+Code-mixing occurs when multiple languages are used within the same sentence.
+
+Example:
+
+"Kal class mein assignment submit karna hai."
+
+A tokenizer must process the different language elements correctly.
+
+Code-mixed text can be challenging because:
+
+- Multiple languages may use different structures.
+- Words may be written using another language's script.
+- Informal spellings may occur.
+- Social-media language can contain abbreviations and symbols.
+
+
+25. TOKENIZATION IN MODERN LANGUAGE MODELS
+
+Modern Large Language Models (LLMs) do not generally process raw text directly.
+
+The text is first passed through a tokenizer.
+
+A simplified process is:
+
+Raw Text
+    ↓
+Tokenizer
+    ↓
+Tokens
+    ↓
+Token IDs
+    ↓
+Language Model
+    ↓
+Generated Output
+
+For example:
+
+Input:
+
+"What is NLP?"
+
+The tokenizer converts the input into tokens.
+
+Each token is then mapped to a numerical token ID.
+
+The model processes these token IDs and generates an output sequence.
+
+The generated token IDs are finally converted back into readable text.
+
+
+26. TOKEN IDS
+
+NLP models operate on numerical values rather than directly on text.
+
+Each token in a tokenizer vocabulary is associated with a token ID.
+
+Example:
+
+Tokens:
+
+["I", "love", "NLP"]
+
+may correspond to some numerical IDs such as:
+
+[101, 245, 678]
+
+The exact IDs depend on the tokenizer vocabulary.
+
+The model processes these numerical IDs as input.
+
+
+27. TOKENIZATION AND EMBEDDINGS
+
+Tokenization and embeddings are related but different processes.
+
+Tokenization:
+
+Text → Tokens → Token IDs
+
+Embedding:
+
+Token IDs → Numerical vectors
+
+Example:
+
+Text:
+
+"I love NLP."
+
+↓
+
+Tokenization:
+
+"I" "love" "NLP" "."
+
+↓
+
+Token IDs
+
+↓
+
+Embedding vectors
+
+The embedding vectors represent tokens in a numerical space that a neural network can process.
+
+Therefore:
+
+Tokenization does not mean converting text directly into embeddings.
+
+Tokenization creates tokens and token IDs, while an embedding layer or embedding model converts those IDs into vector representations.
+
+
+28. TOKENIZATION VS TEXT PREPROCESSING
+
+Tokenization is one part of text preprocessing.
+
+Text preprocessing may include:
+
+- Cleaning text
+- Normalization
+- Tokenization
+- Stop-word processing
+- Stemming
+- Lemmatization
+- Handling punctuation
+- Handling special characters
+
+Tokenization specifically focuses on dividing text into tokens.
+
+Therefore:
+
+Text preprocessing = broader process
+
+Tokenization = one preprocessing technique
+
+
+29. TOKENIZATION VS STEMMING
+
+Tokenization:
+
+Breaks text into smaller units.
+
+Example:
+
+"students are studying"
+
+→
+
+["students", "are", "studying"]
+
+Stemming:
+
+Reduces words to approximate stems.
+
+Example:
+
+"studying"
+
+→
+
+"studi"
+
+Therefore, tokenization and stemming are different operations.
+
+Tokenization identifies units, while stemming reduces word forms.
+
+
+30. TOKENIZATION VS LEMMATIZATION
+
+Tokenization:
+
+"students are studying"
+
+→
+
+["students", "are", "studying"]
+
+Lemmatization:
+
+"students"
+→ "student"
+
+"studying"
+→ "study"
+
+Therefore:
+
+Tokenization → breaks text into tokens.
+
+Lemmatization → converts words into their appropriate base forms.
+
+They can be used together in a traditional NLP preprocessing pipeline.
+
+
+31. WORD-LEVEL VS SUBWORD-LEVEL VS CHARACTER-LEVEL TOKENIZATION
+
+Word-level tokenization:
+
+Input:
+"playing"
+
+Output:
+["playing"]
+
+Advantages:
+- Easy to understand.
+- Shorter sequences.
+- Preserves complete words.
+
+Disadvantages:
+- Large vocabulary.
+- Out-of-vocabulary problems.
+- Poor handling of rare and new words.
+
+Subword-level tokenization:
+
+Input:
+"playing"
+
+Possible output:
+["play", "ing"]
+
+Advantages:
+- Handles rare words.
+- Smaller vocabulary.
+- Useful for modern language models.
+
+Disadvantages:
+- Produces more tokens than word-level tokenization.
+- Token boundaries may not always correspond to meaningful linguistic units.
+
+Character-level tokenization:
+
+Input:
+"playing"
+
+Output:
+["p", "l", "a", "y", "i", "n", "g"]
+
+Advantages:
+- Very small vocabulary.
+- Can represent almost any word.
+- Handles unknown words well.
+
+Disadvantages:
+- Very long sequences.
+- More computational processing may be required.
+- Word-level meaning is less directly represented.
+
+
+32. ADVANTAGES OF TOKENIZATION
+
+Major advantages include:
+
+1. Converts raw text into manageable units.
+2. Makes text suitable for NLP algorithms.
+3. Supports numerical representation of text.
+4. Enables language models to process text.
+5. Helps with text classification.
+6. Supports information extraction.
+7. Supports sentiment analysis.
+8. Supports machine translation.
+9. Supports question answering.
+10. Supports text generation.
+11. Helps handle unknown and rare words when subword methods are used.
+
+
+33. LIMITATIONS AND CHALLENGES OF TOKENIZATION
+
+Tokenization also has challenges.
+
+1. Different languages require different tokenization strategies.
+2. Punctuation can be difficult to handle.
+3. Contractions can be ambiguous.
+4. URLs and email addresses can be difficult to split.
+5. Rare words may require subword or character-based methods.
+6. Code-mixed text can be difficult to tokenize.
+7. Tokenization can affect model performance.
+8. Poor tokenization can result in inefficient representations.
+9. Different models use different tokenizers.
+10. A token may not correspond to a complete linguistic word.
+
+
+34. OUT-OF-VOCABULARY PROBLEM
+
+The Out-of-Vocabulary (OOV) problem occurs when a word is not present in the vocabulary of an NLP system.
+
+Example:
+
+Suppose a word-level tokenizer has the vocabulary:
+
+{cat, dog, run, running}
+
+If the input contains:
+
+"unpredictability"
+
+and the word is not in the vocabulary, the system may represent it as an unknown token.
+
+Subword tokenization reduces this problem by representing unknown or rare words using smaller known units.
+
+Therefore:
+
+Word-level tokenization → more vulnerable to OOV problems.
+
+Subword tokenization → reduces OOV problems.
+
+
+35. TOKENIZATION IN QUESTION ANSWERING SYSTEMS
+
+Tokenization is an important component of a Question Answering system.
+
+A simplified generative QA pipeline is:
+
+User Question
+      ↓
 Tokenization
+      ↓
+Token IDs
+      ↓
+Knowledge Retrieval / Context Selection
+      ↓
+Language Model
+      ↓
+Generated Answer
+      ↓
+Detokenization
+      ↓
+Final Answer
 
-Tokenization is the process of breaking a piece of text into smaller units called tokens, which a computer program can then process one at a time. It is usually the very first step in any natural language processing pipeline, because raw text arrives as an unbroken string of characters, and a model needs some way to divide that string into meaningful pieces before it can do anything useful with it.
+Example:
 
-The simplest form of tokenization splits text on whitespace and punctuation, treating each word as a token. For example, the sentence "NLP is fascinating!" would be split into the tokens "NLP", "is", "fascinating", and "!". This word-level approach is easy to understand, but it runs into problems with languages that do not use spaces between words, with made-up or rare words, and with the sheer size of the vocabulary it produces, since every distinct word form needs its own entry.
+Question:
 
-Modern transformer-based models typically use a more sophisticated approach called subword tokenization. Instead of treating whole words as the smallest unit, these methods break rare or complex words into smaller, more frequent pieces. For example, the word "tokenization" itself might be split into pieces like "token" and "ization". Common words remain a single token, while rare or unfamiliar words are represented as a sequence of smaller, familiar subword pieces. This keeps the vocabulary size manageable while still allowing the model to represent virtually any word, including ones it has never seen before, by combining known subword pieces.
+"What is lemmatization?"
 
-Popular subword tokenization algorithms include Byte-Pair Encoding (BPE), WordPiece, and SentencePiece. Each works slightly differently, but they share the same core idea: build a vocabulary of subword units by starting from individual characters and progressively merging the most frequently occurring pairs, until a target vocabulary size is reached.
+The tokenizer converts the question into tokens.
 
-Tokenization matters for a generative question answering system in several practical ways. First, the length limit of a language model is usually measured in tokens, not words or characters, so understanding tokenization helps explain why very long documents or contexts sometimes get cut off. Second, the way a question is tokenized can affect how well the model understands it, particularly for unusual technical terms, misspellings, or code snippets. Finally, when we talk about "chunking" a document for retrieval, the chunk size is also typically measured in tokens rather than raw characters, which is why tokenization is one of the first concepts to understand before working with chunking or embeddings.
+The system then uses the processed question to retrieve relevant information and generate an answer.
+
+Good tokenization helps the model correctly process the question and relevant context.
+
+
+36. TOKENIZATION IN RAG SYSTEMS
+
+Retrieval-Augmented Generation (RAG) systems also use tokenization.
+
+A simplified RAG pipeline is:
+
+Documents
+    ↓
+Document Chunking
+    ↓
+Tokenization / Processing
+    ↓
+Embeddings
+    ↓
+Vector Database
+    ↓
+User Question
+    ↓
+Question Tokenization
+    ↓
+Retrieval
+    ↓
+Relevant Context
+    ↓
+Generative Model
+    ↓
+Answer
+
+Tokenization is therefore involved in both processing user queries and processing text for language models.
+
+Tokenization is different from chunking.
+
+Chunking divides documents into larger sections for retrieval.
+
+Tokenization divides text into model-processing units.
+
+
+37. TOKENIZATION AND CONTEXT LENGTH
+
+Language models have a maximum context length measured in tokens.
+
+The number of tokens in a text is not always equal to the number of words.
+
+For example:
+
+A long word may be divided into several subword tokens.
+
+Therefore:
+
+100 words ≠ necessarily 100 tokens.
+
+This is important when building generative QA and RAG systems because the question, retrieved documents, instructions, and generated response must fit within the model's available context window.
+
+
+38. DETOKENIZATION
+
+Detokenization is the reverse process of tokenization.
+
+Tokenization:
+
+Text
+→
+Tokens
+
+Detokenization:
+
+Tokens
+→
+Text
+
+Example:
+
+Tokens:
+
+["Natural", "Language", "Processing"]
+
+Detokenized text:
+
+"Natural Language Processing"
+
+In generative NLP systems, the model generates token IDs, which are converted back into tokens and then into readable text.
+
+
+39. EXAMPLE OF A COMPLETE TOKENIZATION PROCESS
+
+Input:
+
+"Natural Language Processing is amazing!"
+
+Step 1: Raw text
+
+"Natural Language Processing is amazing!"
+
+Step 2: Tokenization
+
+Possible tokens:
+
+["Natural", "Language", "Processing", "is", "amazing", "!"]
+
+Step 3: Token IDs
+
+Each token is mapped to a numerical ID.
+
+Step 4: Model processing
+
+The model processes the token IDs.
+
+Step 5: Output
+
+The model produces token IDs representing the generated response.
+
+Step 6: Detokenization
+
+The generated tokens are converted into readable text.
+
+
+40. TOKENIZATION EXAMPLE WITH SUBWORDS
+
+Consider:
+
+"unhappiness"
+
+A subword tokenizer might represent it approximately as:
+
+["un", "happiness"]
+
+Another tokenizer might represent it as smaller pieces.
+
+The exact result depends on the tokenizer's vocabulary and algorithm.
+
+Therefore, tokenization is model-dependent.
+
+
+41. TOKENIZATION USING NLTK
+
+NLTK (Natural Language Toolkit) provides tokenization tools for traditional NLP.
+
+Example:
+
+from nltk.tokenize import word_tokenize
+
+text = "NLP is interesting."
+
+tokens = word_tokenize(text)
+
+print(tokens)
+
+Possible output:
+
+['NLP', 'is', 'interesting', '.']
+
+NLTK also provides sentence tokenization tools.
+
+Example:
+
+from nltk.tokenize import sent_tokenize
+
+text = "NLP is interesting. Tokenization is important."
+
+sentences = sent_tokenize(text)
+
+print(sentences)
+
+Possible output:
+
+['NLP is interesting.', 'Tokenization is important.']
+
+
+42. TOKENIZATION USING REGULAR EXPRESSIONS
+
+Regular expressions can be used to create custom tokenizers.
+
+For example, a regular expression can identify:
+
+- Words
+- Numbers
+- Punctuation
+- Email addresses
+- URLs
+- Special patterns
+
+Regular-expression tokenization is useful when an application requires specific rules.
+
+
+43. TOKENIZATION USING MODERN NLP LIBRARIES
+
+Modern NLP libraries provide tokenizers designed for specific language models.
+
+Examples include:
+
+- Hugging Face Tokenizers
+- Transformers tokenizers
+- SentencePiece
+- spaCy tokenizers
+- NLTK tokenizers
+
+The tokenizer should normally match the model for which the input is being prepared.
+
+Using a different tokenizer from the one expected by a pretrained model can produce incorrect token IDs and poor results.
+
+
+44. IMPORTANT TOKENIZATION TERMINOLOGY
+
+Token:
+A unit produced by a tokenizer.
+
+Tokenizer:
+A system or algorithm that converts text into tokens.
+
+Tokenization:
+The process of dividing text into tokens.
+
+Token ID:
+A numerical identifier assigned to a token.
+
+Vocabulary:
+The collection of tokens recognized by a tokenizer.
+
+Subword:
+A portion of a word used as a token.
+
+OOV:
+Out-of-Vocabulary; a word or sequence not directly represented in a tokenizer's vocabulary.
+
+Detokenization:
+Converting tokens back into readable text.
+
+Special Token:
+A token used for a specific function, such as padding, separation, classification, or masking.
+
+Context Length:
+The maximum number of tokens a model can process within a particular input context.
+
+
+45. SUMMARY
+
+Tokenization is a fundamental NLP preprocessing technique that converts text into smaller units called tokens.
+
+Major tokenization approaches include:
+
+- Sentence tokenization
+- Word tokenization
+- Whitespace tokenization
+- Character tokenization
+- Subword tokenization
+
+Modern language models commonly use subword or byte-level tokenization methods such as:
+
+- BPE
+- WordPiece
+- SentencePiece
+- Unigram
+- Byte-level BPE
+
+Tokenization allows natural-language text to be converted into token IDs that neural language models can process.
+
+Tokenization is different from stemming, lemmatization, and embeddings.
+
+In a generative question answering system, tokenization is used when processing user questions, retrieved context, and generated responses.
+
+The quality and type of tokenization can affect the efficiency and performance of an NLP system.
+
+
+46. KEY POINTS
+
+- Tokenization divides text into smaller units called tokens.
+- Tokens may be words, subwords, characters, punctuation, or special symbols.
+- Sentence tokenization divides documents into sentences.
+- Word tokenization divides text into words or word-like units.
+- Character tokenization divides text into individual characters.
+- Subword tokenization divides words into smaller pieces.
+- BPE is a common subword tokenization technique.
+- WordPiece is used by several transformer-based models.
+- SentencePiece can tokenize text without requiring whitespace-based word segmentation.
+- Token IDs are numerical representations of tokens.
+- Tokenization is different from embedding.
+- Tokenization helps reduce the OOV problem when subword methods are used.
+- Modern LLMs process token sequences rather than raw text directly.
+- Context length is generally measured in tokens.
+- Detokenization converts token sequences back into readable text.
+
+
+47. COMMON EXAM QUESTIONS
+
+2-Mark Questions:
+
+1. What is tokenization in NLP?
+2. What is a token?
+3. Define word tokenization.
+4. What is sentence tokenization?
+5. What is subword tokenization?
+6. What is character tokenization?
+7. What is whitespace tokenization?
+8. What is a tokenizer?
+9. What is a token ID?
+10. What is the Out-of-Vocabulary problem?
+11. What is BPE?
+12. What is WordPiece?
+13. What is SentencePiece?
+14. What is detokenization?
+15. What are special tokens?
+
+
+5-Mark Questions:
+
+1. Explain tokenization in NLP with an example.
+2. Explain the different types of tokenization.
+3. Explain word-level and character-level tokenization.
+4. Explain subword tokenization.
+5. Explain Byte Pair Encoding.
+6. Explain WordPiece tokenization.
+7. Explain SentencePiece.
+8. Explain the importance of tokenization in NLP.
+9. Explain the Out-of-Vocabulary problem.
+10. Explain tokenization in modern language models.
+11. Explain tokenization and token IDs.
+12. Explain tokenization in a generative question answering system.
+13. Differentiate tokenization and text preprocessing.
+14. Differentiate tokenization and stemming.
+15. Differentiate tokenization and lemmatization.
+
+
+10-Mark Questions:
+
+1. Explain tokenization in NLP in detail with suitable examples.
+2. Explain different types of tokenization and their advantages and disadvantages.
+3. Explain subword tokenization and discuss BPE, WordPiece, and SentencePiece.
+4. Explain the complete tokenization process used in modern NLP systems.
+5. Explain word-level, subword-level, and character-level tokenization with examples.
+6. Explain the Out-of-Vocabulary problem and how subword tokenization addresses it.
+7. Explain the role of tokenization in Large Language Models.
+8. Explain tokenization in a Retrieval-Augmented Generative Question Answering system.
+9. Explain tokenization using NLTK with suitable examples.
+10. Explain tokenization, token IDs, embeddings, and detokenization.
