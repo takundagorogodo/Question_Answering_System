@@ -1,11 +1,1024 @@
-Transformers and the Attention Mechanism
+# Transformers and Attention
 
-The transformer is a type of neural network architecture, introduced in 2017, that has become the foundation of nearly all modern language models, including the ones used in retrieval-augmented generation systems. Before transformers, NLP models typically processed text one word at a time, in order, using architectures called recurrent neural networks. This sequential processing was slow and made it difficult for the model to remember information from far earlier in a long piece of text.
+## 1. Transformers
 
-The transformer's key innovation is a mechanism called attention. Attention allows the model to look at all the words in a sentence at once and learn which other words are most relevant to understanding each particular word, regardless of how far apart they are in the sentence. For example, in the sentence "The trophy did not fit in the suitcase because it was too big," attention helps the model figure out that "it" most likely refers to the trophy rather than the suitcase, by weighing the relationship between "it" and every other word in the sentence.
+A Transformer is a neural network architecture based primarily on attention mechanisms. It is widely used in Natural Language Processing (NLP).
 
-A transformer model is typically built from stacked layers, each containing an attention mechanism followed by a simple feed-forward network. By stacking many of these layers, the model builds up increasingly rich and abstract representations of the input text, layer by layer.
+Common applications include:
 
-Transformer architectures are often described as having two main components: an encoder, which reads and processes an input sequence into a rich internal representation, and a decoder, which generates an output sequence, often one token at a time. Some models use only an encoder (useful for understanding tasks like classification), some use only a decoder (useful for pure text generation), and some use a full encoder-decoder architecture, which is well suited for tasks where an input sequence needs to be transformed into a related but different output sequence, such as translation or generative question answering.
+* Text classification
+* Machine translation
+* Text summarization
+* Question answering
+* Text generation
+* Semantic understanding
+* Chatbots
+* Information retrieval
+* Generative AI
+* Large Language Models (LLMs)
 
-The reason transformers matter so much for a project like this one is that both the embedding model used for retrieval and the generative model used for answering are, under the hood, transformer-based. Understanding attention explains why these models can connect a user's question to relevant information anywhere in a retrieved passage, not just information located near the start.
+Before Transformers, NLP commonly used RNNs, LSTMs, and GRUs, which processed sequences step by step. Transformers use attention to model relationships between tokens more directly and support parallel processing during training.
+
+## 2. Attention
+
+Attention allows a model to focus on relevant parts of an input when processing a token.
+
+Basic process:
+
+Input tokens → Relationships → Attention scores → Attention weights → Combined information → Contextual representation
+
+Attention allows different tokens to influence one another.
+
+For example, in:
+"The cat sat on the mat because it was tired."
+
+attention can help connect "it" with relevant words such as "cat".
+
+## 3. Self-Attention
+
+Self-attention allows tokens in the same sequence to attend to other tokens in that sequence.
+
+Example:
+"The student reads the book."
+
+When processing "reads", the model can consider "student" and "book".
+
+Self-attention is useful because it can connect distant words directly.
+
+Example:
+"The student who studied Natural Language Processing passed the examination."
+
+The model can relate "student" and "passed" even though several words occur between them.
+
+## 4. Query, Key, and Value
+
+Self-attention uses three main vectors:
+
+* Query (Q): Represents what a token is looking for.
+* Key (K): Represents information used for matching.
+* Value (V): Represents information that is passed forward.
+
+Simple interpretation:
+
+Query → What am I looking for?
+Key → What information do I contain?
+Value → What information should I provide?
+
+A query is compared with keys to calculate attention scores. The scores determine how much weight each value receives.
+
+## 5. Attention Score
+
+An attention score measures the compatibility between a query and a key.
+
+A common method is the dot product:
+
+Q · K
+
+Higher compatibility can result in a higher attention weight.
+
+## 6. Scaled Dot-Product Attention
+
+Transformers commonly use scaled dot-product attention:
+
+Attention(Q,K,V) = softmax(QKᵀ / √dₖ)V
+
+Where:
+
+* Q = Query matrix
+* K = Key matrix
+* V = Value matrix
+* dₖ = dimension of key vectors
+
+Scaling by √dₖ helps control large dot-product values and makes the softmax calculation more stable.
+
+## 7. Softmax
+
+Softmax converts attention scores into normalized values called attention weights.
+
+Example:
+
+Raw scores:
+[2.0, 1.0, 0.5]
+
+Approximate softmax:
+[0.63, 0.23, 0.14]
+
+The weights sum to approximately 1.
+
+The weighted values are then combined to produce a contextual representation.
+
+## 8. Contextual Representations
+
+Transformers produce contextual representations.
+
+A token's representation depends on surrounding tokens.
+
+For example, "bank" has different meanings in:
+
+"I went to the bank to deposit money."
+
+and:
+
+"I sat near the bank of the river."
+
+Context helps distinguish these meanings.
+
+## 9. Long-Range Relationships
+
+Self-attention can connect tokens separated by many other tokens.
+
+Example:
+"The researcher who worked on the project for several months published the paper."
+
+The model can relate "researcher" to "published".
+
+This ability is important for understanding complex language.
+
+## 10. Transformer Architecture
+
+Important Transformer components include:
+
+1. Input/token embeddings
+2. Positional information
+3. Self-attention
+4. Multi-head attention
+5. Feed-forward networks
+6. Residual connections
+7. Layer normalization
+8. Encoder layers
+9. Decoder layers
+10. Masking
+
+A simplified Transformer block is:
+
+Input
+→ Multi-Head Attention
+→ Add & Normalize
+→ Feed-Forward Network
+→ Add & Normalize
+→ Output
+
+## 11. Embeddings
+
+Transformers convert tokens into numerical vectors called embeddings.
+
+Process:
+
+Text → Tokenization → Token embeddings → Positional information → Transformer layers → Contextual representations
+
+## 12. Positional Information
+
+Attention does not inherently provide token order.
+
+Compare:
+
+"The dog chased the cat."
+
+"The cat chased the dog."
+
+The same major words appear, but their meanings differ because their positions differ.
+
+Positional information allows the model to represent token order.
+
+The original Transformer used sinusoidal positional encoding:
+
+PE(pos, 2i) = sin(pos / 10000^(2i/d))
+
+PE(pos, 2i+1) = cos(pos / 10000^(2i/d))
+
+Some models instead use learned positional representations.
+
+## 13. Multi-Head Attention
+
+Multi-head attention uses multiple attention mechanisms in parallel.
+
+Conceptually:
+
+Input
+→ Head 1
+→ Head 2
+→ Head 3
+→ ...
+→ Head h
+→ Concatenate
+→ Output projection
+
+Different heads can learn different relationships, such as:
+
+* Syntax
+* Pronouns
+* Subject-verb relationships
+* Local relationships
+* Semantic relationships
+* Long-distance relationships
+
+Each head has learned projections for Q, K, and V.
+
+Formula:
+
+MultiHead(Q,K,V) = Concat(head₁,...,headₕ)Wᴼ
+
+Each head uses:
+
+headᵢ = Attention(QWᵢQ, KWᵢK, VWᵢV)
+
+## 14. Feed-Forward Network
+
+A Transformer block contains a feed-forward neural network.
+
+Typical structure:
+
+Input → Linear Layer → Activation → Linear Layer → Output
+
+The feed-forward network further transforms the representations produced by attention.
+
+Common activation functions include:
+
+* ReLU
+* GELU
+
+Attention combines contextual information, while the feed-forward network performs nonlinear transformations.
+
+## 15. Residual Connections
+
+A residual connection adds the original input to the output of a sub-layer.
+
+Input + Sub-layer Output → Combined Output
+
+Residual connections help information flow through deep networks and can make training more stable.
+
+## 16. Layer Normalization
+
+Layer normalization normalizes representations within a layer.
+
+It helps stabilize Transformer training and is commonly used around attention and feed-forward sub-layers.
+
+## 17. Encoder
+
+The encoder processes input information and creates contextual representations.
+
+An encoder layer commonly contains:
+
+* Multi-head self-attention
+* Feed-forward network
+* Residual connections
+* Layer normalization
+
+Multiple encoder layers can be stacked:
+
+Input → Encoder Layer 1 → Encoder Layer 2 → ... → Encoder Layer N → Contextual Representation
+
+## 18. Decoder
+
+The decoder generates output sequences.
+
+A Transformer decoder commonly contains:
+
+* Masked self-attention
+* Encoder-decoder/cross-attention
+* Feed-forward network
+* Residual connections
+* Layer normalization
+
+## 19. Encoder-Decoder Architecture
+
+The original Transformer uses encoder and decoder components.
+
+Input Sequence
+→ Encoder
+→ Encoded Representation
+→ Decoder
+→ Output Sequence
+
+This architecture is useful for sequence-to-sequence tasks such as:
+
+* Machine translation
+* Text transformation
+* Summarization
+
+## 20. Masked and Causal Attention
+
+Masked self-attention prevents a decoder from seeing future tokens.
+
+Example:
+
+While generating:
+"The student"
+
+the model should not see a future word that has not yet been generated.
+
+Causal attention allows a token to attend only to earlier tokens and itself.
+
+Example:
+
+Token 1 → Token 1
+Token 2 → Token 1, Token 2
+Token 3 → Token 1, Token 2, Token 3
+Token 4 → Token 1, Token 2, Token 3, Token 4
+
+Decoder-only language models commonly use causal attention.
+
+## 21. Bidirectional Attention
+
+Bidirectional attention allows a token to use information from both earlier and later tokens.
+
+Encoder-style Transformer models commonly use bidirectional attention for understanding complete input sequences.
+
+## 22. Attention Masks and Padding
+
+A mask controls which tokens can participate in attention.
+
+Common masks:
+
+* Padding masks
+* Causal masks
+
+Padding is used when sequences have different lengths.
+
+A padding mask prevents padding tokens from affecting meaningful computation.
+
+## 23. Training
+
+Transformer training generally involves:
+
+1. Provide input data.
+2. Compute predictions.
+3. Compare predictions with targets.
+4. Calculate loss.
+5. Compute gradients.
+6. Update parameters.
+7. Repeat many times.
+
+A loss function measures the difference between predictions and expected outputs.
+
+Cross-entropy loss is commonly used for language modeling.
+
+## 24. Backpropagation and Optimization
+
+Backpropagation calculates gradients showing how parameters contributed to error.
+
+An optimizer uses gradients to update model parameters.
+
+Common optimizers include:
+
+* Adam
+* AdamW
+
+## 25. Pretraining
+
+Many Transformer models are pretrained on large collections of text.
+
+Pretraining allows models to learn general patterns such as:
+
+* Vocabulary relationships
+* Grammar
+* Context
+* Semantic patterns
+* Common language structures
+
+## 26. Fine-Tuning
+
+A pretrained Transformer can be adapted to a specific task using task-specific data.
+
+Examples:
+
+* Classification
+* Question answering
+* Sentiment analysis
+* Named Entity Recognition
+* Domain-specific tasks
+
+Example:
+
+General language model → Educational QA data → Educational QA model
+
+## 27. Transfer Learning
+
+Transfer learning uses knowledge learned from one task or dataset to help solve another task.
+
+Pretrained Transformers reduce the amount of task-specific training required.
+
+## 28. Transformer Model Types
+
+Three common Transformer designs are:
+
+1. Encoder-only
+2. Decoder-only
+3. Encoder-decoder
+
+Encoder-only models focus mainly on understanding input.
+
+Decoder-only models focus mainly on generation.
+
+Encoder-decoder models understand an input and generate an output.
+
+## 29. Encoder-Only Models
+
+Encoder-only models produce contextual representations of input text.
+
+Typical uses:
+
+* Classification
+* Semantic similarity
+* Named Entity Recognition
+* Extractive QA
+* Document understanding
+
+## 30. Decoder-Only Models
+
+Decoder-only models predict the next token based on previous tokens.
+
+They can generate:
+
+* Answers
+* Stories
+* Summaries
+* Explanations
+* Code
+* Conversations
+
+## 31. Encoder-Decoder Models
+
+Encoder-decoder models use one Transformer component to understand input and another to generate output.
+
+They are useful for:
+
+* Translation
+* Summarization
+* Text transformation
+* Other sequence-to-sequence tasks
+
+## 32. Language Modeling
+
+Language modeling involves predicting tokens.
+
+Example:
+
+Input:
+"The student is studying"
+
+Possible next token:
+"NLP"
+
+Decoder-based models commonly perform next-token prediction.
+
+At each generation step, the model produces probabilities for possible next tokens.
+
+## 33. Text Generation
+
+Simplified generation:
+
+Prompt
+→ Tokenization
+→ Transformer
+→ Next-token probabilities
+→ Select token
+→ Add token
+→ Repeat
+
+Generation can stop when:
+
+* End-of-sequence token is produced.
+* Maximum token limit is reached.
+* A system-specific stopping condition occurs.
+
+## 34. Temperature
+
+Temperature affects how probabilities are used during generation.
+
+* Lower temperature generally produces more deterministic output.
+* Higher temperature generally produces more variation.
+
+Temperature does not change the underlying knowledge of the model.
+
+## 35. Top-K and Top-P
+
+Top-k sampling limits candidate tokens to the k highest-probability tokens.
+
+Example:
+k = 5 means only the five highest-probability candidates are considered.
+
+Top-p sampling selects candidate tokens whose cumulative probability reaches a chosen threshold.
+
+## 36. Inference
+
+Inference means using a trained Transformer to produce an output.
+
+Training:
+Data → Learning → Model parameters
+
+Inference:
+Input → Trained model → Output
+
+Training changes model parameters. Inference normally uses fixed learned parameters.
+
+## 37. KV Cache
+
+Autoregressive Transformers can use a key-value (KV) cache during generation.
+
+Previously calculated key and value representations are stored and reused.
+
+This reduces repeated computation and can improve token-by-token generation efficiency.
+
+## 38. Context Window
+
+A context window determines how much tokenized input a model can process at once.
+
+It can include:
+
+* User question
+* Instructions
+* Retrieved documents
+* Conversation history
+
+Longer context can provide more information but may require more computational resources.
+
+## 39. Attention Complexity
+
+Standard self-attention compares tokens with one another.
+
+For sequence length n, the attention matrix contains approximately:
+
+n × n
+
+relationships.
+
+Therefore, standard self-attention has quadratic complexity with respect to sequence length.
+
+Longer sequences can require substantially more computation and memory.
+
+## 40. Transformer Limitations
+
+Important limitations include:
+
+* High computational requirements
+* High memory requirements for large models
+* Expensive standard attention for long sequences
+* Hallucinations
+* Bias learned from training data
+* Need for large datasets
+* Increased cost with long contexts
+* Outputs are not guaranteed to be factually correct
+
+## 41. Transformers vs RNNs
+
+RNN:
+
+* Processes sequences sequentially.
+* Is difficult to parallelize across sequence positions.
+* Can have difficulty with long-range dependencies.
+
+Transformer:
+
+* Uses attention to model token relationships.
+* Supports substantial parallelization during training.
+* Can directly connect distant tokens.
+
+## 42. Transformers vs LSTM
+
+LSTM is a type of recurrent neural network that uses memory cells and gates.
+
+Transformers rely primarily on attention and feed-forward components.
+
+Transformers have become widely used in modern NLP applications.
+
+## 43. Transformers and NLP Tasks
+
+Transformers can support:
+
+* Classification
+* Sentiment analysis
+* Named Entity Recognition
+* Translation
+* Summarization
+* Information extraction
+* Semantic search
+* Question answering
+* Text generation
+* Chatbots
+
+## 44. Transformers and Question Answering
+
+Transformers are widely used in question answering.
+
+A QA system may process:
+
+Question:
+"What is Natural Language Processing?"
+
+Context:
+"NLP is a field of AI concerned with processing human language."
+
+The Transformer uses the relationship between the question and context to produce an answer.
+
+## 45. Extractive QA
+
+In extractive QA, the answer is selected from the provided context.
+
+Example:
+
+Context:
+"NLP is a field of artificial intelligence."
+
+Question:
+"What is NLP?"
+
+Answer:
+"Artificial intelligence."
+
+## 46. Generative QA
+
+In generative QA, the model generates an answer.
+
+Example:
+
+Question:
+"What is NLP?"
+
+Answer:
+"NLP stands for Natural Language Processing. It enables computers to process and understand human language."
+
+The answer may come from model knowledge and/or retrieved context.
+
+## 47. Transformer-Based Generative QA
+
+A simplified generative QA process is:
+
+Question
+→ Question processing
+→ Relevant context
+→ Transformer
+→ Generated answer
+
+## 48. Retrieval-Augmented Generation (RAG)
+
+Transformers are commonly used as the generation component of RAG.
+
+Basic RAG pipeline:
+
+User Question
+→ Question Embedding
+→ Vector Search
+→ Retrieved Context
+→ Transformer
+→ Answer
+
+Embeddings and retrieval find relevant information. The Transformer processes the context and generates the answer.
+
+## 49. Attention in RAG
+
+Suppose retrieved context contains:
+
+Chunk 1 → NLP definition
+Chunk 2 → Tokenization
+Chunk 3 → Embeddings
+
+Question:
+"What are embeddings?"
+
+The Transformer can use attention to focus on the relevant embedding information.
+
+## 50. Knowledge Bases and Transformers
+
+A Transformer does not necessarily store an entire external knowledge base inside its parameters.
+
+A knowledge-based QA system can use:
+
+Knowledge Base
+→ Retriever
+→ Relevant Context
+→ Transformer
+→ Answer
+
+The retriever finds information; the Transformer uses the retrieved information.
+
+## 51. RAG Pipeline
+
+Typical RAG process:
+
+1. User asks a question.
+2. Question is embedded.
+3. Relevant knowledge is retrieved.
+4. Retrieved knowledge is provided to the Transformer.
+5. Transformer generates an answer.
+
+## 52. Grounding
+
+Grounding means generating an answer using reliable external information or provided context.
+
+Knowledge-grounded QA:
+
+Question
+→ Retrieve source information
+→ Provide context
+→ Generate grounded answer
+
+## 53. Source-Aware QA
+
+A QA system can preserve source metadata.
+
+Example:
+
+Source: 03_embeddings.txt
+Section: Semantic Search
+Chunk: emb_023
+
+The system can use retrieved content while preserving source information for the final answer.
+
+## 54. Document Chunking
+
+Large documents can be divided into smaller chunks.
+
+Example:
+
+Question
+→ Chunk 1
+→ Chunk 2
+→ Chunk 3
+→ Transformer
+→ Answer
+
+Chunking helps retrieved context fit within the model's context window.
+
+## 55. Retrieval Quality
+
+Context quality is important.
+
+Relevant context provides useful information.
+
+Irrelevant context can make the generated answer less reliable.
+
+Therefore:
+
+Retrieval quality + Generation quality
+
+both affect QA performance.
+
+## 56. Semantic Retrieval
+
+Transformer-based embedding models can convert questions and documents into vectors.
+
+The vectors can be compared using similarity measures.
+
+This supports semantic retrieval, where conceptually related text can be retrieved even when the wording differs.
+
+Example:
+
+Query:
+"How do computers understand language?"
+
+Relevant document:
+"NLP enables computers to process and understand human language."
+
+## 57. Transformer Embeddings
+
+Some Transformer architectures create embeddings.
+
+Process:
+
+Text
+→ Transformer
+→ Contextual representation
+→ Pooling/representation selection
+→ Embedding vector
+
+These embeddings can be used for semantic search and retrieval.
+
+## 58. Hallucination
+
+Transformers can generate fluent answers, but fluent output does not guarantee factual correctness.
+
+A model may generate unsupported information. This is called hallucination.
+
+Retrieval can reduce hallucination by providing relevant source information, but retrieval does not guarantee that hallucinations will never occur.
+
+## 59. Insufficient Information
+
+A QA system should recognize when the knowledge base does not contain enough information.
+
+If no relevant information is retrieved, the system should avoid inventing an answer.
+
+It can instead state that the requested information is unavailable in the knowledge base.
+
+## 60. Hallucination Control
+
+Possible controls include:
+
+* Retrieval grounding
+* Source citations
+* Context filtering
+* Prompt instructions
+* Answer verification
+* Confidence thresholds
+* Refusing when evidence is insufficient
+
+## 61. QA Prompt Structure
+
+A QA prompt can contain:
+
+1. System instructions
+2. User question
+3. Retrieved knowledge
+4. Output requirements
+
+Example instruction:
+"Answer using only the provided knowledge."
+
+The model should generate an answer based on the supplied context.
+
+## 62. QA Error Sources
+
+Errors can occur during:
+
+* Tokenization
+* Embedding
+* Retrieval
+* Context selection
+* Attention
+* Generation
+* Source handling
+
+Retrieval error:
+If the wrong document is retrieved, the Transformer may generate an answer from irrelevant information.
+
+Generation error:
+Even with correct context, the model may generate an incorrect answer.
+
+Therefore, retrieval and generation should be evaluated separately.
+
+## 63. QA Evaluation
+
+A Transformer-based QA system can be evaluated using:
+
+* Retrieval accuracy
+* Answer accuracy
+* Relevance
+* Grounding
+* Factual correctness
+* Response quality
+
+## 64. Complete Transformer-Based QA Architecture
+
+A modern knowledge-based QA system can use:
+
+Documents
+→ Chunking
+→ Embeddings
+→ Vector Database
+
+User Question
+→ Question Embedding
+→ Similarity Search
+→ Relevant Knowledge
+→ Transformer
+→ Attention
+→ Answer Generation
+→ Source Information
+
+Component roles:
+
+Tokenizer:
+Breaks text into tokens.
+
+Embedding model:
+Converts text into vectors.
+
+Vector database:
+Stores and searches vectors.
+
+Retriever:
+Finds relevant knowledge.
+
+Knowledge base:
+Stores trusted information.
+
+Transformer:
+Processes context and/or generates output.
+
+## 65. Important Terms
+
+Transformer:
+A neural network architecture based primarily on attention mechanisms.
+
+Attention:
+A mechanism for assigning importance to different parts of an input.
+
+Self-attention:
+Attention between tokens in the same sequence.
+
+Query:
+A representation used to search for relevant information.
+
+Key:
+A representation used for matching.
+
+Value:
+Information combined according to attention weights.
+
+Multi-head attention:
+Multiple attention mechanisms operating in parallel.
+
+Positional encoding:
+Information representing token positions.
+
+Encoder:
+Transformer component focused on processing input representations.
+
+Decoder:
+Transformer component commonly used for generating output.
+
+Causal attention:
+Attention that prevents access to future tokens.
+
+Cross-attention:
+Attention between different representations or sequences.
+
+Context window:
+The amount of input information a model can process.
+
+Residual connection:
+A connection that adds a sub-layer input to its output.
+
+Layer normalization:
+A normalization technique used in Transformer networks.
+
+## 66. Core Transformer Process
+
+Tokens
+→ Embeddings
+→ Positional information
+→ Attention
+→ Feed-forward network
+→ Residual connections + normalization
+→ Multiple Transformer layers
+→ Final representation or generated output
+
+## 67. Core Attention Process
+
+Input representations
+→ Create Q, K, V
+→ Calculate QKᵀ
+→ Scale scores
+→ Apply softmax
+→ Obtain attention weights
+→ Multiply weights by V
+→ Produce contextual representation
+
+## 68. Key Advantages
+
+Major advantages include:
+
+* Strong contextual representations
+* Effective attention mechanism
+* Long-range relationship modeling
+* Parallel training
+* Transfer learning
+* Support for many NLP tasks
+* Language understanding
+* Language generation
+* Compatibility with retrieval systems
+* Support for LLMs
+
+## 69. Final Knowledge-Base Summary
+
+Transformers are neural architectures based heavily on attention.
+
+Self-attention allows tokens to consider other tokens in the same sequence.
+
+Query, key, and value vectors are used to calculate attention.
+
+Scaled dot-product attention produces attention weights.
+
+Multi-head attention allows multiple relationships to be learned simultaneously.
+
+Positional information represents token order.
+
+Feed-forward networks transform contextual representations.
+
+Residual connections and layer normalization support stable deep networks.
+
+Encoder-based Transformers are commonly used for language understanding.
+
+Decoder-based Transformers are commonly used for language generation.
+
+Encoder-decoder Transformers support sequence-to-sequence tasks.
+
+For knowledge-based QA, Transformers commonly work with embeddings and retrieval.
+
+The overall QA architecture is:
+
+Documents
+→ Chunking
+→ Embeddings
+→ Vector Database
+→ Question Embedding
+→ Similarity Search
+→ Relevant Knowledge
+→ Transformer
+→ Attention
+→ Answer Generation
+→ Source Information
+
+Embeddings help find relevant information, while Transformers provide contextual processing and language generation.
+
+A reliable QA system should combine strong retrieval, relevant context, appropriate Transformer processing, and source-grounded generation.
