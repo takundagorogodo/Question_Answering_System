@@ -1,11 +1,78 @@
-Vector Databases and Document Chunking
+ibrary
+/
+07_vector_databases_and_chunking.txt
 
-A vector database, sometimes called a vector store, is a system designed to store large numbers of embedding vectors and efficiently search for the vectors most similar to a given query vector. In a retrieval-augmented generation system, the vector database is what powers the "find relevant passages" step: every document passage is converted into an embedding vector and stored, and when a question arrives, its embedding is compared against all the stored vectors to find the closest matches.
 
-Comparing a query vector against every stored vector one at a time works fine for a small collection, but becomes slow as the collection grows into the thousands or millions of entries. Vector databases use specialized indexing structures and approximate nearest-neighbor search algorithms to make this comparison dramatically faster, trading a small amount of accuracy for a large gain in speed. Popular tools for this purpose include FAISS, a library developed by Meta AI that is widely used in research and student projects because it runs entirely locally, requires no external service, and is straightforward to set up.
+VECTOR DATABASES AND DOCUMENT CHUNKING
+The exact values depend on the embedding model.
+- Embedding quality
+- Search metric
+- Query quality
+- Metadata
+- Index configuration
+- Reranking
+- Knowledge-base coverage
 
-Before documents can be embedded and stored, they usually need to be broken into smaller pieces, a process called chunking. Chunking matters for two main reasons. First, embedding models and generative models both have a maximum input length, so a very long document simply cannot be processed as a single unit. Second, and more importantly for answer quality, retrieval works best when each stored piece of text covers a single, focused idea. If an entire long document is stored as one giant chunk, a search might retrieve it because one sentence buried inside is relevant, but the generative model then has to work with a large amount of irrelevant surrounding text, which can dilute the quality of the final answer.
+44. RETRIEVAL FAILURE
+A system may fail because:
+- The answer is absent.
+- The wrong chunk is retrieved.
+- The relevant chunk is ranked too low.
+- Chunking separated required context.
+- Embeddings do not capture the required relationship.
 
-Choosing a chunk size involves a trade-off. Chunks that are too small may cut a single idea in half, losing important context partway through a sentence or explanation. Chunks that are too large reintroduce the problem of diluted, unfocused retrieval results. A common practical approach is to chunk documents into passages of a few hundred tokens each, often with a small amount of overlap between consecutive chunks, so that information near a chunk boundary is not lost entirely from either neighboring chunk.
+45. CHUNKING AND CONTEXT WINDOW
+Retrieved chunks must fit within the language model's context limits.
+Chunk selection should balance:
+- Relevance
+- Coverage
+- Context size
 
-Once documents are chunked and embedded, the resulting vectors, along with metadata such as which source document and chunk each vector came from, are stored in the vector database. This metadata is what later allows a system to show a user exactly which sources were used to generate a given answer.
+46. PRACTICAL CHUNKING STRATEGY
+A general approach:
+1. Preserve document structure.
+2. Split by meaningful sections where possible.
+3. Keep related sentences together.
+4. Use moderate overlap when needed.
+5. Store rich metadata.
+6. Test retrieval quality.
+7. Adjust chunk size based on results.
+
+47. EVALUATING CHUNKING
+Evaluate whether:
+- Relevant answers are contained in individual chunks.
+- Retrieved chunks provide enough context.
+- Unrelated text is minimized.
+- Sources remain traceable.
+- Multi-chunk questions can be answered.
+
+48. COMPLETE VECTOR QA ARCHITECTURE
+Documents
+→ Parsing
+→ Cleaning
+→ Chunking
+→ Embedding
+→ Vector Database
+
+Question
+→ Embedding
+→ Similarity Search
+→ Optional Metadata Filter
+→ Optional Reranking
+→ Relevant Chunks
+→ Transformer
+→ Answer
+→ Sources
+
+49. KEY PRINCIPLE
+Good vector retrieval depends not only on the vector database.
+Document quality, chunking, embeddings, metadata, search configuration, and retrieval strategy all affect results.
+
+50. FINAL SUMMARY
+A vector database stores and searches numerical representations of text.
+Chunking converts large documents into manageable retrieval units.
+Embeddings represent the semantic content of chunks.
+Similarity search retrieves chunks related to a question.
+Metadata provides source and structural information.
+Good chunking preserves meaning and improves retrieval.
+The retrieved chunks can then be supplied to a Transformer for grounded question answering.
