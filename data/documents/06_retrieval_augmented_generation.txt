@@ -1,11 +1,323 @@
-Retrieval-Augmented Generation
+RETRIEVAL-AUGMENTED GENERATION (RAG)
 
-Retrieval-Augmented Generation, commonly abbreviated as RAG, is an architecture that combines a retrieval system with a generative language model in order to produce answers that are grounded in real source documents, rather than relying purely on what the language model happens to have memorized during its training.
+1. DEFINITION
+Retrieval-Augmented Generation (RAG) is a QA architecture that retrieves relevant external information and provides it to a language model before answer generation.
 
-A generative language model on its own has two significant weaknesses when used for question answering. First, its knowledge is limited to whatever was present in its training data, which means it will know nothing about documents, facts, or domains that were not part of that training data, such as a specific company's internal documents or a student project's custom knowledge base. Second, when asked something it does not actually know, a language model will often still generate a fluent, confident-sounding answer that is factually wrong, rather than admitting uncertainty. This behavior is called hallucination.
+Basic pipeline:
+User Question
+→ Question Embedding
+→ Similarity Search
+→ Retrieved Knowledge
+→ Transformer Language Model
+→ Answer
 
-RAG addresses both problems by inserting a retrieval step before generation. When a user asks a question, the system first searches a collection of documents to find the passages most relevant to that question. This search is typically performed using semantic similarity between vector embeddings, rather than simple keyword matching, so that it can find relevant passages even when they are worded very differently from the question itself. The retrieved passages are then inserted into the prompt given to the generative model, alongside the original question, with an instruction to answer using only the provided information.
+2. WHY RAG IS USED
+A language model may not contain every fact needed for a specific knowledge base.
+RAG allows the system to retrieve information from external documents at query time.
 
-This approach has several practical benefits. It allows a generative model to answer questions about custom, private, or newly created content without needing to retrain the model itself, since new knowledge can simply be added to the document collection. It also makes answers more auditable, because the system can show which passages were retrieved and used to generate a given answer, letting a user judge for themselves whether the answer is well supported. Finally, because the model is explicitly instructed to rely on the retrieved context, RAG tends to substantially reduce, though not entirely eliminate, the rate of hallucinated answers compared to a generative model working from memory alone.
+3. RAG COMPONENTS
+A typical RAG system contains:
+- Documents
+- Document processing
+- Chunking
+- Embedding model
+- Vector database
+- Retriever
+- Retrieved context
+- Transformer language model
+- Answer generation
+- Optional source citations
 
-RAG is not a single fixed algorithm but rather a general architectural pattern, and real systems vary in how they perform retrieval, how many passages they retrieve, whether they rerank retrieved passages before generation, and how the retrieved context is formatted in the prompt. A generative question answering project built around RAG needs to make deliberate, explainable choices at each of these steps.
+4. KNOWLEDGE FLOW
+Documents
+→ Chunking
+→ Embeddings
+→ Vector Database
+
+Question
+→ Embedding
+→ Vector Search
+→ Relevant Chunks
+→ Transformer
+→ Answer
+
+5. DOCUMENT INGESTION
+Before retrieval, documents are processed and stored.
+Typical steps:
+1. Load documents.
+2. Extract text.
+3. Clean text.
+4. Split text into chunks.
+5. Generate embeddings.
+6. Store embeddings with metadata.
+
+6. CHUNKING
+Large documents are divided into smaller chunks.
+Chunking makes retrieval more precise and helps retrieved information fit into the model context window.
+
+7. CHUNK METADATA
+Useful metadata includes:
+- Source file
+- Document title
+- Section
+- Page or location
+- Chunk ID
+- Text
+- Embedding
+- Optional retrieval score
+
+8. EMBEDDINGS
+An embedding converts text into a numerical vector representing semantic information.
+Questions and document chunks can be embedded into the same vector space.
+
+9. QUESTION EMBEDDING
+At query time:
+User Question
+→ Embedding Model
+→ Question Vector
+
+10. VECTOR SEARCH
+The question vector is compared with stored document vectors.
+The system retrieves chunks with high semantic similarity.
+
+11. SEMANTIC RETRIEVAL
+Semantic retrieval can find relevant text even when the wording of the question differs from the document.
+
+Example:
+Question:
+"How do computers understand language?"
+
+Document:
+"NLP enables computers to process and understand human language."
+
+The words differ, but the concepts are related.
+
+12. SIMILARITY
+Common vector similarity approaches include:
+- Cosine similarity
+- Dot product
+- Euclidean distance
+
+The exact method depends on the retrieval system.
+
+13. RETRIEVAL TOP-K
+A retriever may return the top k most relevant chunks.
+Example:
+Question
+→ Search
+→ Top 5 chunks
+→ Context
+
+Too few chunks may miss information.
+Too many irrelevant chunks may make generation harder.
+
+14. CONTEXT ASSEMBLY
+Retrieved chunks are combined into a context supplied to the language model.
+
+Typical prompt:
+System instructions
++
+Retrieved knowledge
++
+User question
+
+15. GENERATION
+The Transformer reads the question and retrieved context and generates an answer.
+
+Context + Question
+→ Transformer
+→ Generated Answer
+
+16. GROUNDING
+Grounded generation means the answer is based on retrieved evidence.
+A grounded QA system should prefer supplied knowledge over unsupported model assumptions.
+
+17. KNOWLEDGE-GROUNDED PROMPT
+Example:
+"Answer using only the provided knowledge. If the knowledge does not contain the answer, state that the information is unavailable."
+
+18. INSUFFICIENT INFORMATION
+If retrieval finds no relevant evidence, the system should avoid inventing an answer.
+Possible response:
+"The requested information is not available in the knowledge base."
+
+19. SOURCE CITATIONS
+RAG systems can return source information with the answer.
+Example:
+Answer: ...
+Sources:
+- document_01.txt, section 3
+- document_04.txt, chunk 12
+
+20. RETRIEVAL VS GENERATION
+Retrieval finds information.
+Generation produces the natural-language answer.
+
+Embeddings support retrieval.
+Transformers support contextual processing and generation.
+
+21. RAG VS MODEL-ONLY QA
+Model-only QA:
+Question
+→ Language Model
+→ Answer
+
+RAG:
+Question
+→ Retrieval
+→ External Context
+→ Language Model
+→ Answer
+
+RAG provides an explicit external knowledge source.
+
+22. RAG FOR KNOWLEDGE BASES
+A knowledge base can contain:
+- Educational notes
+- Manuals
+- Company documents
+- Policies
+- FAQs
+- Technical documentation
+- Research material
+
+RAG retrieves relevant sections at query time.
+
+23. RAG QUERY FLOW
+1. User submits question.
+2. Question is embedded.
+3. Vector search is performed.
+4. Relevant chunks are retrieved.
+5. Chunks are assembled into context.
+6. Context and question are sent to the Transformer.
+7. Transformer generates the answer.
+8. Sources can be returned.
+
+24. RETRIEVAL QUALITY
+Good generation depends strongly on retrieval quality.
+If the relevant information is not retrieved, the language model may not have the evidence needed to answer correctly.
+
+25. IRRELEVANT CONTEXT
+Retrieving too much irrelevant information can make the context noisy.
+Context should be relevant, clear, and within the model's context limits.
+
+26. RETRIEVAL FAILURE
+Possible retrieval failures:
+- Wrong chunks retrieved.
+- Relevant chunk ranked too low.
+- Important information split across chunks.
+- Query wording does not match retrieval representation.
+- Knowledge base lacks the answer.
+
+27. GENERATION FAILURE
+Even with correct context, generation may:
+- Misinterpret evidence.
+- Omit important information.
+- Combine unrelated facts.
+- Produce unsupported claims.
+- Answer a different question.
+
+28. RAG RELIABILITY
+Reliable RAG requires:
+- Good document processing.
+- Appropriate chunking.
+- Strong embeddings.
+- Effective retrieval.
+- Relevant context.
+- Clear prompts.
+- Grounded generation.
+- Source tracking.
+- Optional verification.
+
+29. HYBRID RETRIEVAL
+A system can combine semantic retrieval with keyword or lexical retrieval.
+This can help when exact terms, names, identifiers, or semantic similarity are all important.
+
+30. RERANKING
+A first retrieval stage can return candidate chunks.
+A reranker can then reorder them based on relevance to the question.
+
+Pipeline:
+Question
+→ Initial Retrieval
+→ Candidate Chunks
+→ Reranking
+→ Best Context
+→ Generation
+
+31. CONTEXT WINDOW
+The language model can only process a limited amount of tokenized context.
+Retrieved chunks should therefore be selected and organized carefully.
+
+32. CONTEXT ORDER
+Retrieved chunks can be ordered by:
+- Relevance score
+- Document structure
+- Source order
+- Section
+- Other application-specific rules
+
+33. RAG AND LONG DOCUMENTS
+Instead of sending an entire large document to the model:
+Large Document
+→ Chunks
+→ Retrieve relevant chunks
+→ Send selected chunks
+→ Generate answer
+
+This reduces unnecessary context.
+
+34. RAG AND HALLUCINATION
+RAG can reduce unsupported answers by providing external evidence.
+RAG does not guarantee that hallucinations disappear.
+The model can still generate unsupported or incorrect statements.
+
+35. RAG HALLUCINATION CONTROLS
+Possible controls:
+- Use trusted sources.
+- Retrieve relevant chunks.
+- Limit generation to provided evidence.
+- Require citations.
+- Verify claims.
+- Refuse when evidence is insufficient.
+
+36. RAG EVALUATION
+Important evaluation areas:
+- Retrieval relevance
+- Retrieval recall
+- Answer correctness
+- Answer relevance
+- Grounding
+- Citation accuracy
+- Response quality
+
+37. COMPLETE RAG ARCHITECTURE
+Documents
+→ Text Extraction
+→ Cleaning
+→ Chunking
+→ Embedding
+→ Vector Database
+
+User Question
+→ Question Embedding
+→ Vector Search
+→ Optional Reranking
+→ Relevant Context
+→ Prompt
+→ Transformer
+→ Answer
+→ Sources
+
+38. KEY PRINCIPLE
+Retrieval determines what information the model receives.
+Generation determines how that information is expressed as an answer.
+
+39. FINAL SUMMARY
+RAG combines information retrieval with language generation.
+Embeddings convert questions and document chunks into vectors.
+Vector search retrieves semantically relevant knowledge.
+Retrieved context is supplied to a Transformer language model.
+The model generates an answer using the retrieved evidence.
+Source metadata can make answers traceable.
+RAG improves access to external knowledge but still requires strong retrieval, grounding, and verification.
