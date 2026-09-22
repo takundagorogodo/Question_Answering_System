@@ -1,5 +1,3 @@
-EXTRACTIVE VS GENERATIVE QUESTION ANSWERING
-
 1. QUESTION ANSWERING
 Question Answering (QA) is an NLP task where a system receives a question and produces an answer.
 A QA system may use provided context, a knowledge base, retrieved documents, or model knowledge.

@@ -1,5 +1,3 @@
-Embeddings
-
 Embeddings are numerical representations of words, phrases, sentences, documents, or other objects that allow computers to represent semantic and contextual information in the form of vectors.
 
 In Natural Language Processing, embeddings are important because computers cannot directly understand human language as humans do. Text must be converted into numerical representations that machine-learning models can process.

@@ -1,6 +1,3 @@
-RETRIEVAL-AUGMENTED GENERATION (RAG)
-
-1. DEFINITION
 Retrieval-Augmented Generation (RAG) is a QA architecture that retrieves relevant external information and provides it to a language model before answer generation.
 
 Basic pipeline:

@@ -1,5 +1,3 @@
-TOKENIZATION IN NATURAL LANGUAGE PROCESSING
-
 1. INTRODUCTION TO TOKENIZATION
 
 Tokenization is one of the most important preprocessing techniques in Natural Language Processing (NLP).

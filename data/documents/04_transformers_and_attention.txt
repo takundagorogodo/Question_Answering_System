@@ -1,7 +1,3 @@
-# Transformers and Attention
-
-## 1. Transformers
-
 A Transformer is a neural network architecture based primarily on attention mechanisms. It is widely used in Natural Language Processing (NLP).
 
 Common applications include:
