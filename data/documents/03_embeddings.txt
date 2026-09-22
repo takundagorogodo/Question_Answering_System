@@ -1,13 +1,118 @@
-Word and Sentence Embeddings
+Embeddings
 
-An embedding is a way of representing a piece of text, whether a single word or an entire sentence, as a list of numbers called a vector. This numerical representation allows a computer to work with the meaning of language mathematically, rather than treating text as an opaque sequence of characters.
+Embeddings are numerical representations of words, phrases, sentences, documents, or other objects that allow computers to represent semantic and contextual information in the form of vectors.
 
-The key idea behind embeddings is that words or sentences with similar meanings should end up with similar vectors. If we imagine each vector as a point in a high-dimensional space, then words like "king" and "queen" would land close together, while a word like "banana" would land far away from both. This closeness in the vector space is what lets a computer measure semantic similarity: how alike two pieces of text are in meaning, not just in spelling.
+In Natural Language Processing, embeddings are important because computers cannot directly understand human language as humans do. Text must be converted into numerical representations that machine-learning models can process.
 
-Early word embedding methods, such as Word2Vec and GloVe, learned a single fixed vector for each word by analyzing which words tend to appear near each other across a huge collection of text. These methods captured surprisingly rich relationships. A famous example is that the vector arithmetic "king minus man plus woman" produces a vector very close to "queen," showing that the embedding space had implicitly learned something about gender and royalty.
+Instead of representing a word only as a symbolic identifier, an embedding represents it as a vector of numbers.
 
-A major limitation of these early methods was that each word had only one vector, regardless of context. The word "bank" would have the same embedding whether it appeared in "river bank" or "savings bank." Modern transformer-based models solve this by producing contextual embeddings: the vector for a word changes depending on the sentence it appears in, because the model considers the surrounding words when generating the representation.
+For example:
 
-Sentence embeddings extend this same idea to entire sentences or paragraphs, producing a single vector that represents the overall meaning of a longer piece of text. This is especially important for retrieval-augmented generation systems, where we need to compare the meaning of a user's question against the meaning of many stored passages, in order to find which passages are actually relevant.
+"cat" → [0.21, -0.14, 0.67, 0.35, ...]
 
-Two pieces of text that are worded very differently but mean the same thing, such as "What is NLP?" and "Explain natural language processing," should produce sentence embeddings that are very close together in vector space, even though they share almost no words in common. This is the property that makes embeddings so useful for semantic search: they let a system understand what a question means, rather than just matching keywords.
+"dog" → [0.19, -0.11, 0.64, 0.39, ...]
+
+The exact numbers are learned by an embedding model.
+
+WHAT IS AN EMBEDDING?
+
+An embedding is a dense numerical vector that represents an object in a continuous mathematical space.
+
+In NLP, the object can be:
+
+A word
+A token
+A sentence
+A paragraph
+A document
+A question
+A piece of text
+
+The purpose of an embedding is to represent meaningful relationships between pieces of information.
+
+Texts with similar meanings can have similar vector representations.
+
+For example:
+
+"How do computers understand language?"
+
+and
+
+"How can machines process human language?"
+
+have different words, but their meanings are similar. A good semantic embedding model should therefore produce vectors that are relatively close to each other.
+
+WHY EMBEDDINGS ARE IMPORTANT
+
+Traditional computers process numerical data efficiently, but natural language contains meaning, context, ambiguity, and relationships between words.
+
+Embeddings convert language into numerical representations that machine-learning systems can process.
+
+Embeddings are useful for:
+
+Semantic search
+Question answering
+Document retrieval
+Text similarity
+Recommendation systems
+Classification
+Clustering
+Information retrieval
+Retrieval-Augmented Generation
+Chatbots
+Duplicate detection
+Document organization
+
+For a question answering system, embeddings are especially useful because they allow the system to find information that is semantically related to a user's question.
+
+VECTOR REPRESENTATION
+
+An embedding is usually represented as a vector.
+
+Example:
+
+Text:
+
+"Natural Language Processing"
+
+could be represented conceptually as:
+
+[0.12, -0.43, 0.71, 0.09, 0.55, ...]
+
+The vector may contain hundreds or thousands of numerical dimensions depending on the embedding model.
+
+Each dimension is a numerical value learned by the model.
+
+The individual dimensions normally do not have simple human-readable meanings such as:
+
+dimension 1 = language
+dimension 2 = computer
+dimension 3 = education
+
+Instead, the information is distributed across many dimensions.
+
+DIMENSIONS OF EMBEDDINGS
+
+The number of values in an embedding vector is called its dimensionality.
+
+For example:
+
+[0.2, 0.5, -0.1]
+
+has 3 dimensions.
+
+Another embedding could contain hundreds or thousands of dimensions.
+
+Example:
+
+Embedding A:
+
+[0.21, 0.42, -0.13, 0.71, ...]
+
+Embedding B:
+
+[0.18, 0.39, -0.11, 0.68, ...]
+
+The dimensionality depends on the embedding model.
+
+Higher dimensional representations can encode complex relationships, but they also require more storage and computational resources.
