@@ -1,13 +1,275 @@
-Extractive versus Generative Question Answering
+EXTRACTIVE VS GENERATIVE QUESTION ANSWERING
 
-Question answering systems can be broadly divided into two categories based on how they produce their answers: extractive and generative.
+1. QUESTION ANSWERING
+Question Answering (QA) is an NLP task where a system receives a question and produces an answer.
+A QA system may use provided context, a knowledge base, retrieved documents, or model knowledge.
 
-An extractive question answering system finds the answer to a question by locating and copying an exact span of text from a source passage. Given a passage of text and a question, the system predicts the start and end position of the answer within that passage, then returns that exact substring as the answer. For example, if a passage states "The Transformer architecture was introduced in 2017," and the question is "When was the Transformer architecture introduced?", an extractive system would identify and return the substring "2017." Extractive systems cannot say anything that is not literally present, word for word, somewhere in the source text.
+2. MAIN QA TYPES
+Two important approaches are:
+- Extractive Question Answering
+- Generative Question Answering
 
-A generative question answering system works differently. Instead of locating and copying a span of existing text, it uses a language model to compose a brand new answer in natural language. The generative model may draw on relevant source material, often supplied through a retrieval step, but it produces the final wording itself, which means it can paraphrase, combine information from multiple places, summarize, or explain a concept in a way that never appears verbatim anywhere in the source material.
+3. EXTRACTIVE QA
+Extractive QA selects an answer directly from the provided context.
+The model identifies the relevant span of text rather than creating new wording.
 
-The trade-offs between these two approaches are significant. Extractive QA tends to be more reliable and less prone to inventing false information, since every answer is guaranteed to be a real quote from the source. However, it is inflexible: if the exact answer is not present as a contiguous span of text, an extractive system simply cannot answer well, even if the necessary information is scattered across a passage.
+Process:
+Question + Context
+→ Transformer
+→ Relevant Answer Span
+→ Answer
 
-Generative QA is far more flexible and produces answers that read more naturally, since it can synthesize information rather than being limited to copying a single span. This flexibility comes at a cost, however: because the model is composing new text rather than quoting, it can occasionally generate statements that sound fluent and confident but are not actually supported by the source material, a failure mode known as hallucination.
+4. EXTRACTIVE QA EXAMPLE
+Context:
+"NLP is a field of artificial intelligence concerned with processing human language."
 
-Modern systems increasingly combine both ideas through architectures like retrieval-augmented generation, where a retrieval step first finds the most relevant passages, and a generative model then composes a natural-language answer grounded in that retrieved content. This hybrid approach aims to capture the flexibility of generative answers while reducing the risk of hallucination through explicit grounding in real source text.
+Question:
+"What is NLP?"
+
+Possible extracted answer:
+"a field of artificial intelligence"
+
+The answer comes from the supplied context.
+
+5. EXTRACTIVE QA ANSWER SPAN
+The answer is normally a continuous span of tokens from the input context.
+The system may predict:
+- Start position
+- End position
+
+Conceptually:
+Context tokens → Start prediction + End prediction → Answer span
+
+6. EXTRACTIVE QA CHARACTERISTICS
+- Uses supplied context.
+- Selects existing text.
+- Does not normally generate new sentences.
+- Useful when exact wording is important.
+- Requires the answer to exist in the supplied context.
+
+7. EXTRACTIVE QA ADVANTAGES
+- Answers can be directly traced to the context.
+- Useful for factual document search.
+- Easier to associate the answer with a source span.
+- Can reduce unsupported wording.
+- Suitable for documents containing explicit answers.
+
+8. EXTRACTIVE QA LIMITATIONS
+- Cannot easily answer when the information is absent.
+- The answer may require combining information from multiple passages.
+- The selected span may be grammatically incomplete.
+- It may not naturally summarize or explain information.
+- It depends strongly on context quality.
+
+9. GENERATIVE QA
+Generative QA produces an answer using a language-generation model.
+The answer does not have to be an exact text span from the input.
+
+Process:
+Question + Context or Model Knowledge
+→ Transformer Language Model
+→ Generated Tokens
+→ Answer
+
+10. GENERATIVE QA EXAMPLE
+Question:
+"What is NLP?"
+
+Possible generated answer:
+"NLP stands for Natural Language Processing. It enables computers to process and understand human language."
+
+The model generates the wording of the answer.
+
+11. GENERATIVE QA CHARACTERISTICS
+- Generates new text.
+- Can summarize information.
+- Can combine information from multiple passages.
+- Can explain concepts.
+- Can answer using retrieved context and/or learned model knowledge.
+
+12. GENERATIVE QA ADVANTAGES
+- Flexible answer wording.
+- Can provide explanations.
+- Can summarize long information.
+- Can combine multiple relevant pieces of context.
+- Suitable for conversational QA.
+- Works naturally with RAG systems.
+
+13. GENERATIVE QA LIMITATIONS
+- Can generate information not supported by the context.
+- May hallucinate.
+- Output can vary with generation settings.
+- Requires stronger controls for source-grounded answers.
+- Correct retrieval does not guarantee a correct generated answer.
+
+14. EXTRACTIVE VS GENERATIVE
+Extractive:
+Input → Context → Select text → Answer
+
+Generative:
+Input → Context/Knowledge → Generate text → Answer
+
+15. ANSWER SOURCE
+Extractive QA:
+Answer is selected from the supplied context.
+
+Generative QA:
+Answer is generated from model representations and available context.
+
+16. WORDING
+Extractive QA:
+Usually preserves source wording.
+
+Generative QA:
+Can paraphrase, summarize, and explain.
+
+17. ANSWER LENGTH
+Extractive QA:
+Often short because it selects a span.
+
+Generative QA:
+Can produce short or detailed responses.
+
+18. KNOWLEDGE REQUIREMENT
+Extractive QA:
+The required answer normally needs to appear in the context.
+
+Generative QA:
+Can use retrieved context and, depending on the system, information learned during training.
+
+19. DOCUMENT QA
+Extractive QA is useful when users ask questions whose answers appear explicitly in documents.
+
+Example:
+Question: "When was the company founded?"
+Context contains: "The company was founded in 1998."
+Extractive answer: "1998"
+
+20. EXPLANATION QA
+Generative QA is useful when an answer requires explanation.
+
+Question:
+"Why is chunking used in RAG?"
+Generated answer:
+"Chunking divides large documents into smaller passages so relevant information can be retrieved and supplied to the language model."
+
+21. RAG AND EXTRACTIVE QA
+A retrieval system can find relevant documents and an extractive model can select an answer span from the retrieved context.
+
+Pipeline:
+Question
+→ Retrieval
+→ Relevant Context
+→ Extractive QA
+→ Answer Span
+
+22. RAG AND GENERATIVE QA
+A common RAG system retrieves relevant passages and provides them to a generative Transformer.
+
+Pipeline:
+Question
+→ Question Embedding
+→ Retrieval
+→ Retrieved Context
+→ Generative Transformer
+→ Answer
+
+23. CONTEXT-GROUNDED GENERATIVE QA
+A generative QA system can be instructed to answer only from supplied context.
+
+Example instruction:
+"Answer using only the provided knowledge. If the answer is not present, say that the information is unavailable."
+
+This can help reduce unsupported answers.
+
+24. MULTI-DOCUMENT QA
+Generative QA can combine information from multiple retrieved chunks.
+
+Question
+→ Retrieve Chunk 1
+→ Retrieve Chunk 2
+→ Combine Context
+→ Transformer
+→ Answer
+
+25. SOURCE CITATIONS
+Generative QA systems can preserve source information.
+Retrieved chunks may contain:
+- Source file
+- Section
+- Chunk ID
+- Text
+- Similarity score
+
+The generated answer can be associated with the supporting source.
+
+26. ANSWER VERIFICATION
+A QA system can verify whether a generated answer is supported by retrieved context.
+Possible checks:
+- Is the claim present?
+- Does the answer contradict the context?
+- Are sources available?
+- Is evidence sufficient?
+
+27. WHEN EXTRACTIVE QA IS SUITABLE
+Use extractive QA when:
+- Exact source wording matters.
+- Answers are explicitly present.
+- Short factual spans are expected.
+- Traceability to a document span is important.
+
+28. WHEN GENERATIVE QA IS SUITABLE
+Use generative QA when:
+- Answers require explanation.
+- Multiple passages must be combined.
+- Paraphrasing is useful.
+- Conversational responses are needed.
+- Summaries are required.
+
+29. HYBRID QA
+A system can combine extraction and generation.
+
+Example:
+Question
+→ Retrieve documents
+→ Extract evidence
+→ Generate answer from evidence
+→ Return answer + source
+
+30. RELIABILITY
+Extractive QA can be strongly tied to source text, but retrieval errors can still cause wrong answers.
+Generative QA can produce fluent answers, but fluency does not guarantee factual correctness.
+Overall QA quality depends on retrieval, context, model processing, and answer generation.
+
+31. SIMPLE COMPARISON
+Extractive = find the answer in the text.
+Generative = create the answer using available information.
+
+32. KNOWLEDGE-BASED QA
+For a knowledge-base QA system, generative QA is commonly useful because retrieved chunks can be combined into a natural response.
+The system should preserve source metadata and avoid generating unsupported information.
+
+33. CORE PIPELINES
+Extractive:
+Documents
+→ Retrieval
+→ Context
+→ Extract Answer Span
+→ Final Answer
+
+Generative:
+Documents
+→ Chunking
+→ Embeddings
+→ Vector Search
+→ Context
+→ Transformer
+→ Generated Answer
+
+34. FINAL SUMMARY
+Extractive QA selects an answer span from provided context.
+Generative QA creates an answer using a language model.
+Extractive QA emphasizes source-span selection.
+Generative QA emphasizes language generation and explanation.
+RAG commonly combines retrieval with generative QA.
+A reliable QA system should use relevant context, source information, and grounding to reduce unsupported answers.
