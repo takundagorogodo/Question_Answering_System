@@ -1,11 +1,315 @@
-Hallucination in Generative Language Models
+HALLUCINATION IN NLP AND QUESTION ANSWERING
 
-In the context of natural language processing, hallucination refers to a situation where a generative language model produces text that is fluent, confident, and grammatically correct, but factually incorrect or entirely unsupported by any real source of information. The term is borrowed loosely from human psychology, since the model is, in a sense, generating a plausible-sounding statement that has no basis in reality, without any internal signal that it is doing so.
+1. DEFINITION
+Hallucination occurs when a language model produces information that is unsupported, incorrect, or not grounded in the available evidence.
 
-Hallucination happens because generative language models are fundamentally trained to predict the next most likely word given the preceding text, based on patterns learned from enormous amounts of training data. When a model is asked something it genuinely does not know, it does not have a built-in mechanism to simply say "I don't know" unless it has been specifically trained or prompted to behave that way. Instead, it tends to produce the most statistically plausible continuation, which can sound entirely convincing while being wrong.
+A response can be fluent and well-written while still being factually unsupported.
 
-Hallucination is a serious practical problem for any question answering system, because a fluent but incorrect answer can be more dangerous than an obviously broken one: a user has no easy way to tell that the answer is wrong just by reading it. This is especially risky in domains where incorrect information could lead to poor decisions.
+2. HALLUCINATION IN QA
+In a QA system, hallucination can occur when the model:
+- Invents facts.
+- Uses information not present in the knowledge base.
+- Misinterprets retrieved context.
+- Combines unrelated facts.
+- Gives an answer when evidence is insufficient.
 
-Several strategies can help reduce, though not completely eliminate, hallucination. Retrieval-augmented generation is one of the most effective, because it grounds the model's answer in real, retrieved source text rather than relying purely on the model's internal memory. Explicit prompt instructions, such as telling the model to answer only using the provided context and to say that information is unavailable if the answer cannot be found there, further reduce the tendency to invent information. A retrieval relevance threshold can also help: if no retrieved passage is similar enough to the question, the system can decline to answer rather than forcing a generation from weak or irrelevant context. Some systems also display a confidence or relevance score alongside each answer, giving the user a signal of how strongly the answer is supported by the retrieved material.
+3. EXAMPLE
+Knowledge base:
+"The Transformer architecture uses attention mechanisms."
 
-Measuring hallucination rate is an important part of rigorously evaluating a generative question answering system. This is typically done by testing the system with questions that are deliberately outside its knowledge base, and checking whether it correctly declines to answer rather than inventing a plausible-sounding but false response.
+Question:
+"What year was this specific system deployed?"
+
+If the knowledge base does not contain the deployment year, inventing a year is a hallucination.
+
+4. GROUNDED VS UNGROUNDED ANSWERS
+Grounded answer:
+Supported by the supplied context or trusted knowledge.
+
+Ungrounded answer:
+Contains claims that are not supported by the available evidence.
+
+5. WHY HALLUCINATION MATTERS
+Hallucinated answers can reduce trust and make a QA system unreliable.
+This is especially important for knowledge-based systems where answers are expected to reflect stored information.
+
+6. COMMON CAUSES
+Possible causes include:
+- Missing information.
+- Poor retrieval.
+- Irrelevant context.
+- Ambiguous questions.
+- Model limitations.
+- Weak prompts.
+- Excessive generation.
+- Conflicting sources.
+- Training-data limitations.
+- Long or noisy context.
+
+7. RETRIEVAL FAILURE
+If the relevant document is not retrieved, the language model may lack the evidence needed to answer.
+
+Question
+→ Retrieval fails
+→ Relevant evidence missing
+→ Model generates unsupported answer
+
+8. KNOWLEDGE-BASE COVERAGE
+If the knowledge base does not contain the requested information, retrieval cannot provide evidence for it.
+The system should recognize this situation rather than automatically inventing an answer.
+
+9. RAG AND HALLUCINATION
+Retrieval-Augmented Generation can reduce hallucination by providing external evidence.
+RAG does not guarantee that all generated statements will be correct.
+
+10. GROUNDED GENERATION
+Grounded generation uses retrieved knowledge as the basis for the response.
+
+Question
++
+Retrieved Context
+→ Transformer
+→ Grounded Answer
+
+11. SOURCE GROUNDING
+The answer should be supported by one or more retrieved sources.
+Source metadata can include:
+- File
+- Section
+- Page
+- Chunk ID
+- Source URL when applicable
+
+12. SOURCE CITATIONS
+Citations help users identify the evidence used to produce an answer.
+A citation should correspond to the information supporting the claim.
+
+13. INSUFFICIENT INFORMATION
+A reliable QA system should be able to say that the information is unavailable when evidence is insufficient.
+
+Example:
+Question:
+"What is the exact value of X?"
+
+If the knowledge base contains no value for X:
+Answer:
+"The information is not available in the knowledge base."
+
+14. DO NOT GUESS
+When evidence is missing, guessing should be avoided.
+A fluent guess is not a reliable answer.
+
+15. PROMPT-BASED CONTROL
+A QA prompt can explicitly constrain generation.
+
+Example:
+"Answer only using the provided knowledge. If the answer is not supported by the knowledge, say that the information is unavailable."
+
+16. CONTEXT FILTERING
+Retrieved context should be relevant to the question.
+Irrelevant passages can introduce confusion or unsupported associations.
+
+17. RETRIEVAL QUALITY
+Good retrieval helps provide the correct evidence.
+Important retrieval properties include:
+- Relevance
+- Coverage
+- Ranking
+- Source quality
+
+18. CHUNK QUALITY
+Poorly designed chunks can remove important context.
+A definition may be separated from its explanation or answer.
+
+Good chunking helps preserve complete concepts.
+
+19. CONTEXT ORGANIZATION
+Retrieved chunks should be organized clearly.
+Useful organization can include:
+Source
+Section
+Chunk ID
+Text
+
+20. CONTEXT LENGTH
+Very large contexts can contain irrelevant information.
+More context does not automatically mean better answers.
+
+21. CONTEXT WINDOW
+The model can process only a defined amount of tokenized input.
+The system should prioritize relevant evidence within that limit.
+
+22. CONFLICTING SOURCES
+Different documents may contain conflicting information.
+The QA system should preserve source information and avoid silently presenting a disputed value as certain.
+
+23. SOURCE PRIORITY
+Applications can define trusted sources or source-priority rules.
+For example:
+- Official documentation
+- Approved internal documents
+- Trusted knowledge-base entries
+
+The exact priority should be defined by the application.
+
+24. ANSWER VERIFICATION
+A generated answer can be checked against retrieved evidence.
+
+Verification questions:
+- Is the claim supported?
+- Does the source actually state it?
+- Did the model add unsupported information?
+- Does the answer contradict the evidence?
+
+25. CLAIM-LEVEL VERIFICATION
+Complex answers may contain several claims.
+Each important claim can be checked against the retrieved context.
+
+26. EXTRACTIVE EVIDENCE
+One way to improve grounding is to first identify supporting text spans.
+The generation model can then produce an answer from those evidence spans.
+
+27. HYBRID QA
+A hybrid approach can use:
+Retrieval
+→ Evidence extraction
+→ Answer generation
+→ Verification
+
+28. CONFIDENCE
+A system may use retrieval scores, verification results, or other signals to decide whether enough evidence exists.
+A confidence threshold can trigger:
+- Answer generation
+- Clarification
+- "Information unavailable"
+
+29. CLARIFICATION
+Some questions are ambiguous.
+Instead of guessing, a QA system can ask the user for clarification when the intended meaning cannot be determined reliably.
+
+30. HALLUCINATION FROM MODEL KNOWLEDGE
+A generative model may use information learned during training even when a knowledge-based system expects answers only from retrieved documents.
+A strict grounding instruction can reduce this behavior.
+
+31. KNOWLEDGE-ONLY QA
+For a closed knowledge-base system:
+Question
+→ Retrieve knowledge
+→ Answer only from retrieved knowledge
+
+If evidence is missing:
+→ State that it is unavailable.
+
+32. OPEN-DOMAIN QA
+Open-domain QA may allow the model to use broader external information.
+The system should still distinguish retrieved evidence from unsupported generation.
+
+33. FACTUALITY
+Factual correctness means that the answer's claims are consistent with reliable evidence.
+Fluency and factuality are different properties.
+
+34. RELEVANCE
+An answer can be factually correct but irrelevant to the question.
+QA systems should evaluate both factual support and question relevance.
+
+35. COMPLETENESS
+An answer may be grounded but incomplete.
+The system should retrieve enough evidence to cover all important parts of the question.
+
+36. SOURCE QUALITY
+Reliable answers depend on reliable source material.
+Poor or outdated knowledge can lead to incorrect grounded answers.
+
+37. DOCUMENT VERSIONING
+Knowledge bases should track document versions when information changes.
+Otherwise, retrieval may return outdated content.
+
+38. HALLUCINATION CONTROLS
+Useful controls include:
+- Retrieval grounding
+- Source citations
+- Context filtering
+- Clear prompts
+- Evidence extraction
+- Answer verification
+- Confidence thresholds
+- Clarification
+- Refusal when evidence is insufficient
+- Trusted source selection
+
+39. RAG HALLUCINATION CONTROL PIPELINE
+Question
+→ Query Embedding
+→ Retrieval
+→ Relevant Context
+→ Context Filtering
+→ Grounded Prompt
+→ Transformer
+→ Answer
+→ Verification
+→ Final Answer + Sources
+
+40. FAILURE MODES
+A QA system can fail at several stages:
+1. Question understanding
+2. Query embedding
+3. Retrieval
+4. Chunk selection
+5. Context assembly
+6. Transformer processing
+7. Generation
+8. Verification
+9. Source citation
+
+41. RETRIEVAL ERROR
+Correct answer exists, but relevant chunk is not retrieved.
+Result:
+Model may not have enough evidence.
+
+42. GENERATION ERROR
+Correct context is retrieved, but the model generates an incorrect or unsupported answer.
+Result:
+Generation or reasoning failure.
+
+43. CITATION ERROR
+The answer may be reasonable, but the cited source does not support the claim.
+Citation quality must therefore be checked separately.
+
+44. KNOWLEDGE GAP
+If the required information is absent from the knowledge base, the system should report the knowledge gap instead of fabricating information.
+
+45. SAFE FALLBACK
+A simple fallback response can be:
+"I could not find enough information in the knowledge base to answer this question."
+
+46. HALLUCINATION EVALUATION
+Evaluate:
+- Factual correctness
+- Evidence support
+- Citation correctness
+- Retrieval relevance
+- Answer relevance
+- Completeness
+- Unsupported claims
+
+47. MANUAL EVALUATION
+Human reviewers can compare:
+Question
+→ Retrieved Context
+→ Generated Answer
+
+They can determine whether each claim is supported.
+
+48. AUTOMATED EVALUATION
+Automated checks can compare generated claims with retrieved evidence.
+Such checks can support, but not completely replace, human evaluation.
+
+49. KNOWLEDGE-BASE QA PRINCIPLE
+The answer should be limited by the evidence available to the system when the application is designed as a closed knowledge-base QA system.
+
+50. FINAL SUMMARY
+Hallucination is the generation of unsupported or incorrect information.
+It can occur even when a model produces fluent language.
+RAG provides external evidence and can reduce hallucination, but does not eliminate it.
+Strong retrieval, good chunking, relevant context, clear prompts, source citations, verification, and refusal when evidence is insufficient can improve reliability.
+For a closed knowledge-base QA system, the model should answer from retrieved evidence and clearly state when the required information is unavailable.
