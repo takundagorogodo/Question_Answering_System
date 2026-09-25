@@ -1,0 +1,320 @@
+GLOVE
+
+DEFINITION
+GloVe stands for Global Vectors for Word Representation.
+GloVe is a word-embedding technique.
+GloVe represents words as dense numerical vectors.
+GloVe learns representations from word co-occurrence statistics.
+Word co-occurrence measures how often words appear near one another.
+GloVe uses global statistics from a corpus.
+The method was designed to combine global statistics with vector representations.
+GloVe embeddings can capture semantic relationships.
+GloVe embeddings can also capture some syntactic relationships.
+Cosine similarity can be used to compare GloVe vectors.
+
+CO-OCCURRENCE MATRIX
+A co-occurrence matrix records relationships between words.
+Rows and columns of a co-occurrence matrix correspond to vocabulary terms.
+A matrix cell can contain a co-occurrence count.
+The definition of context window affects co-occurrence counts.
+Words appearing near each other contribute to co-occurrence statistics.
+Large corpora provide more statistical evidence.
+Rare words may have sparse co-occurrence information.
+Global statistics can capture broad corpus-level relationships.
+GloVe uses co-occurrence information during training.
+Co-occurrence statistics are not the same as sentence meaning.
+
+TRAINING AND VECTORS
+GloVe learns a vector representation for each vocabulary word.
+Training aims to preserve useful information from co-occurrence patterns.
+Vector dimensions are learned from the corpus.
+Common pre-trained GloVe models have different embedding sizes.
+Embedding size can be 50, 100, 200, or 300 dimensions in common releases.
+Different corpora produce different GloVe embeddings.
+Pre-trained embeddings can be reused in downstream NLP models.
+Embeddings can be fine-tuned or kept fixed depending on the application.
+Vector similarity can be measured mathematically.
+Similar contextual usage can lead to nearby vectors.
+
+ADVANTAGES
+GloVe uses global corpus-level co-occurrence information.
+GloVe can capture useful semantic associations.
+GloVe is computationally practical compared with many larger neural models.
+Pre-trained GloVe vectors can reduce training requirements.
+GloVe can provide strong baseline features for NLP tasks.
+GloVe vectors can be used with traditional machine-learning models.
+GloVe can represent vocabulary items in compact dense vectors.
+GloVe can support similarity search.
+GloVe can support clustering of related words.
+GloVe can support document-level NLP applications when combined with other representations.
+
+LIMITATIONS
+Traditional GloVe embeddings are static.
+A static embedding normally gives one vector to a word across contexts.
+Polysemous words can have multiple meanings but one traditional GloVe vector.
+Context is not dynamically represented for each occurrence.
+Unknown words can be a problem when they are absent from the vocabulary.
+Embedding quality depends on the training corpus.
+Corpus biases can be reflected in learned vectors.
+GloVe does not directly encode complete sentence structure.
+GloVe is not a complete language model.
+GloVe is not a complete question-answering system.
+
+APPLICATIONS
+GloVe can be used in text classification.
+GloVe can support sentiment analysis.
+GloVe can support document similarity.
+GloVe can support information retrieval.
+GloVe can support clustering.
+GloVe can support named entity recognition features.
+GloVe can support semantic search.
+GloVe can support question retrieval.
+GloVe can be used to initialize neural NLP models.
+GloVe can complement TF-IDF in hybrid retrieval systems.
+
+QUESTION ANSWERING
+A question-answering system can convert question terms into GloVe vectors.
+Vector similarity can help retrieve semantically related documents.
+GloVe can help when a question and document use related words.
+Embedding similarity can complement exact keyword matching.
+TF-IDF and GloVe can provide different retrieval signals.
+GloVe can help represent technical NLP vocabulary.
+GloVe does not itself extract the final answer from a document.
+Answer extraction requires a separate model or rule-based step.
+Contextual transformer embeddings can handle many ambiguities better than static GloVe vectors.
+
+Key point: GloVe stands for Global Vectors for Word Representation.
+Key point: GloVe is a word-embedding technique.
+Key point: GloVe represents words as dense numerical vectors.
+Key point: GloVe learns representations from word co-occurrence statistics.
+Key point: Word co-occurrence measures how often words appear near one another.
+Key point: GloVe uses global statistics from a corpus.
+Key point: The method was designed to combine global statistics with vector representations.
+Key point: GloVe embeddings can capture semantic relationships.
+Key point: GloVe embeddings can also capture some syntactic relationships.
+Key point: Cosine similarity can be used to compare GloVe vectors.
+Key point: A co-occurrence matrix records relationships between words.
+Key point: Rows and columns of a co-occurrence matrix correspond to vocabulary terms.
+Key point: A matrix cell can contain a co-occurrence count.
+Key point: The definition of context window affects co-occurrence counts.
+Key point: Words appearing near each other contribute to co-occurrence statistics.
+Key point: Large corpora provide more statistical evidence.
+Key point: Rare words may have sparse co-occurrence information.
+Key point: Global statistics can capture broad corpus-level relationships.
+Key point: GloVe uses co-occurrence information during training.
+Key point: Co-occurrence statistics are not the same as sentence meaning.
+Key point: GloVe learns a vector representation for each vocabulary word.
+Key point: Training aims to preserve useful information from co-occurrence patterns.
+Key point: Vector dimensions are learned from the corpus.
+Key point: Common pre-trained GloVe models have different embedding sizes.
+Key point: Embedding size can be 50, 100, 200, or 300 dimensions in common releases.
+Key point: Different corpora produce different GloVe embeddings.
+Key point: Pre-trained embeddings can be reused in downstream NLP models.
+Key point: Embeddings can be fine-tuned or kept fixed depending on the application.
+Key point: Vector similarity can be measured mathematically.
+Key point: Similar contextual usage can lead to nearby vectors.
+Key point: GloVe uses global corpus-level co-occurrence information.
+Key point: GloVe can capture useful semantic associations.
+Key point: GloVe is computationally practical compared with many larger neural models.
+Key point: Pre-trained GloVe vectors can reduce training requirements.
+Key point: GloVe can provide strong baseline features for NLP tasks.
+Key point: GloVe vectors can be used with traditional machine-learning models.
+Key point: GloVe can represent vocabulary items in compact dense vectors.
+Key point: GloVe can support similarity search.
+Key point: GloVe can support clustering of related words.
+Key point: GloVe can support document-level NLP applications when combined with other representations.
+Key point: Traditional GloVe embeddings are static.
+Key point: A static embedding normally gives one vector to a word across contexts.
+Key point: Polysemous words can have multiple meanings but one traditional GloVe vector.
+Key point: Context is not dynamically represented for each occurrence.
+Key point: Unknown words can be a problem when they are absent from the vocabulary.
+Key point: Embedding quality depends on the training corpus.
+Key point: Corpus biases can be reflected in learned vectors.
+Key point: GloVe does not directly encode complete sentence structure.
+Key point: GloVe is not a complete language model.
+Key point: GloVe is not a complete question-answering system.
+Key point: GloVe can be used in text classification.
+Key point: GloVe can support sentiment analysis.
+Key point: GloVe can support document similarity.
+Key point: GloVe can support information retrieval.
+Key point: GloVe can support clustering.
+Key point: GloVe can support named entity recognition features.
+Key point: GloVe can support semantic search.
+Key point: GloVe can support question retrieval.
+Key point: GloVe can be used to initialize neural NLP models.
+Key point: GloVe can complement TF-IDF in hybrid retrieval systems.
+Key point: A question-answering system can convert question terms into GloVe vectors.
+Key point: Vector similarity can help retrieve semantically related documents.
+Key point: GloVe can help when a question and document use related words.
+Key point: Embedding similarity can complement exact keyword matching.
+Key point: TF-IDF and GloVe can provide different retrieval signals.
+Key point: GloVe can help represent technical NLP vocabulary.
+Key point: GloVe does not itself extract the final answer from a document.
+Key point: Answer extraction requires a separate model or rule-based step.
+Key point: Contextual transformer embeddings can handle many ambiguities better than static GloVe vectors.
+Key point: GloVe stands for Global Vectors for Word Representation.
+Key point: GloVe is a word-embedding technique.
+Key point: GloVe represents words as dense numerical vectors.
+Key point: GloVe learns representations from word co-occurrence statistics.
+Key point: Word co-occurrence measures how often words appear near one another.
+Key point: GloVe uses global statistics from a corpus.
+Key point: The method was designed to combine global statistics with vector representations.
+Key point: GloVe embeddings can capture semantic relationships.
+Key point: GloVe embeddings can also capture some syntactic relationships.
+Key point: Cosine similarity can be used to compare GloVe vectors.
+Key point: A co-occurrence matrix records relationships between words.
+Key point: Rows and columns of a co-occurrence matrix correspond to vocabulary terms.
+Key point: A matrix cell can contain a co-occurrence count.
+Key point: The definition of context window affects co-occurrence counts.
+Key point: Words appearing near each other contribute to co-occurrence statistics.
+Key point: Large corpora provide more statistical evidence.
+Key point: Rare words may have sparse co-occurrence information.
+Key point: Global statistics can capture broad corpus-level relationships.
+Key point: GloVe uses co-occurrence information during training.
+Key point: Co-occurrence statistics are not the same as sentence meaning.
+Key point: GloVe learns a vector representation for each vocabulary word.
+Key point: Training aims to preserve useful information from co-occurrence patterns.
+Key point: Vector dimensions are learned from the corpus.
+Key point: Common pre-trained GloVe models have different embedding sizes.
+Key point: Embedding size can be 50, 100, 200, or 300 dimensions in common releases.
+Key point: Different corpora produce different GloVe embeddings.
+Key point: Pre-trained embeddings can be reused in downstream NLP models.
+Key point: Embeddings can be fine-tuned or kept fixed depending on the application.
+Key point: Vector similarity can be measured mathematically.
+Key point: Similar contextual usage can lead to nearby vectors.
+Key point: GloVe uses global corpus-level co-occurrence information.
+Key point: GloVe can capture useful semantic associations.
+Key point: GloVe is computationally practical compared with many larger neural models.
+Key point: Pre-trained GloVe vectors can reduce training requirements.
+Key point: GloVe can provide strong baseline features for NLP tasks.
+Key point: GloVe vectors can be used with traditional machine-learning models.
+Key point: GloVe can represent vocabulary items in compact dense vectors.
+Key point: GloVe can support similarity search.
+Key point: GloVe can support clustering of related words.
+Key point: GloVe can support document-level NLP applications when combined with other representations.
+Key point: Traditional GloVe embeddings are static.
+Key point: A static embedding normally gives one vector to a word across contexts.
+Key point: Polysemous words can have multiple meanings but one traditional GloVe vector.
+Key point: Context is not dynamically represented for each occurrence.
+Key point: Unknown words can be a problem when they are absent from the vocabulary.
+Key point: Embedding quality depends on the training corpus.
+Key point: Corpus biases can be reflected in learned vectors.
+Key point: GloVe does not directly encode complete sentence structure.
+Key point: GloVe is not a complete language model.
+Key point: GloVe is not a complete question-answering system.
+Key point: GloVe can be used in text classification.
+Key point: GloVe can support sentiment analysis.
+Key point: GloVe can support document similarity.
+Key point: GloVe can support information retrieval.
+Key point: GloVe can support clustering.
+Key point: GloVe can support named entity recognition features.
+Key point: GloVe can support semantic search.
+Key point: GloVe can support question retrieval.
+Key point: GloVe can be used to initialize neural NLP models.
+Key point: GloVe can complement TF-IDF in hybrid retrieval systems.
+Key point: A question-answering system can convert question terms into GloVe vectors.
+Key point: Vector similarity can help retrieve semantically related documents.
+Key point: GloVe can help when a question and document use related words.
+Key point: Embedding similarity can complement exact keyword matching.
+Key point: TF-IDF and GloVe can provide different retrieval signals.
+Key point: GloVe can help represent technical NLP vocabulary.
+Key point: GloVe does not itself extract the final answer from a document.
+Key point: Answer extraction requires a separate model or rule-based step.
+Key point: Contextual transformer embeddings can handle many ambiguities better than static GloVe vectors.
+Key point: GloVe stands for Global Vectors for Word Representation.
+Key point: GloVe is a word-embedding technique.
+Key point: GloVe represents words as dense numerical vectors.
+Key point: GloVe learns representations from word co-occurrence statistics.
+Key point: Word co-occurrence measures how often words appear near one another.
+Key point: GloVe uses global statistics from a corpus.
+Key point: The method was designed to combine global statistics with vector representations.
+Key point: GloVe embeddings can capture semantic relationships.
+Key point: GloVe embeddings can also capture some syntactic relationships.
+Key point: Cosine similarity can be used to compare GloVe vectors.
+Key point: A co-occurrence matrix records relationships between words.
+Key point: Rows and columns of a co-occurrence matrix correspond to vocabulary terms.
+Key point: A matrix cell can contain a co-occurrence count.
+Key point: The definition of context window affects co-occurrence counts.
+Key point: Words appearing near each other contribute to co-occurrence statistics.
+Key point: Large corpora provide more statistical evidence.
+Key point: Rare words may have sparse co-occurrence information.
+Key point: Global statistics can capture broad corpus-level relationships.
+Key point: GloVe uses co-occurrence information during training.
+Key point: Co-occurrence statistics are not the same as sentence meaning.
+Key point: GloVe learns a vector representation for each vocabulary word.
+Key point: Training aims to preserve useful information from co-occurrence patterns.
+Key point: Vector dimensions are learned from the corpus.
+Key point: Common pre-trained GloVe models have different embedding sizes.
+Key point: Embedding size can be 50, 100, 200, or 300 dimensions in common releases.
+Key point: Different corpora produce different GloVe embeddings.
+Key point: Pre-trained embeddings can be reused in downstream NLP models.
+Key point: Embeddings can be fine-tuned or kept fixed depending on the application.
+Key point: Vector similarity can be measured mathematically.
+Key point: Similar contextual usage can lead to nearby vectors.
+Key point: GloVe uses global corpus-level co-occurrence information.
+Key point: GloVe can capture useful semantic associations.
+Key point: GloVe is computationally practical compared with many larger neural models.
+Key point: Pre-trained GloVe vectors can reduce training requirements.
+Key point: GloVe can provide strong baseline features for NLP tasks.
+Key point: GloVe vectors can be used with traditional machine-learning models.
+Key point: GloVe can represent vocabulary items in compact dense vectors.
+Key point: GloVe can support similarity search.
+Key point: GloVe can support clustering of related words.
+Key point: GloVe can support document-level NLP applications when combined with other representations.
+Key point: Traditional GloVe embeddings are static.
+Key point: A static embedding normally gives one vector to a word across contexts.
+Key point: Polysemous words can have multiple meanings but one traditional GloVe vector.
+Key point: Context is not dynamically represented for each occurrence.
+Key point: Unknown words can be a problem when they are absent from the vocabulary.
+Key point: Embedding quality depends on the training corpus.
+Key point: Corpus biases can be reflected in learned vectors.
+Key point: GloVe does not directly encode complete sentence structure.
+Key point: GloVe is not a complete language model.
+Key point: GloVe is not a complete question-answering system.
+Key point: GloVe can be used in text classification.
+Key point: GloVe can support sentiment analysis.
+Key point: GloVe can support document similarity.
+Key point: GloVe can support information retrieval.
+Key point: GloVe can support clustering.
+Key point: GloVe can support named entity recognition features.
+Key point: GloVe can support semantic search.
+Key point: GloVe can support question retrieval.
+Key point: GloVe can be used to initialize neural NLP models.
+Key point: GloVe can complement TF-IDF in hybrid retrieval systems.
+Key point: A question-answering system can convert question terms into GloVe vectors.
+Key point: Vector similarity can help retrieve semantically related documents.
+Key point: GloVe can help when a question and document use related words.
+Key point: Embedding similarity can complement exact keyword matching.
+Key point: TF-IDF and GloVe can provide different retrieval signals.
+Key point: GloVe can help represent technical NLP vocabulary.
+Key point: GloVe does not itself extract the final answer from a document.
+Key point: Answer extraction requires a separate model or rule-based step.
+Key point: Contextual transformer embeddings can handle many ambiguities better than static GloVe vectors.
+Key point: GloVe stands for Global Vectors for Word Representation.
+Key point: GloVe is a word-embedding technique.
+Key point: GloVe represents words as dense numerical vectors.
+Key point: GloVe learns representations from word co-occurrence statistics.
+Key point: Word co-occurrence measures how often words appear near one another.
+Key point: GloVe uses global statistics from a corpus.
+Key point: The method was designed to combine global statistics with vector representations.
+Key point: GloVe embeddings can capture semantic relationships.
+Key point: GloVe embeddings can also capture some syntactic relationships.
+Key point: Cosine similarity can be used to compare GloVe vectors.
+Key point: A co-occurrence matrix records relationships between words.
+Key point: Rows and columns of a co-occurrence matrix correspond to vocabulary terms.
+Key point: A matrix cell can contain a co-occurrence count.
+Key point: The definition of context window affects co-occurrence counts.
+Key point: Words appearing near each other contribute to co-occurrence statistics.
+Key point: Large corpora provide more statistical evidence.
+Key point: Rare words may have sparse co-occurrence information.
+Key point: Global statistics can capture broad corpus-level relationships.
+Key point: GloVe uses co-occurrence information during training.
+Key point: Co-occurrence statistics are not the same as sentence meaning.
+Key point: GloVe learns a vector representation for each vocabulary word.
+Key point: Training aims to preserve useful information from co-occurrence patterns.
+Key point: Vector dimensions are learned from the corpus.
+Key point: Common pre-trained GloVe models have different embedding sizes.
+Key point: Embedding size can be 50, 100, 200, or 300 dimensions in common releases.
+Key point: Different corpora produce different GloVe embeddings.
+Key point: Pre-trained embeddings can be reused in downstream NLP models.
+Key point: Embeddings can be fine-tuned or kept fixed depending on the application.
