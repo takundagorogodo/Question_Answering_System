@@ -1,0 +1,205 @@
+PART-OF-SPEECH TAGGING IN NLP
+
+1. Definition
+Part-of-Speech (POS) tagging assigns a grammatical category to each word or token.
+
+2. Common Categories
+- Noun
+- Verb
+- Adjective
+- Adverb
+- Pronoun
+- Preposition
+- Determiner
+- Conjunction
+- Interjection
+
+3. Purpose
+POS tagging helps identify the grammatical role of words.
+
+4. Example
+"The student reads a book."
+The → Determiner
+student → Noun
+reads → Verb
+a → Determiner
+book → Noun
+
+5. POS Tag
+A POS tag is the label assigned to a token.
+
+6. Context
+The same word can have different POS tags.
+"I book a ticket." → book = Verb.
+"I read a book." → book = Noun.
+
+7. Pipeline
+Text → Tokenization → POS Tagging → Tagged Tokens.
+
+8. Rule-Based POS Tagging
+Uses dictionaries and manually defined grammatical rules.
+
+9. Statistical POS Tagging
+Learns likely tag sequences from annotated training data.
+
+10. Machine Learning
+Models learn relationships between words, contexts, and POS labels.
+
+11. Traditional Sequence Models
+Hidden Markov Models and Conditional Random Fields have been used for POS tagging.
+
+12. Transformer POS Tagging
+A Transformer produces contextual representations that can be used to predict POS labels.
+
+Pipeline:
+Text → Tokenizer → Transformer → Contextual Representation → POS Classifier → Tags
+
+13. Contextual Representation
+A Transformer can represent the same word differently depending on surrounding words.
+
+14. Ambiguity
+POS tagging is difficult when a word can have multiple grammatical roles.
+Context helps resolve ambiguity.
+
+15. Unknown Words
+Unusual words can make tagging difficult.
+Subword tokenization and contextual models can help.
+
+16. POS + Lemmatization
+POS information helps select the correct lemma.
+leaves as noun → leaf.
+leaves as verb → leave.
+
+17. POS + Chunking
+POS tags help identify noun phrases and verb phrases.
+"The young student" → DET + ADJ + NOUN.
+
+18. POS + NER
+POS information can support Named Entity Recognition, although modern NER systems can learn contextual features directly.
+
+19. POS + Information Extraction
+POS tags can help identify nouns, verbs, descriptive words, and syntactic relationships.
+
+20. POS + Search
+POS-aware processing can support query and document analysis.
+
+21. POS + QA
+POS information can help analyze question structure.
+"What company developed the product?"
+What → question word.
+company → noun.
+developed → verb.
+product → noun.
+
+22. Question Words
+Who often asks for a person.
+Where often asks for a location.
+When often asks for a time or date.
+What can ask for an entity, object, or information.
+POS tagging alone does not determine answer type.
+
+23. POS + RAG
+Traditional retrieval systems may use POS for query analysis.
+Embedding-based RAG usually relies more on contextual embeddings.
+
+24. Universal POS Tags
+Universal POS tagging uses standardized broad grammatical categories across languages.
+
+25. Language-Specific Tags
+Detailed tagsets can encode more grammatical information.
+
+26. Fine-Grained Tags
+They may distinguish singular/plural, verb tense, person, and comparative/superlative forms.
+
+27. Coarse vs Fine-Grained
+Coarse tags use broad categories.
+Fine-grained tags contain more detailed grammatical distinctions.
+
+28. Proper Nouns
+Proper nouns represent specific people, organizations, places, or titles.
+Many tagsets use PROPN.
+
+29. Auxiliary Verbs
+Auxiliary verbs help express tense, aspect, mood, or voice.
+Examples: is, are, was, have, will.
+
+30. Pronouns
+Examples: he, she, it, they, we, you.
+Pronouns can be important for reference resolution.
+
+31. Determiners
+Examples: the, a, an, this, those.
+
+32. Adjectives
+Describe or modify nouns.
+Examples: large, technical, intelligent.
+
+33. Adverbs
+Modify verbs, adjectives, or other adverbs.
+Examples: quickly, very, carefully.
+
+34. Prepositions
+Express relationships such as location or direction.
+Examples: in, on, under, between, from, to.
+
+35. Conjunctions
+Connect words, phrases, or clauses.
+Examples: and, but, or, because.
+
+36. POS Errors
+Possible causes:
+- Ambiguous words
+- Complex syntax
+- Unknown vocabulary
+- Domain terminology
+- Spelling errors
+- Tokenization errors
+
+37. Domain-Specific Text
+Technical, scientific, medical, and legal text may require suitable training data or models.
+
+38. POS Evaluation
+Token-level accuracy can be used:
+Correct POS tags / Total POS tags.
+
+39. Error Analysis
+A confusion matrix can show which POS categories are commonly confused.
+
+40. Traditional NLP Pipeline
+Text → Tokenization → POS Tagging → Lemmatization → Feature Extraction → NLP Task.
+
+41. Modern Transformer Pipeline
+Text → Model Tokenizer → Transformer → Contextual Representation → Task Prediction.
+POS tagging can be an additional task rather than mandatory preprocessing.
+
+42. POS vs NER
+POS identifies grammatical category.
+NER identifies named-entity type.
+Example:
+Microsoft → PROPN in POS tagging.
+Microsoft → ORGANIZATION in NER.
+
+43. POS vs Chunking
+POS assigns labels to individual tokens.
+Chunking groups tokens into shallow syntactic phrases.
+
+44. POS vs Lemmatization
+POS identifies grammatical role.
+Lemmatization converts words to base forms.
+They often work together.
+
+45. Linguistic Analysis
+POS supports syntax analysis, grammar analysis, parsing, information extraction, and linguistic research.
+
+46. NLP Applications
+POS tagging can support search, QA, classification, information extraction, sentiment analysis, translation, and summarization.
+
+47. Limitations
+POS tagging identifies grammatical categories but does not provide complete semantic understanding.
+
+48. Final Summary
+POS tagging assigns grammatical categories to tokens.
+It is context-sensitive because words can have different roles in different sentences.
+POS information can support lemmatization, chunking, parsing, information extraction, and QA.
+Traditional systems use rules or statistical models; modern systems can use Transformers.
+POS tagging is different from NER, stemming, and lemmatization.
