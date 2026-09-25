@@ -1,3 +1,102 @@
-Lemmatization
+Lemmatizatio
+1. Definition
+Lemmatization converts a word into its base or dictionary form, called a lemma.
 
-Lemmatization is the process of reducing a word to its base dictionary form called a lemma. Unlike stemming which chops endings crudely, lemmatization uses vocabulary and morphological analysis. For example, the words "running", "ran", and "runs" all lemmatize to "run", and "better" lemmatizes to "good". It is used in NLP to normalize text so that different forms of the same word are treated as the same token, improving search and analysis.
+Examples:
+running → run
+studies → study
+went → go
+children → child
+mice → mouse
+
+2. Purpose
+It reduces different grammatical forms to a common meaningful base form.
+
+3. Basic Process
+Word → Morphological/POS Analysis → Lemma.
+
+4. Lemma
+A lemma is the canonical dictionary form.
+am, is, are → be
+went → go
+cars → car
+
+5. Morphological Information
+Lemmatization may use word form, part of speech, tense, number, and other grammatical information.
+
+6. POS Information
+POS information can help select the correct lemma.
+leaves as noun → leaf
+leaves as verb → leave
+
+7. Lemmatization vs Stemming
+Stemming uses heuristic rules to shorten word forms.
+Lemmatization uses linguistic information and aims to produce a dictionary form.
+
+8. Pipeline
+Text → Tokenization → POS/Morphological Analysis → Lemmatization → Normalized Tokens.
+
+9. Dictionary-Based Lemmatization
+A lemmatizer can use dictionaries mapping word forms to lemmas.
+
+10. Rule-Based Lemmatization
+Rules can transform inflected forms into base forms.
+
+11. Morphological Lemmatization
+A morphological analyzer can determine word structure and grammatical form before finding the lemma.
+
+12. Applications
+Lemmatization can support information retrieval, search, text classification, linguistic analysis, and text normalization.
+
+13. Search
+Query: run.
+Document: running.
+Lemmatization can normalize both to a common form and improve lexical matching.
+
+14. Information Retrieval
+It reduces variation caused by grammatical forms.
+
+15. Text Classification
+It can reduce vocabulary variation in traditional feature-based models.
+
+16. Modern Transformers
+Many Transformer systems use subword tokenization and contextual representations.
+Explicit lemmatization may be unnecessary for many modern tasks.
+
+17. Advantages
+- Produces meaningful base words.
+- Uses linguistic information.
+- Reduces word-form variation.
+- Can improve traditional retrieval and preprocessing.
+
+18. Limitations
+- More involved than simple stemming.
+- Requires linguistic resources or models.
+- Accuracy depends on POS and morphology.
+- Language-specific resources may be required.
+
+19. Language Dependence
+Quality varies by language because languages have different morphological systems.
+
+20. Ambiguity
+The same surface form can have different lemmas depending on context.
+
+21. POS + Lemmatization
+A common pipeline is:
+Tokenization → POS Tagging → Lemmatization.
+
+22. Lemmatization in RAG
+Traditional lexical retrieval can use lemmatization.
+Embedding-based retrieval often handles many word-form variations without explicit lemmatization.
+
+23. Quality Factors
+Quality depends on language, morphological resources, POS information, context, and implementation.
+
+24. When to Use
+Useful for classical NLP, search, rule-based systems, linguistic analysis, and feature-based machine learning.
+
+25. Final Summary
+Lemmatization converts words into linguistically meaningful dictionary forms.
+It differs from stemming because it uses linguistic information and aims for valid lemmas.
+It can reduce vocabulary variation and improve traditional retrieval.
+Its usefulness in Transformer systems depends on the task and model.
