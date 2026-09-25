@@ -1,0 +1,320 @@
+BAG OF WORDS AND TF-IDF
+
+BAG OF WORDS
+Bag of Words is commonly abbreviated as BoW.
+BoW is a text representation method.
+BoW converts text into numerical feature vectors.
+BoW creates a vocabulary from a collection of documents.
+Each vocabulary term can become one vector dimension.
+A document is represented using counts or binary indicators.
+Count-based BoW records how many times a word occurs.
+Binary BoW records whether a word occurs.
+BoW usually ignores word order.
+BoW therefore loses some syntactic information.
+BoW is simple to implement.
+BoW is easy to interpret.
+BoW is often used as a baseline text representation.
+
+BOW EXAMPLE
+If the vocabulary is ['nlp', 'language', 'model'], each document has three features.
+A document containing 'nlp language language' has counts 1, 2, and 0.
+The vector length equals the vocabulary size.
+Words absent from a document receive zero in a count vector.
+Repeated words increase their count.
+Vocabulary construction should be consistent between training and testing.
+Unknown words may be ignored or mapped to a special token.
+Stop-word removal may reduce the vocabulary.
+Lowercasing can merge words such as 'NLP' and 'nlp' if appropriate.
+Stemming or lemmatization can also reduce vocabulary size.
+
+BOW LIMITATIONS
+BoW ignores the order of words.
+'Dog bites man' and 'man bites dog' can receive identical word counts.
+BoW does not directly encode word meaning.
+Synonyms can be represented as separate features.
+Polysemous words are not disambiguated by basic BoW.
+Large vocabularies create high-dimensional vectors.
+BoW vectors are usually sparse.
+Sparse vectors contain many zero values.
+Large sparse matrices can require efficient storage.
+BoW can still perform well on many classification and retrieval tasks.
+
+TF-IDF
+TF-IDF stands for Term Frequency-Inverse Document Frequency.
+TF-IDF assigns a weight to a term in a document.
+Term Frequency measures how often a term occurs in a document.
+Inverse Document Frequency measures how rare a term is across documents.
+TF-IDF is commonly calculated as TF multiplied by IDF.
+A term frequent in one document can receive a high TF.
+A term appearing in many documents receives a lower IDF.
+A term appearing in few documents receives a higher IDF.
+Common words often receive lower TF-IDF weights.
+Domain-specific terms can receive higher weights when they are uncommon.
+
+TF FORMULAS AND INTUITION
+A simple TF formula divides term count by document length.
+IDF is commonly based on the total number of documents.
+Document frequency is the number of documents containing the term.
+The logarithm in IDF reduces the scale of frequency differences.
+Different software libraries can use slightly different TF-IDF formulas.
+Some implementations smooth the IDF calculation.
+TF-IDF is not a probability.
+TF-IDF is a feature weight.
+TF-IDF values depend on the document collection.
+Adding documents can change IDF values.
+
+SIMILARITY AND RETRIEVAL
+Cosine similarity is commonly used with TF-IDF vectors.
+Cosine similarity compares the orientation of two vectors.
+A higher cosine similarity generally indicates greater vector similarity.
+TF-IDF can rank documents for a search query.
+A query can be converted into the same vector space as documents.
+Documents sharing important terms with a query can receive higher scores.
+TF-IDF retrieval is lexical rather than deeply semantic.
+Synonyms may not match if their words are different.
+TF-IDF can be combined with other retrieval signals.
+TF-IDF is useful for small and medium educational knowledge bases.
+
+QUESTION ANSWERING
+BoW can provide a simple baseline for question retrieval.
+TF-IDF can identify documents containing important question terms.
+A question can be compared with stored NLP explanations.
+High-weight technical terms can help retrieve relevant content.
+Candidate paragraphs can be ranked using cosine similarity.
+NER can be combined with TF-IDF to improve query understanding.
+N-grams can be combined with TF-IDF to preserve some phrase information.
+Word embeddings can complement TF-IDF by adding semantic similarity.
+A hybrid retriever can combine lexical and semantic scores.
+TF-IDF does not generate an answer by itself.
+
+Key point: Bag of Words is commonly abbreviated as BoW.
+Key point: BoW is a text representation method.
+Key point: BoW converts text into numerical feature vectors.
+Key point: BoW creates a vocabulary from a collection of documents.
+Key point: Each vocabulary term can become one vector dimension.
+Key point: A document is represented using counts or binary indicators.
+Key point: Count-based BoW records how many times a word occurs.
+Key point: Binary BoW records whether a word occurs.
+Key point: BoW usually ignores word order.
+Key point: BoW therefore loses some syntactic information.
+Key point: BoW is simple to implement.
+Key point: BoW is easy to interpret.
+Key point: BoW is often used as a baseline text representation.
+Key point: If the vocabulary is ['nlp', 'language', 'model'], each document has three features.
+Key point: A document containing 'nlp language language' has counts 1, 2, and 0.
+Key point: The vector length equals the vocabulary size.
+Key point: Words absent from a document receive zero in a count vector.
+Key point: Repeated words increase their count.
+Key point: Vocabulary construction should be consistent between training and testing.
+Key point: Unknown words may be ignored or mapped to a special token.
+Key point: Stop-word removal may reduce the vocabulary.
+Key point: Lowercasing can merge words such as 'NLP' and 'nlp' if appropriate.
+Key point: Stemming or lemmatization can also reduce vocabulary size.
+Key point: BoW ignores the order of words.
+Key point: 'Dog bites man' and 'man bites dog' can receive identical word counts.
+Key point: BoW does not directly encode word meaning.
+Key point: Synonyms can be represented as separate features.
+Key point: Polysemous words are not disambiguated by basic BoW.
+Key point: Large vocabularies create high-dimensional vectors.
+Key point: BoW vectors are usually sparse.
+Key point: Sparse vectors contain many zero values.
+Key point: Large sparse matrices can require efficient storage.
+Key point: BoW can still perform well on many classification and retrieval tasks.
+Key point: TF-IDF stands for Term Frequency-Inverse Document Frequency.
+Key point: TF-IDF assigns a weight to a term in a document.
+Key point: Term Frequency measures how often a term occurs in a document.
+Key point: Inverse Document Frequency measures how rare a term is across documents.
+Key point: TF-IDF is commonly calculated as TF multiplied by IDF.
+Key point: A term frequent in one document can receive a high TF.
+Key point: A term appearing in many documents receives a lower IDF.
+Key point: A term appearing in few documents receives a higher IDF.
+Key point: Common words often receive lower TF-IDF weights.
+Key point: Domain-specific terms can receive higher weights when they are uncommon.
+Key point: A simple TF formula divides term count by document length.
+Key point: IDF is commonly based on the total number of documents.
+Key point: Document frequency is the number of documents containing the term.
+Key point: The logarithm in IDF reduces the scale of frequency differences.
+Key point: Different software libraries can use slightly different TF-IDF formulas.
+Key point: Some implementations smooth the IDF calculation.
+Key point: TF-IDF is not a probability.
+Key point: TF-IDF is a feature weight.
+Key point: TF-IDF values depend on the document collection.
+Key point: Adding documents can change IDF values.
+Key point: Cosine similarity is commonly used with TF-IDF vectors.
+Key point: Cosine similarity compares the orientation of two vectors.
+Key point: A higher cosine similarity generally indicates greater vector similarity.
+Key point: TF-IDF can rank documents for a search query.
+Key point: A query can be converted into the same vector space as documents.
+Key point: Documents sharing important terms with a query can receive higher scores.
+Key point: TF-IDF retrieval is lexical rather than deeply semantic.
+Key point: Synonyms may not match if their words are different.
+Key point: TF-IDF can be combined with other retrieval signals.
+Key point: TF-IDF is useful for small and medium educational knowledge bases.
+Key point: BoW can provide a simple baseline for question retrieval.
+Key point: TF-IDF can identify documents containing important question terms.
+Key point: A question can be compared with stored NLP explanations.
+Key point: High-weight technical terms can help retrieve relevant content.
+Key point: Candidate paragraphs can be ranked using cosine similarity.
+Key point: NER can be combined with TF-IDF to improve query understanding.
+Key point: N-grams can be combined with TF-IDF to preserve some phrase information.
+Key point: Word embeddings can complement TF-IDF by adding semantic similarity.
+Key point: A hybrid retriever can combine lexical and semantic scores.
+Key point: TF-IDF does not generate an answer by itself.
+Key point: Bag of Words is commonly abbreviated as BoW.
+Key point: BoW is a text representation method.
+Key point: BoW converts text into numerical feature vectors.
+Key point: BoW creates a vocabulary from a collection of documents.
+Key point: Each vocabulary term can become one vector dimension.
+Key point: A document is represented using counts or binary indicators.
+Key point: Count-based BoW records how many times a word occurs.
+Key point: Binary BoW records whether a word occurs.
+Key point: BoW usually ignores word order.
+Key point: BoW therefore loses some syntactic information.
+Key point: BoW is simple to implement.
+Key point: BoW is easy to interpret.
+Key point: BoW is often used as a baseline text representation.
+Key point: If the vocabulary is ['nlp', 'language', 'model'], each document has three features.
+Key point: A document containing 'nlp language language' has counts 1, 2, and 0.
+Key point: The vector length equals the vocabulary size.
+Key point: Words absent from a document receive zero in a count vector.
+Key point: Repeated words increase their count.
+Key point: Vocabulary construction should be consistent between training and testing.
+Key point: Unknown words may be ignored or mapped to a special token.
+Key point: Stop-word removal may reduce the vocabulary.
+Key point: Lowercasing can merge words such as 'NLP' and 'nlp' if appropriate.
+Key point: Stemming or lemmatization can also reduce vocabulary size.
+Key point: BoW ignores the order of words.
+Key point: 'Dog bites man' and 'man bites dog' can receive identical word counts.
+Key point: BoW does not directly encode word meaning.
+Key point: Synonyms can be represented as separate features.
+Key point: Polysemous words are not disambiguated by basic BoW.
+Key point: Large vocabularies create high-dimensional vectors.
+Key point: BoW vectors are usually sparse.
+Key point: Sparse vectors contain many zero values.
+Key point: Large sparse matrices can require efficient storage.
+Key point: BoW can still perform well on many classification and retrieval tasks.
+Key point: TF-IDF stands for Term Frequency-Inverse Document Frequency.
+Key point: TF-IDF assigns a weight to a term in a document.
+Key point: Term Frequency measures how often a term occurs in a document.
+Key point: Inverse Document Frequency measures how rare a term is across documents.
+Key point: TF-IDF is commonly calculated as TF multiplied by IDF.
+Key point: A term frequent in one document can receive a high TF.
+Key point: A term appearing in many documents receives a lower IDF.
+Key point: A term appearing in few documents receives a higher IDF.
+Key point: Common words often receive lower TF-IDF weights.
+Key point: Domain-specific terms can receive higher weights when they are uncommon.
+Key point: A simple TF formula divides term count by document length.
+Key point: IDF is commonly based on the total number of documents.
+Key point: Document frequency is the number of documents containing the term.
+Key point: The logarithm in IDF reduces the scale of frequency differences.
+Key point: Different software libraries can use slightly different TF-IDF formulas.
+Key point: Some implementations smooth the IDF calculation.
+Key point: TF-IDF is not a probability.
+Key point: TF-IDF is a feature weight.
+Key point: TF-IDF values depend on the document collection.
+Key point: Adding documents can change IDF values.
+Key point: Cosine similarity is commonly used with TF-IDF vectors.
+Key point: Cosine similarity compares the orientation of two vectors.
+Key point: A higher cosine similarity generally indicates greater vector similarity.
+Key point: TF-IDF can rank documents for a search query.
+Key point: A query can be converted into the same vector space as documents.
+Key point: Documents sharing important terms with a query can receive higher scores.
+Key point: TF-IDF retrieval is lexical rather than deeply semantic.
+Key point: Synonyms may not match if their words are different.
+Key point: TF-IDF can be combined with other retrieval signals.
+Key point: TF-IDF is useful for small and medium educational knowledge bases.
+Key point: BoW can provide a simple baseline for question retrieval.
+Key point: TF-IDF can identify documents containing important question terms.
+Key point: A question can be compared with stored NLP explanations.
+Key point: High-weight technical terms can help retrieve relevant content.
+Key point: Candidate paragraphs can be ranked using cosine similarity.
+Key point: NER can be combined with TF-IDF to improve query understanding.
+Key point: N-grams can be combined with TF-IDF to preserve some phrase information.
+Key point: Word embeddings can complement TF-IDF by adding semantic similarity.
+Key point: A hybrid retriever can combine lexical and semantic scores.
+Key point: TF-IDF does not generate an answer by itself.
+Key point: Bag of Words is commonly abbreviated as BoW.
+Key point: BoW is a text representation method.
+Key point: BoW converts text into numerical feature vectors.
+Key point: BoW creates a vocabulary from a collection of documents.
+Key point: Each vocabulary term can become one vector dimension.
+Key point: A document is represented using counts or binary indicators.
+Key point: Count-based BoW records how many times a word occurs.
+Key point: Binary BoW records whether a word occurs.
+Key point: BoW usually ignores word order.
+Key point: BoW therefore loses some syntactic information.
+Key point: BoW is simple to implement.
+Key point: BoW is easy to interpret.
+Key point: BoW is often used as a baseline text representation.
+Key point: If the vocabulary is ['nlp', 'language', 'model'], each document has three features.
+Key point: A document containing 'nlp language language' has counts 1, 2, and 0.
+Key point: The vector length equals the vocabulary size.
+Key point: Words absent from a document receive zero in a count vector.
+Key point: Repeated words increase their count.
+Key point: Vocabulary construction should be consistent between training and testing.
+Key point: Unknown words may be ignored or mapped to a special token.
+Key point: Stop-word removal may reduce the vocabulary.
+Key point: Lowercasing can merge words such as 'NLP' and 'nlp' if appropriate.
+Key point: Stemming or lemmatization can also reduce vocabulary size.
+Key point: BoW ignores the order of words.
+Key point: 'Dog bites man' and 'man bites dog' can receive identical word counts.
+Key point: BoW does not directly encode word meaning.
+Key point: Synonyms can be represented as separate features.
+Key point: Polysemous words are not disambiguated by basic BoW.
+Key point: Large vocabularies create high-dimensional vectors.
+Key point: BoW vectors are usually sparse.
+Key point: Sparse vectors contain many zero values.
+Key point: Large sparse matrices can require efficient storage.
+Key point: BoW can still perform well on many classification and retrieval tasks.
+Key point: TF-IDF stands for Term Frequency-Inverse Document Frequency.
+Key point: TF-IDF assigns a weight to a term in a document.
+Key point: Term Frequency measures how often a term occurs in a document.
+Key point: Inverse Document Frequency measures how rare a term is across documents.
+Key point: TF-IDF is commonly calculated as TF multiplied by IDF.
+Key point: A term frequent in one document can receive a high TF.
+Key point: A term appearing in many documents receives a lower IDF.
+Key point: A term appearing in few documents receives a higher IDF.
+Key point: Common words often receive lower TF-IDF weights.
+Key point: Domain-specific terms can receive higher weights when they are uncommon.
+Key point: A simple TF formula divides term count by document length.
+Key point: IDF is commonly based on the total number of documents.
+Key point: Document frequency is the number of documents containing the term.
+Key point: The logarithm in IDF reduces the scale of frequency differences.
+Key point: Different software libraries can use slightly different TF-IDF formulas.
+Key point: Some implementations smooth the IDF calculation.
+Key point: TF-IDF is not a probability.
+Key point: TF-IDF is a feature weight.
+Key point: TF-IDF values depend on the document collection.
+Key point: Adding documents can change IDF values.
+Key point: Cosine similarity is commonly used with TF-IDF vectors.
+Key point: Cosine similarity compares the orientation of two vectors.
+Key point: A higher cosine similarity generally indicates greater vector similarity.
+Key point: TF-IDF can rank documents for a search query.
+Key point: A query can be converted into the same vector space as documents.
+Key point: Documents sharing important terms with a query can receive higher scores.
+Key point: TF-IDF retrieval is lexical rather than deeply semantic.
+Key point: Synonyms may not match if their words are different.
+Key point: TF-IDF can be combined with other retrieval signals.
+Key point: TF-IDF is useful for small and medium educational knowledge bases.
+Key point: BoW can provide a simple baseline for question retrieval.
+Key point: TF-IDF can identify documents containing important question terms.
+Key point: A question can be compared with stored NLP explanations.
+Key point: High-weight technical terms can help retrieve relevant content.
+Key point: Candidate paragraphs can be ranked using cosine similarity.
+Key point: NER can be combined with TF-IDF to improve query understanding.
+Key point: N-grams can be combined with TF-IDF to preserve some phrase information.
+Key point: Word embeddings can complement TF-IDF by adding semantic similarity.
+Key point: A hybrid retriever can combine lexical and semantic scores.
+Key point: TF-IDF does not generate an answer by itself.
+Key point: Bag of Words is commonly abbreviated as BoW.
+Key point: BoW is a text representation method.
+Key point: BoW converts text into numerical feature vectors.
+Key point: BoW creates a vocabulary from a collection of documents.
+Key point: Each vocabulary term can become one vector dimension.
+Key point: A document is represented using counts or binary indicators.
+Key point: Count-based BoW records how many times a word occurs.
+Key point: Binary BoW records whether a word occurs.
+Key point: BoW usually ignores word order.
+Key point: BoW therefore loses some syntactic information.
+Key point: BoW is simple to implement.
+Key point: BoW is easy to interpret.
