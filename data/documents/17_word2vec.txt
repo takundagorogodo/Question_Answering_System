@@ -1,0 +1,320 @@
+WORD2VEC
+
+DEFINITION
+Word2Vec is a word-embedding technique.
+Word2Vec represents words as dense numerical vectors.
+Word2Vec learns vectors from word-context relationships.
+The distributional hypothesis motivates Word2Vec.
+The distributional hypothesis says that similar contexts indicate related meanings.
+Word2Vec was developed by researchers at Google.
+Word2Vec became an influential method in NLP.
+Word vectors can be compared using cosine similarity.
+Similar words can occupy nearby regions in embedding space.
+Word2Vec learns representations from a training corpus.
+Embedding dimensions are learned rather than manually assigned.
+
+CBOW
+CBOW stands for Continuous Bag of Words.
+CBOW predicts a target word from surrounding context words.
+Context words are used as input in the CBOW architecture.
+The target word is the prediction output.
+CBOW can train efficiently on large corpora.
+CBOW often performs well for frequent words.
+Window size controls how much surrounding context is used.
+Larger windows can capture broader topical relationships.
+Smaller windows can capture more local syntactic relationships.
+CBOW learns word representations during prediction training.
+
+SKIP-GRAM
+Skip-gram predicts surrounding context words from a target word.
+Skip-gram reverses the prediction direction used by CBOW.
+The target word is provided as input.
+Nearby context words become prediction targets.
+Skip-gram can work well for less frequent words.
+Negative sampling can make Skip-gram training more efficient.
+Hierarchical softmax is another training option.
+Context-window size affects the learned representations.
+Training examples are created from word-context pairs.
+Word2Vec does not require manually created semantic labels.
+
+EMBEDDINGS AND RELATIONSHIPS
+A Word2Vec embedding is a dense vector.
+Dense vectors usually have many non-zero values.
+Vector distance can indicate contextual similarity.
+Cosine similarity is commonly used to compare word embeddings.
+Vector arithmetic can sometimes reflect learned semantic relationships.
+Embedding relationships are statistical rather than guaranteed logical rules.
+The quality of relationships depends on the training corpus.
+A domain-specific corpus can produce domain-specific representations.
+Different Word2Vec models can assign different vectors to the same word.
+Embedding dimensions do not necessarily have human-readable meanings.
+
+LIMITATIONS
+Traditional Word2Vec assigns one main vector to each vocabulary word.
+One vector creates difficulty for words with multiple meanings.
+The word 'bank' can have financial and geographical meanings.
+Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
+Word2Vec has an out-of-vocabulary problem for unseen words.
+Training data influences embedding quality.
+Corpus bias can appear in learned vectors.
+Word2Vec does not directly represent complete sentence meaning.
+Word2Vec is not a question-answering model by itself.
+Modern contextual transformer models can represent context more dynamically.
+
+APPLICATIONS
+Word2Vec can support document similarity.
+Word2Vec can support text classification.
+Word2Vec can support information retrieval.
+Word2Vec can support recommendation systems.
+Word2Vec can support clustering.
+Word2Vec can support sentiment analysis.
+Word2Vec can support named entity recognition features.
+Word2Vec can support question retrieval.
+Word2Vec can provide semantic features to machine-learning models.
+Word2Vec can help match related terms in an NLP knowledge base.
+
+QUESTION ANSWERING
+A question-answering system can represent query words with embeddings.
+Embedding similarity can help find related knowledge-base terms.
+Word2Vec can identify contextual relationships between technical words.
+A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
+Word2Vec retrieval can complement lexical retrieval.
+Embedding-based retrieval can reduce dependence on exact word matching.
+Word2Vec does not determine whether a retrieved answer is factually correct.
+Answer extraction requires additional processing.
+Modern systems often use contextual embeddings for advanced question answering.
+
+Key point: Word2Vec is a word-embedding technique.
+Key point: Word2Vec represents words as dense numerical vectors.
+Key point: Word2Vec learns vectors from word-context relationships.
+Key point: The distributional hypothesis motivates Word2Vec.
+Key point: The distributional hypothesis says that similar contexts indicate related meanings.
+Key point: Word2Vec was developed by researchers at Google.
+Key point: Word2Vec became an influential method in NLP.
+Key point: Word vectors can be compared using cosine similarity.
+Key point: Similar words can occupy nearby regions in embedding space.
+Key point: Word2Vec learns representations from a training corpus.
+Key point: Embedding dimensions are learned rather than manually assigned.
+Key point: CBOW stands for Continuous Bag of Words.
+Key point: CBOW predicts a target word from surrounding context words.
+Key point: Context words are used as input in the CBOW architecture.
+Key point: The target word is the prediction output.
+Key point: CBOW can train efficiently on large corpora.
+Key point: CBOW often performs well for frequent words.
+Key point: Window size controls how much surrounding context is used.
+Key point: Larger windows can capture broader topical relationships.
+Key point: Smaller windows can capture more local syntactic relationships.
+Key point: CBOW learns word representations during prediction training.
+Key point: Skip-gram predicts surrounding context words from a target word.
+Key point: Skip-gram reverses the prediction direction used by CBOW.
+Key point: The target word is provided as input.
+Key point: Nearby context words become prediction targets.
+Key point: Skip-gram can work well for less frequent words.
+Key point: Negative sampling can make Skip-gram training more efficient.
+Key point: Hierarchical softmax is another training option.
+Key point: Context-window size affects the learned representations.
+Key point: Training examples are created from word-context pairs.
+Key point: Word2Vec does not require manually created semantic labels.
+Key point: A Word2Vec embedding is a dense vector.
+Key point: Dense vectors usually have many non-zero values.
+Key point: Vector distance can indicate contextual similarity.
+Key point: Cosine similarity is commonly used to compare word embeddings.
+Key point: Vector arithmetic can sometimes reflect learned semantic relationships.
+Key point: Embedding relationships are statistical rather than guaranteed logical rules.
+Key point: The quality of relationships depends on the training corpus.
+Key point: A domain-specific corpus can produce domain-specific representations.
+Key point: Different Word2Vec models can assign different vectors to the same word.
+Key point: Embedding dimensions do not necessarily have human-readable meanings.
+Key point: Traditional Word2Vec assigns one main vector to each vocabulary word.
+Key point: One vector creates difficulty for words with multiple meanings.
+Key point: The word 'bank' can have financial and geographical meanings.
+Key point: Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
+Key point: Word2Vec has an out-of-vocabulary problem for unseen words.
+Key point: Training data influences embedding quality.
+Key point: Corpus bias can appear in learned vectors.
+Key point: Word2Vec does not directly represent complete sentence meaning.
+Key point: Word2Vec is not a question-answering model by itself.
+Key point: Modern contextual transformer models can represent context more dynamically.
+Key point: Word2Vec can support document similarity.
+Key point: Word2Vec can support text classification.
+Key point: Word2Vec can support information retrieval.
+Key point: Word2Vec can support recommendation systems.
+Key point: Word2Vec can support clustering.
+Key point: Word2Vec can support sentiment analysis.
+Key point: Word2Vec can support named entity recognition features.
+Key point: Word2Vec can support question retrieval.
+Key point: Word2Vec can provide semantic features to machine-learning models.
+Key point: Word2Vec can help match related terms in an NLP knowledge base.
+Key point: A question-answering system can represent query words with embeddings.
+Key point: Embedding similarity can help find related knowledge-base terms.
+Key point: Word2Vec can identify contextual relationships between technical words.
+Key point: A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
+Key point: Word2Vec retrieval can complement lexical retrieval.
+Key point: Embedding-based retrieval can reduce dependence on exact word matching.
+Key point: Word2Vec does not determine whether a retrieved answer is factually correct.
+Key point: Answer extraction requires additional processing.
+Key point: Modern systems often use contextual embeddings for advanced question answering.
+Key point: Word2Vec is a word-embedding technique.
+Key point: Word2Vec represents words as dense numerical vectors.
+Key point: Word2Vec learns vectors from word-context relationships.
+Key point: The distributional hypothesis motivates Word2Vec.
+Key point: The distributional hypothesis says that similar contexts indicate related meanings.
+Key point: Word2Vec was developed by researchers at Google.
+Key point: Word2Vec became an influential method in NLP.
+Key point: Word vectors can be compared using cosine similarity.
+Key point: Similar words can occupy nearby regions in embedding space.
+Key point: Word2Vec learns representations from a training corpus.
+Key point: Embedding dimensions are learned rather than manually assigned.
+Key point: CBOW stands for Continuous Bag of Words.
+Key point: CBOW predicts a target word from surrounding context words.
+Key point: Context words are used as input in the CBOW architecture.
+Key point: The target word is the prediction output.
+Key point: CBOW can train efficiently on large corpora.
+Key point: CBOW often performs well for frequent words.
+Key point: Window size controls how much surrounding context is used.
+Key point: Larger windows can capture broader topical relationships.
+Key point: Smaller windows can capture more local syntactic relationships.
+Key point: CBOW learns word representations during prediction training.
+Key point: Skip-gram predicts surrounding context words from a target word.
+Key point: Skip-gram reverses the prediction direction used by CBOW.
+Key point: The target word is provided as input.
+Key point: Nearby context words become prediction targets.
+Key point: Skip-gram can work well for less frequent words.
+Key point: Negative sampling can make Skip-gram training more efficient.
+Key point: Hierarchical softmax is another training option.
+Key point: Context-window size affects the learned representations.
+Key point: Training examples are created from word-context pairs.
+Key point: Word2Vec does not require manually created semantic labels.
+Key point: A Word2Vec embedding is a dense vector.
+Key point: Dense vectors usually have many non-zero values.
+Key point: Vector distance can indicate contextual similarity.
+Key point: Cosine similarity is commonly used to compare word embeddings.
+Key point: Vector arithmetic can sometimes reflect learned semantic relationships.
+Key point: Embedding relationships are statistical rather than guaranteed logical rules.
+Key point: The quality of relationships depends on the training corpus.
+Key point: A domain-specific corpus can produce domain-specific representations.
+Key point: Different Word2Vec models can assign different vectors to the same word.
+Key point: Embedding dimensions do not necessarily have human-readable meanings.
+Key point: Traditional Word2Vec assigns one main vector to each vocabulary word.
+Key point: One vector creates difficulty for words with multiple meanings.
+Key point: The word 'bank' can have financial and geographical meanings.
+Key point: Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
+Key point: Word2Vec has an out-of-vocabulary problem for unseen words.
+Key point: Training data influences embedding quality.
+Key point: Corpus bias can appear in learned vectors.
+Key point: Word2Vec does not directly represent complete sentence meaning.
+Key point: Word2Vec is not a question-answering model by itself.
+Key point: Modern contextual transformer models can represent context more dynamically.
+Key point: Word2Vec can support document similarity.
+Key point: Word2Vec can support text classification.
+Key point: Word2Vec can support information retrieval.
+Key point: Word2Vec can support recommendation systems.
+Key point: Word2Vec can support clustering.
+Key point: Word2Vec can support sentiment analysis.
+Key point: Word2Vec can support named entity recognition features.
+Key point: Word2Vec can support question retrieval.
+Key point: Word2Vec can provide semantic features to machine-learning models.
+Key point: Word2Vec can help match related terms in an NLP knowledge base.
+Key point: A question-answering system can represent query words with embeddings.
+Key point: Embedding similarity can help find related knowledge-base terms.
+Key point: Word2Vec can identify contextual relationships between technical words.
+Key point: A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
+Key point: Word2Vec retrieval can complement lexical retrieval.
+Key point: Embedding-based retrieval can reduce dependence on exact word matching.
+Key point: Word2Vec does not determine whether a retrieved answer is factually correct.
+Key point: Answer extraction requires additional processing.
+Key point: Modern systems often use contextual embeddings for advanced question answering.
+Key point: Word2Vec is a word-embedding technique.
+Key point: Word2Vec represents words as dense numerical vectors.
+Key point: Word2Vec learns vectors from word-context relationships.
+Key point: The distributional hypothesis motivates Word2Vec.
+Key point: The distributional hypothesis says that similar contexts indicate related meanings.
+Key point: Word2Vec was developed by researchers at Google.
+Key point: Word2Vec became an influential method in NLP.
+Key point: Word vectors can be compared using cosine similarity.
+Key point: Similar words can occupy nearby regions in embedding space.
+Key point: Word2Vec learns representations from a training corpus.
+Key point: Embedding dimensions are learned rather than manually assigned.
+Key point: CBOW stands for Continuous Bag of Words.
+Key point: CBOW predicts a target word from surrounding context words.
+Key point: Context words are used as input in the CBOW architecture.
+Key point: The target word is the prediction output.
+Key point: CBOW can train efficiently on large corpora.
+Key point: CBOW often performs well for frequent words.
+Key point: Window size controls how much surrounding context is used.
+Key point: Larger windows can capture broader topical relationships.
+Key point: Smaller windows can capture more local syntactic relationships.
+Key point: CBOW learns word representations during prediction training.
+Key point: Skip-gram predicts surrounding context words from a target word.
+Key point: Skip-gram reverses the prediction direction used by CBOW.
+Key point: The target word is provided as input.
+Key point: Nearby context words become prediction targets.
+Key point: Skip-gram can work well for less frequent words.
+Key point: Negative sampling can make Skip-gram training more efficient.
+Key point: Hierarchical softmax is another training option.
+Key point: Context-window size affects the learned representations.
+Key point: Training examples are created from word-context pairs.
+Key point: Word2Vec does not require manually created semantic labels.
+Key point: A Word2Vec embedding is a dense vector.
+Key point: Dense vectors usually have many non-zero values.
+Key point: Vector distance can indicate contextual similarity.
+Key point: Cosine similarity is commonly used to compare word embeddings.
+Key point: Vector arithmetic can sometimes reflect learned semantic relationships.
+Key point: Embedding relationships are statistical rather than guaranteed logical rules.
+Key point: The quality of relationships depends on the training corpus.
+Key point: A domain-specific corpus can produce domain-specific representations.
+Key point: Different Word2Vec models can assign different vectors to the same word.
+Key point: Embedding dimensions do not necessarily have human-readable meanings.
+Key point: Traditional Word2Vec assigns one main vector to each vocabulary word.
+Key point: One vector creates difficulty for words with multiple meanings.
+Key point: The word 'bank' can have financial and geographical meanings.
+Key point: Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
+Key point: Word2Vec has an out-of-vocabulary problem for unseen words.
+Key point: Training data influences embedding quality.
+Key point: Corpus bias can appear in learned vectors.
+Key point: Word2Vec does not directly represent complete sentence meaning.
+Key point: Word2Vec is not a question-answering model by itself.
+Key point: Modern contextual transformer models can represent context more dynamically.
+Key point: Word2Vec can support document similarity.
+Key point: Word2Vec can support text classification.
+Key point: Word2Vec can support information retrieval.
+Key point: Word2Vec can support recommendation systems.
+Key point: Word2Vec can support clustering.
+Key point: Word2Vec can support sentiment analysis.
+Key point: Word2Vec can support named entity recognition features.
+Key point: Word2Vec can support question retrieval.
+Key point: Word2Vec can provide semantic features to machine-learning models.
+Key point: Word2Vec can help match related terms in an NLP knowledge base.
+Key point: A question-answering system can represent query words with embeddings.
+Key point: Embedding similarity can help find related knowledge-base terms.
+Key point: Word2Vec can identify contextual relationships between technical words.
+Key point: A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
+Key point: Word2Vec retrieval can complement lexical retrieval.
+Key point: Embedding-based retrieval can reduce dependence on exact word matching.
+Key point: Word2Vec does not determine whether a retrieved answer is factually correct.
+Key point: Answer extraction requires additional processing.
+Key point: Modern systems often use contextual embeddings for advanced question answering.
+Key point: Word2Vec is a word-embedding technique.
+Key point: Word2Vec represents words as dense numerical vectors.
+Key point: Word2Vec learns vectors from word-context relationships.
+Key point: The distributional hypothesis motivates Word2Vec.
+Key point: The distributional hypothesis says that similar contexts indicate related meanings.
+Key point: Word2Vec was developed by researchers at Google.
+Key point: Word2Vec became an influential method in NLP.
+Key point: Word vectors can be compared using cosine similarity.
+Key point: Similar words can occupy nearby regions in embedding space.
+Key point: Word2Vec learns representations from a training corpus.
+Key point: Embedding dimensions are learned rather than manually assigned.
+Key point: CBOW stands for Continuous Bag of Words.
+Key point: CBOW predicts a target word from surrounding context words.
+Key point: Context words are used as input in the CBOW architecture.
+Key point: The target word is the prediction output.
+Key point: CBOW can train efficiently on large corpora.
+Key point: CBOW often performs well for frequent words.
+Key point: Window size controls how much surrounding context is used.
+Key point: Larger windows can capture broader topical relationships.
+Key point: Smaller windows can capture more local syntactic relationships.
+Key point: CBOW learns word representations during prediction training.
+Key point: Skip-gram predicts surrounding context words from a target word.
+Key point: Skip-gram reverses the prediction direction used by CBOW.
+Key point: The target word is provided as input.
