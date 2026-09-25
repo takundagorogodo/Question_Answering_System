@@ -1,0 +1,104 @@
+
+1. Definition
+Stemming reduces words to a common stem using heuristic or rule-based transformations.
+
+2. Purpose
+It groups related word forms for matching or analysis.
+Example:
+playing, played, plays → play
+
+3. Basic Process
+Word → Stemming Rules → Stem.
+
+4. Stem
+A stem is the normalized form produced by a stemmer.
+It does not necessarily have to be a valid dictionary word.
+
+5. Stemming vs Lemmatization
+Stemming:
+- Usually heuristic.
+- Usually faster.
+- May produce non-words.
+- Does not require complete linguistic analysis.
+
+Lemmatization:
+- Uses linguistic information.
+- Aims to produce a dictionary lemma.
+- Can be more computationally involved.
+
+6. Simple Stemming
+Common suffixes such as -ing, -ed, and -s may be removed.
+playing → play
+played → play
+
+7. Rule-Based Stemming
+A stemmer applies predefined transformations to word endings.
+
+8. Porter Stemmer
+Porter is a well-known English stemming algorithm using suffix-reduction rules.
+
+9. Snowball
+Snowball is a framework containing stemming algorithms for multiple languages.
+
+10. Lancaster
+Lancaster is an aggressive stemming algorithm that can reduce words strongly.
+
+11. Over-Stemming
+Unrelated words are reduced to the same stem, creating false matches.
+
+12. Under-Stemming
+Related words remain different, causing missed matches.
+
+13. Information Retrieval
+Stemming can improve lexical search by matching different forms of a word.
+
+14. Search Pipeline
+Query → Tokenization → Stemming → Search.
+Documents → Tokenization → Stemming → Index.
+
+15. Text Classification
+Stemming can reduce vocabulary size and feature variation in traditional machine-learning systems.
+
+16. Traditional Preprocessing
+Tokenization → Lowercasing → Stop-word Processing → Stemming → Feature Extraction.
+
+17. Advantages
+- Simple.
+- Fast.
+- Reduces vocabulary variation.
+- Useful for keyword search.
+- Can reduce feature space.
+
+18. Limitations
+- Can produce non-words.
+- Can over-stem.
+- Can under-stem.
+- Provides limited linguistic information.
+- Requires language-specific algorithms.
+
+19. Stemming Is Not Semantic Understanding
+Stemming normalizes word forms.
+It does not determine whether two words have the same meaning.
+
+20. Language Dependence
+Stemming rules depend on the language's morphology.
+
+21. Modern NLP
+Transformer models commonly use subword tokenization.
+Explicit stemming is often unnecessary for modern neural NLP.
+
+22. Stemming in RAG
+Lexical retrieval may benefit from stemming.
+Embedding retrieval can often handle morphological variation through semantic representations.
+
+23. Evaluation
+Possible measures include search precision, search recall, vocabulary reduction, false matches, and missed matches.
+
+24. Choosing a Stemmer
+Consider language, desired aggressiveness, search requirements, precision/recall needs, and application.
+
+25. Final Summary
+Stemming reduces words to approximate common stems.
+It is useful in traditional search and text processing.
+Its main risks are over-stemming and under-stemming.
+Modern Transformer systems often use subword tokenization instead.
