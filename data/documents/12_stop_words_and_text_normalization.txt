@@ -1,0 +1,137 @@
+TOP WORDS AND TEXT NORMALIZATION
+
+1. Text Normalization
+Text normalization converts text into a more consistent representation before NLP processing.
+
+2. Common Operations
+- Lowercasing
+- Whitespace normalization
+- Punctuation handling
+- Unicode normalization
+- Spelling normalization
+- Stop-word processing
+- Stemming
+- Lemmatization
+
+3. Purpose
+Normalization can reduce unnecessary variation, improve matching, standardize input, and reduce feature space in traditional NLP.
+
+4. Lowercasing
+Natural Language Processing → natural language processing.
+Case can carry information, so lowercasing should be task-dependent.
+
+5. Whitespace Normalization
+Repeated whitespace can be reduced.
+"natural   language" → "natural language"
+
+6. Punctuation
+Punctuation may be removed, preserved, or standardized depending on the task.
+
+7. Unicode Normalization
+Different Unicode representations can be standardized.
+
+8. Spelling Normalization
+Spelling variants can sometimes be standardized.
+colour ↔ color.
+The policy depends on language and application.
+
+9. Stop Words
+Stop words are frequent words that may provide limited value for some traditional retrieval tasks.
+Examples: the, a, an, is, of, to, in.
+
+10. Stop-Word Removal
+Selected words are removed.
+"The cat is on the mat" → "cat mat"
+
+11. Why Remove Stop Words
+In some traditional systems, frequent function words increase index or feature size without adding much topical information.
+
+12. Stop Words Can Matter
+They can be important for negation, sentiment, syntax, QA, and phrase meaning.
+
+13. Negation
+Removing "not" can change meaning.
+"I am happy" and "I am not happy" have opposite meanings.
+
+14. Modern NLP
+Transformer models generally do not require aggressive stop-word removal.
+Function words can contribute to contextual meaning.
+
+15. Search
+Traditional search may remove stop words to reduce index size.
+Modern search systems may preserve them depending on retrieval design.
+
+16. Stop-Word Lists
+A stop-word list is a predefined collection selected for a particular task or language.
+
+17. Language Dependence
+Stop-word lists are language-specific.
+
+18. Domain Dependence
+A word common in general language may be important in a specialized domain.
+Stop-word decisions should consider the application.
+
+19. Tokenization
+A common flow is:
+Raw Text → Normalization → Tokenization → NLP Processing.
+The exact order can vary.
+
+20. Information Retrieval
+Normalization can improve matching between queries and documents.
+"Computer Networks" and "computer networks" can match after case normalization.
+
+21. Traditional NLP
+Classical machine-learning pipelines often use normalization to reduce vocabulary variation.
+
+22. Transformer Pipelines
+Modern Transformers use model-specific tokenizers.
+External preprocessing should not remove information expected by the model.
+
+23. Text Cleaning
+Cleaning may include removing unwanted HTML, fixing encoding, normalizing whitespace, removing artifacts, and standardizing text.
+
+24. Special Characters
+Special characters can be meaningful in code, mathematics, URLs, and technical documents.
+They should not be removed blindly.
+
+25. Numbers
+Numbers can be important in QA and should not be removed when they contain facts.
+
+26. Text Normalization in QA
+Normalization can improve retrieval but must preserve names, numbers, negation, technical terms, and other evidence.
+
+27. Text Normalization in RAG
+Possible pipeline:
+Documents → Light Cleaning → Chunking → Embeddings → Vector Search → Context → Transformer.
+
+28. Embeddings
+Embedding models often handle natural language variation without aggressive manual normalization.
+
+29. Risks of Over-Normalization
+It can remove useful context, change meaning, remove negation, destroy formatting, remove numbers or names, and harm retrieval.
+
+30. Safe Normalization
+Normalize unnecessary variation while preserving information relevant to the task.
+
+31. Stop Words + Lemmatization
+Tokenization → Stop-word Processing → Lemmatization.
+
+32. Stop Words + Stemming
+Tokenization → Stop-word Processing → Stemming → Indexing.
+
+33. Source Preservation
+For QA systems, preserve original text and source metadata.
+A normalized representation can be stored separately.
+
+34. Evaluation
+Test whether normalization improves retrieval precision, retrieval recall, QA accuracy, search quality, or classification performance.
+
+35. Task-Specific Design
+There is no universally correct normalization pipeline.
+Choices depend on language, model, domain, and task.
+
+36. Final Summary
+Text normalization standardizes input.
+Stop-word removal can reduce feature size in traditional NLP but may remove important meaning.
+Modern Transformers often need less manual preprocessing.
+For QA and RAG, preserve facts, names, numbers, negation, and evidence needed for accurate retrieval and generation.
