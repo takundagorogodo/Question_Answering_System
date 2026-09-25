@@ -1,0 +1,320 @@
+FASTTEXT
+
+DEFINITION
+fastText is a method and library for text representation and classification.
+fastText was developed by Facebook AI Research.
+fastText can learn word embeddings.
+fastText uses subword information.
+Subword information is represented using character n-grams.
+Character n-grams are sequences of characters.
+Subword modeling helps connect related word forms.
+fastText can represent rare words more effectively than purely word-level methods.
+fastText can construct representations using parts of a word.
+fastText is useful for text classification.
+
+CHARACTER N-GRAMS
+A character n-gram contains a sequence of n characters.
+Character n-grams can capture prefixes and suffixes.
+Character n-grams can capture parts of word stems.
+The exact n-grams depend on the selected settings.
+Boundary markers can be used when constructing subword representations.
+Related words can share character n-grams.
+Words such as 'play', 'played', and 'playing' share useful character patterns.
+Shared subwords allow information to transfer between related words.
+Subword representations can help with morphology.
+Subword modeling is useful for languages with many word forms.
+
+RARE AND UNSEEN WORDS
+Whole-word embedding methods can struggle with rare words.
+fastText can use character components for rare words.
+A rare word may share subwords with common words.
+Subword information can provide a useful representation for some unseen words.
+fastText does not guarantee a meaningful representation for every arbitrary string.
+Spelling errors can still be difficult to interpret correctly.
+Completely unfamiliar character patterns may provide little useful information.
+Subword modeling reduces but does not eliminate vocabulary problems.
+fastText is useful when vocabulary variation is high.
+fastText can be valuable for morphologically rich languages.
+
+TRAINING
+fastText word embeddings use a training approach related to Skip-gram.
+Training learns relationships between words and their contexts.
+Subword vectors contribute to word representations.
+The final word representation combines information from subword components.
+Training data influences the quality of the embeddings.
+Large and representative corpora generally provide more statistical evidence.
+Embedding dimensions are configurable.
+Window size influences contextual information.
+Training parameters affect speed and quality.
+Pre-trained fastText vectors can be reused in downstream applications.
+
+TEXT CLASSIFICATION
+fastText is known for efficient text classification.
+Text classification assigns labels to documents or sentences.
+Examples include sentiment classification and topic classification.
+fastText can classify large collections efficiently.
+Classification requires labeled training examples.
+The quality of classification depends on the training data.
+Subword features can help classification with spelling variation.
+Language identification is another possible application.
+fastText can be used for simple and scalable NLP pipelines.
+fastText classification is different from generative question answering.
+
+APPLICATIONS
+fastText can support text classification.
+fastText can support sentiment analysis.
+fastText can support language identification.
+fastText can support document similarity.
+fastText can support information retrieval.
+fastText can support semantic search.
+fastText can provide features for question retrieval.
+fastText can help process rare technical terms.
+fastText can support multilingual NLP applications.
+fastText can be useful in resource-constrained NLP systems.
+
+LIMITATIONS
+fastText word representations are not fully contextual.
+A word can have different meanings in different sentences.
+Static representations can struggle with polysemy.
+Character n-grams do not automatically provide sentence-level reasoning.
+fastText does not inherently understand factual truth.
+fastText does not generate complete answers by itself.
+Model quality depends on corpus coverage.
+Training data can contain unwanted biases.
+Subword features can be less useful for arbitrary identifiers or random strings.
+Modern transformer models provide stronger contextual representations for many advanced tasks.
+
+QUESTION ANSWERING
+fastText can help represent questions and knowledge-base documents.
+Subword features can help match related word forms.
+A query can be compared with stored text using embedding similarity.
+fastText can complement TF-IDF retrieval.
+fastText can complement named entity recognition.
+fastText can help retrieve documents containing morphological variants.
+Retrieval and answer generation are separate stages.
+fastText alone does not verify whether an answer is correct.
+A question-answering system can combine fastText with rules or neural models.
+
+Key point: fastText is a method and library for text representation and classification.
+Key point: fastText was developed by Facebook AI Research.
+Key point: fastText can learn word embeddings.
+Key point: fastText uses subword information.
+Key point: Subword information is represented using character n-grams.
+Key point: Character n-grams are sequences of characters.
+Key point: Subword modeling helps connect related word forms.
+Key point: fastText can represent rare words more effectively than purely word-level methods.
+Key point: fastText can construct representations using parts of a word.
+Key point: fastText is useful for text classification.
+Key point: A character n-gram contains a sequence of n characters.
+Key point: Character n-grams can capture prefixes and suffixes.
+Key point: Character n-grams can capture parts of word stems.
+Key point: The exact n-grams depend on the selected settings.
+Key point: Boundary markers can be used when constructing subword representations.
+Key point: Related words can share character n-grams.
+Key point: Words such as 'play', 'played', and 'playing' share useful character patterns.
+Key point: Shared subwords allow information to transfer between related words.
+Key point: Subword representations can help with morphology.
+Key point: Subword modeling is useful for languages with many word forms.
+Key point: Whole-word embedding methods can struggle with rare words.
+Key point: fastText can use character components for rare words.
+Key point: A rare word may share subwords with common words.
+Key point: Subword information can provide a useful representation for some unseen words.
+Key point: fastText does not guarantee a meaningful representation for every arbitrary string.
+Key point: Spelling errors can still be difficult to interpret correctly.
+Key point: Completely unfamiliar character patterns may provide little useful information.
+Key point: Subword modeling reduces but does not eliminate vocabulary problems.
+Key point: fastText is useful when vocabulary variation is high.
+Key point: fastText can be valuable for morphologically rich languages.
+Key point: fastText word embeddings use a training approach related to Skip-gram.
+Key point: Training learns relationships between words and their contexts.
+Key point: Subword vectors contribute to word representations.
+Key point: The final word representation combines information from subword components.
+Key point: Training data influences the quality of the embeddings.
+Key point: Large and representative corpora generally provide more statistical evidence.
+Key point: Embedding dimensions are configurable.
+Key point: Window size influences contextual information.
+Key point: Training parameters affect speed and quality.
+Key point: Pre-trained fastText vectors can be reused in downstream applications.
+Key point: fastText is known for efficient text classification.
+Key point: Text classification assigns labels to documents or sentences.
+Key point: Examples include sentiment classification and topic classification.
+Key point: fastText can classify large collections efficiently.
+Key point: Classification requires labeled training examples.
+Key point: The quality of classification depends on the training data.
+Key point: Subword features can help classification with spelling variation.
+Key point: Language identification is another possible application.
+Key point: fastText can be used for simple and scalable NLP pipelines.
+Key point: fastText classification is different from generative question answering.
+Key point: fastText can support text classification.
+Key point: fastText can support sentiment analysis.
+Key point: fastText can support language identification.
+Key point: fastText can support document similarity.
+Key point: fastText can support information retrieval.
+Key point: fastText can support semantic search.
+Key point: fastText can provide features for question retrieval.
+Key point: fastText can help process rare technical terms.
+Key point: fastText can support multilingual NLP applications.
+Key point: fastText can be useful in resource-constrained NLP systems.
+Key point: fastText word representations are not fully contextual.
+Key point: A word can have different meanings in different sentences.
+Key point: Static representations can struggle with polysemy.
+Key point: Character n-grams do not automatically provide sentence-level reasoning.
+Key point: fastText does not inherently understand factual truth.
+Key point: fastText does not generate complete answers by itself.
+Key point: Model quality depends on corpus coverage.
+Key point: Training data can contain unwanted biases.
+Key point: Subword features can be less useful for arbitrary identifiers or random strings.
+Key point: Modern transformer models provide stronger contextual representations for many advanced tasks.
+Key point: fastText can help represent questions and knowledge-base documents.
+Key point: Subword features can help match related word forms.
+Key point: A query can be compared with stored text using embedding similarity.
+Key point: fastText can complement TF-IDF retrieval.
+Key point: fastText can complement named entity recognition.
+Key point: fastText can help retrieve documents containing morphological variants.
+Key point: Retrieval and answer generation are separate stages.
+Key point: fastText alone does not verify whether an answer is correct.
+Key point: A question-answering system can combine fastText with rules or neural models.
+Key point: fastText is a method and library for text representation and classification.
+Key point: fastText was developed by Facebook AI Research.
+Key point: fastText can learn word embeddings.
+Key point: fastText uses subword information.
+Key point: Subword information is represented using character n-grams.
+Key point: Character n-grams are sequences of characters.
+Key point: Subword modeling helps connect related word forms.
+Key point: fastText can represent rare words more effectively than purely word-level methods.
+Key point: fastText can construct representations using parts of a word.
+Key point: fastText is useful for text classification.
+Key point: A character n-gram contains a sequence of n characters.
+Key point: Character n-grams can capture prefixes and suffixes.
+Key point: Character n-grams can capture parts of word stems.
+Key point: The exact n-grams depend on the selected settings.
+Key point: Boundary markers can be used when constructing subword representations.
+Key point: Related words can share character n-grams.
+Key point: Words such as 'play', 'played', and 'playing' share useful character patterns.
+Key point: Shared subwords allow information to transfer between related words.
+Key point: Subword representations can help with morphology.
+Key point: Subword modeling is useful for languages with many word forms.
+Key point: Whole-word embedding methods can struggle with rare words.
+Key point: fastText can use character components for rare words.
+Key point: A rare word may share subwords with common words.
+Key point: Subword information can provide a useful representation for some unseen words.
+Key point: fastText does not guarantee a meaningful representation for every arbitrary string.
+Key point: Spelling errors can still be difficult to interpret correctly.
+Key point: Completely unfamiliar character patterns may provide little useful information.
+Key point: Subword modeling reduces but does not eliminate vocabulary problems.
+Key point: fastText is useful when vocabulary variation is high.
+Key point: fastText can be valuable for morphologically rich languages.
+Key point: fastText word embeddings use a training approach related to Skip-gram.
+Key point: Training learns relationships between words and their contexts.
+Key point: Subword vectors contribute to word representations.
+Key point: The final word representation combines information from subword components.
+Key point: Training data influences the quality of the embeddings.
+Key point: Large and representative corpora generally provide more statistical evidence.
+Key point: Embedding dimensions are configurable.
+Key point: Window size influences contextual information.
+Key point: Training parameters affect speed and quality.
+Key point: Pre-trained fastText vectors can be reused in downstream applications.
+Key point: fastText is known for efficient text classification.
+Key point: Text classification assigns labels to documents or sentences.
+Key point: Examples include sentiment classification and topic classification.
+Key point: fastText can classify large collections efficiently.
+Key point: Classification requires labeled training examples.
+Key point: The quality of classification depends on the training data.
+Key point: Subword features can help classification with spelling variation.
+Key point: Language identification is another possible application.
+Key point: fastText can be used for simple and scalable NLP pipelines.
+Key point: fastText classification is different from generative question answering.
+Key point: fastText can support text classification.
+Key point: fastText can support sentiment analysis.
+Key point: fastText can support language identification.
+Key point: fastText can support document similarity.
+Key point: fastText can support information retrieval.
+Key point: fastText can support semantic search.
+Key point: fastText can provide features for question retrieval.
+Key point: fastText can help process rare technical terms.
+Key point: fastText can support multilingual NLP applications.
+Key point: fastText can be useful in resource-constrained NLP systems.
+Key point: fastText word representations are not fully contextual.
+Key point: A word can have different meanings in different sentences.
+Key point: Static representations can struggle with polysemy.
+Key point: Character n-grams do not automatically provide sentence-level reasoning.
+Key point: fastText does not inherently understand factual truth.
+Key point: fastText does not generate complete answers by itself.
+Key point: Model quality depends on corpus coverage.
+Key point: Training data can contain unwanted biases.
+Key point: Subword features can be less useful for arbitrary identifiers or random strings.
+Key point: Modern transformer models provide stronger contextual representations for many advanced tasks.
+Key point: fastText can help represent questions and knowledge-base documents.
+Key point: Subword features can help match related word forms.
+Key point: A query can be compared with stored text using embedding similarity.
+Key point: fastText can complement TF-IDF retrieval.
+Key point: fastText can complement named entity recognition.
+Key point: fastText can help retrieve documents containing morphological variants.
+Key point: Retrieval and answer generation are separate stages.
+Key point: fastText alone does not verify whether an answer is correct.
+Key point: A question-answering system can combine fastText with rules or neural models.
+Key point: fastText is a method and library for text representation and classification.
+Key point: fastText was developed by Facebook AI Research.
+Key point: fastText can learn word embeddings.
+Key point: fastText uses subword information.
+Key point: Subword information is represented using character n-grams.
+Key point: Character n-grams are sequences of characters.
+Key point: Subword modeling helps connect related word forms.
+Key point: fastText can represent rare words more effectively than purely word-level methods.
+Key point: fastText can construct representations using parts of a word.
+Key point: fastText is useful for text classification.
+Key point: A character n-gram contains a sequence of n characters.
+Key point: Character n-grams can capture prefixes and suffixes.
+Key point: Character n-grams can capture parts of word stems.
+Key point: The exact n-grams depend on the selected settings.
+Key point: Boundary markers can be used when constructing subword representations.
+Key point: Related words can share character n-grams.
+Key point: Words such as 'play', 'played', and 'playing' share useful character patterns.
+Key point: Shared subwords allow information to transfer between related words.
+Key point: Subword representations can help with morphology.
+Key point: Subword modeling is useful for languages with many word forms.
+Key point: Whole-word embedding methods can struggle with rare words.
+Key point: fastText can use character components for rare words.
+Key point: A rare word may share subwords with common words.
+Key point: Subword information can provide a useful representation for some unseen words.
+Key point: fastText does not guarantee a meaningful representation for every arbitrary string.
+Key point: Spelling errors can still be difficult to interpret correctly.
+Key point: Completely unfamiliar character patterns may provide little useful information.
+Key point: Subword modeling reduces but does not eliminate vocabulary problems.
+Key point: fastText is useful when vocabulary variation is high.
+Key point: fastText can be valuable for morphologically rich languages.
+Key point: fastText word embeddings use a training approach related to Skip-gram.
+Key point: Training learns relationships between words and their contexts.
+Key point: Subword vectors contribute to word representations.
+Key point: The final word representation combines information from subword components.
+Key point: Training data influences the quality of the embeddings.
+Key point: Large and representative corpora generally provide more statistical evidence.
+Key point: Embedding dimensions are configurable.
+Key point: Window size influences contextual information.
+Key point: Training parameters affect speed and quality.
+Key point: Pre-trained fastText vectors can be reused in downstream applications.
+Key point: fastText is known for efficient text classification.
+Key point: Text classification assigns labels to documents or sentences.
+Key point: Examples include sentiment classification and topic classification.
+Key point: fastText can classify large collections efficiently.
+Key point: Classification requires labeled training examples.
+Key point: The quality of classification depends on the training data.
+Key point: Subword features can help classification with spelling variation.
+Key point: Language identification is another possible application.
+Key point: fastText can be used for simple and scalable NLP pipelines.
+Key point: fastText classification is different from generative question answering.
+Key point: fastText can support text classification.
+Key point: fastText can support sentiment analysis.
+Key point: fastText can support language identification.
+Key point: fastText can support document similarity.
+Key point: fastText can support information retrieval.
+Key point: fastText can support semantic search.
+Key point: fastText can provide features for question retrieval.
+Key point: fastText can help process rare technical terms.
+Key point: fastText can support multilingual NLP applications.
+Key point: fastText can be useful in resource-constrained NLP systems.
+Key point: fastText word representations are not fully contextual.
+Key point: A word can have different meanings in different sentences.
+Key point: Static representations can struggle with polysemy.
+Key point: Character n-grams do not automatically provide sentence-level reasoning.
+Key point: fastText does not inherently understand factual truth.
