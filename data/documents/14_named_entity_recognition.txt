@@ -1,320 +1,320 @@
-ORD2VEC
+NAMED ENTITY RECOGNITION
 
-DEFINITION
-Word2Vec is a word-embedding technique.
-Word2Vec represents words as dense numerical vectors.
-Word2Vec learns vectors from word-context relationships.
-The distributional hypothesis motivates Word2Vec.
-The distributional hypothesis says that similar contexts indicate related meanings.
-Word2Vec was developed by researchers at Google.
-Word2Vec became an influential method in NLP.
-Word vectors can be compared using cosine similarity.
-Similar words can occupy nearby regions in embedding space.
-Word2Vec learns representations from a training corpus.
-Embedding dimensions are learned rather than manually assigned.
+DEFINITION AND PURPOSE
+Named Entity Recognition is commonly abbreviated as NER.
+NER is an information-extraction task in Natural Language Processing.
+NER identifies spans of text that refer to meaningful real-world entities.
+NER assigns a category or label to a recognized entity.
+NER converts part of unstructured text into structured information.
+An entity may be a person, organization, place, date, product, or event.
+NER can also identify quantities, money values, percentages, and times.
+NER helps a computer determine which words carry entity-level meaning.
+NER is different from ordinary keyword extraction.
+NER is also different from part-of-speech tagging.
+Keyword extraction finds important terms without necessarily assigning entity types.
+Part-of-speech tagging identifies grammatical categories such as noun and verb.
+NER focuses on semantic entity categories.
+NER is useful in search systems and information retrieval.
+NER is useful in document analysis.
+NER is useful in question-answering systems.
+NER is useful in chatbots and conversational systems.
+NER is useful in news and media analysis.
+NER is useful in domain-specific information extraction.
+NER can reduce the amount of unstructured text that downstream systems must process.
 
-CBOW
-CBOW stands for Continuous Bag of Words.
-CBOW predicts a target word from surrounding context words.
-Context words are used as input in the CBOW architecture.
-The target word is the prediction output.
-CBOW can train efficiently on large corpora.
-CBOW often performs well for frequent words.
-Window size controls how much surrounding context is used.
-Larger windows can capture broader topical relationships.
-Smaller windows can capture more local syntactic relationships.
-CBOW learns word representations during prediction training.
+COMMON ENTITY TYPES
+PERSON is a common NER label for names of people.
+ORGANIZATION is a common NER label for companies and institutions.
+LOCATION is commonly used for geographical places.
+GPE can represent geopolitical entities such as countries and cities.
+DATE identifies calendar dates or date expressions.
+TIME identifies expressions referring to time.
+MONEY identifies monetary values.
+PERCENT identifies percentage expressions.
+PRODUCT can identify named products.
+EVENT can identify named events.
+FACILITY can identify certain constructed locations.
+WORK_OF_ART can identify titles of creative works in some datasets.
+LAW can identify named laws in some annotation schemes.
+LANGUAGE can identify language names in some datasets.
+CARDINAL can identify numerical quantities in some tag sets.
+ORDINAL can identify ordered numerical expressions.
+QUANTITY can identify measurements and quantities.
+NORP can identify nationalities, religious groups, or political groups in some datasets.
+Entity labels depend on the dataset and annotation guidelines.
+The same entity may receive different labels in different NER datasets.
 
-SKIP-GRAM
-Skip-gram predicts surrounding context words from a target word.
-Skip-gram reverses the prediction direction used by CBOW.
-The target word is provided as input.
-Nearby context words become prediction targets.
-Skip-gram can work well for less frequent words.
-Negative sampling can make Skip-gram training more efficient.
-Hierarchical softmax is another training option.
-Context-window size affects the learned representations.
-Training examples are created from word-context pairs.
-Word2Vec does not require manually created semantic labels.
+EXAMPLES
+In the sentence 'Ravi studies at Aditya University', Ravi can be labeled PERSON.
+In the same sentence, Aditya University can be labeled ORGANIZATION.
+In 'India is a country', India can be labeled GPE or LOCATION.
+In 'The exam is on Monday', Monday can be labeled DATE.
+In 'The meeting starts at 10 AM', 10 AM can be labeled TIME.
+In 'The phone costs 50000 rupees', the amount can be labeled MONEY.
+In 'The discount is 20 percent', 20 percent can be labeled PERCENT.
+In 'Microsoft released a product', Microsoft can be labeled ORGANIZATION.
+In 'Paris is in France', Paris and France are geographical entities.
+In 'Dr. Rao visited Hyderabad', Dr. Rao can be a PERSON entity.
+Entity boundaries are important in NER.
+Multiword entities often require several tokens to be grouped together.
+New York can be represented as one location entity.
+Natural Language Processing can be treated as a phrase rather than a named entity depending on context.
+Context helps distinguish ambiguous words.
+Apple can refer to a company or a fruit.
+The correct entity label for Apple depends on its context.
+Washington can refer to a person, state, or place depending on context.
+NER systems therefore need contextual information.
 
-EMBEDDINGS AND RELATIONSHIPS
-A Word2Vec embedding is a dense vector.
-Dense vectors usually have many non-zero values.
-Vector distance can indicate contextual similarity.
-Cosine similarity is commonly used to compare word embeddings.
-Vector arithmetic can sometimes reflect learned semantic relationships.
-Embedding relationships are statistical rather than guaranteed logical rules.
-The quality of relationships depends on the training corpus.
-A domain-specific corpus can produce domain-specific representations.
-Different Word2Vec models can assign different vectors to the same word.
-Embedding dimensions do not necessarily have human-readable meanings.
+BIO TAGGING
+BIO is a common token-level scheme for representing entity spans.
+B means the beginning of an entity.
+I means a token is inside an entity.
+O means the token is outside a named entity.
+A multiword entity usually begins with a B tag.
+Following tokens of the same entity can receive I tags.
+Tokens unrelated to entities receive O tags.
+BIO tagging preserves entity boundaries.
+BIO tagging can represent adjacent entities.
+For 'New York', New can receive B-LOCATION and York can receive I-LOCATION.
+For 'John Smith', John can receive B-PERSON and Smith can receive I-PERSON.
+BIO tags are often written as B-PERSON, I-PERSON, and O.
+BIO is also called IOB in some NLP literature.
+Other tagging schemes include BILOU and BIOES.
+Different schemes provide different ways to represent single-token entities.
+Training data must follow a consistent tagging scheme.
+Incorrect boundaries can reduce NER performance.
+Entity spans are often evaluated using exact matching.
+Token-level evaluation and entity-level evaluation can produce different results.
 
-LIMITATIONS
-Traditional Word2Vec assigns one main vector to each vocabulary word.
-One vector creates difficulty for words with multiple meanings.
-The word 'bank' can have financial and geographical meanings.
-Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
-Word2Vec has an out-of-vocabulary problem for unseen words.
-Training data influences embedding quality.
-Corpus bias can appear in learned vectors.
-Word2Vec does not directly represent complete sentence meaning.
-Word2Vec is not a question-answering model by itself.
-Modern contextual transformer models can represent context more dynamically.
+NER METHODS AND MODELS
+Early NER systems often used manually written rules.
+Gazetteers are lists of known entity names.
+Gazetteers can help recognize organizations, locations, and people.
+Rule-based NER can work well in restricted domains.
+Rule-based systems can require substantial manual maintenance.
+Statistical NER systems learn patterns from annotated training data.
+Hidden Markov Models were used in earlier sequence-labeling systems.
+Maximum Entropy models have also been used for NER.
+Conditional Random Fields are a classic statistical sequence model for NER.
+CRFs model relationships between neighboring output labels.
+Neural networks are widely used for modern NER.
+Recurrent neural networks can model sequential context.
+BiLSTM models can process context in both directions.
+Character representations can help handle spelling and morphology.
+Transformer models provide contextual representations.
+BERT can be fine-tuned for NER.
+Modern transformer NER systems can use contextual token representations.
+Pre-trained language models can reduce the amount of task-specific training required.
+Domain-specific fine-tuning can improve recognition in specialized text.
+NER quality depends on training data, labels, domain, and model design.
+
+NER WORKFLOW
+A typical NER workflow begins with raw text.
+Text may be normalized before entity recognition.
+Tokenization divides text into tokens.
+The NER model processes token or subword representations.
+The model predicts an entity label for each relevant token.
+Predicted token labels are combined into entity spans.
+Post-processing may normalize recognized entities.
+Recognized entities can be stored in structured records.
+Structured entities can be passed to search or question-answering modules.
+NER can be combined with relation extraction.
+Relation extraction can identify relationships between recognized entities.
+Entity linking can connect a recognized mention to a knowledge-base entry.
+Coreference resolution can connect different mentions of the same entity.
+NER is often one stage in a larger information-extraction pipeline.
 
 APPLICATIONS
-Word2Vec can support document similarity.
-Word2Vec can support text classification.
-Word2Vec can support information retrieval.
-Word2Vec can support recommendation systems.
-Word2Vec can support clustering.
-Word2Vec can support sentiment analysis.
-Word2Vec can support named entity recognition features.
-Word2Vec can support question retrieval.
-Word2Vec can provide semantic features to machine-learning models.
-Word2Vec can help match related terms in an NLP knowledge base.
+Search engines can use NER to interpret named entities in queries.
+Question-answering systems can use NER to identify the subject of a question.
+NER can help locate a requested person in a knowledge base.
+NER can help identify dates when answering historical questions.
+NER can help distinguish organizations from locations.
+News systems can extract people and organizations from articles.
+Customer-support systems can extract product names from user messages.
+Financial systems can recognize companies and monetary values.
+Medical systems can recognize diseases and medicines when trained for that domain.
+Legal NLP systems can identify laws, courts, organizations, and dates.
+Social-media analysis can identify people, brands, places, and events.
+NER can support document indexing.
+NER can improve faceted search.
+NER can support automatic metadata generation.
+NER can assist knowledge-graph construction.
 
-QUESTION ANSWERING
-A question-answering system can represent query words with embeddings.
-Embedding similarity can help find related knowledge-base terms.
-Word2Vec can identify contextual relationships between technical words.
-A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
-Word2Vec retrieval can complement lexical retrieval.
-Embedding-based retrieval can reduce dependence on exact word matching.
-Word2Vec does not determine whether a retrieved answer is factually correct.
-Answer extraction requires additional processing.
-Modern systems often use contextual embeddings for advanced question answering.
+LIMITATIONS AND EVALUATION
+NER systems can struggle with ambiguous names.
+NER systems can struggle with rare entities.
+NER systems can struggle with spelling variations.
+NER systems can struggle with informal language.
+Domain shift can reduce NER accuracy.
+Training data can contain annotation inconsistencies.
+Different datasets can use different entity definitions.
+Precision measures how many predicted entities are correct.
+Recall measures how many relevant entities are successfully found.
+F1-score combines precision and recall.
+Entity-level evaluation can require exact span and label matching.
+Partial matches may be counted differently by different evaluation protocols.
+High precision with low recall means many real entities are missed.
+High recall with low precision means many predicted entities are incorrect.
+NER errors can affect downstream question-answering systems.
 
-Key point: Word2Vec is a word-embedding technique.
-Key point: Word2Vec represents words as dense numerical vectors.
-Key point: Word2Vec learns vectors from word-context relationships.
-Key point: The distributional hypothesis motivates Word2Vec.
-Key point: The distributional hypothesis says that similar contexts indicate related meanings.
-Key point: Word2Vec was developed by researchers at Google.
-Key point: Word2Vec became an influential method in NLP.
-Key point: Word vectors can be compared using cosine similarity.
-Key point: Similar words can occupy nearby regions in embedding space.
-Key point: Word2Vec learns representations from a training corpus.
-Key point: Embedding dimensions are learned rather than manually assigned.
-Key point: CBOW stands for Continuous Bag of Words.
-Key point: CBOW predicts a target word from surrounding context words.
-Key point: Context words are used as input in the CBOW architecture.
-Key point: The target word is the prediction output.
-Key point: CBOW can train efficiently on large corpora.
-Key point: CBOW often performs well for frequent words.
-Key point: Window size controls how much surrounding context is used.
-Key point: Larger windows can capture broader topical relationships.
-Key point: Smaller windows can capture more local syntactic relationships.
-Key point: CBOW learns word representations during prediction training.
-Key point: Skip-gram predicts surrounding context words from a target word.
-Key point: Skip-gram reverses the prediction direction used by CBOW.
-Key point: The target word is provided as input.
-Key point: Nearby context words become prediction targets.
-Key point: Skip-gram can work well for less frequent words.
-Key point: Negative sampling can make Skip-gram training more efficient.
-Key point: Hierarchical softmax is another training option.
-Key point: Context-window size affects the learned representations.
-Key point: Training examples are created from word-context pairs.
-Key point: Word2Vec does not require manually created semantic labels.
-Key point: A Word2Vec embedding is a dense vector.
-Key point: Dense vectors usually have many non-zero values.
-Key point: Vector distance can indicate contextual similarity.
-Key point: Cosine similarity is commonly used to compare word embeddings.
-Key point: Vector arithmetic can sometimes reflect learned semantic relationships.
-Key point: Embedding relationships are statistical rather than guaranteed logical rules.
-Key point: The quality of relationships depends on the training corpus.
-Key point: A domain-specific corpus can produce domain-specific representations.
-Key point: Different Word2Vec models can assign different vectors to the same word.
-Key point: Embedding dimensions do not necessarily have human-readable meanings.
-Key point: Traditional Word2Vec assigns one main vector to each vocabulary word.
-Key point: One vector creates difficulty for words with multiple meanings.
-Key point: The word 'bank' can have financial and geographical meanings.
-Key point: Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
-Key point: Word2Vec has an out-of-vocabulary problem for unseen words.
-Key point: Training data influences embedding quality.
-Key point: Corpus bias can appear in learned vectors.
-Key point: Word2Vec does not directly represent complete sentence meaning.
-Key point: Word2Vec is not a question-answering model by itself.
-Key point: Modern contextual transformer models can represent context more dynamically.
-Key point: Word2Vec can support document similarity.
-Key point: Word2Vec can support text classification.
-Key point: Word2Vec can support information retrieval.
-Key point: Word2Vec can support recommendation systems.
-Key point: Word2Vec can support clustering.
-Key point: Word2Vec can support sentiment analysis.
-Key point: Word2Vec can support named entity recognition features.
-Key point: Word2Vec can support question retrieval.
-Key point: Word2Vec can provide semantic features to machine-learning models.
-Key point: Word2Vec can help match related terms in an NLP knowledge base.
-Key point: A question-answering system can represent query words with embeddings.
-Key point: Embedding similarity can help find related knowledge-base terms.
-Key point: Word2Vec can identify contextual relationships between technical words.
-Key point: A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
-Key point: Word2Vec retrieval can complement lexical retrieval.
-Key point: Embedding-based retrieval can reduce dependence on exact word matching.
-Key point: Word2Vec does not determine whether a retrieved answer is factually correct.
-Key point: Answer extraction requires additional processing.
-Key point: Modern systems often use contextual embeddings for advanced question answering.
-Key point: Word2Vec is a word-embedding technique.
-Key point: Word2Vec represents words as dense numerical vectors.
-Key point: Word2Vec learns vectors from word-context relationships.
-Key point: The distributional hypothesis motivates Word2Vec.
-Key point: The distributional hypothesis says that similar contexts indicate related meanings.
-Key point: Word2Vec was developed by researchers at Google.
-Key point: Word2Vec became an influential method in NLP.
-Key point: Word vectors can be compared using cosine similarity.
-Key point: Similar words can occupy nearby regions in embedding space.
-Key point: Word2Vec learns representations from a training corpus.
-Key point: Embedding dimensions are learned rather than manually assigned.
-Key point: CBOW stands for Continuous Bag of Words.
-Key point: CBOW predicts a target word from surrounding context words.
-Key point: Context words are used as input in the CBOW architecture.
-Key point: The target word is the prediction output.
-Key point: CBOW can train efficiently on large corpora.
-Key point: CBOW often performs well for frequent words.
-Key point: Window size controls how much surrounding context is used.
-Key point: Larger windows can capture broader topical relationships.
-Key point: Smaller windows can capture more local syntactic relationships.
-Key point: CBOW learns word representations during prediction training.
-Key point: Skip-gram predicts surrounding context words from a target word.
-Key point: Skip-gram reverses the prediction direction used by CBOW.
-Key point: The target word is provided as input.
-Key point: Nearby context words become prediction targets.
-Key point: Skip-gram can work well for less frequent words.
-Key point: Negative sampling can make Skip-gram training more efficient.
-Key point: Hierarchical softmax is another training option.
-Key point: Context-window size affects the learned representations.
-Key point: Training examples are created from word-context pairs.
-Key point: Word2Vec does not require manually created semantic labels.
-Key point: A Word2Vec embedding is a dense vector.
-Key point: Dense vectors usually have many non-zero values.
-Key point: Vector distance can indicate contextual similarity.
-Key point: Cosine similarity is commonly used to compare word embeddings.
-Key point: Vector arithmetic can sometimes reflect learned semantic relationships.
-Key point: Embedding relationships are statistical rather than guaranteed logical rules.
-Key point: The quality of relationships depends on the training corpus.
-Key point: A domain-specific corpus can produce domain-specific representations.
-Key point: Different Word2Vec models can assign different vectors to the same word.
-Key point: Embedding dimensions do not necessarily have human-readable meanings.
-Key point: Traditional Word2Vec assigns one main vector to each vocabulary word.
-Key point: One vector creates difficulty for words with multiple meanings.
-Key point: The word 'bank' can have financial and geographical meanings.
-Key point: Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
-Key point: Word2Vec has an out-of-vocabulary problem for unseen words.
-Key point: Training data influences embedding quality.
-Key point: Corpus bias can appear in learned vectors.
-Key point: Word2Vec does not directly represent complete sentence meaning.
-Key point: Word2Vec is not a question-answering model by itself.
-Key point: Modern contextual transformer models can represent context more dynamically.
-Key point: Word2Vec can support document similarity.
-Key point: Word2Vec can support text classification.
-Key point: Word2Vec can support information retrieval.
-Key point: Word2Vec can support recommendation systems.
-Key point: Word2Vec can support clustering.
-Key point: Word2Vec can support sentiment analysis.
-Key point: Word2Vec can support named entity recognition features.
-Key point: Word2Vec can support question retrieval.
-Key point: Word2Vec can provide semantic features to machine-learning models.
-Key point: Word2Vec can help match related terms in an NLP knowledge base.
-Key point: A question-answering system can represent query words with embeddings.
-Key point: Embedding similarity can help find related knowledge-base terms.
-Key point: Word2Vec can identify contextual relationships between technical words.
-Key point: A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
-Key point: Word2Vec retrieval can complement lexical retrieval.
-Key point: Embedding-based retrieval can reduce dependence on exact word matching.
-Key point: Word2Vec does not determine whether a retrieved answer is factually correct.
-Key point: Answer extraction requires additional processing.
-Key point: Modern systems often use contextual embeddings for advanced question answering.
-Key point: Word2Vec is a word-embedding technique.
-Key point: Word2Vec represents words as dense numerical vectors.
-Key point: Word2Vec learns vectors from word-context relationships.
-Key point: The distributional hypothesis motivates Word2Vec.
-Key point: The distributional hypothesis says that similar contexts indicate related meanings.
-Key point: Word2Vec was developed by researchers at Google.
-Key point: Word2Vec became an influential method in NLP.
-Key point: Word vectors can be compared using cosine similarity.
-Key point: Similar words can occupy nearby regions in embedding space.
-Key point: Word2Vec learns representations from a training corpus.
-Key point: Embedding dimensions are learned rather than manually assigned.
-Key point: CBOW stands for Continuous Bag of Words.
-Key point: CBOW predicts a target word from surrounding context words.
-Key point: Context words are used as input in the CBOW architecture.
-Key point: The target word is the prediction output.
-Key point: CBOW can train efficiently on large corpora.
-Key point: CBOW often performs well for frequent words.
-Key point: Window size controls how much surrounding context is used.
-Key point: Larger windows can capture broader topical relationships.
-Key point: Smaller windows can capture more local syntactic relationships.
-Key point: CBOW learns word representations during prediction training.
-Key point: Skip-gram predicts surrounding context words from a target word.
-Key point: Skip-gram reverses the prediction direction used by CBOW.
-Key point: The target word is provided as input.
-Key point: Nearby context words become prediction targets.
-Key point: Skip-gram can work well for less frequent words.
-Key point: Negative sampling can make Skip-gram training more efficient.
-Key point: Hierarchical softmax is another training option.
-Key point: Context-window size affects the learned representations.
-Key point: Training examples are created from word-context pairs.
-Key point: Word2Vec does not require manually created semantic labels.
-Key point: A Word2Vec embedding is a dense vector.
-Key point: Dense vectors usually have many non-zero values.
-Key point: Vector distance can indicate contextual similarity.
-Key point: Cosine similarity is commonly used to compare word embeddings.
-Key point: Vector arithmetic can sometimes reflect learned semantic relationships.
-Key point: Embedding relationships are statistical rather than guaranteed logical rules.
-Key point: The quality of relationships depends on the training corpus.
-Key point: A domain-specific corpus can produce domain-specific representations.
-Key point: Different Word2Vec models can assign different vectors to the same word.
-Key point: Embedding dimensions do not necessarily have human-readable meanings.
-Key point: Traditional Word2Vec assigns one main vector to each vocabulary word.
-Key point: One vector creates difficulty for words with multiple meanings.
-Key point: The word 'bank' can have financial and geographical meanings.
-Key point: Traditional Word2Vec does not automatically create separate contextual vectors for each sense.
-Key point: Word2Vec has an out-of-vocabulary problem for unseen words.
-Key point: Training data influences embedding quality.
-Key point: Corpus bias can appear in learned vectors.
-Key point: Word2Vec does not directly represent complete sentence meaning.
-Key point: Word2Vec is not a question-answering model by itself.
-Key point: Modern contextual transformer models can represent context more dynamically.
-Key point: Word2Vec can support document similarity.
-Key point: Word2Vec can support text classification.
-Key point: Word2Vec can support information retrieval.
-Key point: Word2Vec can support recommendation systems.
-Key point: Word2Vec can support clustering.
-Key point: Word2Vec can support sentiment analysis.
-Key point: Word2Vec can support named entity recognition features.
-Key point: Word2Vec can support question retrieval.
-Key point: Word2Vec can provide semantic features to machine-learning models.
-Key point: Word2Vec can help match related terms in an NLP knowledge base.
-Key point: A question-answering system can represent query words with embeddings.
-Key point: Embedding similarity can help find related knowledge-base terms.
-Key point: Word2Vec can identify contextual relationships between technical words.
-Key point: A query containing 'automobile' may relate to text containing 'car' if the trained vectors place them near each other.
-Key point: Word2Vec retrieval can complement lexical retrieval.
-Key point: Embedding-based retrieval can reduce dependence on exact word matching.
-Key point: Word2Vec does not determine whether a retrieved answer is factually correct.
-Key point: Answer extraction requires additional processing.
-Key point: Modern systems often use contextual embeddings for advanced question answering.
-Key point: Word2Vec is a word-embedding technique.
-Key point: Word2Vec represents words as dense numerical vectors.
-Key point: Word2Vec learns vectors from word-context relationships.
-Key point: The distributional hypothesis motivates Word2Vec.
-Key point: The distributional hypothesis says that similar contexts indicate related meanings.
-Key point: Word2Vec was developed by researchers at Google.
-Key point: Word2Vec became an influential method in NLP.
-Key point: Word vectors can be compared using cosine similarity.
-Key point: Similar words can occupy nearby regions in embedding space.
-Key point: Word2Vec learns representations from a training corpus.
-Key point: Embedding dimensions are learned rather than manually assigned.
-Key point: CBOW stands for Continuous Bag of Words.
-Key point: CBOW predicts a target word from surrounding context words.
-Key point: Context words are used as input in the CBOW architecture.
-Key point: The target word is the prediction output.
-Key point: CBOW can train efficiently on large corpora.
-Key point: CBOW often performs well for frequent words.
-Key point: Window size controls how much surrounding context is used.
-Key point: Larger windows can capture broader topical relationships.
-Key point: Smaller windows can capture more local syntactic relationships.
-Key point: CBOW learns word representations during prediction training.
-Key point: Skip-gram predicts surrounding context words from a target word.
-Key point: Skip-gram reverses the prediction direction used by CBOW.
-Key point: The target word is provided as input.
+NER IN QUESTION ANSWERING
+A question-answering system can use NER during question analysis.
+In 'Who founded Microsoft?', Microsoft can be identified as an organization.
+In 'Where is the Eiffel Tower?', Eiffel Tower can be treated as a named landmark.
+In 'When was the company founded?', the expected answer type may be a DATE.
+In 'Who wrote Hamlet?', the expected answer type is a PERSON.
+Expected answer types can help rank candidate answers.
+NER can help filter documents containing the required entity.
+NER can help match question entities with entities in knowledge-base documents.
+NER can improve retrieval when a query contains proper names.
+NER can be combined with TF-IDF or embeddings for document retrieval.
+NER can be combined with question classification.
+NER can help identify constraints such as location and date.
+NER should not be treated as a complete question-answering solution.
+NER recognizes entity mentions but does not by itself determine the final answer.
+
+Key point: Named Entity Recognition is commonly abbreviated as NER.
+Key point: NER is an information-extraction task in Natural Language Processing.
+Key point: NER identifies spans of text that refer to meaningful real-world entities.
+Key point: NER assigns a category or label to a recognized entity.
+Key point: NER converts part of unstructured text into structured information.
+Key point: An entity may be a person, organization, place, date, product, or event.
+Key point: NER can also identify quantities, money values, percentages, and times.
+Key point: NER helps a computer determine which words carry entity-level meaning.
+Key point: NER is different from ordinary keyword extraction.
+Key point: NER is also different from part-of-speech tagging.
+Key point: Keyword extraction finds important terms without necessarily assigning entity types.
+Key point: Part-of-speech tagging identifies grammatical categories such as noun and verb.
+Key point: NER focuses on semantic entity categories.
+Key point: NER is useful in search systems and information retrieval.
+Key point: NER is useful in document analysis.
+Key point: NER is useful in question-answering systems.
+Key point: NER is useful in chatbots and conversational systems.
+Key point: NER is useful in news and media analysis.
+Key point: NER is useful in domain-specific information extraction.
+Key point: NER can reduce the amount of unstructured text that downstream systems must process.
+Key point: PERSON is a common NER label for names of people.
+Key point: ORGANIZATION is a common NER label for companies and institutions.
+Key point: LOCATION is commonly used for geographical places.
+Key point: GPE can represent geopolitical entities such as countries and cities.
+Key point: DATE identifies calendar dates or date expressions.
+Key point: TIME identifies expressions referring to time.
+Key point: MONEY identifies monetary values.
+Key point: PERCENT identifies percentage expressions.
+Key point: PRODUCT can identify named products.
+Key point: EVENT can identify named events.
+Key point: FACILITY can identify certain constructed locations.
+Key point: WORK_OF_ART can identify titles of creative works in some datasets.
+Key point: LAW can identify named laws in some annotation schemes.
+Key point: LANGUAGE can identify language names in some datasets.
+Key point: CARDINAL can identify numerical quantities in some tag sets.
+Key point: ORDINAL can identify ordered numerical expressions.
+Key point: QUANTITY can identify measurements and quantities.
+Key point: NORP can identify nationalities, religious groups, or political groups in some datasets.
+Key point: Entity labels depend on the dataset and annotation guidelines.
+Key point: The same entity may receive different labels in different NER datasets.
+Key point: In the sentence 'Ravi studies at Aditya University', Ravi can be labeled PERSON.
+Key point: In the same sentence, Aditya University can be labeled ORGANIZATION.
+Key point: In 'India is a country', India can be labeled GPE or LOCATION.
+Key point: In 'The exam is on Monday', Monday can be labeled DATE.
+Key point: In 'The meeting starts at 10 AM', 10 AM can be labeled TIME.
+Key point: In 'The phone costs 50000 rupees', the amount can be labeled MONEY.
+Key point: In 'The discount is 20 percent', 20 percent can be labeled PERCENT.
+Key point: In 'Microsoft released a product', Microsoft can be labeled ORGANIZATION.
+Key point: In 'Paris is in France', Paris and France are geographical entities.
+Key point: In 'Dr. Rao visited Hyderabad', Dr. Rao can be a PERSON entity.
+Key point: Entity boundaries are important in NER.
+Key point: Multiword entities often require several tokens to be grouped together.
+Key point: New York can be represented as one location entity.
+Key point: Natural Language Processing can be treated as a phrase rather than a named entity depending on context.
+Key point: Context helps distinguish ambiguous words.
+Key point: Apple can refer to a company or a fruit.
+Key point: The correct entity label for Apple depends on its context.
+Key point: Washington can refer to a person, state, or place depending on context.
+Key point: NER systems therefore need contextual information.
+Key point: BIO is a common token-level scheme for representing entity spans.
+Key point: B means the beginning of an entity.
+Key point: I means a token is inside an entity.
+Key point: O means the token is outside a named entity.
+Key point: A multiword entity usually begins with a B tag.
+Key point: Following tokens of the same entity can receive I tags.
+Key point: Tokens unrelated to entities receive O tags.
+Key point: BIO tagging preserves entity boundaries.
+Key point: BIO tagging can represent adjacent entities.
+Key point: For 'New York', New can receive B-LOCATION and York can receive I-LOCATION.
+Key point: For 'John Smith', John can receive B-PERSON and Smith can receive I-PERSON.
+Key point: BIO tags are often written as B-PERSON, I-PERSON, and O.
+Key point: BIO is also called IOB in some NLP literature.
+Key point: Other tagging schemes include BILOU and BIOES.
+Key point: Different schemes provide different ways to represent single-token entities.
+Key point: Training data must follow a consistent tagging scheme.
+Key point: Incorrect boundaries can reduce NER performance.
+Key point: Entity spans are often evaluated using exact matching.
+Key point: Token-level evaluation and entity-level evaluation can produce different results.
+Key point: Early NER systems often used manually written rules.
+Key point: Gazetteers are lists of known entity names.
+Key point: Gazetteers can help recognize organizations, locations, and people.
+Key point: Rule-based NER can work well in restricted domains.
+Key point: Rule-based systems can require substantial manual maintenance.
+Key point: Statistical NER systems learn patterns from annotated training data.
+Key point: Hidden Markov Models were used in earlier sequence-labeling systems.
+Key point: Maximum Entropy models have also been used for NER.
+Key point: Conditional Random Fields are a classic statistical sequence model for NER.
+Key point: CRFs model relationships between neighboring output labels.
+Key point: Neural networks are widely used for modern NER.
+Key point: Recurrent neural networks can model sequential context.
+Key point: BiLSTM models can process context in both directions.
+Key point: Character representations can help handle spelling and morphology.
+Key point: Transformer models provide contextual representations.
+Key point: BERT can be fine-tuned for NER.
+Key point: Modern transformer NER systems can use contextual token representations.
+Key point: Pre-trained language models can reduce the amount of task-specific training required.
+Key point: Domain-specific fine-tuning can improve recognition in specialized text.
+Key point: NER quality depends on training data, labels, domain, and model design.
+Key point: A typical NER workflow begins with raw text.
+Key point: Text may be normalized before entity recognition.
+Key point: Tokenization divides text into tokens.
+Key point: The NER model processes token or subword representations.
+Key point: The model predicts an entity label for each relevant token.
+Key point: Predicted token labels are combined into entity spans.
+Key point: Post-processing may normalize recognized entities.
+Key point: Recognized entities can be stored in structured records.
+Key point: Structured entities can be passed to search or question-answering modules.
+Key point: NER can be combined with relation extraction.
+Key point: Relation extraction can identify relationships between recognized entities.
+Key point: Entity linking can connect a recognized mention to a knowledge-base entry.
+Key point: Coreference resolution can connect different mentions of the same entity.
+Key point: NER is often one stage in a larger information-extraction pipeline.
+Key point: Search engines can use NER to interpret named entities in queries.
+Key point: Question-answering systems can use NER to identify the subject of a question.
+Key point: NER can help locate a requested person in a knowledge base.
+Key point: NER can help identify dates when answering historical questions.
+Key point: NER can help distinguish organizations from locations.
+Key point: News systems can extract people and organizations from articles.
+Key point: Customer-support systems can extract product names from user messages.
+Key point: Financial systems can recognize companies and monetary values.
+Key point: Medical systems can recognize diseases and medicines when trained for that domain.
+Key point: Legal NLP systems can identify laws, courts, organizations, and dates.
+Key point: Social-media analysis can identify people, brands, places, and events.
+Key point: NER can support document indexing.
+Key point: NER can improve faceted search.
+Key point: NER can support automatic metadata generation.
+Key point: NER can assist knowledge-graph construction.
+Key point: NER systems can struggle with ambiguous names.
+Key point: NER systems can struggle with rare entities.
+Key point: NER systems can struggle with spelling variations.
+Key point: NER systems can struggle with informal language.
+Key point: Domain shift can reduce NER accuracy.
+Key point: Training data can contain annotation inconsistencies.
+Key point: Different datasets can use different entity definitions.
+Key point: Precision measures how many predicted entities are correct.
+Key point: Recall measures how many relevant entities are successfully found.
+Key point: F1-score combines precision and recall.
+Key point: Entity-level evaluation can require exact span and label matching.
+Key point: Partial matches may be counted differently by different evaluation protocols.
+Key point: High precision with low recall means many real entities are missed.
+Key point: High recall with low precision means many predicted entities are incorrect.
+Key point: NER errors can affect downstream question-answering systems.
+Key point: A question-answering system can use NER during question analysis.
+Key point: In 'Who founded Microsoft?', Microsoft can be identified as an organization.
