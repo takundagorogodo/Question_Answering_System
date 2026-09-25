@@ -1,15 +1,115 @@
-Evaluating Question Answering Systems
 
-Evaluating a question answering system rigorously requires more than checking whether answers "look right" by eye. Several standard metrics exist, each suited to different kinds of QA systems, and choosing the right ones is an important part of demonstrating that a system actually works.
+Evaluation metrics measure how well an NLP system performs a task.
 
-Exact Match is one of the simplest metrics: it checks whether the generated answer is identical, word for word, to a reference answer. This metric works reasonably well for extractive QA, where the answer is expected to be a specific short span of text, but it is a poor fit for generative QA, since a generative model might produce a correct answer phrased in a completely different way from the reference, and Exact Match would incorrectly score it as wrong.
+1. Accuracy
+Accuracy = Correct Predictions / Total Predictions.
+Useful when classes are reasonably balanced.
 
-F1 score, borrowed from classification tasks, measures the overlap between the words in the generated answer and the words in a reference answer, balancing precision (how much of the generated answer is correct) against recall (how much of the reference answer was captured). It is more forgiving than Exact Match, since partial word overlap still counts for something, but it can still unfairly penalize a generative answer that is correct but uses entirely different vocabulary from the reference.
+2. Precision
+Precision = TP / (TP + FP).
+Measures how many predicted positives are actually positive.
 
-BLEU and ROUGE are metrics originally developed for machine translation and summarization respectively. Both measure overlap of word sequences, called n-grams, between generated and reference text. They can give a rough sense of fluency and content overlap for generated answers, but like Exact Match and F1, they penalize valid paraphrasing.
+3. Recall
+Recall = TP / (TP + FN).
+Measures how many actual positives are correctly identified.
 
-Semantic similarity metrics take a different approach: instead of comparing exact words, they compare the embedding vectors of the generated answer and the reference answer, and measure how close those vectors are in meaning. This makes semantic similarity much better suited to evaluating generative QA specifically, since a correct answer that is worded completely differently from the reference will still score well, as long as it means the same thing.
+4. F1-Score
+F1 = 2 × Precision × Recall / (Precision + Recall).
+Combines precision and recall using their harmonic mean.
 
-For the retrieval half of a RAG system, separate metrics are used. Recall at K measures whether the correct source passage appears somewhere within the top K retrieved results, while Precision at K measures what fraction of the top K retrieved results are actually relevant. These metrics evaluate the retrieval step in isolation from the generation step, which is important because a wrong final answer could be caused either by poor retrieval or by poor generation, and separating the two makes it possible to diagnose which part of the pipeline needs improvement.
+5. Confusion Matrix
+TP = True Positive.
+TN = True Negative.
+FP = False Positive.
+FN = False Negative.
 
-Finally, human evaluation, where real people judge the quality, correctness, and helpfulness of generated answers, remains an important complement to automatic metrics, since no single automatic metric perfectly captures everything a human reader would care about, such as clarity, tone, or whether an answer actually resolves the user's underlying question.
+6. BLEU
+BLEU compares generated text with reference text using n-gram overlap.
+It is commonly used for machine translation.
+It measures reference overlap, not complete factual correctness.
+
+7. ROUGE
+ROUGE measures overlap between generated and reference text.
+It is commonly used for summarization.
+ROUGE-N uses n-gram overlap.
+ROUGE-L uses Longest Common Subsequence overlap.
+
+8. Exact Match
+Exact Match checks whether a predicted QA answer exactly matches a reference answer.
+It is common in extractive QA.
+
+9. QA F1
+Token-level F1 compares predicted and reference answer tokens.
+It gives partial credit when answers overlap.
+
+10. Retrieval Metrics
+Common retrieval metrics are:
+- Precision@K
+- Recall@K
+- Mean Reciprocal Rank (MRR)
+- Mean Average Precision (MAP)
+
+11. Precision@K
+Precision@K = Relevant results in top K / K.
+Measures relevance among the first K results.
+
+12. Recall@K
+Recall@K = Relevant retrieved results / Total relevant results.
+Measures how much relevant information is retrieved.
+
+13. MRR
+Reciprocal Rank = 1 / Rank of first relevant result.
+MRR is the mean reciprocal rank across queries.
+
+14. MAP
+Mean Average Precision evaluates precision across relevant retrieved results and averages performance across queries.
+
+15. Groundedness
+Measures whether a generated answer is supported by supplied evidence.
+
+16. Faithfulness
+Checks whether generated content is consistent with its source or retrieved context.
+
+17. Answer Relevance
+Measures whether an answer directly addresses the user's question.
+
+18. Factual Correctness
+Checks whether claims are correct according to reliable evidence.
+
+19. Citation Accuracy
+Checks whether cited sources actually support the associated claims.
+
+20. Semantic Similarity
+Embedding-based similarity measures whether two texts have similar meaning despite wording differences.
+
+21. Human Evaluation
+Humans can assess correctness, relevance, clarity, completeness, grounding, and fluency.
+
+22. Class Imbalance
+Accuracy can be misleading for highly imbalanced classes.
+Precision, recall, and F1 may be more informative.
+
+23. End-to-End QA Evaluation
+Evaluate:
+Question → Retrieval → Context → Answer → Sources.
+
+24. Metric Selection
+Classification → Accuracy, Precision, Recall, F1.
+Extractive QA → Exact Match, F1.
+Translation → BLEU.
+Summarization → ROUGE.
+Retrieval → Precision@K, Recall@K, MRR, MAP.
+Grounded QA → Groundedness, factuality, citation accuracy.
+
+25. Limitations
+No single metric completely describes NLP quality.
+Surface-overlap metrics can disagree with human judgments.
+Multiple complementary metrics are often needed.
+
+26. Final Summary
+Classification commonly uses accuracy, precision, recall, and F1.
+QA commonly uses Exact Match and token-level F1.
+BLEU is commonly associated with translation.
+ROUGE is commonly associated with summarization.
+Precision@K, Recall@K, MRR, and MAP evaluate retrieval.
+Groundedness, factual correctness, and citation accuracy are important for knowledge-based QA.
