@@ -1,0 +1,317 @@
+
+GPT means Generative Pre-trained Transformer.
+GPT-style models are transformer-based language models.
+GPT models are primarily decoder-based architectures.
+GPT models commonly use autoregressive generation.
+An autoregressive model predicts the next token.
+Next-token prediction is a central GPT training objective.
+The next token is predicted from previous context.
+Causal masking prevents access to future target tokens.
+GPT generation proceeds token by token.
+A prompt provides context for generation.
+Sequence probability can be decomposed into conditional token probabilities.
+Teacher forcing can be used during training.
+Greedy decoding selects the most probable next token.
+Temperature changes probability distribution sharpness.
+Lower temperature generally produces more deterministic output.
+Higher temperature can increase variation.
+Top-k sampling limits choices to k likely tokens.
+Top-p sampling selects tokens from a probability mass.
+Beam search keeps multiple candidate sequences.
+GPT uses transformer decoder blocks.
+Decoder blocks contain masked self-attention.
+Decoder blocks contain feed-forward layers.
+Residual connections help information flow.
+Layer normalization is used in transformer blocks.
+Token embeddings convert tokens into vectors.
+Positional information represents token order.
+Attention lets tokens use previous context.
+Zero-shot prompting gives instructions without examples.
+Few-shot prompting includes examples in the prompt.
+Prompt wording can affect generated output.
+Fine-tuning can adapt a model to a task.
+Retrieval-augmented generation supplies external context.
+GPT can generate text.
+GPT can summarize documents.
+GPT can answer questions.
+GPT can translate text.
+GPT can generate code.
+GPT can rewrite text.
+GPT can classify text when prompted appropriately.
+GPT outputs can be fluent but incorrect.
+A language model is not a guaranteed factual database.
+Training data influences model behavior.
+Models can reproduce patterns and biases from training data.
+Long prompts can increase computation.
+QA pipelines can combine retrieval with GPT generation.
+Retrieved passages can ground generated answers.
+Generated answers should be checked for factual correctness.
+Knowledge point: GPT means Generative Pre-trained Transformer.
+Knowledge point: GPT-style models are transformer-based language models.
+Knowledge point: GPT models are primarily decoder-based architectures.
+Knowledge point: GPT models commonly use autoregressive generation.
+Knowledge point: An autoregressive model predicts the next token.
+Knowledge point: Next-token prediction is a central GPT training objective.
+Knowledge point: The next token is predicted from previous context.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: GPT generation proceeds token by token.
+Knowledge point: A prompt provides context for generation.
+Knowledge point: Sequence probability can be decomposed into conditional token probabilities.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Greedy decoding selects the most probable next token.
+Knowledge point: Temperature changes probability distribution sharpness.
+Knowledge point: Lower temperature generally produces more deterministic output.
+Knowledge point: Higher temperature can increase variation.
+Knowledge point: Top-k sampling limits choices to k likely tokens.
+Knowledge point: Top-p sampling selects tokens from a probability mass.
+Knowledge point: Beam search keeps multiple candidate sequences.
+Knowledge point: GPT uses transformer decoder blocks.
+Knowledge point: Decoder blocks contain masked self-attention.
+Knowledge point: Decoder blocks contain feed-forward layers.
+Knowledge point: Residual connections help information flow.
+Knowledge point: Layer normalization is used in transformer blocks.
+Knowledge point: Token embeddings convert tokens into vectors.
+Knowledge point: Positional information represents token order.
+Knowledge point: Attention lets tokens use previous context.
+Knowledge point: Zero-shot prompting gives instructions without examples.
+Knowledge point: Few-shot prompting includes examples in the prompt.
+Knowledge point: Prompt wording can affect generated output.
+Knowledge point: Fine-tuning can adapt a model to a task.
+Knowledge point: Retrieval-augmented generation supplies external context.
+Knowledge point: GPT can generate text.
+Knowledge point: GPT can summarize documents.
+Knowledge point: GPT can answer questions.
+Knowledge point: GPT can translate text.
+Knowledge point: GPT can generate code.
+Knowledge point: GPT can rewrite text.
+Knowledge point: GPT can classify text when prompted appropriately.
+Knowledge point: GPT outputs can be fluent but incorrect.
+Knowledge point: A language model is not a guaranteed factual database.
+Knowledge point: Training data influences model behavior.
+Knowledge point: Models can reproduce patterns and biases from training data.
+Knowledge point: Long prompts can increase computation.
+Knowledge point: QA pipelines can combine retrieval with GPT generation.
+Knowledge point: Retrieved passages can ground generated answers.
+Knowledge point: Generated answers should be checked for factual correctness.
+Knowledge point: GPT means Generative Pre-trained Transformer.
+Knowledge point: GPT-style models are transformer-based language models.
+Knowledge point: GPT models are primarily decoder-based architectures.
+Knowledge point: GPT models commonly use autoregressive generation.
+Knowledge point: An autoregressive model predicts the next token.
+Knowledge point: Next-token prediction is a central GPT training objective.
+Knowledge point: The next token is predicted from previous context.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: GPT generation proceeds token by token.
+Knowledge point: A prompt provides context for generation.
+Knowledge point: Sequence probability can be decomposed into conditional token probabilities.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Greedy decoding selects the most probable next token.
+Knowledge point: Temperature changes probability distribution sharpness.
+Knowledge point: Lower temperature generally produces more deterministic output.
+Knowledge point: Higher temperature can increase variation.
+Knowledge point: Top-k sampling limits choices to k likely tokens.
+Knowledge point: Top-p sampling selects tokens from a probability mass.
+Knowledge point: Beam search keeps multiple candidate sequences.
+Knowledge point: GPT uses transformer decoder blocks.
+Knowledge point: Decoder blocks contain masked self-attention.
+Knowledge point: Decoder blocks contain feed-forward layers.
+Knowledge point: Residual connections help information flow.
+Knowledge point: Layer normalization is used in transformer blocks.
+Knowledge point: Token embeddings convert tokens into vectors.
+Knowledge point: Positional information represents token order.
+Knowledge point: Attention lets tokens use previous context.
+Knowledge point: Zero-shot prompting gives instructions without examples.
+Knowledge point: Few-shot prompting includes examples in the prompt.
+Knowledge point: Prompt wording can affect generated output.
+Knowledge point: Fine-tuning can adapt a model to a task.
+Knowledge point: Retrieval-augmented generation supplies external context.
+Knowledge point: GPT can generate text.
+Knowledge point: GPT can summarize documents.
+Knowledge point: GPT can answer questions.
+Knowledge point: GPT can translate text.
+Knowledge point: GPT can generate code.
+Knowledge point: GPT can rewrite text.
+Knowledge point: GPT can classify text when prompted appropriately.
+Knowledge point: GPT outputs can be fluent but incorrect.
+Knowledge point: A language model is not a guaranteed factual database.
+Knowledge point: Training data influences model behavior.
+Knowledge point: Models can reproduce patterns and biases from training data.
+Knowledge point: Long prompts can increase computation.
+Knowledge point: QA pipelines can combine retrieval with GPT generation.
+Knowledge point: Retrieved passages can ground generated answers.
+Knowledge point: Generated answers should be checked for factual correctness.
+Knowledge point: GPT means Generative Pre-trained Transformer.
+Knowledge point: GPT-style models are transformer-based language models.
+Knowledge point: GPT models are primarily decoder-based architectures.
+Knowledge point: GPT models commonly use autoregressive generation.
+Knowledge point: An autoregressive model predicts the next token.
+Knowledge point: Next-token prediction is a central GPT training objective.
+Knowledge point: The next token is predicted from previous context.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: GPT generation proceeds token by token.
+Knowledge point: A prompt provides context for generation.
+Knowledge point: Sequence probability can be decomposed into conditional token probabilities.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Greedy decoding selects the most probable next token.
+Knowledge point: Temperature changes probability distribution sharpness.
+Knowledge point: Lower temperature generally produces more deterministic output.
+Knowledge point: Higher temperature can increase variation.
+Knowledge point: Top-k sampling limits choices to k likely tokens.
+Knowledge point: Top-p sampling selects tokens from a probability mass.
+Knowledge point: Beam search keeps multiple candidate sequences.
+Knowledge point: GPT uses transformer decoder blocks.
+Knowledge point: Decoder blocks contain masked self-attention.
+Knowledge point: Decoder blocks contain feed-forward layers.
+Knowledge point: Residual connections help information flow.
+Knowledge point: Layer normalization is used in transformer blocks.
+Knowledge point: Token embeddings convert tokens into vectors.
+Knowledge point: Positional information represents token order.
+Knowledge point: Attention lets tokens use previous context.
+Knowledge point: Zero-shot prompting gives instructions without examples.
+Knowledge point: Few-shot prompting includes examples in the prompt.
+Knowledge point: Prompt wording can affect generated output.
+Knowledge point: Fine-tuning can adapt a model to a task.
+Knowledge point: Retrieval-augmented generation supplies external context.
+Knowledge point: GPT can generate text.
+Knowledge point: GPT can summarize documents.
+Knowledge point: GPT can answer questions.
+Knowledge point: GPT can translate text.
+Knowledge point: GPT can generate code.
+Knowledge point: GPT can rewrite text.
+Knowledge point: GPT can classify text when prompted appropriately.
+Knowledge point: GPT outputs can be fluent but incorrect.
+Knowledge point: A language model is not a guaranteed factual database.
+Knowledge point: Training data influences model behavior.
+Knowledge point: Models can reproduce patterns and biases from training data.
+Knowledge point: Long prompts can increase computation.
+Knowledge point: QA pipelines can combine retrieval with GPT generation.
+Knowledge point: Retrieved passages can ground generated answers.
+Knowledge point: Generated answers should be checked for factual correctness.
+Knowledge point: GPT means Generative Pre-trained Transformer.
+Knowledge point: GPT-style models are transformer-based language models.
+Knowledge point: GPT models are primarily decoder-based architectures.
+Knowledge point: GPT models commonly use autoregressive generation.
+Knowledge point: An autoregressive model predicts the next token.
+Knowledge point: Next-token prediction is a central GPT training objective.
+Knowledge point: The next token is predicted from previous context.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: GPT generation proceeds token by token.
+Knowledge point: A prompt provides context for generation.
+Knowledge point: Sequence probability can be decomposed into conditional token probabilities.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Greedy decoding selects the most probable next token.
+Knowledge point: Temperature changes probability distribution sharpness.
+Knowledge point: Lower temperature generally produces more deterministic output.
+Knowledge point: Higher temperature can increase variation.
+Knowledge point: Top-k sampling limits choices to k likely tokens.
+Knowledge point: Top-p sampling selects tokens from a probability mass.
+Knowledge point: Beam search keeps multiple candidate sequences.
+Knowledge point: GPT uses transformer decoder blocks.
+Knowledge point: Decoder blocks contain masked self-attention.
+Knowledge point: Decoder blocks contain feed-forward layers.
+Knowledge point: Residual connections help information flow.
+Knowledge point: Layer normalization is used in transformer blocks.
+Knowledge point: Token embeddings convert tokens into vectors.
+Knowledge point: Positional information represents token order.
+Knowledge point: Attention lets tokens use previous context.
+Knowledge point: Zero-shot prompting gives instructions without examples.
+Knowledge point: Few-shot prompting includes examples in the prompt.
+Knowledge point: Prompt wording can affect generated output.
+Knowledge point: Fine-tuning can adapt a model to a task.
+Knowledge point: Retrieval-augmented generation supplies external context.
+Knowledge point: GPT can generate text.
+Knowledge point: GPT can summarize documents.
+Knowledge point: GPT can answer questions.
+Knowledge point: GPT can translate text.
+Knowledge point: GPT can generate code.
+Knowledge point: GPT can rewrite text.
+Knowledge point: GPT can classify text when prompted appropriately.
+Knowledge point: GPT outputs can be fluent but incorrect.
+Knowledge point: A language model is not a guaranteed factual database.
+Knowledge point: Training data influences model behavior.
+Knowledge point: Models can reproduce patterns and biases from training data.
+Knowledge point: Long prompts can increase computation.
+Knowledge point: QA pipelines can combine retrieval with GPT generation.
+Knowledge point: Retrieved passages can ground generated answers.
+Knowledge point: Generated answers should be checked for factual correctness.
+Knowledge point: GPT means Generative Pre-trained Transformer.
+Knowledge point: GPT-style models are transformer-based language models.
+Knowledge point: GPT models are primarily decoder-based architectures.
+Knowledge point: GPT models commonly use autoregressive generation.
+Knowledge point: An autoregressive model predicts the next token.
+Knowledge point: Next-token prediction is a central GPT training objective.
+Knowledge point: The next token is predicted from previous context.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: GPT generation proceeds token by token.
+Knowledge point: A prompt provides context for generation.
+Knowledge point: Sequence probability can be decomposed into conditional token probabilities.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Greedy decoding selects the most probable next token.
+Knowledge point: Temperature changes probability distribution sharpness.
+Knowledge point: Lower temperature generally produces more deterministic output.
+Knowledge point: Higher temperature can increase variation.
+Knowledge point: Top-k sampling limits choices to k likely tokens.
+Knowledge point: Top-p sampling selects tokens from a probability mass.
+Knowledge point: Beam search keeps multiple candidate sequences.
+Knowledge point: GPT uses transformer decoder blocks.
+Knowledge point: Decoder blocks contain masked self-attention.
+Knowledge point: Decoder blocks contain feed-forward layers.
+Knowledge point: Residual connections help information flow.
+Knowledge point: Layer normalization is used in transformer blocks.
+Knowledge point: Token embeddings convert tokens into vectors.
+Knowledge point: Positional information represents token order.
+Knowledge point: Attention lets tokens use previous context.
+Knowledge point: Zero-shot prompting gives instructions without examples.
+Knowledge point: Few-shot prompting includes examples in the prompt.
+Knowledge point: Prompt wording can affect generated output.
+Knowledge point: Fine-tuning can adapt a model to a task.
+Knowledge point: Retrieval-augmented generation supplies external context.
+Knowledge point: GPT can generate text.
+Knowledge point: GPT can summarize documents.
+Knowledge point: GPT can answer questions.
+Knowledge point: GPT can translate text.
+Knowledge point: GPT can generate code.
+Knowledge point: GPT can rewrite text.
+Knowledge point: GPT can classify text when prompted appropriately.
+Knowledge point: GPT outputs can be fluent but incorrect.
+Knowledge point: A language model is not a guaranteed factual database.
+Knowledge point: Training data influences model behavior.
+Knowledge point: Models can reproduce patterns and biases from training data.
+Knowledge point: Long prompts can increase computation.
+Knowledge point: QA pipelines can combine retrieval with GPT generation.
+Knowledge point: Retrieved passages can ground generated answers.
+Knowledge point: Generated answers should be checked for factual correctness.
+Knowledge point: GPT means Generative Pre-trained Transformer.
+Knowledge point: GPT-style models are transformer-based language models.
+Knowledge point: GPT models are primarily decoder-based architectures.
+Knowledge point: GPT models commonly use autoregressive generation.
+Knowledge point: An autoregressive model predicts the next token.
+Knowledge point: Next-token prediction is a central GPT training objective.
+Knowledge point: The next token is predicted from previous context.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: GPT generation proceeds token by token.
+Knowledge point: A prompt provides context for generation.
+Knowledge point: Sequence probability can be decomposed into conditional token probabilities.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Greedy decoding selects the most probable next token.
+Knowledge point: Temperature changes probability distribution sharpness.
+Knowledge point: Lower temperature generally produces more deterministic output.
+Knowledge point: Higher temperature can increase variation.
+Knowledge point: Top-k sampling limits choices to k likely tokens.
+Knowledge point: Top-p sampling selects tokens from a probability mass.
+Knowledge point: Beam search keeps multiple candidate sequences.
+Knowledge point: GPT uses transformer decoder blocks.
+Knowledge point: Decoder blocks contain masked self-attention.
+Knowledge point: Decoder blocks contain feed-forward layers.
+Knowledge point: Residual connections help information flow.
+Knowledge point: Layer normalization is used in transformer blocks.
+Knowledge point: Token embeddings convert tokens into vectors.
+Knowledge point: Positional information represents token order.
+Knowledge point: Attention lets tokens use previous context.
+Knowledge point: Zero-shot prompting gives instructions without examples.
+Knowledge point: Few-shot prompting includes examples in the prompt.
+Knowledge point: Prompt wording can affect generated output.
+Knowledge point: Fine-tuning can adapt a model to a task.
+Knowledge point: Retrieval-augmented generation supplies external context.
+Knowledge point: GPT can generate text.
+Knowledge point: GPT can summarize documents.
