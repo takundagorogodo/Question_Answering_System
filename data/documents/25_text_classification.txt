@@ -1,0 +1,321 @@
+
+TEXT CLASSIFICATION
+
+NLP KNOWLEDGE BASE
+
+Text classification assigns labels to text.
+Text classification converts text into predefined categories.
+Input can be a word, sentence, paragraph, document, email, or message.
+Output can contain one or more class labels.
+Supervised classification uses labeled training examples.
+Binary classification has two classes.
+Multiclass classification has more than two possible classes.
+Multilabel classification allows multiple labels for one input.
+Sentiment analysis is a common text-classification task.
+Spam detection is a common text-classification task.
+Topic classification assigns documents to topics.
+Intent classification identifies the purpose of a user message.
+Language identification predicts the language of text.
+News classification assigns articles to categories.
+Question classification identifies question types.
+Customer-support systems can classify incoming requests.
+Text preprocessing prepares raw text for a model.
+Tokenization divides text into tokens.
+Tokens may be words, subwords, or characters.
+Lowercasing can reduce vocabulary variation.
+Stop-word removal can be useful for some classical models.
+Stemming reduces words to stems.
+Lemmatization maps words to base forms.
+Transformer models commonly use subword tokenization.
+Bag of Words is a classical text representation.
+Bag of Words is also called BoW.
+BoW represents text using vocabulary features.
+Count-based BoW records term occurrences.
+Binary BoW records term presence.
+Basic BoW ignores word order.
+BoW vectors are often sparse.
+TF-IDF means Term Frequency-Inverse Document Frequency.
+TF-IDF weights terms according to document and corpus frequency.
+Common terms receive lower IDF weight.
+Distinctive terms can receive higher TF-IDF weight.
+TF-IDF works well with classical classifiers.
+An n-gram is a contiguous sequence of tokens.
+A unigram contains one token.
+A bigram contains two tokens.
+A trigram contains three tokens.
+N-grams preserve limited local word order.
+Character n-grams can handle spelling variations.
+Naive Bayes is a common text-classification baseline.
+Multinomial Naive Bayes works with word-count features.
+Logistic regression works well with sparse text features.
+Support Vector Machines can work well with TF-IDF.
+K-nearest neighbors can use vector similarity.
+Decision trees can classify numerical text features.
+Random forests can classify suitable text features.
+CNNs can capture local text patterns.
+RNNs can model sequential text information.
+LSTMs can model sequence context.
+Transformers can create contextual text representations.
+BERT can be fine-tuned for text classification.
+A classification head produces class scores.
+Softmax is common for mutually exclusive classes.
+Sigmoid outputs can support multilabel classification.
+Cross-entropy is a common classification loss.
+Training data is used to learn model parameters.
+Validation data can tune hyperparameters.
+Test data is used for final evaluation.
+Data leakage can produce misleading evaluation results.
+Class imbalance occurs when classes have unequal frequencies.
+Class weights can increase minority-class importance.
+Oversampling can increase minority examples.
+Undersampling can reduce majority examples.
+Accuracy measures the proportion of correct predictions.
+Precision measures correctness among predicted positives.
+Recall measures how many actual positives are detected.
+F1-score combines precision and recall.
+A confusion matrix shows class prediction errors.
+Macro averaging gives equal weight to classes.
+Micro averaging aggregates decisions across classes.
+Text classification can support question-answering systems.
+Question classification can route questions to knowledge-base sections.
+Classification can reduce retrieval from unrelated documents.
+Classification can be combined with TF-IDF retrieval.
+Classification can be combined with embeddings.
+Classification alone does not generate a complete answer.
+Ambiguous text can be difficult to classify.
+Domain changes can reduce model performance.
+Rare classes can be difficult to learn.
+Poor labels can reduce model quality.
+Overfitting reduces generalization to unseen text.
+Underfitting occurs when a model is too simple.
+Evaluation should use representative test data.
+Knowledge point: Text classification assigns labels to text.
+Knowledge point: Text classification converts text into predefined categories.
+Knowledge point: Input can be a word, sentence, paragraph, document, email, or message.
+Knowledge point: Output can contain one or more class labels.
+Knowledge point: Supervised classification uses labeled training examples.
+Knowledge point: Binary classification has two classes.
+Knowledge point: Multiclass classification has more than two possible classes.
+Knowledge point: Multilabel classification allows multiple labels for one input.
+Knowledge point: Sentiment analysis is a common text-classification task.
+Knowledge point: Spam detection is a common text-classification task.
+Knowledge point: Topic classification assigns documents to topics.
+Knowledge point: Intent classification identifies the purpose of a user message.
+Knowledge point: Language identification predicts the language of text.
+Knowledge point: News classification assigns articles to categories.
+Knowledge point: Question classification identifies question types.
+Knowledge point: Customer-support systems can classify incoming requests.
+Knowledge point: Text preprocessing prepares raw text for a model.
+Knowledge point: Tokenization divides text into tokens.
+Knowledge point: Tokens may be words, subwords, or characters.
+Knowledge point: Lowercasing can reduce vocabulary variation.
+Knowledge point: Stop-word removal can be useful for some classical models.
+Knowledge point: Stemming reduces words to stems.
+Knowledge point: Lemmatization maps words to base forms.
+Knowledge point: Transformer models commonly use subword tokenization.
+Knowledge point: Bag of Words is a classical text representation.
+Knowledge point: Bag of Words is also called BoW.
+Knowledge point: BoW represents text using vocabulary features.
+Knowledge point: Count-based BoW records term occurrences.
+Knowledge point: Binary BoW records term presence.
+Knowledge point: Basic BoW ignores word order.
+Knowledge point: BoW vectors are often sparse.
+Knowledge point: TF-IDF means Term Frequency-Inverse Document Frequency.
+Knowledge point: TF-IDF weights terms according to document and corpus frequency.
+Knowledge point: Common terms receive lower IDF weight.
+Knowledge point: Distinctive terms can receive higher TF-IDF weight.
+Knowledge point: TF-IDF works well with classical classifiers.
+Knowledge point: An n-gram is a contiguous sequence of tokens.
+Knowledge point: A unigram contains one token.
+Knowledge point: A bigram contains two tokens.
+Knowledge point: A trigram contains three tokens.
+Knowledge point: N-grams preserve limited local word order.
+Knowledge point: Character n-grams can handle spelling variations.
+Knowledge point: Naive Bayes is a common text-classification baseline.
+Knowledge point: Multinomial Naive Bayes works with word-count features.
+Knowledge point: Logistic regression works well with sparse text features.
+Knowledge point: Support Vector Machines can work well with TF-IDF.
+Knowledge point: K-nearest neighbors can use vector similarity.
+Knowledge point: Decision trees can classify numerical text features.
+Knowledge point: Random forests can classify suitable text features.
+Knowledge point: CNNs can capture local text patterns.
+Knowledge point: RNNs can model sequential text information.
+Knowledge point: LSTMs can model sequence context.
+Knowledge point: Transformers can create contextual text representations.
+Knowledge point: BERT can be fine-tuned for text classification.
+Knowledge point: A classification head produces class scores.
+Knowledge point: Softmax is common for mutually exclusive classes.
+Knowledge point: Sigmoid outputs can support multilabel classification.
+Knowledge point: Cross-entropy is a common classification loss.
+Knowledge point: Training data is used to learn model parameters.
+Knowledge point: Validation data can tune hyperparameters.
+Knowledge point: Test data is used for final evaluation.
+Knowledge point: Data leakage can produce misleading evaluation results.
+Knowledge point: Class imbalance occurs when classes have unequal frequencies.
+Knowledge point: Class weights can increase minority-class importance.
+Knowledge point: Oversampling can increase minority examples.
+Knowledge point: Undersampling can reduce majority examples.
+Knowledge point: Accuracy measures the proportion of correct predictions.
+Knowledge point: Precision measures correctness among predicted positives.
+Knowledge point: Recall measures how many actual positives are detected.
+Knowledge point: F1-score combines precision and recall.
+Knowledge point: A confusion matrix shows class prediction errors.
+Knowledge point: Macro averaging gives equal weight to classes.
+Knowledge point: Micro averaging aggregates decisions across classes.
+Knowledge point: Text classification can support question-answering systems.
+Knowledge point: Question classification can route questions to knowledge-base sections.
+Knowledge point: Classification can reduce retrieval from unrelated documents.
+Knowledge point: Classification can be combined with TF-IDF retrieval.
+Knowledge point: Classification can be combined with embeddings.
+Knowledge point: Classification alone does not generate a complete answer.
+Knowledge point: Ambiguous text can be difficult to classify.
+Knowledge point: Domain changes can reduce model performance.
+Knowledge point: Rare classes can be difficult to learn.
+Knowledge point: Poor labels can reduce model quality.
+Knowledge point: Overfitting reduces generalization to unseen text.
+Knowledge point: Underfitting occurs when a model is too simple.
+Knowledge point: Evaluation should use representative test data.
+Knowledge point: Text classification assigns labels to text.
+Knowledge point: Text classification converts text into predefined categories.
+Knowledge point: Input can be a word, sentence, paragraph, document, email, or message.
+Knowledge point: Output can contain one or more class labels.
+Knowledge point: Supervised classification uses labeled training examples.
+Knowledge point: Binary classification has two classes.
+Knowledge point: Multiclass classification has more than two possible classes.
+Knowledge point: Multilabel classification allows multiple labels for one input.
+Knowledge point: Sentiment analysis is a common text-classification task.
+Knowledge point: Spam detection is a common text-classification task.
+Knowledge point: Topic classification assigns documents to topics.
+Knowledge point: Intent classification identifies the purpose of a user message.
+Knowledge point: Language identification predicts the language of text.
+Knowledge point: News classification assigns articles to categories.
+Knowledge point: Question classification identifies question types.
+Knowledge point: Customer-support systems can classify incoming requests.
+Knowledge point: Text preprocessing prepares raw text for a model.
+Knowledge point: Tokenization divides text into tokens.
+Knowledge point: Tokens may be words, subwords, or characters.
+Knowledge point: Lowercasing can reduce vocabulary variation.
+Knowledge point: Stop-word removal can be useful for some classical models.
+Knowledge point: Stemming reduces words to stems.
+Knowledge point: Lemmatization maps words to base forms.
+Knowledge point: Transformer models commonly use subword tokenization.
+Knowledge point: Bag of Words is a classical text representation.
+Knowledge point: Bag of Words is also called BoW.
+Knowledge point: BoW represents text using vocabulary features.
+Knowledge point: Count-based BoW records term occurrences.
+Knowledge point: Binary BoW records term presence.
+Knowledge point: Basic BoW ignores word order.
+Knowledge point: BoW vectors are often sparse.
+Knowledge point: TF-IDF means Term Frequency-Inverse Document Frequency.
+Knowledge point: TF-IDF weights terms according to document and corpus frequency.
+Knowledge point: Common terms receive lower IDF weight.
+Knowledge point: Distinctive terms can receive higher TF-IDF weight.
+Knowledge point: TF-IDF works well with classical classifiers.
+Knowledge point: An n-gram is a contiguous sequence of tokens.
+Knowledge point: A unigram contains one token.
+Knowledge point: A bigram contains two tokens.
+Knowledge point: A trigram contains three tokens.
+Knowledge point: N-grams preserve limited local word order.
+Knowledge point: Character n-grams can handle spelling variations.
+Knowledge point: Naive Bayes is a common text-classification baseline.
+Knowledge point: Multinomial Naive Bayes works with word-count features.
+Knowledge point: Logistic regression works well with sparse text features.
+Knowledge point: Support Vector Machines can work well with TF-IDF.
+Knowledge point: K-nearest neighbors can use vector similarity.
+Knowledge point: Decision trees can classify numerical text features.
+Knowledge point: Random forests can classify suitable text features.
+Knowledge point: CNNs can capture local text patterns.
+Knowledge point: RNNs can model sequential text information.
+Knowledge point: LSTMs can model sequence context.
+Knowledge point: Transformers can create contextual text representations.
+Knowledge point: BERT can be fine-tuned for text classification.
+Knowledge point: A classification head produces class scores.
+Knowledge point: Softmax is common for mutually exclusive classes.
+Knowledge point: Sigmoid outputs can support multilabel classification.
+Knowledge point: Cross-entropy is a common classification loss.
+Knowledge point: Training data is used to learn model parameters.
+Knowledge point: Validation data can tune hyperparameters.
+Knowledge point: Test data is used for final evaluation.
+Knowledge point: Data leakage can produce misleading evaluation results.
+Knowledge point: Class imbalance occurs when classes have unequal frequencies.
+Knowledge point: Class weights can increase minority-class importance.
+Knowledge point: Oversampling can increase minority examples.
+Knowledge point: Undersampling can reduce majority examples.
+Knowledge point: Accuracy measures the proportion of correct predictions.
+Knowledge point: Precision measures correctness among predicted positives.
+Knowledge point: Recall measures how many actual positives are detected.
+Knowledge point: F1-score combines precision and recall.
+Knowledge point: A confusion matrix shows class prediction errors.
+Knowledge point: Macro averaging gives equal weight to classes.
+Knowledge point: Micro averaging aggregates decisions across classes.
+Knowledge point: Text classification can support question-answering systems.
+Knowledge point: Question classification can route questions to knowledge-base sections.
+Knowledge point: Classification can reduce retrieval from unrelated documents.
+Knowledge point: Classification can be combined with TF-IDF retrieval.
+Knowledge point: Classification can be combined with embeddings.
+Knowledge point: Classification alone does not generate a complete answer.
+Knowledge point: Ambiguous text can be difficult to classify.
+Knowledge point: Domain changes can reduce model performance.
+Knowledge point: Rare classes can be difficult to learn.
+Knowledge point: Poor labels can reduce model quality.
+Knowledge point: Overfitting reduces generalization to unseen text.
+Knowledge point: Underfitting occurs when a model is too simple.
+Knowledge point: Evaluation should use representative test data.
+Knowledge point: Text classification assigns labels to text.
+Knowledge point: Text classification converts text into predefined categories.
+Knowledge point: Input can be a word, sentence, paragraph, document, email, or message.
+Knowledge point: Output can contain one or more class labels.
+Knowledge point: Supervised classification uses labeled training examples.
+Knowledge point: Binary classification has two classes.
+Knowledge point: Multiclass classification has more than two possible classes.
+Knowledge point: Multilabel classification allows multiple labels for one input.
+Knowledge point: Sentiment analysis is a common text-classification task.
+Knowledge point: Spam detection is a common text-classification task.
+Knowledge point: Topic classification assigns documents to topics.
+Knowledge point: Intent classification identifies the purpose of a user message.
+Knowledge point: Language identification predicts the language of text.
+Knowledge point: News classification assigns articles to categories.
+Knowledge point: Question classification identifies question types.
+Knowledge point: Customer-support systems can classify incoming requests.
+Knowledge point: Text preprocessing prepares raw text for a model.
+Knowledge point: Tokenization divides text into tokens.
+Knowledge point: Tokens may be words, subwords, or characters.
+Knowledge point: Lowercasing can reduce vocabulary variation.
+Knowledge point: Stop-word removal can be useful for some classical models.
+Knowledge point: Stemming reduces words to stems.
+Knowledge point: Lemmatization maps words to base forms.
+Knowledge point: Transformer models commonly use subword tokenization.
+Knowledge point: Bag of Words is a classical text representation.
+Knowledge point: Bag of Words is also called BoW.
+Knowledge point: BoW represents text using vocabulary features.
+Knowledge point: Count-based BoW records term occurrences.
+Knowledge point: Binary BoW records term presence.
+Knowledge point: Basic BoW ignores word order.
+Knowledge point: BoW vectors are often sparse.
+Knowledge point: TF-IDF means Term Frequency-Inverse Document Frequency.
+Knowledge point: TF-IDF weights terms according to document and corpus frequency.
+Knowledge point: Common terms receive lower IDF weight.
+Knowledge point: Distinctive terms can receive higher TF-IDF weight.
+Knowledge point: TF-IDF works well with classical classifiers.
+Knowledge point: An n-gram is a contiguous sequence of tokens.
+Knowledge point: A unigram contains one token.
+Knowledge point: A bigram contains two tokens.
+Knowledge point: A trigram contains three tokens.
+Knowledge point: N-grams preserve limited local word order.
+Knowledge point: Character n-grams can handle spelling variations.
+Knowledge point: Naive Bayes is a common text-classification baseline.
+Knowledge point: Multinomial Naive Bayes works with word-count features.
+Knowledge point: Logistic regression works well with sparse text features.
+Knowledge point: Support Vector Machines can work well with TF-IDF.
+Knowledge point: K-nearest neighbors can use vector similarity.
+Knowledge point: Decision trees can classify numerical text features.
+Knowledge point: Random forests can classify suitable text features.
+Knowledge point: CNNs can capture local text patterns.
+Knowledge point: RNNs can model sequential text information.
+Knowledge point: LSTMs can model sequence context.
+Knowledge point: Transformers can create contextual text representations.
+Knowledge point: BERT can be fine-tuned for text classification.
+Knowledge point: A classification head produces class scores.
+Knowledge point: Softmax is common for mutually exclusive classes.
+Knowledge point: Sigmoid outputs can support multilabel classification.
+Knowledge point: Cross-entropy is a common classification loss.
