@@ -1,0 +1,317 @@
+
+BERT means Bidirectional Encoder Representations from Transformers.
+BERT is a transformer-based language model.
+BERT primarily uses transformer encoder layers.
+BERT learns contextual token representations.
+A contextual representation depends on surrounding words.
+BERT uses bidirectional context.
+Self-attention allows tokens to interact with context.
+BERT was pre-trained on large text collections.
+Pre-training learns general language representations.
+Masked Language Modeling is a major BERT objective.
+Masked Language Modeling hides selected tokens.
+The model predicts masked tokens from context.
+Original BERT also used Next Sentence Prediction.
+Later research has modified the use of sentence-pair objectives.
+BERT can be fine-tuned for downstream tasks.
+Fine-tuning uses task-specific labeled data.
+BERT can perform text classification.
+BERT can perform sentiment analysis.
+BERT can perform named entity recognition.
+BERT can perform natural language inference.
+BERT can support semantic similarity tasks.
+BERT can be used for question answering.
+Extractive BERT QA predicts answer start positions.
+Extractive BERT QA predicts answer end positions.
+An extractive answer is a span from the context.
+BERT commonly uses WordPiece-style subword tokenization.
+Subword tokenization helps represent rare words.
+BERT uses special tokens.
+[CLS] is commonly placed at the start of an input.
+[SEP] can separate sequences.
+Padding can equalize sequence lengths in a batch.
+Attention masks identify usable positions.
+BERT can be used as a retrieval component.
+BERT can be used as a reranking component.
+BERT can match questions with relevant passages.
+BERT is not primarily an autoregressive text generator.
+BERT input length depends on the model configuration.
+Long documents may require chunking.
+BERT can require substantial memory and computation.
+Performance depends on pre-training data.
+Performance also depends on fine-tuning data.
+Training data can contain biases.
+BERT predictions are not automatically factual.
+BERT can be combined with retrieval for QA.
+BERT is useful for contextual language understanding.
+Knowledge point: BERT means Bidirectional Encoder Representations from Transformers.
+Knowledge point: BERT is a transformer-based language model.
+Knowledge point: BERT primarily uses transformer encoder layers.
+Knowledge point: BERT learns contextual token representations.
+Knowledge point: A contextual representation depends on surrounding words.
+Knowledge point: BERT uses bidirectional context.
+Knowledge point: Self-attention allows tokens to interact with context.
+Knowledge point: BERT was pre-trained on large text collections.
+Knowledge point: Pre-training learns general language representations.
+Knowledge point: Masked Language Modeling is a major BERT objective.
+Knowledge point: Masked Language Modeling hides selected tokens.
+Knowledge point: The model predicts masked tokens from context.
+Knowledge point: Original BERT also used Next Sentence Prediction.
+Knowledge point: Later research has modified the use of sentence-pair objectives.
+Knowledge point: BERT can be fine-tuned for downstream tasks.
+Knowledge point: Fine-tuning uses task-specific labeled data.
+Knowledge point: BERT can perform text classification.
+Knowledge point: BERT can perform sentiment analysis.
+Knowledge point: BERT can perform named entity recognition.
+Knowledge point: BERT can perform natural language inference.
+Knowledge point: BERT can support semantic similarity tasks.
+Knowledge point: BERT can be used for question answering.
+Knowledge point: Extractive BERT QA predicts answer start positions.
+Knowledge point: Extractive BERT QA predicts answer end positions.
+Knowledge point: An extractive answer is a span from the context.
+Knowledge point: BERT commonly uses WordPiece-style subword tokenization.
+Knowledge point: Subword tokenization helps represent rare words.
+Knowledge point: BERT uses special tokens.
+Knowledge point: [CLS] is commonly placed at the start of an input.
+Knowledge point: [SEP] can separate sequences.
+Knowledge point: Padding can equalize sequence lengths in a batch.
+Knowledge point: Attention masks identify usable positions.
+Knowledge point: BERT can be used as a retrieval component.
+Knowledge point: BERT can be used as a reranking component.
+Knowledge point: BERT can match questions with relevant passages.
+Knowledge point: BERT is not primarily an autoregressive text generator.
+Knowledge point: BERT input length depends on the model configuration.
+Knowledge point: Long documents may require chunking.
+Knowledge point: BERT can require substantial memory and computation.
+Knowledge point: Performance depends on pre-training data.
+Knowledge point: Performance also depends on fine-tuning data.
+Knowledge point: Training data can contain biases.
+Knowledge point: BERT predictions are not automatically factual.
+Knowledge point: BERT can be combined with retrieval for QA.
+Knowledge point: BERT is useful for contextual language understanding.
+Knowledge point: BERT means Bidirectional Encoder Representations from Transformers.
+Knowledge point: BERT is a transformer-based language model.
+Knowledge point: BERT primarily uses transformer encoder layers.
+Knowledge point: BERT learns contextual token representations.
+Knowledge point: A contextual representation depends on surrounding words.
+Knowledge point: BERT uses bidirectional context.
+Knowledge point: Self-attention allows tokens to interact with context.
+Knowledge point: BERT was pre-trained on large text collections.
+Knowledge point: Pre-training learns general language representations.
+Knowledge point: Masked Language Modeling is a major BERT objective.
+Knowledge point: Masked Language Modeling hides selected tokens.
+Knowledge point: The model predicts masked tokens from context.
+Knowledge point: Original BERT also used Next Sentence Prediction.
+Knowledge point: Later research has modified the use of sentence-pair objectives.
+Knowledge point: BERT can be fine-tuned for downstream tasks.
+Knowledge point: Fine-tuning uses task-specific labeled data.
+Knowledge point: BERT can perform text classification.
+Knowledge point: BERT can perform sentiment analysis.
+Knowledge point: BERT can perform named entity recognition.
+Knowledge point: BERT can perform natural language inference.
+Knowledge point: BERT can support semantic similarity tasks.
+Knowledge point: BERT can be used for question answering.
+Knowledge point: Extractive BERT QA predicts answer start positions.
+Knowledge point: Extractive BERT QA predicts answer end positions.
+Knowledge point: An extractive answer is a span from the context.
+Knowledge point: BERT commonly uses WordPiece-style subword tokenization.
+Knowledge point: Subword tokenization helps represent rare words.
+Knowledge point: BERT uses special tokens.
+Knowledge point: [CLS] is commonly placed at the start of an input.
+Knowledge point: [SEP] can separate sequences.
+Knowledge point: Padding can equalize sequence lengths in a batch.
+Knowledge point: Attention masks identify usable positions.
+Knowledge point: BERT can be used as a retrieval component.
+Knowledge point: BERT can be used as a reranking component.
+Knowledge point: BERT can match questions with relevant passages.
+Knowledge point: BERT is not primarily an autoregressive text generator.
+Knowledge point: BERT input length depends on the model configuration.
+Knowledge point: Long documents may require chunking.
+Knowledge point: BERT can require substantial memory and computation.
+Knowledge point: Performance depends on pre-training data.
+Knowledge point: Performance also depends on fine-tuning data.
+Knowledge point: Training data can contain biases.
+Knowledge point: BERT predictions are not automatically factual.
+Knowledge point: BERT can be combined with retrieval for QA.
+Knowledge point: BERT is useful for contextual language understanding.
+Knowledge point: BERT means Bidirectional Encoder Representations from Transformers.
+Knowledge point: BERT is a transformer-based language model.
+Knowledge point: BERT primarily uses transformer encoder layers.
+Knowledge point: BERT learns contextual token representations.
+Knowledge point: A contextual representation depends on surrounding words.
+Knowledge point: BERT uses bidirectional context.
+Knowledge point: Self-attention allows tokens to interact with context.
+Knowledge point: BERT was pre-trained on large text collections.
+Knowledge point: Pre-training learns general language representations.
+Knowledge point: Masked Language Modeling is a major BERT objective.
+Knowledge point: Masked Language Modeling hides selected tokens.
+Knowledge point: The model predicts masked tokens from context.
+Knowledge point: Original BERT also used Next Sentence Prediction.
+Knowledge point: Later research has modified the use of sentence-pair objectives.
+Knowledge point: BERT can be fine-tuned for downstream tasks.
+Knowledge point: Fine-tuning uses task-specific labeled data.
+Knowledge point: BERT can perform text classification.
+Knowledge point: BERT can perform sentiment analysis.
+Knowledge point: BERT can perform named entity recognition.
+Knowledge point: BERT can perform natural language inference.
+Knowledge point: BERT can support semantic similarity tasks.
+Knowledge point: BERT can be used for question answering.
+Knowledge point: Extractive BERT QA predicts answer start positions.
+Knowledge point: Extractive BERT QA predicts answer end positions.
+Knowledge point: An extractive answer is a span from the context.
+Knowledge point: BERT commonly uses WordPiece-style subword tokenization.
+Knowledge point: Subword tokenization helps represent rare words.
+Knowledge point: BERT uses special tokens.
+Knowledge point: [CLS] is commonly placed at the start of an input.
+Knowledge point: [SEP] can separate sequences.
+Knowledge point: Padding can equalize sequence lengths in a batch.
+Knowledge point: Attention masks identify usable positions.
+Knowledge point: BERT can be used as a retrieval component.
+Knowledge point: BERT can be used as a reranking component.
+Knowledge point: BERT can match questions with relevant passages.
+Knowledge point: BERT is not primarily an autoregressive text generator.
+Knowledge point: BERT input length depends on the model configuration.
+Knowledge point: Long documents may require chunking.
+Knowledge point: BERT can require substantial memory and computation.
+Knowledge point: Performance depends on pre-training data.
+Knowledge point: Performance also depends on fine-tuning data.
+Knowledge point: Training data can contain biases.
+Knowledge point: BERT predictions are not automatically factual.
+Knowledge point: BERT can be combined with retrieval for QA.
+Knowledge point: BERT is useful for contextual language understanding.
+Knowledge point: BERT means Bidirectional Encoder Representations from Transformers.
+Knowledge point: BERT is a transformer-based language model.
+Knowledge point: BERT primarily uses transformer encoder layers.
+Knowledge point: BERT learns contextual token representations.
+Knowledge point: A contextual representation depends on surrounding words.
+Knowledge point: BERT uses bidirectional context.
+Knowledge point: Self-attention allows tokens to interact with context.
+Knowledge point: BERT was pre-trained on large text collections.
+Knowledge point: Pre-training learns general language representations.
+Knowledge point: Masked Language Modeling is a major BERT objective.
+Knowledge point: Masked Language Modeling hides selected tokens.
+Knowledge point: The model predicts masked tokens from context.
+Knowledge point: Original BERT also used Next Sentence Prediction.
+Knowledge point: Later research has modified the use of sentence-pair objectives.
+Knowledge point: BERT can be fine-tuned for downstream tasks.
+Knowledge point: Fine-tuning uses task-specific labeled data.
+Knowledge point: BERT can perform text classification.
+Knowledge point: BERT can perform sentiment analysis.
+Knowledge point: BERT can perform named entity recognition.
+Knowledge point: BERT can perform natural language inference.
+Knowledge point: BERT can support semantic similarity tasks.
+Knowledge point: BERT can be used for question answering.
+Knowledge point: Extractive BERT QA predicts answer start positions.
+Knowledge point: Extractive BERT QA predicts answer end positions.
+Knowledge point: An extractive answer is a span from the context.
+Knowledge point: BERT commonly uses WordPiece-style subword tokenization.
+Knowledge point: Subword tokenization helps represent rare words.
+Knowledge point: BERT uses special tokens.
+Knowledge point: [CLS] is commonly placed at the start of an input.
+Knowledge point: [SEP] can separate sequences.
+Knowledge point: Padding can equalize sequence lengths in a batch.
+Knowledge point: Attention masks identify usable positions.
+Knowledge point: BERT can be used as a retrieval component.
+Knowledge point: BERT can be used as a reranking component.
+Knowledge point: BERT can match questions with relevant passages.
+Knowledge point: BERT is not primarily an autoregressive text generator.
+Knowledge point: BERT input length depends on the model configuration.
+Knowledge point: Long documents may require chunking.
+Knowledge point: BERT can require substantial memory and computation.
+Knowledge point: Performance depends on pre-training data.
+Knowledge point: Performance also depends on fine-tuning data.
+Knowledge point: Training data can contain biases.
+Knowledge point: BERT predictions are not automatically factual.
+Knowledge point: BERT can be combined with retrieval for QA.
+Knowledge point: BERT is useful for contextual language understanding.
+Knowledge point: BERT means Bidirectional Encoder Representations from Transformers.
+Knowledge point: BERT is a transformer-based language model.
+Knowledge point: BERT primarily uses transformer encoder layers.
+Knowledge point: BERT learns contextual token representations.
+Knowledge point: A contextual representation depends on surrounding words.
+Knowledge point: BERT uses bidirectional context.
+Knowledge point: Self-attention allows tokens to interact with context.
+Knowledge point: BERT was pre-trained on large text collections.
+Knowledge point: Pre-training learns general language representations.
+Knowledge point: Masked Language Modeling is a major BERT objective.
+Knowledge point: Masked Language Modeling hides selected tokens.
+Knowledge point: The model predicts masked tokens from context.
+Knowledge point: Original BERT also used Next Sentence Prediction.
+Knowledge point: Later research has modified the use of sentence-pair objectives.
+Knowledge point: BERT can be fine-tuned for downstream tasks.
+Knowledge point: Fine-tuning uses task-specific labeled data.
+Knowledge point: BERT can perform text classification.
+Knowledge point: BERT can perform sentiment analysis.
+Knowledge point: BERT can perform named entity recognition.
+Knowledge point: BERT can perform natural language inference.
+Knowledge point: BERT can support semantic similarity tasks.
+Knowledge point: BERT can be used for question answering.
+Knowledge point: Extractive BERT QA predicts answer start positions.
+Knowledge point: Extractive BERT QA predicts answer end positions.
+Knowledge point: An extractive answer is a span from the context.
+Knowledge point: BERT commonly uses WordPiece-style subword tokenization.
+Knowledge point: Subword tokenization helps represent rare words.
+Knowledge point: BERT uses special tokens.
+Knowledge point: [CLS] is commonly placed at the start of an input.
+Knowledge point: [SEP] can separate sequences.
+Knowledge point: Padding can equalize sequence lengths in a batch.
+Knowledge point: Attention masks identify usable positions.
+Knowledge point: BERT can be used as a retrieval component.
+Knowledge point: BERT can be used as a reranking component.
+Knowledge point: BERT can match questions with relevant passages.
+Knowledge point: BERT is not primarily an autoregressive text generator.
+Knowledge point: BERT input length depends on the model configuration.
+Knowledge point: Long documents may require chunking.
+Knowledge point: BERT can require substantial memory and computation.
+Knowledge point: Performance depends on pre-training data.
+Knowledge point: Performance also depends on fine-tuning data.
+Knowledge point: Training data can contain biases.
+Knowledge point: BERT predictions are not automatically factual.
+Knowledge point: BERT can be combined with retrieval for QA.
+Knowledge point: BERT is useful for contextual language understanding.
+Knowledge point: BERT means Bidirectional Encoder Representations from Transformers.
+Knowledge point: BERT is a transformer-based language model.
+Knowledge point: BERT primarily uses transformer encoder layers.
+Knowledge point: BERT learns contextual token representations.
+Knowledge point: A contextual representation depends on surrounding words.
+Knowledge point: BERT uses bidirectional context.
+Knowledge point: Self-attention allows tokens to interact with context.
+Knowledge point: BERT was pre-trained on large text collections.
+Knowledge point: Pre-training learns general language representations.
+Knowledge point: Masked Language Modeling is a major BERT objective.
+Knowledge point: Masked Language Modeling hides selected tokens.
+Knowledge point: The model predicts masked tokens from context.
+Knowledge point: Original BERT also used Next Sentence Prediction.
+Knowledge point: Later research has modified the use of sentence-pair objectives.
+Knowledge point: BERT can be fine-tuned for downstream tasks.
+Knowledge point: Fine-tuning uses task-specific labeled data.
+Knowledge point: BERT can perform text classification.
+Knowledge point: BERT can perform sentiment analysis.
+Knowledge point: BERT can perform named entity recognition.
+Knowledge point: BERT can perform natural language inference.
+Knowledge point: BERT can support semantic similarity tasks.
+Knowledge point: BERT can be used for question answering.
+Knowledge point: Extractive BERT QA predicts answer start positions.
+Knowledge point: Extractive BERT QA predicts answer end positions.
+Knowledge point: An extractive answer is a span from the context.
+Knowledge point: BERT commonly uses WordPiece-style subword tokenization.
+Knowledge point: Subword tokenization helps represent rare words.
+Knowledge point: BERT uses special tokens.
+Knowledge point: [CLS] is commonly placed at the start of an input.
+Knowledge point: [SEP] can separate sequences.
+Knowledge point: Padding can equalize sequence lengths in a batch.
+Knowledge point: Attention masks identify usable positions.
+Knowledge point: BERT can be used as a retrieval component.
+Knowledge point: BERT can be used as a reranking component.
+Knowledge point: BERT can match questions with relevant passages.
+Knowledge point: BERT is not primarily an autoregressive text generator.
+Knowledge point: BERT input length depends on the model configuration.
+Knowledge point: Long documents may require chunking.
+Knowledge point: BERT can require substantial memory and computation.
+Knowledge point: Performance depends on pre-training data.
+Knowledge point: Performance also depends on fine-tuning data.
+Knowledge point: Training data can contain biases.
+Knowledge point: BERT predictions are not automatically factual.
+Knowledge point: BERT can be combined with retrieval for QA.
+Knowledge point: BERT is useful for contextual language understanding.
+Knowledge point: BERT means Bidirectional Encoder Representations from Transformers.
