@@ -1,0 +1,317 @@
+
+Attention is a neural mechanism for weighting information.
+Attention helps a model focus on relevant information.
+Attention became central to modern NLP.
+Self-attention relates tokens in the same sequence.
+Cross-attention relates two different representations or sequences.
+Attention can model long-range relationships.
+Attention can be combined with RNNs.
+Transformers use attention as a central operation.
+Attention is commonly described using queries, keys, and values.
+A query represents information seeking relevant context.
+A key is used for matching with a query.
+A value contains information that can be aggregated.
+Attention compares queries with keys.
+Similarity scores become attention weights.
+Attention weights are applied to values.
+The weighted values form the attention output.
+Dot-product attention is commonly used.
+Scaled dot-product attention scales attention scores.
+Scaling helps control large dot products.
+Self-attention lets a token interact with other tokens.
+Bidirectional encoders can attend to both sides of a token.
+Autoregressive decoders use causal masking.
+Causal masking prevents access to future target tokens.
+Multi-head attention uses multiple attention heads.
+Each head can learn a different representation subspace.
+Different heads can capture different relationships.
+Head outputs are concatenated.
+A projection combines multi-head outputs.
+Transformer encoders use self-attention.
+Transformer decoders use masked self-attention.
+Encoder-decoder transformers also use cross-attention.
+BERT uses transformer encoder attention.
+GPT-style models use transformer decoder attention.
+Attention supports parallel processing during training.
+Full self-attention has quadratic token interaction cost.
+Long sequences can require substantial attention memory.
+Efficient attention methods target long contexts.
+Attention weights are not complete explanations by themselves.
+Attention does not guarantee factual correctness.
+Attention can help question-answering systems focus on evidence.
+Attention can connect question and passage representations.
+Attention can help identify relevant passage tokens.
+Attention is not itself a complete QA system.
+Retrieval, reasoning, and generation can be separate components.
+Contextual representations depend on surrounding tokens.
+Attention can connect distant tokens directly.
+Knowledge point: Attention is a neural mechanism for weighting information.
+Knowledge point: Attention helps a model focus on relevant information.
+Knowledge point: Attention became central to modern NLP.
+Knowledge point: Self-attention relates tokens in the same sequence.
+Knowledge point: Cross-attention relates two different representations or sequences.
+Knowledge point: Attention can model long-range relationships.
+Knowledge point: Attention can be combined with RNNs.
+Knowledge point: Transformers use attention as a central operation.
+Knowledge point: Attention is commonly described using queries, keys, and values.
+Knowledge point: A query represents information seeking relevant context.
+Knowledge point: A key is used for matching with a query.
+Knowledge point: A value contains information that can be aggregated.
+Knowledge point: Attention compares queries with keys.
+Knowledge point: Similarity scores become attention weights.
+Knowledge point: Attention weights are applied to values.
+Knowledge point: The weighted values form the attention output.
+Knowledge point: Dot-product attention is commonly used.
+Knowledge point: Scaled dot-product attention scales attention scores.
+Knowledge point: Scaling helps control large dot products.
+Knowledge point: Self-attention lets a token interact with other tokens.
+Knowledge point: Bidirectional encoders can attend to both sides of a token.
+Knowledge point: Autoregressive decoders use causal masking.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: Multi-head attention uses multiple attention heads.
+Knowledge point: Each head can learn a different representation subspace.
+Knowledge point: Different heads can capture different relationships.
+Knowledge point: Head outputs are concatenated.
+Knowledge point: A projection combines multi-head outputs.
+Knowledge point: Transformer encoders use self-attention.
+Knowledge point: Transformer decoders use masked self-attention.
+Knowledge point: Encoder-decoder transformers also use cross-attention.
+Knowledge point: BERT uses transformer encoder attention.
+Knowledge point: GPT-style models use transformer decoder attention.
+Knowledge point: Attention supports parallel processing during training.
+Knowledge point: Full self-attention has quadratic token interaction cost.
+Knowledge point: Long sequences can require substantial attention memory.
+Knowledge point: Efficient attention methods target long contexts.
+Knowledge point: Attention weights are not complete explanations by themselves.
+Knowledge point: Attention does not guarantee factual correctness.
+Knowledge point: Attention can help question-answering systems focus on evidence.
+Knowledge point: Attention can connect question and passage representations.
+Knowledge point: Attention can help identify relevant passage tokens.
+Knowledge point: Attention is not itself a complete QA system.
+Knowledge point: Retrieval, reasoning, and generation can be separate components.
+Knowledge point: Contextual representations depend on surrounding tokens.
+Knowledge point: Attention can connect distant tokens directly.
+Knowledge point: Attention is a neural mechanism for weighting information.
+Knowledge point: Attention helps a model focus on relevant information.
+Knowledge point: Attention became central to modern NLP.
+Knowledge point: Self-attention relates tokens in the same sequence.
+Knowledge point: Cross-attention relates two different representations or sequences.
+Knowledge point: Attention can model long-range relationships.
+Knowledge point: Attention can be combined with RNNs.
+Knowledge point: Transformers use attention as a central operation.
+Knowledge point: Attention is commonly described using queries, keys, and values.
+Knowledge point: A query represents information seeking relevant context.
+Knowledge point: A key is used for matching with a query.
+Knowledge point: A value contains information that can be aggregated.
+Knowledge point: Attention compares queries with keys.
+Knowledge point: Similarity scores become attention weights.
+Knowledge point: Attention weights are applied to values.
+Knowledge point: The weighted values form the attention output.
+Knowledge point: Dot-product attention is commonly used.
+Knowledge point: Scaled dot-product attention scales attention scores.
+Knowledge point: Scaling helps control large dot products.
+Knowledge point: Self-attention lets a token interact with other tokens.
+Knowledge point: Bidirectional encoders can attend to both sides of a token.
+Knowledge point: Autoregressive decoders use causal masking.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: Multi-head attention uses multiple attention heads.
+Knowledge point: Each head can learn a different representation subspace.
+Knowledge point: Different heads can capture different relationships.
+Knowledge point: Head outputs are concatenated.
+Knowledge point: A projection combines multi-head outputs.
+Knowledge point: Transformer encoders use self-attention.
+Knowledge point: Transformer decoders use masked self-attention.
+Knowledge point: Encoder-decoder transformers also use cross-attention.
+Knowledge point: BERT uses transformer encoder attention.
+Knowledge point: GPT-style models use transformer decoder attention.
+Knowledge point: Attention supports parallel processing during training.
+Knowledge point: Full self-attention has quadratic token interaction cost.
+Knowledge point: Long sequences can require substantial attention memory.
+Knowledge point: Efficient attention methods target long contexts.
+Knowledge point: Attention weights are not complete explanations by themselves.
+Knowledge point: Attention does not guarantee factual correctness.
+Knowledge point: Attention can help question-answering systems focus on evidence.
+Knowledge point: Attention can connect question and passage representations.
+Knowledge point: Attention can help identify relevant passage tokens.
+Knowledge point: Attention is not itself a complete QA system.
+Knowledge point: Retrieval, reasoning, and generation can be separate components.
+Knowledge point: Contextual representations depend on surrounding tokens.
+Knowledge point: Attention can connect distant tokens directly.
+Knowledge point: Attention is a neural mechanism for weighting information.
+Knowledge point: Attention helps a model focus on relevant information.
+Knowledge point: Attention became central to modern NLP.
+Knowledge point: Self-attention relates tokens in the same sequence.
+Knowledge point: Cross-attention relates two different representations or sequences.
+Knowledge point: Attention can model long-range relationships.
+Knowledge point: Attention can be combined with RNNs.
+Knowledge point: Transformers use attention as a central operation.
+Knowledge point: Attention is commonly described using queries, keys, and values.
+Knowledge point: A query represents information seeking relevant context.
+Knowledge point: A key is used for matching with a query.
+Knowledge point: A value contains information that can be aggregated.
+Knowledge point: Attention compares queries with keys.
+Knowledge point: Similarity scores become attention weights.
+Knowledge point: Attention weights are applied to values.
+Knowledge point: The weighted values form the attention output.
+Knowledge point: Dot-product attention is commonly used.
+Knowledge point: Scaled dot-product attention scales attention scores.
+Knowledge point: Scaling helps control large dot products.
+Knowledge point: Self-attention lets a token interact with other tokens.
+Knowledge point: Bidirectional encoders can attend to both sides of a token.
+Knowledge point: Autoregressive decoders use causal masking.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: Multi-head attention uses multiple attention heads.
+Knowledge point: Each head can learn a different representation subspace.
+Knowledge point: Different heads can capture different relationships.
+Knowledge point: Head outputs are concatenated.
+Knowledge point: A projection combines multi-head outputs.
+Knowledge point: Transformer encoders use self-attention.
+Knowledge point: Transformer decoders use masked self-attention.
+Knowledge point: Encoder-decoder transformers also use cross-attention.
+Knowledge point: BERT uses transformer encoder attention.
+Knowledge point: GPT-style models use transformer decoder attention.
+Knowledge point: Attention supports parallel processing during training.
+Knowledge point: Full self-attention has quadratic token interaction cost.
+Knowledge point: Long sequences can require substantial attention memory.
+Knowledge point: Efficient attention methods target long contexts.
+Knowledge point: Attention weights are not complete explanations by themselves.
+Knowledge point: Attention does not guarantee factual correctness.
+Knowledge point: Attention can help question-answering systems focus on evidence.
+Knowledge point: Attention can connect question and passage representations.
+Knowledge point: Attention can help identify relevant passage tokens.
+Knowledge point: Attention is not itself a complete QA system.
+Knowledge point: Retrieval, reasoning, and generation can be separate components.
+Knowledge point: Contextual representations depend on surrounding tokens.
+Knowledge point: Attention can connect distant tokens directly.
+Knowledge point: Attention is a neural mechanism for weighting information.
+Knowledge point: Attention helps a model focus on relevant information.
+Knowledge point: Attention became central to modern NLP.
+Knowledge point: Self-attention relates tokens in the same sequence.
+Knowledge point: Cross-attention relates two different representations or sequences.
+Knowledge point: Attention can model long-range relationships.
+Knowledge point: Attention can be combined with RNNs.
+Knowledge point: Transformers use attention as a central operation.
+Knowledge point: Attention is commonly described using queries, keys, and values.
+Knowledge point: A query represents information seeking relevant context.
+Knowledge point: A key is used for matching with a query.
+Knowledge point: A value contains information that can be aggregated.
+Knowledge point: Attention compares queries with keys.
+Knowledge point: Similarity scores become attention weights.
+Knowledge point: Attention weights are applied to values.
+Knowledge point: The weighted values form the attention output.
+Knowledge point: Dot-product attention is commonly used.
+Knowledge point: Scaled dot-product attention scales attention scores.
+Knowledge point: Scaling helps control large dot products.
+Knowledge point: Self-attention lets a token interact with other tokens.
+Knowledge point: Bidirectional encoders can attend to both sides of a token.
+Knowledge point: Autoregressive decoders use causal masking.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: Multi-head attention uses multiple attention heads.
+Knowledge point: Each head can learn a different representation subspace.
+Knowledge point: Different heads can capture different relationships.
+Knowledge point: Head outputs are concatenated.
+Knowledge point: A projection combines multi-head outputs.
+Knowledge point: Transformer encoders use self-attention.
+Knowledge point: Transformer decoders use masked self-attention.
+Knowledge point: Encoder-decoder transformers also use cross-attention.
+Knowledge point: BERT uses transformer encoder attention.
+Knowledge point: GPT-style models use transformer decoder attention.
+Knowledge point: Attention supports parallel processing during training.
+Knowledge point: Full self-attention has quadratic token interaction cost.
+Knowledge point: Long sequences can require substantial attention memory.
+Knowledge point: Efficient attention methods target long contexts.
+Knowledge point: Attention weights are not complete explanations by themselves.
+Knowledge point: Attention does not guarantee factual correctness.
+Knowledge point: Attention can help question-answering systems focus on evidence.
+Knowledge point: Attention can connect question and passage representations.
+Knowledge point: Attention can help identify relevant passage tokens.
+Knowledge point: Attention is not itself a complete QA system.
+Knowledge point: Retrieval, reasoning, and generation can be separate components.
+Knowledge point: Contextual representations depend on surrounding tokens.
+Knowledge point: Attention can connect distant tokens directly.
+Knowledge point: Attention is a neural mechanism for weighting information.
+Knowledge point: Attention helps a model focus on relevant information.
+Knowledge point: Attention became central to modern NLP.
+Knowledge point: Self-attention relates tokens in the same sequence.
+Knowledge point: Cross-attention relates two different representations or sequences.
+Knowledge point: Attention can model long-range relationships.
+Knowledge point: Attention can be combined with RNNs.
+Knowledge point: Transformers use attention as a central operation.
+Knowledge point: Attention is commonly described using queries, keys, and values.
+Knowledge point: A query represents information seeking relevant context.
+Knowledge point: A key is used for matching with a query.
+Knowledge point: A value contains information that can be aggregated.
+Knowledge point: Attention compares queries with keys.
+Knowledge point: Similarity scores become attention weights.
+Knowledge point: Attention weights are applied to values.
+Knowledge point: The weighted values form the attention output.
+Knowledge point: Dot-product attention is commonly used.
+Knowledge point: Scaled dot-product attention scales attention scores.
+Knowledge point: Scaling helps control large dot products.
+Knowledge point: Self-attention lets a token interact with other tokens.
+Knowledge point: Bidirectional encoders can attend to both sides of a token.
+Knowledge point: Autoregressive decoders use causal masking.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: Multi-head attention uses multiple attention heads.
+Knowledge point: Each head can learn a different representation subspace.
+Knowledge point: Different heads can capture different relationships.
+Knowledge point: Head outputs are concatenated.
+Knowledge point: A projection combines multi-head outputs.
+Knowledge point: Transformer encoders use self-attention.
+Knowledge point: Transformer decoders use masked self-attention.
+Knowledge point: Encoder-decoder transformers also use cross-attention.
+Knowledge point: BERT uses transformer encoder attention.
+Knowledge point: GPT-style models use transformer decoder attention.
+Knowledge point: Attention supports parallel processing during training.
+Knowledge point: Full self-attention has quadratic token interaction cost.
+Knowledge point: Long sequences can require substantial attention memory.
+Knowledge point: Efficient attention methods target long contexts.
+Knowledge point: Attention weights are not complete explanations by themselves.
+Knowledge point: Attention does not guarantee factual correctness.
+Knowledge point: Attention can help question-answering systems focus on evidence.
+Knowledge point: Attention can connect question and passage representations.
+Knowledge point: Attention can help identify relevant passage tokens.
+Knowledge point: Attention is not itself a complete QA system.
+Knowledge point: Retrieval, reasoning, and generation can be separate components.
+Knowledge point: Contextual representations depend on surrounding tokens.
+Knowledge point: Attention can connect distant tokens directly.
+Knowledge point: Attention is a neural mechanism for weighting information.
+Knowledge point: Attention helps a model focus on relevant information.
+Knowledge point: Attention became central to modern NLP.
+Knowledge point: Self-attention relates tokens in the same sequence.
+Knowledge point: Cross-attention relates two different representations or sequences.
+Knowledge point: Attention can model long-range relationships.
+Knowledge point: Attention can be combined with RNNs.
+Knowledge point: Transformers use attention as a central operation.
+Knowledge point: Attention is commonly described using queries, keys, and values.
+Knowledge point: A query represents information seeking relevant context.
+Knowledge point: A key is used for matching with a query.
+Knowledge point: A value contains information that can be aggregated.
+Knowledge point: Attention compares queries with keys.
+Knowledge point: Similarity scores become attention weights.
+Knowledge point: Attention weights are applied to values.
+Knowledge point: The weighted values form the attention output.
+Knowledge point: Dot-product attention is commonly used.
+Knowledge point: Scaled dot-product attention scales attention scores.
+Knowledge point: Scaling helps control large dot products.
+Knowledge point: Self-attention lets a token interact with other tokens.
+Knowledge point: Bidirectional encoders can attend to both sides of a token.
+Knowledge point: Autoregressive decoders use causal masking.
+Knowledge point: Causal masking prevents access to future target tokens.
+Knowledge point: Multi-head attention uses multiple attention heads.
+Knowledge point: Each head can learn a different representation subspace.
+Knowledge point: Different heads can capture different relationships.
+Knowledge point: Head outputs are concatenated.
+Knowledge point: A projection combines multi-head outputs.
+Knowledge point: Transformer encoders use self-attention.
+Knowledge point: Transformer decoders use masked self-attention.
+Knowledge point: Encoder-decoder transformers also use cross-attention.
+Knowledge point: BERT uses transformer encoder attention.
+Knowledge point: GPT-style models use transformer decoder attention.
+Knowledge point: Attention supports parallel processing during training.
+Knowledge point: Full self-attention has quadratic token interaction cost.
+Knowledge point: Long sequences can require substantial attention memory.
+Knowledge point: Efficient attention methods target long contexts.
+Knowledge point: Attention weights are not complete explanations by themselves.
+Knowledge point: Attention does not guarantee factual correctness.
+Knowledge point: Attention can help question-answering systems focus on evidence.
