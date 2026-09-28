@@ -1,0 +1,317 @@
+
+RNN means Recurrent Neural Network.
+RNNs are designed for sequential data.
+An RNN processes tokens in sequence order.
+An RNN maintains a hidden state.
+The hidden state carries information from earlier time steps.
+The current input and previous hidden state produce a new hidden state.
+RNN parameters are shared across time steps.
+RNNs can process sequences of different lengths.
+RNNs can be used for text processing.
+RNNs can be used for speech processing.
+RNNs can be used for time-series data.
+RNNs can be used for language modeling.
+RNNs can be used for text classification.
+RNNs can be used for sequence labeling.
+RNNs can be used for text generation.
+Many-to-one RNNs produce one output from a sequence.
+Many-to-many RNNs can produce outputs at several positions.
+Bidirectional RNNs process information in two directions.
+Backpropagation through time trains recurrent networks.
+Simple RNNs can suffer from vanishing gradients.
+Simple RNNs can suffer from exploding gradients.
+Gradient clipping can reduce exploding-gradient problems.
+Long sequences can be difficult for simple RNNs.
+LSTM means Long Short-Term Memory.
+LSTM is a gated recurrent architecture.
+An LSTM contains a cell state.
+The forget gate controls information removed from the cell state.
+The input gate controls information added to the cell state.
+The output gate controls information exposed from the cell state.
+LSTM gates help preserve useful information over long sequences.
+GRU means Gated Recurrent Unit.
+GRU is another gated recurrent architecture.
+GRU commonly uses update and reset gates.
+GRU has a simpler structure than LSTM.
+LSTM and GRU can improve long-range dependency learning.
+RNN computation is sequential across time steps.
+Sequential computation limits parallelism.
+Attention can be combined with recurrent networks.
+RNN encoder-decoder models can perform sequence generation.
+RNNs can be used in question-answering systems.
+An RNN can encode a question.
+An RNN decoder can generate an answer.
+Modern large-scale NLP systems commonly use transformers.
+Transformers use attention instead of recurrence as their primary mechanism.
+Knowledge point: RNN means Recurrent Neural Network.
+Knowledge point: RNNs are designed for sequential data.
+Knowledge point: An RNN processes tokens in sequence order.
+Knowledge point: An RNN maintains a hidden state.
+Knowledge point: The hidden state carries information from earlier time steps.
+Knowledge point: The current input and previous hidden state produce a new hidden state.
+Knowledge point: RNN parameters are shared across time steps.
+Knowledge point: RNNs can process sequences of different lengths.
+Knowledge point: RNNs can be used for text processing.
+Knowledge point: RNNs can be used for speech processing.
+Knowledge point: RNNs can be used for time-series data.
+Knowledge point: RNNs can be used for language modeling.
+Knowledge point: RNNs can be used for text classification.
+Knowledge point: RNNs can be used for sequence labeling.
+Knowledge point: RNNs can be used for text generation.
+Knowledge point: Many-to-one RNNs produce one output from a sequence.
+Knowledge point: Many-to-many RNNs can produce outputs at several positions.
+Knowledge point: Bidirectional RNNs process information in two directions.
+Knowledge point: Backpropagation through time trains recurrent networks.
+Knowledge point: Simple RNNs can suffer from vanishing gradients.
+Knowledge point: Simple RNNs can suffer from exploding gradients.
+Knowledge point: Gradient clipping can reduce exploding-gradient problems.
+Knowledge point: Long sequences can be difficult for simple RNNs.
+Knowledge point: LSTM means Long Short-Term Memory.
+Knowledge point: LSTM is a gated recurrent architecture.
+Knowledge point: An LSTM contains a cell state.
+Knowledge point: The forget gate controls information removed from the cell state.
+Knowledge point: The input gate controls information added to the cell state.
+Knowledge point: The output gate controls information exposed from the cell state.
+Knowledge point: LSTM gates help preserve useful information over long sequences.
+Knowledge point: GRU means Gated Recurrent Unit.
+Knowledge point: GRU is another gated recurrent architecture.
+Knowledge point: GRU commonly uses update and reset gates.
+Knowledge point: GRU has a simpler structure than LSTM.
+Knowledge point: LSTM and GRU can improve long-range dependency learning.
+Knowledge point: RNN computation is sequential across time steps.
+Knowledge point: Sequential computation limits parallelism.
+Knowledge point: Attention can be combined with recurrent networks.
+Knowledge point: RNN encoder-decoder models can perform sequence generation.
+Knowledge point: RNNs can be used in question-answering systems.
+Knowledge point: An RNN can encode a question.
+Knowledge point: An RNN decoder can generate an answer.
+Knowledge point: Modern large-scale NLP systems commonly use transformers.
+Knowledge point: Transformers use attention instead of recurrence as their primary mechanism.
+Knowledge point: RNN means Recurrent Neural Network.
+Knowledge point: RNNs are designed for sequential data.
+Knowledge point: An RNN processes tokens in sequence order.
+Knowledge point: An RNN maintains a hidden state.
+Knowledge point: The hidden state carries information from earlier time steps.
+Knowledge point: The current input and previous hidden state produce a new hidden state.
+Knowledge point: RNN parameters are shared across time steps.
+Knowledge point: RNNs can process sequences of different lengths.
+Knowledge point: RNNs can be used for text processing.
+Knowledge point: RNNs can be used for speech processing.
+Knowledge point: RNNs can be used for time-series data.
+Knowledge point: RNNs can be used for language modeling.
+Knowledge point: RNNs can be used for text classification.
+Knowledge point: RNNs can be used for sequence labeling.
+Knowledge point: RNNs can be used for text generation.
+Knowledge point: Many-to-one RNNs produce one output from a sequence.
+Knowledge point: Many-to-many RNNs can produce outputs at several positions.
+Knowledge point: Bidirectional RNNs process information in two directions.
+Knowledge point: Backpropagation through time trains recurrent networks.
+Knowledge point: Simple RNNs can suffer from vanishing gradients.
+Knowledge point: Simple RNNs can suffer from exploding gradients.
+Knowledge point: Gradient clipping can reduce exploding-gradient problems.
+Knowledge point: Long sequences can be difficult for simple RNNs.
+Knowledge point: LSTM means Long Short-Term Memory.
+Knowledge point: LSTM is a gated recurrent architecture.
+Knowledge point: An LSTM contains a cell state.
+Knowledge point: The forget gate controls information removed from the cell state.
+Knowledge point: The input gate controls information added to the cell state.
+Knowledge point: The output gate controls information exposed from the cell state.
+Knowledge point: LSTM gates help preserve useful information over long sequences.
+Knowledge point: GRU means Gated Recurrent Unit.
+Knowledge point: GRU is another gated recurrent architecture.
+Knowledge point: GRU commonly uses update and reset gates.
+Knowledge point: GRU has a simpler structure than LSTM.
+Knowledge point: LSTM and GRU can improve long-range dependency learning.
+Knowledge point: RNN computation is sequential across time steps.
+Knowledge point: Sequential computation limits parallelism.
+Knowledge point: Attention can be combined with recurrent networks.
+Knowledge point: RNN encoder-decoder models can perform sequence generation.
+Knowledge point: RNNs can be used in question-answering systems.
+Knowledge point: An RNN can encode a question.
+Knowledge point: An RNN decoder can generate an answer.
+Knowledge point: Modern large-scale NLP systems commonly use transformers.
+Knowledge point: Transformers use attention instead of recurrence as their primary mechanism.
+Knowledge point: RNN means Recurrent Neural Network.
+Knowledge point: RNNs are designed for sequential data.
+Knowledge point: An RNN processes tokens in sequence order.
+Knowledge point: An RNN maintains a hidden state.
+Knowledge point: The hidden state carries information from earlier time steps.
+Knowledge point: The current input and previous hidden state produce a new hidden state.
+Knowledge point: RNN parameters are shared across time steps.
+Knowledge point: RNNs can process sequences of different lengths.
+Knowledge point: RNNs can be used for text processing.
+Knowledge point: RNNs can be used for speech processing.
+Knowledge point: RNNs can be used for time-series data.
+Knowledge point: RNNs can be used for language modeling.
+Knowledge point: RNNs can be used for text classification.
+Knowledge point: RNNs can be used for sequence labeling.
+Knowledge point: RNNs can be used for text generation.
+Knowledge point: Many-to-one RNNs produce one output from a sequence.
+Knowledge point: Many-to-many RNNs can produce outputs at several positions.
+Knowledge point: Bidirectional RNNs process information in two directions.
+Knowledge point: Backpropagation through time trains recurrent networks.
+Knowledge point: Simple RNNs can suffer from vanishing gradients.
+Knowledge point: Simple RNNs can suffer from exploding gradients.
+Knowledge point: Gradient clipping can reduce exploding-gradient problems.
+Knowledge point: Long sequences can be difficult for simple RNNs.
+Knowledge point: LSTM means Long Short-Term Memory.
+Knowledge point: LSTM is a gated recurrent architecture.
+Knowledge point: An LSTM contains a cell state.
+Knowledge point: The forget gate controls information removed from the cell state.
+Knowledge point: The input gate controls information added to the cell state.
+Knowledge point: The output gate controls information exposed from the cell state.
+Knowledge point: LSTM gates help preserve useful information over long sequences.
+Knowledge point: GRU means Gated Recurrent Unit.
+Knowledge point: GRU is another gated recurrent architecture.
+Knowledge point: GRU commonly uses update and reset gates.
+Knowledge point: GRU has a simpler structure than LSTM.
+Knowledge point: LSTM and GRU can improve long-range dependency learning.
+Knowledge point: RNN computation is sequential across time steps.
+Knowledge point: Sequential computation limits parallelism.
+Knowledge point: Attention can be combined with recurrent networks.
+Knowledge point: RNN encoder-decoder models can perform sequence generation.
+Knowledge point: RNNs can be used in question-answering systems.
+Knowledge point: An RNN can encode a question.
+Knowledge point: An RNN decoder can generate an answer.
+Knowledge point: Modern large-scale NLP systems commonly use transformers.
+Knowledge point: Transformers use attention instead of recurrence as their primary mechanism.
+Knowledge point: RNN means Recurrent Neural Network.
+Knowledge point: RNNs are designed for sequential data.
+Knowledge point: An RNN processes tokens in sequence order.
+Knowledge point: An RNN maintains a hidden state.
+Knowledge point: The hidden state carries information from earlier time steps.
+Knowledge point: The current input and previous hidden state produce a new hidden state.
+Knowledge point: RNN parameters are shared across time steps.
+Knowledge point: RNNs can process sequences of different lengths.
+Knowledge point: RNNs can be used for text processing.
+Knowledge point: RNNs can be used for speech processing.
+Knowledge point: RNNs can be used for time-series data.
+Knowledge point: RNNs can be used for language modeling.
+Knowledge point: RNNs can be used for text classification.
+Knowledge point: RNNs can be used for sequence labeling.
+Knowledge point: RNNs can be used for text generation.
+Knowledge point: Many-to-one RNNs produce one output from a sequence.
+Knowledge point: Many-to-many RNNs can produce outputs at several positions.
+Knowledge point: Bidirectional RNNs process information in two directions.
+Knowledge point: Backpropagation through time trains recurrent networks.
+Knowledge point: Simple RNNs can suffer from vanishing gradients.
+Knowledge point: Simple RNNs can suffer from exploding gradients.
+Knowledge point: Gradient clipping can reduce exploding-gradient problems.
+Knowledge point: Long sequences can be difficult for simple RNNs.
+Knowledge point: LSTM means Long Short-Term Memory.
+Knowledge point: LSTM is a gated recurrent architecture.
+Knowledge point: An LSTM contains a cell state.
+Knowledge point: The forget gate controls information removed from the cell state.
+Knowledge point: The input gate controls information added to the cell state.
+Knowledge point: The output gate controls information exposed from the cell state.
+Knowledge point: LSTM gates help preserve useful information over long sequences.
+Knowledge point: GRU means Gated Recurrent Unit.
+Knowledge point: GRU is another gated recurrent architecture.
+Knowledge point: GRU commonly uses update and reset gates.
+Knowledge point: GRU has a simpler structure than LSTM.
+Knowledge point: LSTM and GRU can improve long-range dependency learning.
+Knowledge point: RNN computation is sequential across time steps.
+Knowledge point: Sequential computation limits parallelism.
+Knowledge point: Attention can be combined with recurrent networks.
+Knowledge point: RNN encoder-decoder models can perform sequence generation.
+Knowledge point: RNNs can be used in question-answering systems.
+Knowledge point: An RNN can encode a question.
+Knowledge point: An RNN decoder can generate an answer.
+Knowledge point: Modern large-scale NLP systems commonly use transformers.
+Knowledge point: Transformers use attention instead of recurrence as their primary mechanism.
+Knowledge point: RNN means Recurrent Neural Network.
+Knowledge point: RNNs are designed for sequential data.
+Knowledge point: An RNN processes tokens in sequence order.
+Knowledge point: An RNN maintains a hidden state.
+Knowledge point: The hidden state carries information from earlier time steps.
+Knowledge point: The current input and previous hidden state produce a new hidden state.
+Knowledge point: RNN parameters are shared across time steps.
+Knowledge point: RNNs can process sequences of different lengths.
+Knowledge point: RNNs can be used for text processing.
+Knowledge point: RNNs can be used for speech processing.
+Knowledge point: RNNs can be used for time-series data.
+Knowledge point: RNNs can be used for language modeling.
+Knowledge point: RNNs can be used for text classification.
+Knowledge point: RNNs can be used for sequence labeling.
+Knowledge point: RNNs can be used for text generation.
+Knowledge point: Many-to-one RNNs produce one output from a sequence.
+Knowledge point: Many-to-many RNNs can produce outputs at several positions.
+Knowledge point: Bidirectional RNNs process information in two directions.
+Knowledge point: Backpropagation through time trains recurrent networks.
+Knowledge point: Simple RNNs can suffer from vanishing gradients.
+Knowledge point: Simple RNNs can suffer from exploding gradients.
+Knowledge point: Gradient clipping can reduce exploding-gradient problems.
+Knowledge point: Long sequences can be difficult for simple RNNs.
+Knowledge point: LSTM means Long Short-Term Memory.
+Knowledge point: LSTM is a gated recurrent architecture.
+Knowledge point: An LSTM contains a cell state.
+Knowledge point: The forget gate controls information removed from the cell state.
+Knowledge point: The input gate controls information added to the cell state.
+Knowledge point: The output gate controls information exposed from the cell state.
+Knowledge point: LSTM gates help preserve useful information over long sequences.
+Knowledge point: GRU means Gated Recurrent Unit.
+Knowledge point: GRU is another gated recurrent architecture.
+Knowledge point: GRU commonly uses update and reset gates.
+Knowledge point: GRU has a simpler structure than LSTM.
+Knowledge point: LSTM and GRU can improve long-range dependency learning.
+Knowledge point: RNN computation is sequential across time steps.
+Knowledge point: Sequential computation limits parallelism.
+Knowledge point: Attention can be combined with recurrent networks.
+Knowledge point: RNN encoder-decoder models can perform sequence generation.
+Knowledge point: RNNs can be used in question-answering systems.
+Knowledge point: An RNN can encode a question.
+Knowledge point: An RNN decoder can generate an answer.
+Knowledge point: Modern large-scale NLP systems commonly use transformers.
+Knowledge point: Transformers use attention instead of recurrence as their primary mechanism.
+Knowledge point: RNN means Recurrent Neural Network.
+Knowledge point: RNNs are designed for sequential data.
+Knowledge point: An RNN processes tokens in sequence order.
+Knowledge point: An RNN maintains a hidden state.
+Knowledge point: The hidden state carries information from earlier time steps.
+Knowledge point: The current input and previous hidden state produce a new hidden state.
+Knowledge point: RNN parameters are shared across time steps.
+Knowledge point: RNNs can process sequences of different lengths.
+Knowledge point: RNNs can be used for text processing.
+Knowledge point: RNNs can be used for speech processing.
+Knowledge point: RNNs can be used for time-series data.
+Knowledge point: RNNs can be used for language modeling.
+Knowledge point: RNNs can be used for text classification.
+Knowledge point: RNNs can be used for sequence labeling.
+Knowledge point: RNNs can be used for text generation.
+Knowledge point: Many-to-one RNNs produce one output from a sequence.
+Knowledge point: Many-to-many RNNs can produce outputs at several positions.
+Knowledge point: Bidirectional RNNs process information in two directions.
+Knowledge point: Backpropagation through time trains recurrent networks.
+Knowledge point: Simple RNNs can suffer from vanishing gradients.
+Knowledge point: Simple RNNs can suffer from exploding gradients.
+Knowledge point: Gradient clipping can reduce exploding-gradient problems.
+Knowledge point: Long sequences can be difficult for simple RNNs.
+Knowledge point: LSTM means Long Short-Term Memory.
+Knowledge point: LSTM is a gated recurrent architecture.
+Knowledge point: An LSTM contains a cell state.
+Knowledge point: The forget gate controls information removed from the cell state.
+Knowledge point: The input gate controls information added to the cell state.
+Knowledge point: The output gate controls information exposed from the cell state.
+Knowledge point: LSTM gates help preserve useful information over long sequences.
+Knowledge point: GRU means Gated Recurrent Unit.
+Knowledge point: GRU is another gated recurrent architecture.
+Knowledge point: GRU commonly uses update and reset gates.
+Knowledge point: GRU has a simpler structure than LSTM.
+Knowledge point: LSTM and GRU can improve long-range dependency learning.
+Knowledge point: RNN computation is sequential across time steps.
+Knowledge point: Sequential computation limits parallelism.
+Knowledge point: Attention can be combined with recurrent networks.
+Knowledge point: RNN encoder-decoder models can perform sequence generation.
+Knowledge point: RNNs can be used in question-answering systems.
+Knowledge point: An RNN can encode a question.
+Knowledge point: An RNN decoder can generate an answer.
+Knowledge point: Modern large-scale NLP systems commonly use transformers.
+Knowledge point: Transformers use attention instead of recurrence as their primary mechanism.
+Knowledge point: RNN means Recurrent Neural Network.
+Knowledge point: RNNs are designed for sequential data.
+Knowledge point: An RNN processes tokens in sequence order.
+Knowledge point: An RNN maintains a hidden state.
+Knowledge point: The hidden state carries information from earlier time steps.
+Knowledge point: The current input and previous hidden state produce a new hidden state.
+Knowledge point: RNN parameters are shared across time steps.
+Knowledge point: RNNs can process sequences of different lengths.
