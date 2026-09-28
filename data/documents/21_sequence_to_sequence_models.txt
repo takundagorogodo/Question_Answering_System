@@ -1,0 +1,317 @@
+
+A sequence-to-sequence model is called a seq2seq model.
+A seq2seq model maps one sequence to another sequence.
+Input and output sequences can have different lengths.
+Seq2seq models commonly use encoder-decoder architectures.
+The encoder reads the input sequence.
+The encoder produces internal representations.
+The decoder generates the output sequence.
+The decoder normally produces tokens sequentially.
+A start token can mark the beginning of generation.
+An end token can mark the end of generation.
+Teacher forcing can be used during training.
+Teacher forcing supplies the correct previous target token.
+Greedy decoding selects the highest-probability next token.
+Beam search keeps several candidate sequences.
+Machine translation is a seq2seq application.
+Text summarization is a seq2seq application.
+Dialogue generation is a seq2seq application.
+Generative question answering is a seq2seq application.
+Grammar correction can use seq2seq models.
+Paraphrase generation can use seq2seq models.
+Text simplification can use seq2seq models.
+Data-to-text generation can use seq2seq models.
+Code generation can be treated as sequence generation.
+RNNs can be used as seq2seq encoders.
+LSTMs can be used as seq2seq encoders.
+GRUs can be used as seq2seq encoders.
+Transformers can be used in seq2seq systems.
+Attention allows the decoder to focus on input positions.
+Cross-attention connects decoder states with encoder representations.
+Bahdanau attention is an early neural attention method.
+Luong attention is another neural attention method.
+Seq2seq models are trained on input-target pairs.
+Cross-entropy is commonly used for token prediction.
+Subword tokenization can reduce unknown-word problems.
+Padding supports batching of variable-length sequences.
+Masks prevent padding positions from affecting computation.
+Long sequences can increase computation.
+Autoregressive decoding can be slow for long outputs.
+Seq2seq models can produce repetitive outputs.
+Exposure bias can occur during sequence generation.
+Poor training data can reduce output quality.
+Generated answers can contain incorrect information.
+Retrieval can provide supporting passages to a QA model.
+Extractive QA selects an existing text span.
+Generative QA produces a new answer sequence.
+Answers should be checked for relevance and grounding.
+Knowledge point: A sequence-to-sequence model is called a seq2seq model.
+Knowledge point: A seq2seq model maps one sequence to another sequence.
+Knowledge point: Input and output sequences can have different lengths.
+Knowledge point: Seq2seq models commonly use encoder-decoder architectures.
+Knowledge point: The encoder reads the input sequence.
+Knowledge point: The encoder produces internal representations.
+Knowledge point: The decoder generates the output sequence.
+Knowledge point: The decoder normally produces tokens sequentially.
+Knowledge point: A start token can mark the beginning of generation.
+Knowledge point: An end token can mark the end of generation.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Teacher forcing supplies the correct previous target token.
+Knowledge point: Greedy decoding selects the highest-probability next token.
+Knowledge point: Beam search keeps several candidate sequences.
+Knowledge point: Machine translation is a seq2seq application.
+Knowledge point: Text summarization is a seq2seq application.
+Knowledge point: Dialogue generation is a seq2seq application.
+Knowledge point: Generative question answering is a seq2seq application.
+Knowledge point: Grammar correction can use seq2seq models.
+Knowledge point: Paraphrase generation can use seq2seq models.
+Knowledge point: Text simplification can use seq2seq models.
+Knowledge point: Data-to-text generation can use seq2seq models.
+Knowledge point: Code generation can be treated as sequence generation.
+Knowledge point: RNNs can be used as seq2seq encoders.
+Knowledge point: LSTMs can be used as seq2seq encoders.
+Knowledge point: GRUs can be used as seq2seq encoders.
+Knowledge point: Transformers can be used in seq2seq systems.
+Knowledge point: Attention allows the decoder to focus on input positions.
+Knowledge point: Cross-attention connects decoder states with encoder representations.
+Knowledge point: Bahdanau attention is an early neural attention method.
+Knowledge point: Luong attention is another neural attention method.
+Knowledge point: Seq2seq models are trained on input-target pairs.
+Knowledge point: Cross-entropy is commonly used for token prediction.
+Knowledge point: Subword tokenization can reduce unknown-word problems.
+Knowledge point: Padding supports batching of variable-length sequences.
+Knowledge point: Masks prevent padding positions from affecting computation.
+Knowledge point: Long sequences can increase computation.
+Knowledge point: Autoregressive decoding can be slow for long outputs.
+Knowledge point: Seq2seq models can produce repetitive outputs.
+Knowledge point: Exposure bias can occur during sequence generation.
+Knowledge point: Poor training data can reduce output quality.
+Knowledge point: Generated answers can contain incorrect information.
+Knowledge point: Retrieval can provide supporting passages to a QA model.
+Knowledge point: Extractive QA selects an existing text span.
+Knowledge point: Generative QA produces a new answer sequence.
+Knowledge point: Answers should be checked for relevance and grounding.
+Knowledge point: A sequence-to-sequence model is called a seq2seq model.
+Knowledge point: A seq2seq model maps one sequence to another sequence.
+Knowledge point: Input and output sequences can have different lengths.
+Knowledge point: Seq2seq models commonly use encoder-decoder architectures.
+Knowledge point: The encoder reads the input sequence.
+Knowledge point: The encoder produces internal representations.
+Knowledge point: The decoder generates the output sequence.
+Knowledge point: The decoder normally produces tokens sequentially.
+Knowledge point: A start token can mark the beginning of generation.
+Knowledge point: An end token can mark the end of generation.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Teacher forcing supplies the correct previous target token.
+Knowledge point: Greedy decoding selects the highest-probability next token.
+Knowledge point: Beam search keeps several candidate sequences.
+Knowledge point: Machine translation is a seq2seq application.
+Knowledge point: Text summarization is a seq2seq application.
+Knowledge point: Dialogue generation is a seq2seq application.
+Knowledge point: Generative question answering is a seq2seq application.
+Knowledge point: Grammar correction can use seq2seq models.
+Knowledge point: Paraphrase generation can use seq2seq models.
+Knowledge point: Text simplification can use seq2seq models.
+Knowledge point: Data-to-text generation can use seq2seq models.
+Knowledge point: Code generation can be treated as sequence generation.
+Knowledge point: RNNs can be used as seq2seq encoders.
+Knowledge point: LSTMs can be used as seq2seq encoders.
+Knowledge point: GRUs can be used as seq2seq encoders.
+Knowledge point: Transformers can be used in seq2seq systems.
+Knowledge point: Attention allows the decoder to focus on input positions.
+Knowledge point: Cross-attention connects decoder states with encoder representations.
+Knowledge point: Bahdanau attention is an early neural attention method.
+Knowledge point: Luong attention is another neural attention method.
+Knowledge point: Seq2seq models are trained on input-target pairs.
+Knowledge point: Cross-entropy is commonly used for token prediction.
+Knowledge point: Subword tokenization can reduce unknown-word problems.
+Knowledge point: Padding supports batching of variable-length sequences.
+Knowledge point: Masks prevent padding positions from affecting computation.
+Knowledge point: Long sequences can increase computation.
+Knowledge point: Autoregressive decoding can be slow for long outputs.
+Knowledge point: Seq2seq models can produce repetitive outputs.
+Knowledge point: Exposure bias can occur during sequence generation.
+Knowledge point: Poor training data can reduce output quality.
+Knowledge point: Generated answers can contain incorrect information.
+Knowledge point: Retrieval can provide supporting passages to a QA model.
+Knowledge point: Extractive QA selects an existing text span.
+Knowledge point: Generative QA produces a new answer sequence.
+Knowledge point: Answers should be checked for relevance and grounding.
+Knowledge point: A sequence-to-sequence model is called a seq2seq model.
+Knowledge point: A seq2seq model maps one sequence to another sequence.
+Knowledge point: Input and output sequences can have different lengths.
+Knowledge point: Seq2seq models commonly use encoder-decoder architectures.
+Knowledge point: The encoder reads the input sequence.
+Knowledge point: The encoder produces internal representations.
+Knowledge point: The decoder generates the output sequence.
+Knowledge point: The decoder normally produces tokens sequentially.
+Knowledge point: A start token can mark the beginning of generation.
+Knowledge point: An end token can mark the end of generation.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Teacher forcing supplies the correct previous target token.
+Knowledge point: Greedy decoding selects the highest-probability next token.
+Knowledge point: Beam search keeps several candidate sequences.
+Knowledge point: Machine translation is a seq2seq application.
+Knowledge point: Text summarization is a seq2seq application.
+Knowledge point: Dialogue generation is a seq2seq application.
+Knowledge point: Generative question answering is a seq2seq application.
+Knowledge point: Grammar correction can use seq2seq models.
+Knowledge point: Paraphrase generation can use seq2seq models.
+Knowledge point: Text simplification can use seq2seq models.
+Knowledge point: Data-to-text generation can use seq2seq models.
+Knowledge point: Code generation can be treated as sequence generation.
+Knowledge point: RNNs can be used as seq2seq encoders.
+Knowledge point: LSTMs can be used as seq2seq encoders.
+Knowledge point: GRUs can be used as seq2seq encoders.
+Knowledge point: Transformers can be used in seq2seq systems.
+Knowledge point: Attention allows the decoder to focus on input positions.
+Knowledge point: Cross-attention connects decoder states with encoder representations.
+Knowledge point: Bahdanau attention is an early neural attention method.
+Knowledge point: Luong attention is another neural attention method.
+Knowledge point: Seq2seq models are trained on input-target pairs.
+Knowledge point: Cross-entropy is commonly used for token prediction.
+Knowledge point: Subword tokenization can reduce unknown-word problems.
+Knowledge point: Padding supports batching of variable-length sequences.
+Knowledge point: Masks prevent padding positions from affecting computation.
+Knowledge point: Long sequences can increase computation.
+Knowledge point: Autoregressive decoding can be slow for long outputs.
+Knowledge point: Seq2seq models can produce repetitive outputs.
+Knowledge point: Exposure bias can occur during sequence generation.
+Knowledge point: Poor training data can reduce output quality.
+Knowledge point: Generated answers can contain incorrect information.
+Knowledge point: Retrieval can provide supporting passages to a QA model.
+Knowledge point: Extractive QA selects an existing text span.
+Knowledge point: Generative QA produces a new answer sequence.
+Knowledge point: Answers should be checked for relevance and grounding.
+Knowledge point: A sequence-to-sequence model is called a seq2seq model.
+Knowledge point: A seq2seq model maps one sequence to another sequence.
+Knowledge point: Input and output sequences can have different lengths.
+Knowledge point: Seq2seq models commonly use encoder-decoder architectures.
+Knowledge point: The encoder reads the input sequence.
+Knowledge point: The encoder produces internal representations.
+Knowledge point: The decoder generates the output sequence.
+Knowledge point: The decoder normally produces tokens sequentially.
+Knowledge point: A start token can mark the beginning of generation.
+Knowledge point: An end token can mark the end of generation.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Teacher forcing supplies the correct previous target token.
+Knowledge point: Greedy decoding selects the highest-probability next token.
+Knowledge point: Beam search keeps several candidate sequences.
+Knowledge point: Machine translation is a seq2seq application.
+Knowledge point: Text summarization is a seq2seq application.
+Knowledge point: Dialogue generation is a seq2seq application.
+Knowledge point: Generative question answering is a seq2seq application.
+Knowledge point: Grammar correction can use seq2seq models.
+Knowledge point: Paraphrase generation can use seq2seq models.
+Knowledge point: Text simplification can use seq2seq models.
+Knowledge point: Data-to-text generation can use seq2seq models.
+Knowledge point: Code generation can be treated as sequence generation.
+Knowledge point: RNNs can be used as seq2seq encoders.
+Knowledge point: LSTMs can be used as seq2seq encoders.
+Knowledge point: GRUs can be used as seq2seq encoders.
+Knowledge point: Transformers can be used in seq2seq systems.
+Knowledge point: Attention allows the decoder to focus on input positions.
+Knowledge point: Cross-attention connects decoder states with encoder representations.
+Knowledge point: Bahdanau attention is an early neural attention method.
+Knowledge point: Luong attention is another neural attention method.
+Knowledge point: Seq2seq models are trained on input-target pairs.
+Knowledge point: Cross-entropy is commonly used for token prediction.
+Knowledge point: Subword tokenization can reduce unknown-word problems.
+Knowledge point: Padding supports batching of variable-length sequences.
+Knowledge point: Masks prevent padding positions from affecting computation.
+Knowledge point: Long sequences can increase computation.
+Knowledge point: Autoregressive decoding can be slow for long outputs.
+Knowledge point: Seq2seq models can produce repetitive outputs.
+Knowledge point: Exposure bias can occur during sequence generation.
+Knowledge point: Poor training data can reduce output quality.
+Knowledge point: Generated answers can contain incorrect information.
+Knowledge point: Retrieval can provide supporting passages to a QA model.
+Knowledge point: Extractive QA selects an existing text span.
+Knowledge point: Generative QA produces a new answer sequence.
+Knowledge point: Answers should be checked for relevance and grounding.
+Knowledge point: A sequence-to-sequence model is called a seq2seq model.
+Knowledge point: A seq2seq model maps one sequence to another sequence.
+Knowledge point: Input and output sequences can have different lengths.
+Knowledge point: Seq2seq models commonly use encoder-decoder architectures.
+Knowledge point: The encoder reads the input sequence.
+Knowledge point: The encoder produces internal representations.
+Knowledge point: The decoder generates the output sequence.
+Knowledge point: The decoder normally produces tokens sequentially.
+Knowledge point: A start token can mark the beginning of generation.
+Knowledge point: An end token can mark the end of generation.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Teacher forcing supplies the correct previous target token.
+Knowledge point: Greedy decoding selects the highest-probability next token.
+Knowledge point: Beam search keeps several candidate sequences.
+Knowledge point: Machine translation is a seq2seq application.
+Knowledge point: Text summarization is a seq2seq application.
+Knowledge point: Dialogue generation is a seq2seq application.
+Knowledge point: Generative question answering is a seq2seq application.
+Knowledge point: Grammar correction can use seq2seq models.
+Knowledge point: Paraphrase generation can use seq2seq models.
+Knowledge point: Text simplification can use seq2seq models.
+Knowledge point: Data-to-text generation can use seq2seq models.
+Knowledge point: Code generation can be treated as sequence generation.
+Knowledge point: RNNs can be used as seq2seq encoders.
+Knowledge point: LSTMs can be used as seq2seq encoders.
+Knowledge point: GRUs can be used as seq2seq encoders.
+Knowledge point: Transformers can be used in seq2seq systems.
+Knowledge point: Attention allows the decoder to focus on input positions.
+Knowledge point: Cross-attention connects decoder states with encoder representations.
+Knowledge point: Bahdanau attention is an early neural attention method.
+Knowledge point: Luong attention is another neural attention method.
+Knowledge point: Seq2seq models are trained on input-target pairs.
+Knowledge point: Cross-entropy is commonly used for token prediction.
+Knowledge point: Subword tokenization can reduce unknown-word problems.
+Knowledge point: Padding supports batching of variable-length sequences.
+Knowledge point: Masks prevent padding positions from affecting computation.
+Knowledge point: Long sequences can increase computation.
+Knowledge point: Autoregressive decoding can be slow for long outputs.
+Knowledge point: Seq2seq models can produce repetitive outputs.
+Knowledge point: Exposure bias can occur during sequence generation.
+Knowledge point: Poor training data can reduce output quality.
+Knowledge point: Generated answers can contain incorrect information.
+Knowledge point: Retrieval can provide supporting passages to a QA model.
+Knowledge point: Extractive QA selects an existing text span.
+Knowledge point: Generative QA produces a new answer sequence.
+Knowledge point: Answers should be checked for relevance and grounding.
+Knowledge point: A sequence-to-sequence model is called a seq2seq model.
+Knowledge point: A seq2seq model maps one sequence to another sequence.
+Knowledge point: Input and output sequences can have different lengths.
+Knowledge point: Seq2seq models commonly use encoder-decoder architectures.
+Knowledge point: The encoder reads the input sequence.
+Knowledge point: The encoder produces internal representations.
+Knowledge point: The decoder generates the output sequence.
+Knowledge point: The decoder normally produces tokens sequentially.
+Knowledge point: A start token can mark the beginning of generation.
+Knowledge point: An end token can mark the end of generation.
+Knowledge point: Teacher forcing can be used during training.
+Knowledge point: Teacher forcing supplies the correct previous target token.
+Knowledge point: Greedy decoding selects the highest-probability next token.
+Knowledge point: Beam search keeps several candidate sequences.
+Knowledge point: Machine translation is a seq2seq application.
+Knowledge point: Text summarization is a seq2seq application.
+Knowledge point: Dialogue generation is a seq2seq application.
+Knowledge point: Generative question answering is a seq2seq application.
+Knowledge point: Grammar correction can use seq2seq models.
+Knowledge point: Paraphrase generation can use seq2seq models.
+Knowledge point: Text simplification can use seq2seq models.
+Knowledge point: Data-to-text generation can use seq2seq models.
+Knowledge point: Code generation can be treated as sequence generation.
+Knowledge point: RNNs can be used as seq2seq encoders.
+Knowledge point: LSTMs can be used as seq2seq encoders.
+Knowledge point: GRUs can be used as seq2seq encoders.
+Knowledge point: Transformers can be used in seq2seq systems.
+Knowledge point: Attention allows the decoder to focus on input positions.
+Knowledge point: Cross-attention connects decoder states with encoder representations.
+Knowledge point: Bahdanau attention is an early neural attention method.
+Knowledge point: Luong attention is another neural attention method.
+Knowledge point: Seq2seq models are trained on input-target pairs.
+Knowledge point: Cross-entropy is commonly used for token prediction.
+Knowledge point: Subword tokenization can reduce unknown-word problems.
+Knowledge point: Padding supports batching of variable-length sequences.
+Knowledge point: Masks prevent padding positions from affecting computation.
+Knowledge point: Long sequences can increase computation.
+Knowledge point: Autoregressive decoding can be slow for long outputs.
+Knowledge point: Seq2seq models can produce repetitive outputs.
+Knowledge point: Exposure bias can occur during sequence generation.
