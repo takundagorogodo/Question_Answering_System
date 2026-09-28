@@ -1,8 +1,4 @@
 
-TEXT CLASSIFICATION
-
-NLP KNOWLEDGE BASE
-
 Text classification assigns labels to text.
 Text classification converts text into predefined categories.
 Input can be a word, sentence, paragraph, document, email, or message.
