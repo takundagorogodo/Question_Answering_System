@@ -1,0 +1,320 @@
+TITLE: Semantic Analysis
+PURPOSE: Retrieval-friendly NLP knowledge for a generative question-answering system.
+USAGE: Each statement is written as an atomic knowledge unit so semantic retrieval can return focused evidence.
+
+SECTION: Core concepts
+Semantic analysis determines aspects of meaning expressed by language.
+Lexical semantics studies the meanings and relationships of words and lexical units.
+Compositional semantics studies how meanings combine to form larger meanings.
+Sentence semantics concerns the meaning of complete sentences.
+Discourse semantics studies meaning across multiple sentences and discourse structures.
+Semantic representation converts meaning into a structured or vector-based form.
+Semantic similarity measures how closely two texts or concepts are related in meaning.
+Semantic relatedness is broader than similarity and can include associations between concepts.
+Semantic interpretation often uses syntax, context, lexical knowledge, and world knowledge.
+Semantic analysis supports question answering, search, translation, summarization, and information extraction.
+
+SECTION: Lexical semantics
+Synonymy describes words or expressions with similar meanings.
+Antonymy describes contrasting meanings.
+Hyponymy describes a specific-to-general semantic relationship.
+Hypernymy describes a general-to-specific hierarchy from the perspective of the broader concept.
+Meronymy describes a part-to-whole relationship.
+Polysemy describes multiple related senses of a lexical item.
+Homonymy describes identical forms with unrelated meanings.
+Collocation describes words that commonly occur together.
+Semantic fields group words associated with a related conceptual domain.
+Lexical semantic resources can encode these relationships for NLP systems.
+
+SECTION: Compositional semantics
+Compositionality states that the meaning of a larger expression depends on its parts and how they are combined.
+Predicate-argument structure represents relationships between predicates and their arguments.
+Semantic roles describe functions such as agent, patient, instrument, and location.
+Quantifiers express concepts such as every, some, and no.
+Negation changes the truth conditions or polarity of an expression.
+Modality expresses possibility, necessity, obligation, or related meanings.
+Scope describes which part of an expression is affected by an operator such as negation or a quantifier.
+Semantic parsing maps natural language to a structured meaning representation.
+Logical forms can represent relations and conditions explicitly.
+Compositional interpretation can require both syntactic structure and lexical meaning.
+
+SECTION: Semantic representations
+Knowledge graphs represent entities and relationships as structured graphs.
+Predicate logic can represent entities, relations, quantifiers, and conditions.
+Frame semantics represents meaning using frames with associated roles.
+Semantic role labeling assigns semantic roles to arguments of predicates.
+Distributional representations encode meaning using patterns of word usage.
+Word embeddings represent lexical items as vectors.
+Contextual embeddings represent tokens according to their surrounding text.
+Sentence embeddings represent larger spans as vectors suitable for semantic comparison.
+Vector similarity can support semantic search and retrieval.
+Symbolic and neural semantic representations can be combined in hybrid systems.
+
+SECTION: Semantic similarity and entailment
+Semantic similarity asks how close two expressions are in meaning.
+Semantic textual similarity compares the meanings of two text segments.
+Natural language inference determines whether one statement entails, contradicts, or is neutral with respect to another.
+Entailment means that a hypothesis follows from the information expressed by a premise under the task definition.
+Contradiction means that the hypothesis conflicts with the premise.
+Neutrality means that the premise does not establish either entailment or contradiction.
+Similarity can be lexical, syntactic, semantic, or contextual.
+Embedding-based similarity uses vector representations to compare texts.
+Cross-encoder models can jointly encode two texts for more detailed comparison.
+Semantic matching is important for retrieval and duplicate-question detection.
+
+SECTION: Discourse and context
+Discourse context can change the interpretation of an individual sentence.
+Coreference links references across sentences.
+Discourse relations describe connections such as cause, contrast, elaboration, and sequence.
+Topic context can help interpret ambiguous terms.
+Temporal context helps determine relationships between events.
+Speaker information can affect interpretation in dialogue.
+Pragmatics studies how context and communicative intentions influence meaning.
+Deixis depends on contextual information such as speaker, time, or location.
+Implicit meaning may not be explicitly stated in the words themselves.
+Context-aware semantic models can combine sentence and document information.
+
+SECTION: Semantic parsing
+Semantic parsing converts natural language into a structured semantic representation.
+Task-oriented semantic parsing may map questions to database queries.
+Abstract meaning representations can encode relations independently of surface wording.
+Frame-based parsing identifies a semantic frame and its roles.
+Logical-form parsing can support reasoning over structured knowledge.
+Sequence-to-sequence models can generate structured semantic representations.
+Constrained decoding can ensure that generated semantic forms follow a required syntax.
+Semantic parsers can be evaluated by exact match or execution accuracy when outputs are executable.
+Ambiguous language can produce multiple plausible semantic parses.
+Domain-specific semantic parsers often use an application-specific ontology.
+
+SECTION: Applications and limitations
+Semantic search retrieves content based on meaning rather than only exact word overlap.
+Question answering uses semantic interpretation to map questions to relevant evidence.
+Information extraction uses semantic relations to structure facts from text.
+Machine translation requires semantic interpretation to preserve meaning across languages.
+Text summarization benefits from semantic representations that distinguish central information.
+Chatbots use semantic analysis to identify user intent and relevant entities.
+Semantic analysis can fail when context is missing or world knowledge is required.
+Distributional representations may capture associations without explicitly representing logical truth.
+Neural semantic models can produce plausible but unsupported interpretations.
+High-quality semantic systems should combine context, task constraints, and appropriate evaluation.
+
+SECTION: Retrieval and QA cues
+For a question about semantic analysis, retrieve lexical semantics, compositional semantics, and context.
+For a question about semantic roles, retrieve predicate-argument structure and roles such as agent and patient.
+For a question about entailment, retrieve entailment, contradiction, and neutral relationships.
+For a question about semantic similarity, retrieve embeddings, vector similarity, and contextual representations.
+For a question about semantic parsing, retrieve structured meaning representations and logical forms.
+For a question about pragmatics, retrieve context, speaker intent, deixis, and implicit meaning.
+For a question about lexical relations, retrieve synonymy, antonymy, hyponymy, hypernymy, and meronymy.
+For a question about applications, retrieve search, QA, extraction, translation, summarization, and chatbots.
+For a question about limitations, retrieve ambiguity, missing context, world knowledge, and neural uncertainty.
+For a question about knowledge graphs, retrieve entities, relations, and graph-based semantic representation.
+
+RETRIEVAL_CUE_1: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: When a question concerns lexical semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: When a question concerns compositional semantics, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: When a question concerns semantic representations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: When a question concerns semantic similarity and entailment, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: When a question concerns discourse and context, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: When a question concerns semantic parsing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
