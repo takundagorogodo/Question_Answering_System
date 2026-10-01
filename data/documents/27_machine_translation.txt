@@ -1,0 +1,320 @@
+TITLE: Machine Translation
+PURPOSE: Retrieval-friendly knowledge for a generative question-answering system.
+
+SECTION: Core concepts
+Machine translation is the automatic translation of text or speech from one language to another.
+The source language is the language of the input.
+The target language is the language of the generated translation.
+An MT system maps source-language input to target-language output.
+Translation quality depends on linguistic structure, context, domain, and training data.
+Parallel data contains aligned examples in two languages.
+A bilingual corpus can be used to train or evaluate translation systems.
+Monolingual data contains text in one language and can support some MT methods.
+Language pairs can have very different word order and grammatical structure.
+Translation is not simple word substitution because meaning is expressed compositionally.
+
+SECTION: Rule-based and statistical MT
+Rule-based machine translation uses linguistic rules, dictionaries, and grammar resources.
+Direct translation systems transform source text using relatively shallow mappings.
+Transfer-based systems represent source structures and apply language-specific transfer rules.
+Interlingua approaches attempt to map different languages into a language-independent representation.
+Statistical machine translation learns translation probabilities from bilingual data.
+Phrase-based SMT translates sequences of words or phrases rather than isolated words.
+Word alignment estimates relationships between source and target tokens.
+Translation models estimate how source phrases correspond to target phrases.
+Language models help rank fluent target-language sequences in classical SMT.
+Decoding searches for a high-scoring target sentence under the model.
+
+SECTION: Neural machine translation
+Neural machine translation uses neural networks to generate translations.
+Sequence-to-sequence models encode a source sequence and decode a target sequence.
+An encoder produces representations of the source input.
+A decoder generates target tokens sequentially or using parallel decoding mechanisms.
+Attention allows the decoder to focus on relevant source representations.
+Transformer architectures use self-attention and became central to modern NMT.
+Self-attention allows tokens to interact with other tokens in the same sequence.
+Cross-attention connects target-side representations with source-side representations.
+Autoregressive decoders generate output tokens conditioned on previously generated tokens.
+Some modern translation systems use encoder-decoder transformer architectures.
+
+SECTION: Tokenization and vocabulary
+Subword tokenization breaks rare or unknown words into smaller units.
+Byte-pair encoding is a common family of subword segmentation methods.
+SentencePiece can learn tokenization directly from raw text.
+Subword units reduce the number of unknown words compared with word-only vocabularies.
+Vocabulary size affects memory, sequence length, and coverage.
+Character-level models can represent arbitrary spelling but may require longer sequences.
+Language-specific tokenization rules can improve processing for some scripts.
+Normalization must account for Unicode and language-specific writing conventions.
+Numbers, dates, names, and URLs may need special treatment in translation pipelines.
+Tokenization choices can affect both training efficiency and translation quality.
+
+SECTION: Training and inference
+Supervised NMT training commonly minimizes a loss between reference and generated target tokens.
+Teacher forcing provides reference previous tokens during training in autoregressive models.
+Cross-entropy is commonly used as a token-level training objective.
+Batching groups examples to improve hardware utilization.
+Padding allows variable-length sequences to be processed in batches.
+Attention masks prevent models from attending to invalid padding or future tokens when required.
+Beam search explores multiple candidate translations during autoregressive decoding.
+Greedy decoding chooses the highest-probability next token at each step.
+Sampling can generate diverse outputs but is less common for deterministic translation.
+Length penalties can influence the preference for short or long candidate translations.
+
+SECTION: Quality and evaluation
+BLEU is an automatic metric based primarily on n-gram overlap with reference translations.
+BLEU can be useful for comparing systems under consistent evaluation settings.
+BLEU does not fully capture meaning preservation or linguistic adequacy.
+chrF evaluates character n-gram similarity and can be useful for morphologically rich languages.
+TER measures the amount of editing required to transform a system output toward a reference.
+COMET-style learned metrics use neural representations to estimate translation quality.
+Human evaluation can assess adequacy, fluency, terminology, and errors.
+Adequacy concerns how well the translation preserves source meaning.
+Fluency concerns how natural and grammatically appropriate the target output is.
+Evaluation should use held-out test data and clearly documented language pairs and domains.
+
+SECTION: Translation challenges
+Word sense ambiguity occurs when a source word has multiple possible meanings.
+Long-distance dependencies can make translation difficult when relevant words are far apart.
+Idioms often require meaning-level translation rather than literal substitution.
+Named entities may need transliteration, preservation, or established translations.
+Low-resource languages have limited parallel training data.
+Domain shift occurs when training data differs substantially from the deployment domain.
+Code-switching can combine multiple languages within the same input.
+Rare terminology can be difficult when it is absent from training data.
+Gender and politeness can require information that is implicit or ambiguous in the source.
+Pronoun resolution can require context beyond a single sentence.
+
+SECTION: Multilingual and transfer learning
+Multilingual MT trains one model to handle multiple language pairs.
+Shared parameters can allow knowledge transfer between related languages.
+Zero-shot translation attempts to translate between languages without direct parallel training examples.
+Language tags can tell a multilingual model which target language to generate.
+Transfer learning can improve low-resource translation by reusing multilingual representations.
+Related languages may benefit from shared vocabulary and representations.
+Unrelated languages may require different tokenization or language-specific adaptation.
+Back-translation creates synthetic parallel data from monolingual target-language text.
+Knowledge distillation can transfer behavior from a larger translation model to a smaller model.
+Parameter-efficient adaptation can update a smaller portion of model parameters for a language or domain.
+
+SECTION: Safety, bias, and practical use
+Machine translation can reproduce biases present in training data.
+Sensitive content should be handled according to the privacy and security requirements of the application.
+Translation errors can be consequential in legal, medical, or safety-critical settings.
+Human review is appropriate when translation accuracy has high consequences.
+Terminology constraints can help preserve required product or technical terms.
+Glossaries can provide approved translations for recurring domain terminology.
+Post-editing is the process of correcting machine-generated translations.
+Translation memory systems can reuse previously translated segments.
+Quality estimation predicts translation quality without necessarily requiring a reference translation.
+Deployment monitoring should track language-specific and domain-specific error patterns.
+
+SECTION: Retrieval and QA cues
+For a question about machine translation, retrieve source language, target language, and automatic translation.
+For a question about NMT, retrieve encoder, decoder, attention, and transformer concepts.
+For a question about SMT, retrieve phrase-based models, alignments, translation probabilities, and language models.
+For a question about BLEU, retrieve n-gram overlap and its limitations.
+For a question about low-resource translation, retrieve transfer learning and back-translation.
+For a question about beam search, retrieve candidate exploration during decoding.
+For a question about tokenization, retrieve subword units, vocabulary, and sequence length.
+For a question about translation challenges, retrieve ambiguity, idioms, terminology, and context.
+For a question about evaluation, retrieve automatic metrics and human assessment.
+For a question about practical deployment, retrieve glossaries, post-editing, privacy, and monitoring.
+
+QA_CUE_1: Related retrieval concept: Core concepts.
+QA_CUE_2: Related retrieval concept: Machine translation is the automatic translation of text or speech fro.
+QA_CUE_3: Related retrieval concept: The source language is the language of the input..
+QA_CUE_4: Related retrieval concept: The target language is the language of the generated translation..
+QA_CUE_5: Related retrieval concept: An MT system maps source-language input to target-language output..
+QA_CUE_6: Related retrieval concept: Translation quality depends on linguistic structure, context, domain, .
+QA_CUE_7: Related retrieval concept: Parallel data contains aligned examples in two languages..
+QA_CUE_8: Related retrieval concept: A bilingual corpus can be used to train or evaluate translation system.
+QA_CUE_9: Related retrieval concept: Monolingual data contains text in one language and can support some MT.
+QA_CUE_10: Related retrieval concept: Rule-based and statistical MT.
+QA_CUE_11: Related retrieval concept: Rule-based machine translation uses linguistic rules, dictionaries, an.
+QA_CUE_12: Related retrieval concept: Direct translation systems transform source text using relatively shal.
+QA_CUE_13: Related retrieval concept: Transfer-based systems represent source structures and apply language-.
+QA_CUE_14: Related retrieval concept: Interlingua approaches attempt to map different languages into a langu.
+QA_CUE_15: Related retrieval concept: Statistical machine translation learns translation probabilities from .
+QA_CUE_16: Related retrieval concept: Phrase-based SMT translates sequences of words or phrases rather than .
+QA_CUE_17: Related retrieval concept: Word alignment estimates relationships between source and target token.
+QA_CUE_18: Related retrieval concept: Translation models estimate how source phrases correspond to target ph.
+QA_CUE_19: Related retrieval concept: Neural machine translation.
+QA_CUE_20: Related retrieval concept: Neural machine translation uses neural networks to generate translatio.
+QA_CUE_21: Related retrieval concept: Sequence-to-sequence models encode a source sequence and decode a targ.
+QA_CUE_22: Related retrieval concept: An encoder produces representations of the source input..
+QA_CUE_23: Related retrieval concept: A decoder generates target tokens sequentially or using parallel decod.
+QA_CUE_24: Related retrieval concept: Attention allows the decoder to focus on relevant source representatio.
+QA_CUE_25: Related retrieval concept: Transformer architectures use self-attention and became central to mod.
+QA_CUE_26: Related retrieval concept: Self-attention allows tokens to interact with other tokens in the same.
+QA_CUE_27: Related retrieval concept: Cross-attention connects target-side representations with source-side .
+QA_CUE_28: Related retrieval concept: Tokenization and vocabulary.
+QA_CUE_29: Related retrieval concept: Subword tokenization breaks rare or unknown words into smaller units..
+QA_CUE_30: Related retrieval concept: Byte-pair encoding is a common family of subword segmentation methods..
+QA_CUE_31: Related retrieval concept: SentencePiece can learn tokenization directly from raw text..
+QA_CUE_32: Related retrieval concept: Subword units reduce the number of unknown words compared with word-on.
+QA_CUE_33: Related retrieval concept: Vocabulary size affects memory, sequence length, and coverage..
+QA_CUE_34: Related retrieval concept: Character-level models can represent arbitrary spelling but may requir.
+QA_CUE_35: Related retrieval concept: Language-specific tokenization rules can improve processing for some s.
+QA_CUE_36: Related retrieval concept: Normalization must account for Unicode and language-specific writing c.
+QA_CUE_37: Related retrieval concept: Training and inference.
+QA_CUE_38: Related retrieval concept: Supervised NMT training commonly minimizes a loss between reference an.
+QA_CUE_39: Related retrieval concept: Teacher forcing provides reference previous tokens during training in .
+QA_CUE_40: Related retrieval concept: Cross-entropy is commonly used as a token-level training objective..
+QA_CUE_41: Related retrieval concept: Batching groups examples to improve hardware utilization..
+QA_CUE_42: Related retrieval concept: Padding allows variable-length sequences to be processed in batches..
+QA_CUE_43: Related retrieval concept: Attention masks prevent models from attending to invalid padding or fu.
+QA_CUE_44: Related retrieval concept: Beam search explores multiple candidate translations during autoregres.
+QA_CUE_45: Related retrieval concept: Greedy decoding chooses the highest-probability next token at each ste.
+QA_CUE_46: Related retrieval concept: Quality and evaluation.
+QA_CUE_47: Related retrieval concept: BLEU is an automatic metric based primarily on n-gram overlap with ref.
+QA_CUE_48: Related retrieval concept: BLEU can be useful for comparing systems under consistent evaluation s.
+QA_CUE_49: Related retrieval concept: BLEU does not fully capture meaning preservation or linguistic adequac.
+QA_CUE_50: Related retrieval concept: chrF evaluates character n-gram similarity and can be useful for morph.
+QA_CUE_51: Related retrieval concept: TER measures the amount of editing required to transform a system outp.
+QA_CUE_52: Related retrieval concept: COMET-style learned metrics use neural representations to estimate tra.
+QA_CUE_53: Related retrieval concept: Human evaluation can assess adequacy, fluency, terminology, and errors.
+QA_CUE_54: Related retrieval concept: Adequacy concerns how well the translation preserves source meaning..
+QA_CUE_55: Related retrieval concept: Translation challenges.
+QA_CUE_56: Related retrieval concept: Word sense ambiguity occurs when a source word has multiple possible m.
+QA_CUE_57: Related retrieval concept: Long-distance dependencies can make translation difficult when relevan.
+QA_CUE_58: Related retrieval concept: Idioms often require meaning-level translation rather than literal sub.
+QA_CUE_59: Related retrieval concept: Named entities may need transliteration, preservation, or established .
+QA_CUE_60: Related retrieval concept: Low-resource languages have limited parallel training data..
+QA_CUE_61: Related retrieval concept: Domain shift occurs when training data differs substantially from the .
+QA_CUE_62: Related retrieval concept: Code-switching can combine multiple languages within the same input..
+QA_CUE_63: Related retrieval concept: Rare terminology can be difficult when it is absent from training data.
+QA_CUE_64: Related retrieval concept: Multilingual and transfer learning.
+QA_CUE_65: Related retrieval concept: Multilingual MT trains one model to handle multiple language pairs..
+QA_CUE_66: Related retrieval concept: Shared parameters can allow knowledge transfer between related languag.
+QA_CUE_67: Related retrieval concept: Zero-shot translation attempts to translate between languages without .
+QA_CUE_68: Related retrieval concept: Language tags can tell a multilingual model which target language to g.
+QA_CUE_69: Related retrieval concept: Transfer learning can improve low-resource translation by reusing mult.
+QA_CUE_70: Related retrieval concept: Related languages may benefit from shared vocabulary and representatio.
+QA_CUE_71: Related retrieval concept: Unrelated languages may require different tokenization or language-spe.
+QA_CUE_72: Related retrieval concept: Back-translation creates synthetic parallel data from monolingual targ.
+QA_CUE_73: Related retrieval concept: Safety, bias, and practical use.
+QA_CUE_74: Related retrieval concept: Machine translation can reproduce biases present in training data..
+QA_CUE_75: Related retrieval concept: Sensitive content should be handled according to the privacy and secur.
+QA_CUE_76: Related retrieval concept: Translation errors can be consequential in legal, medical, or safety-c.
+QA_CUE_77: Related retrieval concept: Human review is appropriate when translation accuracy has high consequ.
+QA_CUE_78: Related retrieval concept: Terminology constraints can help preserve required product or technica.
+QA_CUE_79: Related retrieval concept: Glossaries can provide approved translations for recurring domain term.
+QA_CUE_80: Related retrieval concept: Post-editing is the process of correcting machine-generated translatio.
+QA_CUE_81: Related retrieval concept: Translation memory systems can reuse previously translated segments..
+QA_CUE_82: Related retrieval concept: Retrieval and QA cues.
+QA_CUE_83: Related retrieval concept: For a question about machine translation, retrieve source language, ta.
+QA_CUE_84: Related retrieval concept: For a question about NMT, retrieve encoder, decoder, attention, and tr.
+QA_CUE_85: Related retrieval concept: For a question about SMT, retrieve phrase-based models, alignments, tr.
+QA_CUE_86: Related retrieval concept: For a question about BLEU, retrieve n-gram overlap and its limitations.
+QA_CUE_87: Related retrieval concept: For a question about low-resource translation, retrieve transfer learn.
+QA_CUE_88: Related retrieval concept: For a question about beam search, retrieve candidate exploration durin.
+QA_CUE_89: Related retrieval concept: For a question about tokenization, retrieve subword units, vocabulary,.
+QA_CUE_90: Related retrieval concept: For a question about translation challenges, retrieve ambiguity, idiom.
+QA_CUE_91: Related retrieval concept: Core concepts.
+QA_CUE_92: Related retrieval concept: Machine translation is the automatic translation of text or speech fro.
+QA_CUE_93: Related retrieval concept: The source language is the language of the input..
+QA_CUE_94: Related retrieval concept: The target language is the language of the generated translation..
+QA_CUE_95: Related retrieval concept: An MT system maps source-language input to target-language output..
+QA_CUE_96: Related retrieval concept: Translation quality depends on linguistic structure, context, domain, .
+QA_CUE_97: Related retrieval concept: Parallel data contains aligned examples in two languages..
+QA_CUE_98: Related retrieval concept: A bilingual corpus can be used to train or evaluate translation system.
+QA_CUE_99: Related retrieval concept: Monolingual data contains text in one language and can support some MT.
+QA_CUE_100: Related retrieval concept: Rule-based and statistical MT.
+QA_CUE_101: Related retrieval concept: Rule-based machine translation uses linguistic rules, dictionaries, an.
+QA_CUE_102: Related retrieval concept: Direct translation systems transform source text using relatively shal.
+QA_CUE_103: Related retrieval concept: Transfer-based systems represent source structures and apply language-.
+QA_CUE_104: Related retrieval concept: Interlingua approaches attempt to map different languages into a langu.
+QA_CUE_105: Related retrieval concept: Statistical machine translation learns translation probabilities from .
+QA_CUE_106: Related retrieval concept: Phrase-based SMT translates sequences of words or phrases rather than .
+QA_CUE_107: Related retrieval concept: Word alignment estimates relationships between source and target token.
+QA_CUE_108: Related retrieval concept: Translation models estimate how source phrases correspond to target ph.
+QA_CUE_109: Related retrieval concept: Neural machine translation.
+QA_CUE_110: Related retrieval concept: Neural machine translation uses neural networks to generate translatio.
+QA_CUE_111: Related retrieval concept: Sequence-to-sequence models encode a source sequence and decode a targ.
+QA_CUE_112: Related retrieval concept: An encoder produces representations of the source input..
+QA_CUE_113: Related retrieval concept: A decoder generates target tokens sequentially or using parallel decod.
+QA_CUE_114: Related retrieval concept: Attention allows the decoder to focus on relevant source representatio.
+QA_CUE_115: Related retrieval concept: Transformer architectures use self-attention and became central to mod.
+QA_CUE_116: Related retrieval concept: Self-attention allows tokens to interact with other tokens in the same.
+QA_CUE_117: Related retrieval concept: Cross-attention connects target-side representations with source-side .
+QA_CUE_118: Related retrieval concept: Tokenization and vocabulary.
+QA_CUE_119: Related retrieval concept: Subword tokenization breaks rare or unknown words into smaller units..
+QA_CUE_120: Related retrieval concept: Byte-pair encoding is a common family of subword segmentation methods..
+QA_CUE_121: Related retrieval concept: SentencePiece can learn tokenization directly from raw text..
+QA_CUE_122: Related retrieval concept: Subword units reduce the number of unknown words compared with word-on.
+QA_CUE_123: Related retrieval concept: Vocabulary size affects memory, sequence length, and coverage..
+QA_CUE_124: Related retrieval concept: Character-level models can represent arbitrary spelling but may requir.
+QA_CUE_125: Related retrieval concept: Language-specific tokenization rules can improve processing for some s.
+QA_CUE_126: Related retrieval concept: Normalization must account for Unicode and language-specific writing c.
+QA_CUE_127: Related retrieval concept: Training and inference.
+QA_CUE_128: Related retrieval concept: Supervised NMT training commonly minimizes a loss between reference an.
+QA_CUE_129: Related retrieval concept: Teacher forcing provides reference previous tokens during training in .
+QA_CUE_130: Related retrieval concept: Cross-entropy is commonly used as a token-level training objective..
+QA_CUE_131: Related retrieval concept: Batching groups examples to improve hardware utilization..
+QA_CUE_132: Related retrieval concept: Padding allows variable-length sequences to be processed in batches..
+QA_CUE_133: Related retrieval concept: Attention masks prevent models from attending to invalid padding or fu.
+QA_CUE_134: Related retrieval concept: Beam search explores multiple candidate translations during autoregres.
+QA_CUE_135: Related retrieval concept: Greedy decoding chooses the highest-probability next token at each ste.
+QA_CUE_136: Related retrieval concept: Quality and evaluation.
+QA_CUE_137: Related retrieval concept: BLEU is an automatic metric based primarily on n-gram overlap with ref.
+QA_CUE_138: Related retrieval concept: BLEU can be useful for comparing systems under consistent evaluation s.
+QA_CUE_139: Related retrieval concept: BLEU does not fully capture meaning preservation or linguistic adequac.
+QA_CUE_140: Related retrieval concept: chrF evaluates character n-gram similarity and can be useful for morph.
+QA_CUE_141: Related retrieval concept: TER measures the amount of editing required to transform a system outp.
+QA_CUE_142: Related retrieval concept: COMET-style learned metrics use neural representations to estimate tra.
+QA_CUE_143: Related retrieval concept: Human evaluation can assess adequacy, fluency, terminology, and errors.
+QA_CUE_144: Related retrieval concept: Adequacy concerns how well the translation preserves source meaning..
+QA_CUE_145: Related retrieval concept: Translation challenges.
+QA_CUE_146: Related retrieval concept: Word sense ambiguity occurs when a source word has multiple possible m.
+QA_CUE_147: Related retrieval concept: Long-distance dependencies can make translation difficult when relevan.
+QA_CUE_148: Related retrieval concept: Idioms often require meaning-level translation rather than literal sub.
+QA_CUE_149: Related retrieval concept: Named entities may need transliteration, preservation, or established .
+QA_CUE_150: Related retrieval concept: Low-resource languages have limited parallel training data..
+QA_CUE_151: Related retrieval concept: Domain shift occurs when training data differs substantially from the .
+QA_CUE_152: Related retrieval concept: Code-switching can combine multiple languages within the same input..
+QA_CUE_153: Related retrieval concept: Rare terminology can be difficult when it is absent from training data.
+QA_CUE_154: Related retrieval concept: Multilingual and transfer learning.
+QA_CUE_155: Related retrieval concept: Multilingual MT trains one model to handle multiple language pairs..
+QA_CUE_156: Related retrieval concept: Shared parameters can allow knowledge transfer between related languag.
+QA_CUE_157: Related retrieval concept: Zero-shot translation attempts to translate between languages without .
+QA_CUE_158: Related retrieval concept: Language tags can tell a multilingual model which target language to g.
+QA_CUE_159: Related retrieval concept: Transfer learning can improve low-resource translation by reusing mult.
+QA_CUE_160: Related retrieval concept: Related languages may benefit from shared vocabulary and representatio.
+QA_CUE_161: Related retrieval concept: Unrelated languages may require different tokenization or language-spe.
+QA_CUE_162: Related retrieval concept: Back-translation creates synthetic parallel data from monolingual targ.
+QA_CUE_163: Related retrieval concept: Safety, bias, and practical use.
+QA_CUE_164: Related retrieval concept: Machine translation can reproduce biases present in training data..
+QA_CUE_165: Related retrieval concept: Sensitive content should be handled according to the privacy and secur.
+QA_CUE_166: Related retrieval concept: Translation errors can be consequential in legal, medical, or safety-c.
+QA_CUE_167: Related retrieval concept: Human review is appropriate when translation accuracy has high consequ.
+QA_CUE_168: Related retrieval concept: Terminology constraints can help preserve required product or technica.
+QA_CUE_169: Related retrieval concept: Glossaries can provide approved translations for recurring domain term.
+QA_CUE_170: Related retrieval concept: Post-editing is the process of correcting machine-generated translatio.
+QA_CUE_171: Related retrieval concept: Translation memory systems can reuse previously translated segments..
+QA_CUE_172: Related retrieval concept: Retrieval and QA cues.
+QA_CUE_173: Related retrieval concept: For a question about machine translation, retrieve source language, ta.
+QA_CUE_174: Related retrieval concept: For a question about NMT, retrieve encoder, decoder, attention, and tr.
+QA_CUE_175: Related retrieval concept: For a question about SMT, retrieve phrase-based models, alignments, tr.
+QA_CUE_176: Related retrieval concept: For a question about BLEU, retrieve n-gram overlap and its limitations.
+QA_CUE_177: Related retrieval concept: For a question about low-resource translation, retrieve transfer learn.
+QA_CUE_178: Related retrieval concept: For a question about beam search, retrieve candidate exploration durin.
+QA_CUE_179: Related retrieval concept: For a question about tokenization, retrieve subword units, vocabulary,.
+QA_CUE_180: Related retrieval concept: For a question about translation challenges, retrieve ambiguity, idiom.
+QA_CUE_181: Related retrieval concept: Core concepts.
+QA_CUE_182: Related retrieval concept: Machine translation is the automatic translation of text or speech fro.
+QA_CUE_183: Related retrieval concept: The source language is the language of the input..
+QA_CUE_184: Related retrieval concept: The target language is the language of the generated translation..
+QA_CUE_185: Related retrieval concept: An MT system maps source-language input to target-language output..
+QA_CUE_186: Related retrieval concept: Translation quality depends on linguistic structure, context, domain, .
+QA_CUE_187: Related retrieval concept: Parallel data contains aligned examples in two languages..
+QA_CUE_188: Related retrieval concept: A bilingual corpus can be used to train or evaluate translation system.
+QA_CUE_189: Related retrieval concept: Monolingual data contains text in one language and can support some MT.
+QA_CUE_190: Related retrieval concept: Rule-based and statistical MT.
+QA_CUE_191: Related retrieval concept: Rule-based machine translation uses linguistic rules, dictionaries, an.
+QA_CUE_192: Related retrieval concept: Direct translation systems transform source text using relatively shal.
+QA_CUE_193: Related retrieval concept: Transfer-based systems represent source structures and apply language-.
+QA_CUE_194: Related retrieval concept: Interlingua approaches attempt to map different languages into a langu.
+QA_CUE_195: Related retrieval concept: Statistical machine translation learns translation probabilities from .
+QA_CUE_196: Related retrieval concept: Phrase-based SMT translates sequences of words or phrases rather than .
+QA_CUE_197: Related retrieval concept: Word alignment estimates relationships between source and target token.
