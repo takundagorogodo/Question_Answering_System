@@ -1,0 +1,320 @@
+TITLE: Word Sense Disambiguation
+PURPOSE: Retrieval-friendly NLP knowledge for a generative question-answering system.
+USAGE: Each statement is written as an atomic knowledge unit so semantic retrieval can return focused evidence.
+
+SECTION: Core concepts
+Word sense disambiguation, or WSD, determines which meaning of a word is intended in a particular context.
+A word may have multiple senses, making its meaning dependent on surrounding text.
+Lexical ambiguity occurs when a word or expression has more than one plausible interpretation.
+Polysemy occurs when related meanings are associated with the same lexical form.
+Homonymy occurs when the same form is associated with unrelated meanings.
+A sense inventory is a defined collection of meanings for words.
+A dictionary or lexical database can provide candidate senses.
+Context is the main evidence used to distinguish competing word senses.
+WSD is a word-level semantic interpretation task.
+WSD can support downstream tasks such as translation, search, question answering, and information extraction.
+
+SECTION: Types of ambiguity
+Part-of-speech ambiguity occurs when a word can belong to different grammatical categories.
+Lexical semantic ambiguity occurs when the same lexical item has multiple meanings.
+Local ambiguity can sometimes be resolved using nearby words.
+Long-range ambiguity may require information from earlier or later sentences.
+Domain ambiguity occurs when a term has different meanings in different fields.
+Technical terminology can have a specialized sense that differs from everyday usage.
+Named entities can also be ambiguous when different entities share a name.
+Pronouns create reference ambiguity rather than traditional word-sense ambiguity.
+Metaphorical language can create an interpretation that differs from the literal dictionary sense.
+Contextual cues can include syntax, neighboring words, topic, and discourse context.
+
+SECTION: Sense inventories and lexical resources
+WordNet is a lexical database that organizes English words into synsets and semantic relations.
+A synset groups words that can express a particular concept or sense.
+Glosses provide textual descriptions of lexical senses.
+Hypernym relations connect a concept to a more general concept.
+Hyponym relations connect a concept to a more specific concept.
+Meronym relations represent part-whole relationships.
+Lexical resources may provide example sentences that help distinguish senses.
+Different applications may require different sense inventories.
+Very fine-grained sense inventories can make WSD harder because distinctions become subtle.
+Coarse-grained sense inventories merge closely related meanings to simplify classification.
+
+SECTION: Knowledge-based WSD
+Knowledge-based WSD uses lexical or semantic resources instead of requiring large labeled training sets.
+The Lesk algorithm compares dictionary glosses with the context of an ambiguous word.
+Gloss overlap methods select a sense whose definition shares words with the surrounding context.
+Semantic similarity measures can compare candidate senses using lexical relations.
+Graph-based methods represent senses and semantic relations as graphs.
+Knowledge-based methods can work when annotated WSD data is limited.
+Knowledge-based systems depend on the coverage and quality of their lexical resources.
+Glosses may be too short to provide enough evidence for some ambiguous words.
+Domain-specific terminology may not be adequately represented in general lexical databases.
+Hybrid methods can combine lexical knowledge with learned contextual representations.
+
+SECTION: Supervised and neural WSD
+Supervised WSD treats sense selection as a classification problem.
+A supervised classifier learns from examples where the correct sense is annotated.
+Features can include neighboring words, part-of-speech tags, syntactic information, and collocations.
+Traditional classifiers include naive Bayes, decision trees, support vector machines, and logistic regression.
+Contextual language models provide representations that depend on surrounding words.
+Transformer encoders can be fine-tuned for word-sense classification.
+Gloss-informed models can compare a contextual word representation with candidate sense descriptions.
+Few-shot approaches can use a small number of labeled examples.
+Zero-shot approaches attempt sense selection without task-specific labeled examples.
+Neural methods can generalize better across contexts but still depend on sense definitions and data quality.
+
+SECTION: Context and features
+Collocations are recurring word combinations that provide useful clues for WSD.
+Part-of-speech information can eliminate senses that are incompatible with the grammatical category.
+Dependency relations can reveal how an ambiguous word is used syntactically.
+Nearby content words often provide strong evidence about intended meaning.
+Topic information can help distinguish senses associated with different domains.
+Sentence-level context is often more informative than the ambiguous word alone.
+Document-level context can resolve ambiguity when sentence-level evidence is insufficient.
+Previous dialogue turns can help resolve a word's intended sense in conversation.
+Semantic role information can provide clues about how an ambiguous predicate is being used.
+Context windows should be large enough to capture relevant evidence without introducing excessive noise.
+
+SECTION: Evaluation
+WSD accuracy measures the proportion of ambiguous instances assigned the correct sense.
+Precision and recall can be used when systems abstain or only predict selected senses.
+Fine-grained WSD evaluation is harder because closely related senses can be difficult to distinguish.
+Lexical sample evaluation tests a selected set of ambiguous words.
+All-words WSD evaluates ambiguous words throughout a text.
+Intrinsic evaluation compares predicted senses against human annotations.
+Extrinsic evaluation measures whether WSD improves a downstream application.
+Inter-annotator agreement indicates how consistently human annotators distinguish senses.
+Low agreement can indicate that the sense inventory contains unclear distinctions.
+Evaluation should specify the language, sense inventory, domain, and test set.
+
+SECTION: Applications and limitations
+Machine translation can use WSD to select an appropriate target-language translation.
+Search systems can use WSD to distinguish queries with multiple meanings.
+Question answering can use WSD to interpret ambiguous terms in a question.
+Information extraction can use WSD to improve semantic interpretation of extracted relations.
+Text classification can benefit from distinguishing domain-specific meanings.
+Semantic search can use sense-aware representations to improve matching.
+WSD is difficult when context does not contain enough information.
+Rare senses are often harder to identify because training examples are limited.
+Domain shift can change which sense is most common in a dataset.
+Human interpretation may remain necessary for highly ambiguous or specialized text.
+
+SECTION: Retrieval and QA cues
+For a question asking what WSD is, retrieve the definition of word-sense selection using context.
+For a question about ambiguity, retrieve polysemy, homonymy, domain ambiguity, and contextual cues.
+For a question about WordNet, retrieve synsets, glosses, hypernyms, hyponyms, and lexical relations.
+For a question about Lesk, retrieve dictionary gloss overlap and context comparison.
+For a question about supervised WSD, retrieve labeled examples, classification, features, and contextual models.
+For a question about transformer WSD, retrieve contextual representations and sense classification.
+For a question about evaluation, retrieve accuracy, lexical sample, all-words, and annotation agreement.
+For a question about applications, retrieve translation, search, QA, and information extraction.
+For a question about limitations, retrieve rare senses, domain shift, insufficient context, and sense-inventory ambiguity.
+For a question about context, retrieve collocations, syntax, topic, discourse, and dialogue history.
+
+RETRIEVAL_CUE_1: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: When a question concerns types of ambiguity, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: When a question concerns sense inventories and lexical resources, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: When a question concerns knowledge-based wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: When a question concerns supervised and neural wsd, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: When a question concerns context and features, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
