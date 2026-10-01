@@ -1,0 +1,320 @@
+TITLE: Topic Modeling
+PURPOSE: Retrieval-friendly NLP knowledge for a generative question-answering system.
+USAGE: Each statement is written as an atomic knowledge unit so semantic retrieval can return focused evidence.
+
+SECTION: Core concepts
+Topic modeling identifies recurring latent themes or topics in a collection of documents.
+A topic is represented as a pattern of words that tend to occur together.
+Topic modeling is generally an unsupervised or weakly supervised text analysis technique.
+Documents can be represented as mixtures of multiple topics.
+Topic models are useful for discovering structure in large text collections.
+Latent topics are inferred from observed word usage rather than always being manually labeled.
+Topic modeling differs from document classification because topics are often learned without predefined classes.
+A topic model can provide interpretable summaries of document collections.
+Topic distributions can be used as features for downstream tasks.
+Topic modeling is commonly applied to research papers, news, reviews, and archives.
+
+SECTION: Latent Dirichlet allocation
+Latent Dirichlet allocation, or LDA, is a probabilistic topic model.
+LDA represents each document as a mixture of topics.
+Each topic in LDA is represented as a probability distribution over words.
+Each document has a topic proportion distribution.
+The generative view of LDA assumes that documents are produced from latent topic mixtures.
+Dirichlet distributions are used as priors over topic proportions and word distributions.
+Topic-word probabilities indicate how strongly words are associated with a topic.
+Document-topic probabilities indicate how strongly a document is associated with each topic.
+LDA inference estimates hidden topic assignments from observed words.
+The number of topics is commonly selected as a modeling hyperparameter.
+
+SECTION: Other topic models
+Non-negative matrix factorization can discover topic-like components from a document-term matrix.
+Probabilistic latent semantic analysis models relationships between documents, words, and latent topics.
+Hierarchical topic models organize topics into multiple levels.
+Dynamic topic models track topic changes over time.
+Neural topic models use neural representations to learn latent topic structures.
+Embedding-based topic methods can cluster semantically similar documents or words.
+BERTopic-style approaches combine document embeddings, clustering, and topic representation.
+Correlated topic models allow topic proportions to exhibit correlations.
+Author-topic models connect topics with document authors.
+Model choice should depend on corpus size, interpretability requirements, and downstream goals.
+
+SECTION: Preprocessing
+Document preprocessing can strongly affect discovered topics.
+Tokenization converts documents into processing units.
+Stop-word removal can reduce common function words but should be used carefully.
+Lemmatization can group related word forms under a common base form.
+Stemming can reduce word variants using simpler morphological rules.
+Very rare words may add noise to topic models.
+Extremely common domain-specific words may dominate topics without adding useful distinction.
+N-grams can capture meaningful multiword expressions.
+Vocabulary filtering can reduce memory and computation.
+Preprocessing should preserve terms that are important for the domain's topics.
+
+SECTION: Topic interpretation
+Topic-word rankings are commonly used to inspect the meaning of learned topics.
+Top words alone may not always provide a complete interpretation of a topic.
+Representative documents can help humans interpret topics.
+Topic coherence measures attempt to estimate whether top topic words are semantically coherent.
+Human labeling is often useful for assigning readable names to discovered topics.
+Topic labels are interpretations rather than necessarily direct outputs of the model.
+Two topics can be mathematically distinct but semantically similar.
+Topic redundancy occurs when multiple topics represent nearly the same theme.
+Topic drift can occur when the same vocabulary changes meaning across time or domains.
+Interpretation should consider the corpus and the purpose of the analysis.
+
+SECTION: Evaluation
+Topic coherence measures are often used to assess the interpretability of topic-word sets.
+Perplexity measures how well a probabilistic model predicts held-out word sequences under its assumptions.
+Lower perplexity does not necessarily mean that human readers will find topics more coherent.
+Topic diversity measures whether different topics contain distinct high-ranked words.
+Human evaluation can ask annotators whether topics are interpretable and distinct.
+Downstream evaluation can test whether topic representations improve another task.
+Stability evaluation checks whether similar datasets or seeds produce similar topics.
+Evaluation should consider both statistical fit and practical interpretability.
+The selected number of topics can strongly affect model behavior.
+Topic models should be evaluated using held-out data when predictive metrics are used.
+
+SECTION: Applications
+Topic modeling can organize large document collections by recurring themes.
+Researchers can use topics to explore trends across scientific literature.
+News analysis can identify recurring subjects and monitor changes over time.
+Customer feedback can be grouped into themes such as delivery, quality, and service.
+Search interfaces can use topic labels to help users browse document collections.
+Topic distributions can support document recommendation.
+Topic modeling can support exploratory analysis before building supervised classifiers.
+Historical archives can be analyzed for changes in themes over time.
+Topic models can help identify clusters of related documents.
+Topic modeling is primarily exploratory and should not automatically be treated as definitive classification.
+
+SECTION: Limitations
+Topics are not guaranteed to correspond to human-defined concepts.
+Bag-of-words models ignore much of word order and syntax.
+Polysemous words can appear in multiple topics for different reasons.
+Frequent generic terms can make topics difficult to interpret.
+Very short documents may not contain enough information for stable topic inference.
+Highly similar topics can be redundant.
+Topic assignments can be sensitive to preprocessing and model hyperparameters.
+Changing corpora can change the learned topic vocabulary.
+Topic models may reflect biases and imbalances in the source collection.
+Human interpretation remains important when topic labels are used for decisions.
+
+SECTION: Retrieval and QA cues
+For a question about topic modeling, retrieve latent themes, document-topic mixtures, and topic-word distributions.
+For a question about LDA, retrieve documents, topics, word probabilities, Dirichlet priors, and latent assignments.
+For a question about topic coherence, retrieve interpretability and top-word semantic consistency.
+For a question about preprocessing, retrieve tokenization, stop words, lemmatization, n-grams, and vocabulary filtering.
+For a question about topic interpretation, retrieve top words, representative documents, human labels, and redundancy.
+For a question about applications, retrieve document organization, trend analysis, recommendation, and exploratory analysis.
+For a question about limitations, retrieve ambiguity, short documents, topic instability, and corpus bias.
+For a question about evaluation, retrieve coherence, perplexity, diversity, stability, and human evaluation.
+For a question about dynamic topics, retrieve time, topic drift, and changes in vocabulary.
+For a question about neural topic modeling, retrieve embeddings, clustering, and latent representations.
+
+RETRIEVAL_CUE_1: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: When a question concerns latent dirichlet allocation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: When a question concerns other topic models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: When a question concerns preprocessing, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: When a question concerns topic interpretation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: When a question concerns applications, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: When a question concerns limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
