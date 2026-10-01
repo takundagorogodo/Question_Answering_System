@@ -1,0 +1,320 @@
+TITLE: Coreference Resolution
+PURPOSE: Retrieval-friendly NLP knowledge for a generative question-answering system.
+USAGE: Each statement is written as an atomic knowledge unit so semantic retrieval can return focused evidence.
+
+SECTION: Core concepts
+Coreference resolution identifies mentions in text that refer to the same underlying entity or discourse object.
+A mention is a textual expression that refers to an entity or event.
+A coreference chain groups mentions that refer to the same entity.
+An antecedent is a prior expression that a later reference can point to.
+Anaphora occurs when a reference depends on a preceding expression.
+Cataphora occurs when a reference points to an expression introduced later.
+Pronouns such as he, she, it, and they often require coreference resolution.
+Nominal expressions can also participate in coreference chains.
+Coreference resolution is a discourse-level NLP task.
+Coreference information can support question answering, information extraction, summarization, and dialogue systems.
+
+SECTION: Types of referring expressions
+Pronouns are short referring expressions whose interpretation often depends on context.
+Proper names can refer to entities introduced elsewhere in a document.
+Definite noun phrases can refer to previously established entities.
+Indefinite noun phrases can introduce new entities but may also refer to known entities in context.
+Demonstratives such as this and that can refer to entities, events, or discourse segments.
+Zero anaphora occurs when a reference is omitted but understood from context in some languages.
+Event coreference determines whether two event mentions refer to the same event.
+Entity coreference focuses on references to people, organizations, objects, and other entities.
+Document-level coreference may require information from many sentences.
+Conversational coreference can require dialogue history and speaker information.
+
+SECTION: Mention detection
+Mention detection identifies candidate spans that may refer to entities.
+Rule-based mention detection can use noun-phrase and pronoun patterns.
+Named entity recognition can provide useful candidate mentions.
+Parsing can help identify noun phrases and grammatical structures.
+Neural mention detectors can predict spans directly from contextual representations.
+False positive mentions increase the search space for coreference resolution.
+False negative mention detection can prevent correct coreference links from being created.
+Mention boundaries can affect both coreference and downstream extraction.
+Nested mentions may occur when one referring expression contains another.
+Some systems perform mention detection jointly with coreference prediction.
+
+SECTION: Coreference linking
+Pairwise coreference models score whether two mentions refer to the same entity.
+Antecedent ranking models score candidate antecedents for each mention.
+Cluster-based methods construct groups of mutually coreferent mentions.
+Recency can be a useful but imperfect heuristic for antecedent selection.
+Grammatical agreement can provide evidence about candidate compatibility.
+Number agreement can distinguish singular and plural candidates in many languages.
+Gender agreement can provide evidence when grammatical or semantic gender is expressed.
+Semantic compatibility can eliminate implausible antecedents.
+Discourse salience can influence which entity a referring expression is likely to denote.
+Global inference can improve consistency across a document.
+
+SECTION: Algorithms and models
+Traditional coreference systems often combine hand-written rules with statistical ranking.
+Rule-based systems can encode constraints for pronouns, names, and noun phrases.
+Feature-based machine learning models can rank candidate antecedents.
+Neural coreference models use contextual embeddings to represent mentions.
+Span-based models score candidate mention spans and possible antecedent links.
+Transformer encoders can provide contextual representations for document-level coreference.
+Clustering algorithms can group pairwise coreference predictions into chains.
+End-to-end systems can jointly learn mention detection and coreference decisions.
+Long-context models can help process documents with distant references.
+Hybrid systems can combine neural predictions with deterministic linguistic constraints.
+
+SECTION: Linguistic cues
+Number agreement can indicate whether a pronoun refers to a singular or plural noun phrase.
+Person agreement can help distinguish first-, second-, and third-person references.
+Gender agreement can be useful where the language marks gender.
+Subject prominence can influence antecedent preferences in some languages.
+Parallel grammatical structures can provide clues for resolving references.
+Semantic role information can help determine which entity is likely to be referenced.
+Discourse topic can make one entity more salient than another.
+World knowledge can be necessary to resolve references that syntax alone cannot determine.
+Bridging references connect related but not necessarily identical entities.
+Ambiguous pronouns may remain unresolved when multiple candidates satisfy the available constraints.
+
+SECTION: Evaluation
+Mention detection can be evaluated separately from coreference linking.
+Coreference evaluation compares predicted clusters with annotated reference clusters.
+MUC is an early metric based on links needed to connect mentions into clusters.
+B-cubed evaluates mention-level precision and recall within clusters.
+CEAF aligns predicted and reference clusters using a similarity function.
+LEA evaluates coreference links while considering entity importance.
+CoNLL-style coreference scores commonly aggregate several coreference metrics.
+Exact cluster matching is stricter than link-based evaluation.
+Evaluation can be sensitive to the mention annotation policy.
+Human agreement provides a useful reference for the difficulty of the task.
+
+SECTION: Applications and limitations
+Question answering can use coreference to interpret pronouns in questions and documents.
+Information extraction can merge facts expressed across multiple mentions of an entity.
+Summarization can reduce repetition by recognizing repeated references.
+Dialogue systems can use coreference to understand phrases such as that one or they.
+Search systems can use entity chains to connect related passages.
+Knowledge graph construction can benefit from resolving multiple mentions to one entity.
+Long documents increase the number of possible antecedents and candidate links.
+World knowledge requirements can make some references difficult to resolve automatically.
+Errors in mention detection can propagate through the entire coreference pipeline.
+Coreference systems should be evaluated on domains that resemble their deployment environment.
+
+SECTION: Retrieval and QA cues
+For a question about coreference, retrieve mentions, antecedents, chains, and shared entities.
+For a question about anaphora, retrieve references to previously introduced expressions.
+For a question about cataphora, retrieve forward references and later-mentioned antecedents.
+For a question about pronoun resolution, retrieve agreement, salience, syntax, and discourse context.
+For a question about algorithms, retrieve pairwise models, ranking, clustering, span models, and transformers.
+For a question about evaluation, retrieve MUC, B-cubed, CEAF, LEA, and aggregated evaluation.
+For a question about applications, retrieve QA, extraction, summarization, dialogue, and knowledge graphs.
+For a question about mention detection, retrieve candidate spans, noun phrases, NER, and false positives.
+For a question about limitations, retrieve long-distance references, world knowledge, ambiguity, and error propagation.
+For a question about event coreference, retrieve event mentions, event identity, and discourse context.
+
+RETRIEVAL_CUE_1: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: When a question concerns types of referring expressions, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: When a question concerns mention detection, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: When a question concerns coreference linking, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: When a question concerns algorithms and models, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: When a question concerns linguistic cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: When a question concerns evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: When a question concerns applications and limitations, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
