@@ -1,0 +1,320 @@
+TITLE: Prompt Engineering
+PURPOSE: Retrieval-friendly NLP knowledge for a generative question-answering system.
+USAGE: Each statement is written as an atomic knowledge unit so semantic retrieval can return focused evidence.
+
+SECTION: Core concepts
+Prompt engineering is the design of instructions and input context used to guide a generative AI model toward a desired output.
+A prompt can contain instructions, context, examples, constraints, and a user request.
+Prompt design aims to make the requested behavior clear, relevant, and reproducible.
+An instruction specifies what the model should do.
+Context provides information needed to perform the task.
+Output constraints specify the desired structure, length, style, or format.
+Examples demonstrate the mapping between inputs and desired outputs.
+Prompt templates make recurring tasks more consistent.
+Prompt engineering is useful for question answering, extraction, summarization, classification, and generation.
+Good prompts reduce ambiguity rather than relying on the model to infer unstated requirements.
+
+SECTION: Prompt components
+A system-level instruction can define the overall behavior of an assistant.
+A user instruction states the task or request that should be handled.
+Context can include retrieved documents or structured data.
+Examples can demonstrate the expected input-output pattern.
+Constraints can specify forbidden or required output properties.
+An output schema can require fields such as answer, evidence, and confidence.
+Delimiters can clearly separate instructions from source text.
+Explicit variable names can make reusable templates easier to understand.
+Task-specific terminology should be defined when ambiguity is likely.
+Prompts should avoid unnecessary instructions that compete with the primary task.
+
+SECTION: Zero-shot and few-shot prompting
+Zero-shot prompting asks a model to perform a task without providing task examples.
+Few-shot prompting provides a small number of examples before the new input.
+One-shot prompting provides a single example.
+Few-shot examples can clarify output format and task interpretation.
+Examples should be representative of the target task.
+Poor examples can teach unwanted patterns or biases.
+Example order can sometimes influence model behavior.
+Too many examples can consume context and reduce room for the actual task.
+Few-shot prompting is especially useful when a task is difficult to describe with instructions alone.
+Zero-shot prompting can be preferable when context limits make examples expensive.
+
+SECTION: Structured output
+Structured prompting asks the model to produce a predictable schema such as JSON or a table.
+Explicit field definitions reduce ambiguity about the required output.
+Enumerated labels can constrain classification outputs.
+Schema validation can detect malformed generated data.
+Structured outputs are useful for information extraction pipelines.
+Consistent field names simplify downstream processing.
+Optional fields should be explicitly documented.
+Type constraints can distinguish numbers, strings, arrays, and booleans.
+Output length constraints can prevent excessive generated text.
+Post-processing should not silently reinterpret malformed or unsupported model outputs.
+
+SECTION: Retrieval-augmented prompting
+Retrieval-augmented prompting provides external context to a generative model before answer generation.
+Retrieved passages should be clearly separated from task instructions.
+The prompt can tell the model to answer using only the supplied evidence when grounding is required.
+Source identifiers can allow generated claims to be associated with retrieved passages.
+Context selection affects answer quality because irrelevant evidence can distract the model.
+Retrieved context should be relevant, sufficiently complete, and within the model's context capacity.
+Conflicting sources should be handled explicitly rather than silently merged.
+An abstention instruction can tell the model to state when evidence is insufficient.
+Prompt injection can occur when untrusted retrieved text contains instructions aimed at the model.
+Retrieved content should generally be treated as data, not as higher-priority instructions.
+
+SECTION: Reasoning and task decomposition
+Complex tasks can be divided into smaller subtasks.
+Task decomposition can separate retrieval, extraction, calculation, verification, and final response generation.
+Intermediate structured representations can reduce ambiguity between subtasks.
+Checklists can remind a model to verify required fields or constraints.
+Self-verification prompts can ask a model to check its draft against explicit criteria.
+Critique-and-revise workflows generate a draft and then evaluate it against requirements.
+Tool-assisted workflows can delegate calculations or database queries to deterministic systems.
+Reasoning instructions should focus on useful task behavior rather than requiring unnecessary hidden reasoning.
+Verification is especially valuable when the output depends on precise facts or calculations.
+Decomposition can increase latency and token usage, so it should be used when it provides measurable value.
+
+SECTION: Prompt evaluation
+Prompt evaluation compares outputs produced under different prompt designs.
+A fixed test set makes prompt comparisons more consistent.
+Evaluation criteria should be defined before comparing prompt variants.
+Exact-match accuracy is useful for tasks with deterministic target labels.
+Human evaluation can assess quality when multiple outputs are valid.
+Groundedness evaluation checks whether factual claims are supported by provided evidence.
+Format compliance checks whether required schemas or structures are followed.
+Robustness testing varies wording, input order, and irrelevant details.
+Adversarial testing can reveal failures caused by ambiguous or malicious inputs.
+Prompt changes should be evaluated on representative data rather than a few hand-picked examples.
+
+SECTION: Common prompting techniques
+Role prompting gives the model a defined functional perspective such as tutor, analyst, or extractor.
+Instruction prompting directly states the desired operation.
+Few-shot prompting provides examples of desired behavior.
+Chain-of-thought prompting has historically been used to encourage multi-step reasoning, but production systems should not require disclosure of private reasoning.
+Self-consistency can compare multiple generated solutions when a task benefits from alternative reasoning paths.
+Reflection or critique workflows ask the model to review an initial output.
+Prompt chaining sends the output of one stage into another task stage.
+Retrieval-augmented prompting supplies external evidence.
+Tool calling lets a model invoke deterministic or external capabilities.
+Constrained generation limits the output to required labels or structures.
+
+SECTION: Failure modes and safety
+Ambiguous instructions can lead to inconsistent outputs.
+Conflicting instructions can cause the model to prioritize the wrong requirement.
+Prompt injection attempts to alter model behavior through untrusted input.
+Data leakage can occur if sensitive context is unnecessarily placed in prompts.
+Overly long prompts can exceed context limits or dilute important information.
+Prompt brittleness occurs when small wording changes produce large behavior changes.
+Example leakage can cause a model to copy an example rather than solve the new task.
+Unsupported facts can appear when a prompt asks the model to answer beyond available evidence.
+Overly restrictive prompts can reduce useful responses or cause unnecessary refusals.
+Prompts should be tested against realistic edge cases and adversarial inputs.
+
+SECTION: Practical prompt patterns
+A QA prompt can specify the question, retrieved context, answer format, and grounding rule.
+A summarization prompt can specify source text, target length, audience, and factuality requirement.
+An extraction prompt can specify entity types, schema, and handling of missing values.
+A classification prompt can specify allowed labels and the criteria for each label.
+A rewriting prompt can specify the target tone, audience, and information that must remain unchanged.
+A comparison prompt can request a neutral attribute-by-attribute table.
+A tutoring prompt can request an explanation followed by an example and practice question.
+A coding prompt can specify language, input-output requirements, constraints, and tests.
+A translation prompt can specify source language, target language, terminology, and formatting.
+A document-analysis prompt can specify evidence requirements and source references.
+
+SECTION: Retrieval and QA cues
+For a question about prompt engineering, retrieve instructions, context, examples, constraints, and output format.
+For a question about zero-shot prompting, retrieve task instructions without examples.
+For a question about few-shot prompting, retrieve examples, representative demonstrations, and context limits.
+For a question about structured output, retrieve schemas, fields, validation, and type constraints.
+For a question about RAG prompting, retrieve evidence, grounding, source separation, and prompt injection.
+For a question about evaluation, retrieve fixed test sets, correctness, groundedness, format compliance, and robustness.
+For a question about safety, retrieve injection, data leakage, conflicting instructions, and sensitive context.
+For a question about task decomposition, retrieve subtasks, intermediate representations, verification, and tools.
+For a question about prompt templates, retrieve reusable variables, delimiters, constraints, and consistent formatting.
+For a question about practical applications, retrieve QA, summarization, extraction, classification, translation, and tutoring.
+
+RETRIEVAL_CUE_1: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: When a question concerns failure modes and safety, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: When a question concerns practical prompt patterns, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: When a question concerns retrieval and qa cues, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: When a question concerns core concepts, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: When a question concerns prompt components, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: When a question concerns zero-shot and few-shot prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: When a question concerns structured output, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: When a question concerns retrieval-augmented prompting, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: When a question concerns reasoning and task decomposition, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: When a question concerns prompt evaluation, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: When a question concerns common prompting techniques, retrieve this topic together with its definitions, methods, applications, evaluation, and limitations.
