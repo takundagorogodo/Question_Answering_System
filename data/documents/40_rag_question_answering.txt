@@ -1,0 +1,320 @@
+TITLE: RAG Question Answering
+PURPOSE: Retrieval-friendly knowledge for a generative NLP question-answering system.
+USAGE: Atomic statements support semantic retrieval, grounded answer generation, and focused knowledge lookup.
+
+SECTION: Foundations
+Retrieval-augmented generation combines information retrieval with generative answer writing.
+A RAG question-answering system searches a knowledge source before generating a response.
+The retriever selects passages likely to contain evidence for a question.
+The generator uses the question and retrieved context to formulate an answer.
+RAG can use private, changing, or domain-specific knowledge at inference time.
+Grounding means factual claims are supported by the supplied evidence.
+RAG does not guarantee correctness because retrieval and generation can both fail.
+Knowledge sources can include text files, PDFs, websites, databases, and internal documents.
+Citations can connect answer statements to retrieved passages.
+Abstention is useful when evidence is missing or insufficient.
+
+SECTION: Ingestion and indexing
+Document ingestion loads approved source files into the knowledge pipeline.
+Text extraction converts supported file formats into machine-readable content.
+Cleaning removes irrelevant markup while preserving meaningful content.
+Metadata can store title, section, date, source ID, language, and access permissions.
+Chunking divides long documents into passages that can be retrieved independently.
+Embedding models map passages into vectors for semantic search.
+An index stores vector or lexical representations for efficient retrieval.
+Document updates should trigger an index refresh.
+Duplicate detection reduces redundant content in the index.
+Access-control metadata should be enforced during retrieval.
+
+SECTION: Retrieval and ranking
+Lexical retrieval matches query terms against indexed terms.
+BM25 is a widely used lexical ranking method.
+Dense retrieval compares vector representations of queries and passages.
+Hybrid retrieval combines lexical and dense retrieval signals.
+Query rewriting converts a question into a retrieval-friendly form.
+Query expansion adds related terms to improve coverage.
+Top-k retrieval returns a specified number of candidate passages.
+Metadata filters restrict results by topic, date, language, or permissions.
+Reranking reorders candidates using a more detailed relevance model.
+Retrieval should be evaluated using representative questions and relevant evidence labels.
+
+SECTION: Generation and grounding
+The generation prompt should clearly separate the question from retrieved evidence.
+Grounding instructions can require answers to use the supplied context.
+The answer should preserve important qualifiers, dates, quantities, and units.
+Complex questions may require synthesis across multiple passages.
+Source identifiers can support citations for factual claims.
+Contradictory passages should be surfaced or handled by a documented policy.
+Unanswerable questions should not force the model to invent a response.
+Output format can be specified as prose, bullets, a table, or a schema.
+Post-generation verification can compare key claims with retrieved evidence.
+Retrieved documents should be treated as data rather than privileged instructions.
+
+SECTION: Evaluation and failure handling
+Retrieval recall measures whether relevant evidence appears in the retrieved set.
+Retrieval precision measures how much of the retrieved set is relevant.
+Mean reciprocal rank measures the rank of the first relevant result.
+Faithfulness measures whether generated claims are supported by the context.
+Answer correctness measures factual accuracy.
+Answer relevance measures whether the response addresses the question.
+Retrieval failure occurs when required evidence is not retrieved.
+Hallucination occurs when an answer includes unsupported claims.
+Stale indexing can cause answers to reflect outdated documents.
+Mitigations include hybrid retrieval, reranking, citations, abstention, and access controls.
+
+SECTION: Production and conversational QA
+Multi-hop questions require evidence from multiple passages or documents.
+Question decomposition can split a complex query into smaller retrieval tasks.
+Conversational RAG uses prior turns to interpret follow-up questions.
+Query condensation rewrites a follow-up as a standalone question.
+Latency includes query processing, retrieval, reranking, generation, and validation.
+Monitoring should track retrieval quality, answer quality, latency, and failure rates.
+Versioning helps reproduce answers using the same index and prompt configuration.
+Cache policies should account for source freshness and user permissions.
+Human feedback can reveal missing documents and recurring retrieval failures.
+RAG should be evaluated end-to-end as well as by individual pipeline stage.
+
+RETRIEVAL_CUE_1: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_209: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_210: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_211: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_212: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_213: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_214: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_215: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_216: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_217: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_218: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_219: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_220: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_221: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_222: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_223: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_224: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_225: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_226: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_227: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_228: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_229: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_230: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_231: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_232: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_233: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_234: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_235: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_236: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_237: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_238: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_239: For questions about evaluation and failure handling, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_240: For questions about production and conversational qa, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_241: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_242: For questions about ingestion and indexing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_243: For questions about retrieval and ranking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_244: For questions about generation and grounding, retrieve its definition, workflow, applications, evaluation, and limitations.
