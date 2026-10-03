@@ -1,0 +1,320 @@
+TITLE: Chunking and Document Splitting
+PURPOSE: Retrieval-friendly knowledge for a generative NLP question-answering system.
+USAGE: Atomic statements support semantic retrieval, grounded answer generation, and focused knowledge lookup.
+
+SECTION: Foundations
+Chunking splits a document into smaller units for storage, retrieval, or model processing.
+A chunk is a segment of source text used as a retrieval unit or generation context.
+Document splitting is useful when documents exceed context limits or precise retrieval is needed.
+Chunk boundaries affect whether retrieved text contains enough evidence to answer a question.
+Good chunks preserve coherent ideas while avoiding unrelated content.
+Chunk metadata should preserve the connection to the original source.
+Chunking strategy should match document structure and content type.
+One strategy may not suit prose, tables, code, and transcripts equally well.
+Chunk quality should be evaluated using realistic questions and retrieval results.
+Chunking is a core design choice in many retrieval-augmented generation systems.
+
+SECTION: Fixed-size chunks and overlap
+Fixed-size chunking divides text into units with a configured character or token length.
+Token-based chunking aligns chunk size more closely with model token budgets.
+Character-based chunking is simple but can produce uneven token counts.
+Fixed boundaries can split a sentence or concept across two chunks.
+Large chunks may dilute relevance with unrelated material.
+Small chunks may omit definitions, qualifications, or necessary context.
+Overlap repeats some content from one chunk in the next.
+Overlap can preserve context when an important statement crosses a boundary.
+Excessive overlap increases index size and can return redundant passages.
+Chunk size should be selected using query types, context budgets, and evaluation results.
+
+SECTION: Structure-aware and semantic chunking
+Structure-aware chunking uses document organization to determine boundaries.
+Markdown headings provide natural semantic boundaries.
+Nested sections can be represented with parent-heading metadata.
+Lists should remain associated with the statement that introduces them.
+Tables may need row-aware chunking to preserve headers and values.
+Code documents can be split by functions, classes, or logical modules.
+Semantic chunking uses meaning or topic changes to select boundaries.
+Sentence embeddings can estimate semantic similarity between adjacent sentences.
+A large semantic shift can indicate a potential chunk boundary.
+Semantic chunking can cost more computation and depends on embedding quality.
+
+SECTION: Special formats and metadata
+Tables require preservation of column names, row values, and units.
+FAQ documents can often be chunked as question-answer pairs.
+Legal documents may require section numbers and clause headings to remain attached.
+Scientific papers benefit from section-aware chunks and figure or table references.
+Chat transcripts can be segmented by speaker turns or topic changes.
+Slide decks may need title, slide number, and bullet hierarchy in metadata.
+Scanned documents may require OCR before chunking.
+Metadata can include source ID, title, heading, page number, and timestamp.
+Stable chunk IDs support updates, deduplication, and citations.
+Access-control metadata should be applied during retrieval, not only after generation.
+
+SECTION: Evaluation and troubleshooting
+Retrieval recall can measure whether chunks containing answer evidence are retrieved.
+Retrieval precision measures how much of the retrieved set is useful.
+Answer accuracy reveals whether chunks provide enough information for generation.
+Chunk-size experiments should use a fixed representative evaluation set.
+Overlap experiments should measure retrieval quality and index growth.
+Redundancy rate can reveal when overlapping chunks return nearly identical passages.
+Latency and storage costs should be included in chunking tradeoff analysis.
+Unanswerable questions can test whether chunks cause unsupported responses.
+A split definition may separate a term from its explanation.
+A split table may detach values from column headings.
+Small chunks may omit caveats or antecedents.
+Large chunks may contain many irrelevant sentences.
+Poor OCR can corrupt text before chunking begins.
+Mitigations include structural parsing, overlap, parent context, deduplication, and retrieval evaluation.
+Chunking failures should be diagnosed by inspecting actual retrieved passages and answer errors.
+
+RETRIEVAL_CUE_1: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_209: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_210: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_211: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_212: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_213: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_214: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_215: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_216: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_217: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_218: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_219: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_220: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_221: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_222: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_223: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_224: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_225: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_226: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_227: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_228: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_229: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_230: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_231: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_232: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_233: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_234: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_235: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_236: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_237: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_238: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_239: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_240: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_241: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_242: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_243: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_244: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_245: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_246: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_247: For questions about fixed-size chunks and overlap, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_248: For questions about structure-aware and semantic chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_249: For questions about special formats and metadata, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_250: For questions about evaluation and troubleshooting, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_251: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
