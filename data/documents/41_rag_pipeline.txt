@@ -1,0 +1,320 @@
+TITLE: RAG Pipeline
+PURPOSE: Retrieval-friendly knowledge for a generative NLP question-answering system.
+USAGE: Atomic statements support semantic retrieval, grounded answer generation, and focused knowledge lookup.
+
+SECTION: Pipeline overview
+A RAG pipeline prepares a knowledge collection, retrieves evidence, and generates a grounded response.
+Offline stages commonly include ingestion, parsing, cleaning, chunking, embedding, and indexing.
+Online stages commonly include query processing, retrieval, reranking, context construction, generation, and validation.
+Each stage can introduce errors that affect downstream stages.
+Stage-level monitoring helps identify whether failures originate in parsing, retrieval, or generation.
+Reproducible pipelines should record configuration and data versions.
+An end-to-end test should verify the flow from source document to final answer.
+Pipeline design should reflect document formats, query types, latency, and security requirements.
+Offline preparation happens before user queries arrive.
+Online processing runs in response to a query.
+
+SECTION: Ingestion and parsing
+Ingestion discovers and loads documents from approved data sources.
+File parsers convert source formats into text and structured elements.
+PDF parsing may need to preserve headings, tables, page numbers, and reading order.
+OCR converts scanned page images into machine-readable text.
+HTML extraction should separate useful content from navigation and boilerplate.
+Document identifiers help trace chunks to original source records.
+Metadata extraction can identify titles, dates, categories, and authors.
+Parsing failures should be logged instead of silently creating empty content.
+Permissions should be captured before content becomes searchable.
+Incremental ingestion processes changed documents without rebuilding everything unnecessarily.
+
+SECTION: Cleaning and chunking
+Text cleaning removes artifacts that interfere with retrieval.
+Normalization can standardize whitespace, Unicode, and repeated formatting patterns.
+Cleaning should preserve meaningful punctuation, code, and identifiers.
+Table extraction should preserve row and column relationships.
+Headers and footers can be removed when they create repeated irrelevant content.
+Language detection can route documents to appropriate processing components.
+Chunking divides documents into passages suitable for retrieval.
+Structure-aware chunking follows headings, paragraphs, lists, or semantic boundaries.
+Overlap can preserve context across adjacent chunks.
+Chunk metadata should preserve source IDs and section information.
+
+SECTION: Embeddings and retrieval
+Embedding models convert text passages into vector representations.
+Query and document embeddings should be compatible with the chosen retrieval model.
+Changing the embedding model may require re-embedding the document collection.
+A vector index supports nearest-neighbor search over passage embeddings.
+A lexical index supports keyword-based retrieval.
+Hybrid retrieval combines lexical and dense retrieval.
+Metadata filters can enforce topic, date, language, or permission constraints.
+Top-k controls the number of initially retrieved candidates.
+Query rewriting can improve retrieval for ambiguous or conversational questions.
+Reranking refines candidate order using a more expressive relevance model.
+
+SECTION: Context and generation
+Context construction selects and orders passages to fit the model input budget.
+Redundant passages can be removed to make room for distinct evidence.
+Source labels help associate passages with citations.
+Prompts should separate trusted instructions from untrusted document content.
+Grounding instructions can require claims to be supported by supplied passages.
+Context should include enough surrounding text to preserve important qualifications.
+Contradictory evidence should be surfaced or resolved according to a documented policy.
+Generated answers should match the question's required level of detail.
+Retrieved text should not override higher-priority system instructions.
+Generation should abstain when evidence is insufficient.
+
+SECTION: Validation and operations
+Output validation checks required fields, formatting, and citation structure.
+Claim verification compares generated statements with retrieved evidence.
+Human feedback can reveal missing documents and poor chunk boundaries.
+Evaluation sets should include common, difficult, and unanswerable questions.
+Regression tests detect quality changes after pipeline updates.
+Monitoring can track latency, cost, retrieval coverage, and unsupported-answer rates.
+Batch embedding can improve throughput during large indexing jobs.
+Incremental updates reduce refresh costs for large collections.
+Retries should be bounded and distinguish transient from permanent failures.
+Cost optimization should not silently weaken answer quality or access controls.
+
+RETRIEVAL_CUE_1: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_209: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_210: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_211: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_212: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_213: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_214: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_215: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_216: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_217: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_218: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_219: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_220: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_221: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_222: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_223: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_224: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_225: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_226: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_227: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_228: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_229: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_230: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_231: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_232: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_233: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_234: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_235: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_236: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_237: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_238: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_239: For questions about context and generation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_240: For questions about validation and operations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_241: For questions about pipeline overview, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_242: For questions about ingestion and parsing, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_243: For questions about cleaning and chunking, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_244: For questions about embeddings and retrieval, retrieve its definition, workflow, applications, evaluation, and limitations.
