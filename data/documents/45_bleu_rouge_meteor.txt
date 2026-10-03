@@ -1,0 +1,355 @@
+TITLE: BLEU, ROUGE, AND METEOR
+CATEGORY: NATURAL LANGUAGE PROCESSING
+PURPOSE: Knowledge base for evaluating machine translation, text summarization, and generated language.
+
+SECTION 1: INTRODUCTION
+001. BLEU, ROUGE, and METEOR are automatic metrics for evaluating generated text against reference text.
+002. A reference text is an example of an acceptable output used for comparison.
+003. A candidate text is the output produced by the system being evaluated.
+004. BLEU was originally developed primarily for machine translation evaluation.
+005. ROUGE is widely used for automatic text summarization evaluation.
+006. METEOR was developed to evaluate machine translation and lexical alignment.
+007. These metrics compare different aspects of overlap between candidate and reference text.
+008. They can support the evaluation of natural language generation systems.
+009. Automatic metrics make it possible to evaluate large numbers of generated outputs.
+010. Metric scores do not automatically establish that an answer is factually correct.
+011. Lexical overlap measures how much wording is shared between texts.
+012. Different metrics use different matching strategies.
+013. Tokenization can affect the calculated scores.
+014. Text normalization can affect the calculated scores.
+015. The number and quality of references can affect metric results.
+016. A candidate may be correct even when it uses different wording from the reference.
+017. A candidate may copy reference wording while still containing incorrect information.
+018. Human evaluation can complement automatic evaluation.
+019. Metric selection should reflect the intended generation task.
+020. Evaluation reports should specify the metric variant and implementation.
+
+SECTION 2: REFERENCE AND CANDIDATE TEXT
+021. A reference may be a human-written translation, summary, or answer.
+022. A candidate is the translation, summary, or answer produced by a model.
+023. A single reference captures only one possible way to express an idea.
+024. Multiple references can represent alternative acceptable expressions.
+025. Reference diversity can improve evaluation of legitimate wording variation.
+026. A candidate should be compared with references using consistent preprocessing.
+027. Tokenization separates text into units for comparison.
+028. A token may be a word, punctuation mark, or subword unit.
+029. Case normalization determines whether uppercase and lowercase forms match.
+030. Punctuation handling can change n-gram overlap.
+031. Stemming reduces related word forms to a common stem in supported metrics.
+032. Lemmatization maps word forms to their dictionary forms.
+033. Some metrics support synonym matching or stemming.
+034. Other metrics rely more heavily on exact token sequences.
+035. Different tokenization choices can produce different scores.
+036. Evaluation systems should document normalization procedures.
+037. Candidate length can affect overlap metrics.
+038. Very short candidates may omit important reference content.
+039. Very long candidates may include unnecessary material.
+040. Fair evaluation requires consistent candidate and reference processing.
+
+SECTION 3: BLEU OVERVIEW
+041. BLEU stands for Bilingual Evaluation Understudy.
+042. BLEU is an automatic metric commonly associated with machine translation.
+043. BLEU compares candidate text with one or more reference translations.
+044. BLEU primarily measures modified n-gram precision.
+045. An n-gram is a sequence of n consecutive tokens.
+046. A unigram contains one token.
+047. A bigram contains two consecutive tokens.
+048. A trigram contains three consecutive tokens.
+049. Four-gram overlap considers sequences of four consecutive tokens.
+050. BLEU can combine precision scores for multiple n-gram orders.
+051. Modified precision limits excessive credit for repeated candidate n-grams.
+052. Reference counts determine the maximum available matching count for an n-gram.
+053. BLEU uses a brevity penalty to discourage excessively short candidates.
+054. The brevity penalty depends on candidate length and reference length.
+055. BLEU is commonly reported on a zero-to-one scale or a zero-to-one-hundred scale.
+056. The scale convention should be stated in evaluation reports.
+057. Corpus BLEU aggregates information across a collection of candidate sentences.
+058. Corpus BLEU is often preferred over interpreting isolated sentence-level scores.
+059. BLEU does not directly verify semantic equivalence.
+060. BLEU scores depend on tokenization and evaluation configuration.
+
+SECTION 4: BLEU FORMULA AND COMPONENTS
+061. BLEU combines modified n-gram precision values using a geometric mean.
+062. The geometric mean combines the logarithms of the selected precision values.
+063. A typical BLEU configuration uses n-grams up to order four.
+064. The maximum n-gram order is configurable in some implementations.
+065. Modified precision is calculated using clipped matching counts.
+066. Clipped counts prevent repeated candidate phrases from receiving unlimited credit.
+067. The brevity penalty discourages candidates that are too short.
+068. If candidate length exceeds reference length under the standard corpus definition, the brevity penalty is one.
+069. If candidate length is shorter, the brevity penalty is less than one.
+070. BLEU commonly uses a brevity penalty of exp(1 minus reference length divided by candidate length) for shorter candidates.
+071. Corpus candidate length is generally calculated over the evaluated corpus.
+072. Reference length selection can follow specific implementation rules.
+073. BLEU can become zero when an n-gram precision is zero without smoothing.
+074. Smoothing methods can address zero counts in some evaluation settings.
+075. Different smoothing methods may produce different sentence-level scores.
+076. BLEU comparisons require the same metric configuration.
+077. The brevity penalty does not directly measure grammatical correctness.
+078. The geometric mean penalizes weak n-gram precision values.
+079. BLEU can be sensitive to small changes in tokenization.
+080. Formula details should be checked against the selected implementation.
+
+SECTION 5: BLEU STRENGTHS AND LIMITATIONS
+081. BLEU supports automated comparison of translation systems.
+082. It is useful for tracking progress across model versions.
+083. It provides a reproducible score when the evaluation setup is fixed.
+084. It can evaluate large test sets efficiently.
+085. It is widely recognized in machine translation research.
+086. It supports comparisons across systems using the same test data.
+087. BLEU can reward matching multiword expressions.
+088. It may penalize valid paraphrases with different wording.
+089. It may not recognize synonyms when they do not overlap lexically.
+090. It does not directly measure factual accuracy.
+091. A fluent translation may receive a low score when its wording differs from references.
+092. A literal translation may score well while remaining awkward or incorrect in meaning.
+093. BLEU can be unreliable when applied to very short texts.
+094. Sentence-level BLEU can be unstable when few n-grams are available.
+095. Different tokenizers can lead to different scores.
+096. Different language pairs may behave differently under the same metric.
+097. Corpus composition can affect aggregate BLEU results.
+098. BLEU should not be interpreted as a direct percentage of translation quality.
+099. Human judgments remain important for comprehensive translation evaluation.
+100. BLEU is best used as one source of evidence about system quality.
+
+SECTION 6: ROUGE OVERVIEW
+101. ROUGE stands for Recall-Oriented Understudy for Gisting Evaluation.
+102. ROUGE is widely used to evaluate automatic summaries.
+103. ROUGE compares generated summaries with reference summaries.
+104. ROUGE includes several variants with different matching methods.
+105. ROUGE-N measures overlap of n-grams.
+106. ROUGE-1 measures unigram overlap.
+107. ROUGE-2 measures bigram overlap.
+108. ROUGE-L uses the longest common subsequence.
+109. Some ROUGE variants measure skip-bigram overlap.
+110. ROUGE can be reported using recall, precision, or F1-style calculations.
+111. Recall-oriented ROUGE measures how much reference content is recovered.
+112. Precision-oriented ROUGE measures how much candidate content matches the reference.
+113. ROUGE F1 combines precision and recall.
+114. ROUGE scores depend on tokenization and preprocessing.
+115. Multiple reference summaries may be used for evaluation.
+116. ROUGE can support comparisons among summarization systems.
+117. ROUGE does not directly establish factual consistency.
+118. A summary may share many words with a reference but contain a factual error.
+119. A valid summary may use different wording and receive a lower overlap score.
+120. ROUGE should be complemented by additional quality checks.
+
+SECTION 7: ROUGE-N
+121. ROUGE-N measures overlap between candidate and reference n-grams.
+122. ROUGE-1 focuses on individual token overlap.
+123. ROUGE-2 focuses on consecutive pairs of tokens.
+124. Higher-order ROUGE-N measures longer sequences of consecutive tokens.
+125. N-gram overlap can reveal whether important reference wording is retained.
+126. ROUGE-N recall divides matching n-gram counts by reference n-gram counts.
+127. ROUGE-N precision divides matching n-gram counts by candidate n-gram counts.
+128. ROUGE-N F1 combines the corresponding precision and recall values.
+129. Exact n-gram matching can penalize semantically valid paraphrases.
+130. Common words may contribute overlap without conveying the main information.
+131. Longer n-grams provide stricter evidence of phrase overlap.
+132. Higher n-gram orders may have sparse matches in short summaries.
+133. Reference summaries influence which n-grams can receive matching credit.
+134. Tokenization affects the construction of n-grams.
+135. Duplicate n-grams require consistent counting rules.
+136. ROUGE-N can be used to compare summary content overlap.
+137. ROUGE-1 may capture broad lexical coverage.
+138. ROUGE-2 may reflect matching of short word sequences.
+139. Neither ROUGE-1 nor ROUGE-2 directly measures factual truth.
+140. Results should be interpreted alongside summary usefulness and correctness.
+
+SECTION 8: ROUGE-L
+141. ROUGE-L is based on the longest common subsequence.
+142. A subsequence preserves token order but need not contain adjacent tokens.
+143. A common subsequence is shared by both candidate and reference in the same order.
+144. The longest common subsequence is the longest such shared sequence.
+145. ROUGE-L can capture ordered overlap beyond strictly consecutive n-grams.
+146. ROUGE-L can be useful for comparing sentence structure and content order.
+147. ROUGE-L can be expressed through recall, precision, and an F-score.
+148. ROUGE-L recall compares the subsequence length with reference length.
+149. ROUGE-L precision compares the subsequence length with candidate length.
+150. The F-score combines precision and recall according to the implementation.
+151. Some ROUGE variants apply special handling to sentence boundaries.
+152. Implementation details should be recorded when reporting ROUGE-L.
+153. The longest common subsequence is not the same as the longest common substring.
+154. A substring requires consecutive tokens, whereas a subsequence does not.
+155. ROUGE-L can reward matching content that appears in a different local arrangement.
+156. ROUGE-L still depends on token-level overlap.
+157. Synonyms may not match unless preprocessing or extensions account for them.
+158. ROUGE-L cannot independently detect unsupported claims.
+159. Longest-subsequence overlap should not be treated as complete semantic evaluation.
+160. ROUGE-L is one useful component of summarization evaluation.
+
+SECTION 9: METEOR OVERVIEW
+161. METEOR is a metric originally developed for machine translation evaluation.
+162. METEOR stands for Metric for Evaluation of Translation with Explicit ORdering.
+163. METEOR aligns candidate words with words in the reference.
+164. Exact word matches can contribute to the alignment.
+165. Supported implementations may also include stemming matches.
+166. Supported implementations may include synonym matching.
+167. Some configurations account for paraphrase resources.
+168. METEOR combines precision and recall through a weighted harmonic mean.
+169. Recall commonly receives greater weight than precision in the original metric design.
+170. Some METEOR variants include a penalty for fragmented word alignment.
+171. The fragmentation penalty reflects how scattered matched words are.
+172. METEOR can recognize some lexical variations that strict BLEU matching misses.
+173. Language-specific resources affect the availability of stemming and synonym matching.
+174. METEOR scores depend on the implementation and configuration.
+175. Different METEOR implementations may not produce directly comparable values.
+176. METEOR is still an automatic metric rather than a human judgment.
+177. It can support evaluation of translations and other generated text.
+178. METEOR does not guarantee semantic correctness.
+179. It may fail to capture important contextual distinctions.
+180. METEOR should be used with suitable complementary evaluation methods.
+
+SECTION 10: METEOR ALIGNMENT AND SCORING
+181. METEOR first identifies matching words between candidate and reference.
+182. The alignment procedure follows the matching resources supported by the implementation.
+183. Exact matches generally provide direct lexical evidence.
+184. Stemming can match related inflected word forms.
+185. Synonym resources can match some words with similar meanings.
+186. The available matching resources may vary by language.
+187. Candidate and reference word order can affect fragmentation.
+188. A less fragmented alignment can receive a smaller fragmentation penalty.
+189. METEOR uses precision and recall components in its score.
+190. Recall reflects the proportion of reference content matched.
+191. Precision reflects the proportion of candidate content matched.
+192. A weighted harmonic mean combines the precision and recall components.
+193. The fragmentation penalty adjusts the score according to alignment structure.
+194. The final score depends on the formula and parameter settings.
+195. METEOR is not simply the arithmetic mean of precision and recall.
+196. The metric may give different results when preprocessing changes.
+197. Language resources should be selected consistently across evaluations.
+198. Metric configuration should be recorded for reproducibility.
+199. The score should not be interpreted as a probability of correctness.
+200. METEOR provides lexical alignment evidence rather than definitive semantic verification.
+
+SECTION 11: COMPARING BLEU, ROUGE, AND METEOR
+201. BLEU is commonly associated with machine translation evaluation.
+202. ROUGE is commonly associated with automatic summarization evaluation.
+203. METEOR was developed primarily for machine translation evaluation.
+204. BLEU emphasizes modified n-gram precision and brevity penalty.
+205. ROUGE measures lexical overlap through several variants.
+206. METEOR uses word alignment and can support stemming or synonym matches.
+207. BLEU's geometric mean can penalize low n-gram precision.
+208. ROUGE-N evaluates overlap of consecutive n-grams.
+209. ROUGE-L evaluates longest common subsequence overlap.
+210. METEOR combines precision and recall and can penalize fragmented alignment.
+211. These metrics use different formulas and should not be treated as interchangeable.
+212. A score of 0.4 in BLEU does not mean the same thing as 0.4 in ROUGE.
+213. Evaluation reports should identify the metric variant used.
+214. Comparisons should use the same dataset and preprocessing conventions.
+215. Human evaluation can assess qualities these metrics do not directly capture.
+216. Factuality checks can identify incorrect statements in generated text.
+217. Semantic similarity metrics can complement lexical overlap measures.
+218. Reference diversity can influence all three metrics.
+219. Metric choice should follow the output type and evaluation objective.
+220. No single overlap metric completely evaluates generated language quality.
+
+SECTION 12: APPLICATION TO MACHINE TRANSLATION
+221. Machine translation converts text from a source language into a target language.
+222. Reference translations are used to evaluate the generated translation.
+223. BLEU is a common automatic metric in machine translation research.
+224. METEOR can capture some word-form variations and synonym matches.
+225. ROUGE can also measure lexical overlap in translated text.
+226. A translation can preserve meaning while changing sentence structure.
+227. Lexical overlap metrics may penalize valid changes in word order.
+228. Word alignment can help explain translation evaluation.
+229. Language-specific morphology affects token matching.
+230. Tokenization conventions should be suitable for the language being evaluated.
+231. Some languages require specialized segmentation.
+232. Reference translations may differ in vocabulary while expressing the same meaning.
+233. Multiple references can reduce dependence on one wording choice.
+234. Translation adequacy concerns whether the source meaning is preserved.
+235. Translation fluency concerns whether the target text reads naturally.
+236. BLEU does not directly measure fluency or adequacy.
+237. Human review can assess meaning preservation and readability.
+238. Terminology accuracy may require separate evaluation.
+239. Translation evaluation should include relevant language-pair considerations.
+240. Automatic scores should support rather than replace comprehensive translation assessment.
+
+SECTION 13: APPLICATION TO SUMMARIZATION
+241. Text summarization produces a shorter representation of source content.
+242. An abstractive summary may use new wording to express source information.
+243. An extractive summary selects content from the source text.
+244. ROUGE is commonly used to compare summaries with reference summaries.
+245. ROUGE-1 can measure unigram overlap.
+246. ROUGE-2 can measure bigram overlap.
+247. ROUGE-L can measure ordered subsequence overlap.
+248. A summary should preserve important information from the source.
+249. A concise summary should avoid unnecessary details.
+250. A summary can have high overlap while missing the most important point.
+251. A summary can use valid paraphrases that lower overlap scores.
+252. Factual consistency checks whether summary claims are supported by the source.
+253. Coverage evaluation checks whether important information has been retained.
+254. Redundancy evaluation checks whether the summary repeats unnecessary content.
+255. Readability evaluation considers clarity and coherence.
+256. Human reviewers can assess usefulness and faithfulness.
+257. Reference summaries may emphasize different aspects of a long source.
+258. Multiple references can represent different acceptable summary styles.
+259. ROUGE scores should be interpreted with source and reference context.
+260. Comprehensive summarization evaluation combines overlap, factuality, and human judgment.
+
+SECTION 14: GENERATIVE QUESTION ANSWERING
+261. Generative question answering creates a natural-language response to a question.
+262. A reference answer is used for comparison during reference-based evaluation.
+263. A candidate answer is the answer produced by the model.
+264. BLEU can measure n-gram precision against reference answers.
+265. ROUGE can measure reference-answer overlap.
+266. METEOR can measure lexical alignment under its supported matching rules.
+267. Short answers can produce unstable overlap scores.
+268. Different correct answers may use very different wording.
+269. Multiple reference answers can capture alternative acceptable responses.
+270. Exact answer matching may be too strict for open-ended questions.
+271. A factually correct answer can receive a low lexical overlap score.
+272. A high-overlap answer can still contain incorrect facts.
+273. Answer relevance measures whether the response addresses the question.
+274. Faithfulness measures whether claims are supported by provided evidence.
+275. Completeness measures whether the answer covers the necessary information.
+276. Citation quality measures whether sources support the answer's claims.
+277. Human assessment can judge clarity, relevance, and usefulness.
+278. QA benchmarks should define how reference answers are constructed.
+279. Evaluation should separate lexical similarity from factual correctness.
+280. Generative QA requires task-appropriate metrics beyond BLEU, ROUGE, and METEOR.
+
+SECTION 15: EVALUATION BEST PRACTICES
+281. Use representative test examples when evaluating generated text.
+282. Keep test examples separate from training and tuning data.
+283. Apply consistent normalization to candidates and references.
+284. Record the tokenizer and metric implementation.
+285. Report the exact metric variant and configuration.
+286. Use multiple references when valid alternatives are expected.
+287. Inspect outputs that receive unexpectedly high or low scores.
+288. Use human evaluation for qualities that overlap metrics cannot establish.
+289. Evaluate factual consistency separately when truth matters.
+290. Evaluate relevance separately when the output must answer a question.
+291. Evaluate coverage when summaries or answers must include key information.
+292. Measure fluency and readability when user experience depends on them.
+293. Avoid comparing scores from incompatible evaluation pipelines.
+294. Report corpus-level results when appropriate for the metric.
+295. Use sufficient test examples to reduce random variation.
+296. Consider confidence intervals or repeated sampling when comparing systems.
+297. Review domain-specific terminology and rare vocabulary.
+298. Check whether reference texts are accurate and representative.
+299. Evaluate multiple model versions on the same fixed test set.
+300. Interpret automatic metrics as evidence rather than complete proof of quality.
+
+SECTION 16: LIMITATIONS AND COMMON MISUNDERSTANDINGS
+301. BLEU is not a direct percentage of sentences translated correctly.
+302. ROUGE does not directly measure whether a summary is factually correct.
+303. METEOR does not guarantee that two texts have equivalent meanings.
+304. Lexical overlap does not prove that an answer is relevant.
+305. A fluent response can receive a low reference-overlap score.
+306. A copied phrase can increase overlap without making an answer correct.
+307. Different tokenization choices can change metric results.
+308. Reference wording can influence which candidate expressions receive credit.
+309. Short outputs can produce sparse n-gram counts.
+310. Long outputs can include extra content that reduces precision.
+311. Some valid paraphrases may not be recognized by overlap metrics.
+312. Synonym matching depends on the metric and available language resources.
+313. Metric scores can vary across datasets and domains.
+314. Human evaluation also requires clear guidelines and consistent judgments.
+315. Automatic metrics should not be selected only because they are familiar.
+316. Evaluation should reflect the actual use of the generated output.
+317. Model comparisons should use consistent metrics and data.
+318. Factual verification may require checking the original source documents.
+319. Several complementary measures can provide a more complete evaluation.
+320. BLEU, ROUGE, and METEOR are useful tools but cannot fully characterize language quality.
