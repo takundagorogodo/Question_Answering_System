@@ -1,0 +1,355 @@
+TITLE: PRECISION, RECALL, AND F1 SCORE
+CATEGORY: NLP MODEL EVALUATION
+PURPOSE: Knowledge base for generative question answering, information retrieval, text classification, and machine learning evaluation.
+
+SECTION 1: INTRODUCTION
+001. Precision measures the proportion of predicted positive cases that are actually positive.
+002. Recall measures the proportion of actual positive cases correctly identified by a model.
+003. F1 score is the harmonic mean of precision and recall.
+004. Precision, recall, and F1 are commonly used to evaluate classification systems.
+005. These metrics are useful when accuracy alone does not describe model performance.
+006. Precision focuses on the correctness of positive predictions.
+007. Recall focuses on identifying as many actual positive cases as possible.
+008. F1 balances precision and recall in one numerical score.
+009. These metrics are widely used in natural language processing.
+010. They are useful for evaluating information retrieval systems.
+011. Text classification systems can be evaluated using precision, recall, and F1.
+012. Named entity recognition commonly uses precision, recall, and F1.
+013. Information extraction systems can use these metrics to evaluate extracted facts.
+014. Question-answering systems can use span-level precision and recall.
+015. Evaluation metrics help compare alternative models.
+016. A metric should reflect the intended purpose of the application.
+017. Different applications may prioritize precision or recall differently.
+018. High precision does not automatically mean high recall.
+019. High recall does not automatically mean high precision.
+020. F1 provides a balance but does not capture every aspect of model quality.
+
+SECTION 2: CONFUSION MATRIX
+021. A confusion matrix summarizes predicted labels against actual labels.
+022. True positive means a positive case was correctly predicted as positive.
+023. False positive means a negative case was incorrectly predicted as positive.
+024. True negative means a negative case was correctly predicted as negative.
+025. False negative means a positive case was incorrectly predicted as negative.
+026. True positives contribute to both precision and recall.
+027. False positives reduce precision.
+028. False negatives reduce recall.
+029. True negatives do not directly appear in the standard binary precision formula.
+030. True negatives do not directly appear in the standard binary recall formula.
+031. A confusion matrix helps explain why a model received a particular score.
+032. Confusion matrices can reveal systematic classification mistakes.
+033. The positive class must be clearly defined before calculating metrics.
+034. Changing the positive class changes the interpretation of precision and recall.
+035. In binary classification, the two classes are commonly called positive and negative.
+036. Multiclass classification can use a confusion matrix with one row and column per class.
+037. Rows and columns must be interpreted according to the implementation's convention.
+038. Evaluation reports should identify the labels and their meanings.
+039. Confusion matrices are useful for inspecting minority-class errors.
+040. A confusion matrix provides more diagnostic information than a single metric.
+
+SECTION 3: PRECISION
+041. Precision equals true positives divided by true positives plus false positives.
+042. The precision formula is TP divided by TP plus FP.
+043. Precision measures how trustworthy positive predictions are.
+044. Precision is high when relatively few predicted positives are false positives.
+045. Precision falls when false positives increase while true positives remain fixed.
+046. Precision can be important when incorrect positive predictions are costly.
+047. A search engine may prioritize precision when users expect highly relevant results.
+048. An extraction system may need high precision to avoid inserting incorrect facts.
+049. Spam detection may prioritize precision when legitimate messages must not be blocked.
+050. A medical screening system may need to balance precision with the cost of missed cases.
+051. Precision is undefined mathematically when there are no predicted positive cases.
+052. Evaluation libraries may assign a configured value when precision is undefined.
+053. Reports should document how undefined metric cases are handled.
+054. High precision does not mean that every relevant case has been found.
+055. A model can have high precision by predicting positive for only a few cases.
+056. Precision should be interpreted together with recall.
+057. Precision depends on the selected decision threshold.
+058. Precision can change when the prevalence of the positive class changes.
+059. Precision is not the same as overall accuracy.
+060. Precision is useful for understanding false-positive behavior.
+
+SECTION 4: RECALL
+061. Recall equals true positives divided by true positives plus false negatives.
+062. The recall formula is TP divided by TP plus FN.
+063. Recall is also called sensitivity in some evaluation contexts.
+064. Recall measures the proportion of actual positive cases found.
+065. Recall increases when more actual positive cases are correctly identified.
+066. Recall decreases when more actual positive cases are missed.
+067. High recall means that relatively few actual positive cases are false negatives.
+068. Information retrieval uses recall to assess how much relevant content was found.
+069. A document search system may prioritize recall when missing evidence is costly.
+070. An information extraction system may need high recall to capture important facts.
+071. Recall can be important in safety monitoring and anomaly detection.
+072. Recall is undefined mathematically when there are no actual positive cases.
+073. Evaluation libraries may apply a configured convention to undefined recall.
+074. High recall does not guarantee that positive predictions are reliable.
+075. A model can achieve high recall by predicting many cases as positive.
+076. Predicting too many cases as positive may reduce precision.
+077. Recall should be interpreted with precision and the task's error costs.
+078. Recall depends on the decision threshold for score-based classifiers.
+079. Recall is affected by label quality and evaluation data coverage.
+080. Recall is useful for understanding false-negative behavior.
+
+SECTION 5: F1 SCORE
+081. F1 is the harmonic mean of precision and recall.
+082. The formula is F1 equals two times precision times recall divided by their sum.
+083. F1 can be calculated as two times TP divided by two times TP plus FP plus FN.
+084. The standard F1 score ranges from zero to one when defined.
+085. A score of one indicates perfect precision and recall for the evaluated class.
+086. A score of zero indicates a complete failure under common nonempty evaluation cases.
+087. F1 penalizes a large imbalance between precision and recall.
+088. F1 is often more informative than accuracy for imbalanced classification.
+089. F1 does not directly include true negatives.
+090. F1 is useful when both false positives and false negatives matter.
+091. F1 is not the arithmetic mean of precision and recall.
+092. The harmonic mean is pulled toward the smaller of its input values.
+093. F1 can be undefined under some zero-denominator conventions.
+094. Software libraries may define zero-division handling explicitly.
+095. F1 does not measure probability calibration.
+096. F1 does not directly measure model interpretability.
+097. Two models with the same F1 can have different precision and recall.
+098. F1 should be reported alongside other relevant metrics when possible.
+099. F1 depends on the classification threshold.
+100. F1 is a summary metric, not a complete description of performance.
+
+SECTION 6: NUMERICAL EXAMPLES
+101. Suppose a classifier produces 80 true positives and 20 false positives.
+102. Its precision is 80 divided by 80 plus 20.
+103. The precision in that example is 0.80.
+104. Suppose the same classifier has 20 false negatives.
+105. Its recall is 80 divided by 80 plus 20.
+106. The recall in that example is 0.80.
+107. When precision and recall both equal 0.80, F1 also equals 0.80.
+108. Suppose precision is 0.90 and recall is 0.50.
+109. F1 is two times 0.90 times 0.50 divided by 0.90 plus 0.50.
+110. The resulting F1 score is approximately 0.643.
+111. Suppose precision is 0.50 and recall is 0.90.
+112. The resulting F1 is also approximately 0.643.
+113. F1 treats the same pair of precision and recall values symmetrically.
+114. A model with precision 1.00 and recall 0.10 has an F1 of about 0.182.
+115. A model with precision 0.10 and recall 1.00 also has an F1 of about 0.182.
+116. These examples show why F1 penalizes very low precision or recall.
+117. Calculations should use unrounded values whenever possible.
+118. Rounded displays can cause small differences in reported results.
+119. Evaluation code should test formulas using known examples.
+120. Numerical examples make metric interpretation easier for users.
+
+SECTION 7: F-BETA SCORE
+121. F-beta generalizes F1 by assigning different relative importance to precision and recall.
+122. The beta parameter controls the relative emphasis placed on recall.
+123. When beta equals one, F-beta is the F1 score.
+124. When beta is greater than one, recall receives more emphasis.
+125. When beta is less than one, precision receives more emphasis.
+126. F2 gives recall more weight than precision.
+127. F0.5 gives precision more weight than recall.
+128. F-beta can be useful when false negatives and false positives have different costs.
+129. A retrieval system that must find most relevant evidence may emphasize recall.
+130. A system that must avoid unsupported extracted facts may emphasize precision.
+131. The choice of beta should follow application requirements.
+132. Beta should not be selected merely to make results look better.
+133. F-beta still does not capture every operational cost.
+134. The metric should be documented clearly in evaluation reports.
+135. Comparisons require the same beta value across models.
+136. Different beta values can change the ranking of models.
+137. F-beta should be paired with the underlying precision and recall values.
+138. The beta parameter does not refer to a confidence level.
+139. F-beta is a metric for combining precision and recall.
+140. F-beta helps express an application's preferred error tradeoff.
+
+SECTION 8: MICRO, MACRO, AND WEIGHTED AVERAGING
+141. Micro averaging aggregates true-positive, false-positive, and false-negative counts across classes.
+142. Micro precision is calculated from the aggregated counts.
+143. Micro recall is calculated from the aggregated counts.
+144. Micro F1 is calculated from the aggregated counts.
+145. Macro averaging calculates a metric independently for each class.
+146. Macro F1 averages class-level F1 scores with equal class weights.
+147. Weighted averaging weights each class score according to its support.
+148. Support usually refers to the number of actual examples in a class.
+149. Macro averaging gives rare classes the same average weight as common classes.
+150. Weighted averaging gives common classes more influence.
+151. Micro averaging can be dominated by frequent examples in some settings.
+152. Macro F1 can reveal weak performance on minority classes.
+153. Weighted F1 summarizes class performance while accounting for class frequency.
+154. Different averaging methods answer different evaluation questions.
+155. A report should identify the averaging method.
+156. Per-class scores are useful alongside aggregate metrics.
+157. In some single-label multiclass settings, micro F1 equals accuracy.
+158. This equality does not apply to every multilabel or specialized evaluation setup.
+159. Averaging methods should match the classification task.
+160. Metric aggregation should be consistent across model comparisons.
+
+SECTION 9: IMBALANCED DATA
+161. Imbalanced data contains classes with substantially different frequencies.
+162. Accuracy can be misleading when one class dominates the dataset.
+163. A model can achieve high accuracy by predicting mostly the majority class.
+164. Minority-class recall may remain poor despite high overall accuracy.
+165. Precision and recall help expose some problems caused by class imbalance.
+166. Macro F1 gives minority classes equal weight in its class-level average.
+167. Weighted F1 may hide weak performance on rare classes.
+168. Per-class evaluation should be used when minority categories matter.
+169. Stratified splitting can preserve class proportions across data partitions.
+170. Oversampling can increase the representation of minority-class examples.
+171. Undersampling can reduce the number of majority-class examples.
+172. Class weighting can penalize mistakes on selected classes more heavily.
+173. Sampling methods should be applied without leaking test information into training.
+174. Threshold tuning can help manage class-specific precision and recall.
+175. Imbalance handling should be evaluated on realistic test data.
+176. Synthetic examples can introduce artifacts if generated carelessly.
+177. Rare-class evaluation may have high uncertainty when few examples exist.
+178. Class support should be reported with per-class metrics.
+179. Data collection may be more useful than algorithm changes when labels are scarce.
+180. The appropriate strategy depends on class importance and error costs.
+
+SECTION 10: PRECISION AND RECALL IN INFORMATION RETRIEVAL
+181. Information retrieval systems return documents or passages in response to a query.
+182. A relevant document is one judged useful for the information need.
+183. Precision in retrieval measures the fraction of retrieved items that are relevant.
+184. Recall in retrieval measures the fraction of all relevant items that were retrieved.
+185. Precision at k considers the first k ranked results.
+186. Recall at k considers relevant items found within the first k results.
+187. The value of k affects both precision-at-k and recall-at-k.
+188. Search systems may prioritize early precision because users inspect only a few results.
+189. Research search may emphasize recall to avoid missing important evidence.
+190. Relevance judgments are needed to calculate retrieval precision and recall.
+191. A passage can be topically related but still irrelevant to a specific question.
+192. Retrieval relevance should be defined consistently by evaluators.
+193. Duplicate results can reduce the usefulness of a ranked list.
+194. Search diversity can help expose different relevant sources.
+195. A reranker can improve the order of retrieved candidates.
+196. Hybrid retrieval can combine keyword and embedding-based retrieval.
+197. Retrieval evaluation should include realistic queries.
+198. Recall at k is especially useful for assessing evidence coverage.
+199. Precision at k is useful for assessing the usefulness of early search results.
+200. Retrieval metrics should be considered alongside downstream answer correctness.
+
+SECTION 11: PRECISION, RECALL, AND RAG
+201. Retrieval-augmented generation uses retrieved passages to support answer generation.
+202. RAG retrieval can be evaluated using precision and recall.
+203. High retrieval recall helps ensure that useful evidence is available.
+204. High retrieval precision reduces irrelevant context.
+205. Irrelevant context can distract the generation model.
+206. Missing evidence can cause incomplete or unsupported answers.
+207. The best retrieval balance depends on context-window and task requirements.
+208. Retrieved passages should be evaluated for actual answer relevance.
+209. Similarity scores alone do not establish evidence correctness.
+210. The final generated answer needs separate evaluation.
+211. Answer correctness can be evaluated against reference answers where suitable.
+212. Faithfulness evaluation checks whether answer claims are supported by the supplied context.
+213. Citation correctness checks whether cited sources support their associated claims.
+214. Answer completeness assesses whether important parts of the question were addressed.
+215. A RAG evaluation should distinguish retrieval failure from generation failure.
+216. Retrieval failure occurs when useful evidence is not found or ranked adequately.
+217. Generation failure occurs when the model misuses or ignores available evidence.
+218. An answer can be fluent but unsupported by the retrieved documents.
+219. RAG systems should abstain or explain uncertainty when evidence is insufficient.
+220. Precision, recall, and F1 provide useful but incomplete views of RAG quality.
+
+SECTION 12: TEXT CLASSIFICATION
+221. Text classification assigns predefined labels to input text.
+222. Sentiment analysis classifies text according to expressed sentiment.
+223. Spam detection predicts whether a message is unwanted spam.
+224. Topic classification assigns text to subject categories.
+225. Precision measures how often predicted members of a class are correct.
+226. Recall measures how many actual members of a class were found.
+227. F1 combines class-level precision and recall.
+228. Multiclass evaluation can calculate precision and recall separately for every class.
+229. Multilabel evaluation requires decisions about averaging across labels.
+230. Some labels may require different classification thresholds.
+231. Threshold selection should be based on validation data.
+232. Class-level metrics help identify categories that need improvement.
+233. A confusion matrix can reveal which classes are frequently confused.
+234. Annotation errors can make a classifier appear worse or better than it is.
+235. Test examples should represent likely production inputs.
+236. Out-of-domain data can change measured precision and recall.
+237. Changes in class prevalence can change precision.
+238. Production monitoring can detect changes in error patterns.
+239. Classifiers should be evaluated for robustness to spelling and wording variation.
+240. The evaluation report should explain which labels are most important.
+
+SECTION 13: NAMED ENTITY RECOGNITION
+241. Named entity recognition identifies spans such as people, organizations, and locations.
+242. NER evaluation can be performed at token level or entity-span level.
+243. Token-level precision evaluates predicted entity labels on individual tokens.
+244. Entity-level precision evaluates predicted entity spans.
+245. Exact-match entity evaluation requires the predicted span to match the reference span.
+246. A correct entity type with incorrect boundaries may count as an error.
+247. Entity-level recall measures the fraction of reference entities found.
+248. Entity-level F1 balances entity precision and entity recall.
+249. Evaluation must define how partial span matches are treated.
+250. The label scheme can affect metric calculation.
+251. BIO tagging uses labels such as beginning, inside, and outside.
+252. Inconsistent tokenization can complicate span-level evaluation.
+253. Rare entity types may have low support.
+254. Per-type precision and recall can reveal weak entity categories.
+255. Ambiguous names can cause false positives and false negatives.
+256. Domain-specific entities may require additional training data.
+257. Entity normalization is a separate concern from identifying the entity span.
+258. Correctly finding a name does not guarantee correct entity linking.
+259. NER metrics should be calculated using a documented evaluation scheme.
+260. Span-level metrics are often important for information extraction pipelines.
+
+SECTION 14: QUESTION ANSWERING
+261. Question-answering systems produce answers to user questions.
+262. Extractive QA selects an answer span from a source passage.
+263. Span-level precision compares predicted answer tokens with reference tokens.
+264. Span-level recall measures how many reference answer tokens were recovered.
+265. Token-level F1 is commonly used in some extractive QA benchmarks.
+266. Exact match checks whether the normalized prediction equals the reference answer.
+267. Exact match is stricter than token-overlap F1.
+268. Generative QA may produce valid answers with different wording from the reference.
+269. Reference-based overlap metrics may penalize correct paraphrases.
+270. Multiple reference answers can represent acceptable alternatives.
+271. Answer normalization can include defined handling of case and punctuation.
+272. Evaluation should document how empty answers are treated.
+273. Incomplete answers may have reasonable precision but lower recall.
+274. Overly long answers may improve coverage while adding incorrect details.
+275. Answer relevance is different from answer factuality.
+276. Faithfulness checks whether the answer is supported by source evidence.
+277. Question coverage checks whether the response addresses all requested parts.
+278. Citation evaluation checks whether references support the answer.
+279. Human review can identify problems not captured by token-level metrics.
+280. QA evaluation should use metrics appropriate to the answer format.
+
+SECTION 15: THRESHOLDS AND CURVES
+281. A classification threshold converts a score into a predicted class.
+282. Lowering a threshold often increases recall and may reduce precision.
+283. Raising a threshold often increases precision and may reduce recall.
+284. The actual tradeoff depends on the model and data.
+285. A precision-recall curve plots precision against recall across thresholds.
+286. The curve helps compare performance under different decision thresholds.
+287. Average precision summarizes aspects of the precision-recall curve.
+288. Average precision is not necessarily identical across every software implementation.
+289. Thresholds should be selected using validation data.
+290. Selecting a threshold on the final test set can create optimistic bias.
+291. A fixed threshold may become unsuitable if data distributions change.
+292. Different classes may need different thresholds.
+293. Operational constraints can influence threshold selection.
+294. A system with costly false negatives may choose a threshold favoring recall.
+295. A system with costly false positives may choose a threshold favoring precision.
+296. F1 can be used to select a threshold when that objective fits the task.
+297. F1-optimal thresholds do not necessarily minimize real-world costs.
+298. Calibration and threshold selection are related but distinct concepts.
+299. Curves should be calculated on representative labeled examples.
+300. Threshold decisions should be documented and periodically reviewed.
+
+SECTION 16: COMMON ERRORS AND LIMITATIONS
+301. Precision should not be confused with accuracy.
+302. Recall should not be confused with the fraction of predictions that are correct.
+303. F1 should not be interpreted as the arithmetic mean of precision and recall.
+304. F1 does not directly account for true negatives.
+305. A high aggregate score can hide poor performance on a minority class.
+306. Metric results depend on label definitions and data quality.
+307. Small test sets can produce unstable metric estimates.
+308. Duplicate examples across train and test sets can inflate evaluation scores.
+309. Data leakage can make performance estimates unreliable.
+310. Test data should remain separate from model and threshold selection.
+311. A score does not explain why a model made a particular prediction.
+312. Metrics cannot replace analysis of representative error examples.
+313. Evaluation should include uncertainty when results are based on limited data.
+314. Comparing models requires the same evaluation examples and conventions.
+315. Metric implementation details should be recorded for reproducibility.
+316. Production performance may differ from offline benchmark performance.
+317. Human feedback can identify errors that automated labels miss.
+318. Fairness evaluation may require class-specific and group-specific analysis.
+319. Sensitive applications require domain-appropriate review and safeguards.
+320. Precision, recall, and F1 should be interpreted in context rather than in isolation.
