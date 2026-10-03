@@ -1,0 +1,320 @@
+TITLE: Transfer Learning
+PURPOSE: Retrieval-friendly knowledge for a generative NLP question-answering system.
+USAGE: Atomic statements support semantic retrieval, grounded answer generation, and focused knowledge lookup.
+
+SECTION: Foundations
+Transfer learning reuses knowledge from one task or dataset to improve another task.
+The source task or domain provides parameters, representations, or examples that can be reused.
+The target task is where transferred knowledge is applied.
+Pretraining is a common form of transfer learning in NLP.
+Fine-tuning is one way to adapt transferred parameters to a target task.
+Feature-based transfer uses representations from a pretrained model.
+Parameter transfer initializes a target model with parameters learned previously.
+Transfer learning is useful when target-task labeled data is limited.
+Negative transfer occurs when reused knowledge harms target-task performance.
+Transfer effectiveness depends on source-target similarity and adaptation strategy.
+
+SECTION: Transfer settings
+Inductive transfer uses labeled target-task data and may involve a different task.
+Domain adaptation addresses differences between source and target data distributions.
+Cross-lingual transfer applies learned knowledge across languages.
+Multitask learning trains on multiple tasks with shared model parameters.
+Self-supervised pretraining learns from signals derived automatically from raw data.
+Zero-shot transfer applies a model without task-specific training examples.
+Few-shot transfer uses a small number of target-task examples.
+Unsupervised transfer can use unlabeled target data.
+Knowledge can transfer through model weights, representations, or synthetic examples.
+Each transfer setting has different data and evaluation requirements.
+
+SECTION: Pretrained models and adaptation
+Pretrained language models learn linguistic patterns from large text collections.
+Transformer encoders provide contextual representations useful for classification and extraction.
+Encoder-decoder models support generation tasks such as translation and summarization.
+Decoder-only models are often adapted for instruction following and generation.
+Continued pretraining uses additional unlabeled text from the target domain.
+Domain-specific fine-tuning uses labeled examples from the target domain.
+Freezing layers reduces updates but may limit adaptation.
+Gradual unfreezing updates selected pretrained layers over time.
+Parameter-efficient tuning can reduce memory requirements.
+Tokenizer coverage and pretraining data affect cross-domain and cross-language transfer.
+
+SECTION: Domain and cross-lingual transfer
+Domain shift occurs when deployment inputs differ from the training distribution.
+Target examples should represent the intended deployment environment.
+Pseudo-labeling uses model predictions as provisional labels for unlabeled examples.
+Low-quality pseudo-labels can amplify existing errors.
+Parallel corpora contain aligned examples in multiple languages.
+Machine translation can create translated training examples for a target language.
+Multilingual models share parameters across multiple languages.
+Language-specific morphology and word order can affect transfer quality.
+Pretraining coverage does not guarantee equal performance across languages.
+Transfer should be evaluated separately for important domains and languages.
+
+SECTION: Evaluation and applications
+Transfer performance should be compared with a suitable target-task baseline.
+Few-shot evaluation measures performance with limited labeled examples.
+Zero-shot evaluation tests a task without task-specific labeled training data.
+Cross-domain evaluation measures robustness to distribution changes.
+Negative transfer is present when transfer performs worse than an appropriate baseline.
+Data leakage can make transfer evaluations overly optimistic.
+Sentiment analysis can benefit from pretrained representations when labels are scarce.
+Named entity recognition can use contextual representations learned during pretraining.
+Transfer learning supports translation, question answering, summarization, and classification.
+Results should report data size, domain, language, adaptation method, and test conditions.
+
+RETRIEVAL_CUE_1: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_2: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_3: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_4: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_5: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_6: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_7: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_8: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_9: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_10: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_11: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_12: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_13: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_14: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_15: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_16: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_17: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_18: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_19: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_20: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_21: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_22: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_23: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_24: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_25: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_26: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_27: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_28: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_29: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_30: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_31: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_32: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_33: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_34: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_35: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_36: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_37: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_38: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_39: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_40: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_41: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_42: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_43: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_44: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_45: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_46: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_47: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_48: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_49: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_50: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_51: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_52: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_53: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_54: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_55: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_56: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_57: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_58: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_59: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_60: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_61: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_62: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_63: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_64: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_65: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_66: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_67: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_68: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_69: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_70: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_71: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_72: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_73: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_74: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_75: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_76: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_77: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_78: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_79: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_80: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_81: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_82: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_83: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_84: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_85: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_86: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_87: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_88: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_89: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_90: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_91: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_92: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_93: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_94: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_95: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_96: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_97: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_98: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_99: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_100: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_101: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_102: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_103: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_104: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_105: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_106: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_107: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_108: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_109: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_110: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_111: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_112: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_113: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_114: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_115: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_116: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_117: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_118: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_119: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_120: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_121: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_122: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_123: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_124: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_125: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_126: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_127: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_128: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_129: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_130: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_131: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_132: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_133: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_134: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_135: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_136: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_137: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_138: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_139: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_140: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_141: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_142: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_143: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_144: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_145: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_146: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_147: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_148: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_149: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_150: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_151: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_152: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_153: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_154: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_155: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_156: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_157: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_158: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_159: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_160: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_161: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_162: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_163: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_164: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_165: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_166: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_167: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_168: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_169: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_170: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_171: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_172: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_173: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_174: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_175: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_176: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_177: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_178: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_179: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_180: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_181: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_182: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_183: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_184: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_185: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_186: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_187: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_188: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_189: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_190: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_191: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_192: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_193: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_194: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_195: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_196: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_197: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_198: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_199: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_200: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_201: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_202: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_203: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_204: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_205: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_206: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_207: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_208: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_209: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_210: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_211: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_212: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_213: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_214: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_215: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_216: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_217: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_218: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_219: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_220: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_221: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_222: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_223: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_224: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_225: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_226: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_227: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_228: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_229: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_230: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_231: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_232: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_233: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_234: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_235: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_236: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_237: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_238: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_239: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_240: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_241: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_242: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_243: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_244: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_245: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_246: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_247: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_248: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_249: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_250: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_251: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_252: For questions about transfer settings, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_253: For questions about pretrained models and adaptation, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_254: For questions about domain and cross-lingual transfer, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_255: For questions about evaluation and applications, retrieve its definition, workflow, applications, evaluation, and limitations.
+RETRIEVAL_CUE_256: For questions about foundations, retrieve its definition, workflow, applications, evaluation, and limitations.
