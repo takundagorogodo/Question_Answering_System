@@ -1,0 +1,355 @@
+TITLE: TEXT CLASSIFICATION ALGORITHMS
+CATEGORY: NATURAL LANGUAGE PROCESSING AND MACHINE LEARNING
+PURPOSE: Knowledge base for generative question answering, NLP education, text categorization, and machine learning retrieval.
+
+SECTION 1: INTRODUCTION
+001. Text classification is the task of assigning predefined categories or labels to text.
+002. Text classification is a fundamental task in natural language processing.
+003. NLP is the field concerned with computational processing of human language.
+004. A classifier receives text as input and predicts one or more labels.
+005. Classification labels depend on the application.
+006. Sentiment analysis classifies text according to expressed sentiment.
+007. Spam detection identifies unwanted or suspicious messages.
+008. Topic classification assigns text to subject categories.
+009. Intent classification identifies the purpose of a user message.
+010. Language identification predicts the language of a text.
+011. Toxicity classification identifies potentially harmful language according to defined criteria.
+012. News classification assigns articles to categories such as politics or sports.
+013. Text classification can support document routing and organization.
+014. Classification systems can use rules, machine learning, or deep learning.
+015. Traditional classifiers often rely on manually designed or statistically learned text features.
+016. Neural classifiers learn representations from training data.
+017. Transformer classifiers use contextual language representations.
+018. Supervised classification requires labeled training examples.
+019. Classification performance depends on data quality and model choice.
+020. A suitable algorithm depends on the task, data, and deployment requirements.
+
+SECTION 2: TEXT CLASSIFICATION PIPELINE
+021. A text classification pipeline converts raw text into a predicted label.
+022. The first stage typically collects text examples and their labels.
+023. Data cleaning addresses invalid or unwanted input content.
+024. Text normalization may standardize case or selected character forms.
+025. Tokenization divides text into tokens.
+026. Feature extraction converts text into numerical representations when required.
+027. The training stage learns a relationship between text features and labels.
+028. The validation stage supports model and hyperparameter selection.
+029. The test stage estimates performance on held-out examples.
+030. Inference applies the trained model to new text.
+031. The output may contain a label, score, or probability-like value.
+032. Prediction scores should not automatically be treated as calibrated probabilities.
+033. Data leakage occurs when information improperly crosses evaluation boundaries.
+034. Duplicate examples across training and testing can inflate reported performance.
+035. Train-validation-test splitting helps assess generalization.
+036. Stratified splitting can preserve class proportions in each partition.
+037. Preprocessing should be consistent between training and inference.
+038. Pipeline components should be versioned for reproducibility.
+039. Deployment tests should cover realistic input formats.
+040. A complete pipeline includes monitoring and error analysis.
+
+SECTION 3: TEXT PREPROCESSING
+041. Text preprocessing prepares raw text for a classification algorithm.
+042. Lowercasing converts uppercase characters to lowercase.
+043. Lowercasing can reduce vocabulary size but may remove useful distinctions.
+044. Punctuation removal can help some tasks but harm others.
+045. Numbers may contain useful information such as dates or prices.
+046. Stop words are common words that some pipelines choose to remove.
+047. Stop-word removal can damage meaning when negation words are removed.
+048. Stemming reduces words to approximate root forms.
+049. Lemmatization maps words to dictionary forms.
+050. Tokenization determines how text is divided into units.
+051. Word tokenization represents text using word-level units.
+052. Character tokenization represents text using individual characters.
+053. Subword tokenization divides words into reusable smaller units.
+054. Unicode normalization can standardize equivalent character representations.
+055. HTML removal may be necessary when processing scraped web text.
+056. URL handling depends on whether links are useful features.
+057. Spelling correction may improve some datasets but can introduce errors.
+058. Preprocessing should preserve information relevant to the target labels.
+059. Different languages may require different preprocessing methods.
+060. The preprocessing pipeline should be evaluated rather than assumed beneficial.
+
+SECTION 4: BAG OF WORDS
+061. Bag of Words is a text representation based on word occurrence counts.
+062. Bag of Words is commonly abbreviated as BoW.
+063. A vocabulary lists the terms recognized by the representation.
+064. Each vocabulary term can correspond to one feature.
+065. A document vector records how often vocabulary terms appear.
+066. Basic Bag of Words ignores word order.
+067. Two sentences with the same word counts may receive identical BoW vectors.
+068. Bag of Words is simple and computationally efficient.
+069. It works well as a baseline for many text classification tasks.
+070. Rare or unseen terms may not be represented effectively.
+071. Large vocabularies can produce high-dimensional feature spaces.
+072. Sparse vectors contain many zero values.
+073. Unigrams represent individual tokens.
+074. Bigrams represent pairs of consecutive tokens.
+075. N-gram features can capture limited local word order.
+076. Increasing the n-gram range increases the potential feature count.
+077. Vocabulary limits can control memory consumption.
+078. Feature selection can remove unhelpful terms.
+079. BoW does not inherently capture deep semantic relationships.
+080. Bag of Words remains useful for interpretable baseline models.
+
+SECTION 5: TF-IDF REPRESENTATION
+081. TF-IDF stands for Term Frequency-Inverse Document Frequency.
+082. TF-IDF assigns weights to terms according to their occurrence and document rarity.
+083. Term frequency measures a term's occurrence within a document.
+084. Inverse document frequency reduces the weight of terms found in many documents.
+085. Common TF-IDF implementations use logarithmic inverse document frequency.
+086. A term appearing frequently in one document may receive a high term-frequency value.
+087. A term appearing in nearly every document may have limited discriminative value.
+088. Rare terms can be useful when they distinguish one category from another.
+089. TF-IDF vectors are usually sparse.
+090. TF-IDF can be used with logistic regression.
+091. TF-IDF can be used with linear support vector machines.
+092. TF-IDF can be used with Naive Bayes models.
+093. Word n-grams can be combined with TF-IDF.
+094. Character n-grams can help with spelling variations and morphology.
+095. TF-IDF does not directly encode contextual meaning.
+096. Vocabulary settings affect memory usage and performance.
+097. IDF statistics should be learned from training data only.
+098. Fitting a vectorizer on test data can introduce data leakage.
+099. TF-IDF is a strong baseline for many classification datasets.
+100. TF-IDF should be compared with alternative representations using held-out data.
+
+SECTION 6: NAIVE BAYES
+101. Naive Bayes is a family of probabilistic classification algorithms.
+102. Naive Bayes applies Bayes' theorem to estimate class probabilities.
+103. Bayes' theorem relates posterior probability to likelihood and prior probability.
+104. The prior represents the estimated probability of a class before observing the features.
+105. The likelihood measures how compatible the features are with a class.
+106. The posterior represents the estimated class probability after observing the features.
+107. Naive Bayes assumes conditional independence of features given the class.
+108. The independence assumption is often unrealistic for natural language.
+109. Despite this assumption, Naive Bayes can perform well in text classification.
+110. Multinomial Naive Bayes is commonly used with word counts.
+111. Multinomial Naive Bayes can also use suitable nonnegative feature weights.
+112. Bernoulli Naive Bayes models binary feature presence or absence.
+113. Gaussian Naive Bayes models continuous features using Gaussian distributions.
+114. Laplace smoothing prevents zero likelihoods for unseen feature events.
+115. Class priors can influence predictions when class frequencies differ.
+116. Naive Bayes is usually fast to train.
+117. It can work well with high-dimensional sparse text features.
+118. Its probabilistic assumptions can limit complex feature interactions.
+119. Naive Bayes provides a useful baseline for spam and topic classification.
+120. Model performance should be evaluated against suitable alternative classifiers.
+
+SECTION 7: LOGISTIC REGRESSION
+121. Logistic regression is a supervised classification algorithm.
+122. Despite its name, logistic regression is commonly used for classification.
+123. It calculates a weighted combination of input features.
+124. The sigmoid function maps a real-valued score to a value between zero and one.
+125. Binary logistic regression models a positive-class probability.
+126. Multiclass logistic regression can use a softmax output.
+127. The decision threshold determines the predicted class in binary classification.
+128. A threshold of 0.5 is common but not always optimal.
+129. Logistic regression can be trained by minimizing a suitable loss function.
+130. Cross-entropy loss is commonly used for classification.
+131. Regularization can reduce overfitting.
+132. L1 regularization can encourage sparse coefficients.
+133. L2 regularization penalizes large coefficient magnitudes.
+134. Logistic regression works well with TF-IDF features.
+135. Linear decision boundaries make the model relatively interpretable.
+136. Coefficients indicate how features affect model scores under the fitted representation.
+137. Correlated features can complicate coefficient interpretation.
+138. Logistic regression can be efficient for large sparse text matrices.
+139. Probability calibration should be assessed when scores drive important decisions.
+140. Logistic regression is a strong baseline for many NLP classification tasks.
+
+SECTION 8: SUPPORT VECTOR MACHINES
+141. Support Vector Machine is commonly abbreviated as SVM.
+142. An SVM learns a decision boundary that separates classes.
+143. A linear SVM is frequently used for high-dimensional text classification.
+144. The margin is the distance between the decision boundary and nearby training examples.
+145. Support vectors are training examples that influence the learned boundary.
+146. The maximum-margin principle is central to standard SVM classification.
+147. A hinge-loss objective is commonly used for linear SVM training.
+148. Regularization controls the tradeoff between margin size and training errors.
+149. Linear SVMs often work well with sparse TF-IDF vectors.
+150. SVMs can perform strongly on topic and document classification.
+151. Kernel SVMs can model nonlinear boundaries.
+152. Kernel methods may be computationally expensive for large text datasets.
+153. Linear SVM inference is often efficient after training.
+154. Standard SVM decision scores are not automatically calibrated probabilities.
+155. Probability estimates can require an additional calibration procedure.
+156. Multiclass SVM implementations use strategies to handle multiple labels.
+157. Feature scaling may matter depending on the input representation.
+158. Hyperparameters should be selected using validation data.
+159. SVMs do not automatically learn contextual language representations.
+160. Linear SVMs are valuable baselines for traditional NLP pipelines.
+
+SECTION 9: DECISION TREES AND ENSEMBLES
+161. A decision tree predicts a label through a sequence of feature-based decisions.
+162. Each internal node tests a feature or condition.
+163. Each branch represents an outcome of a decision.
+164. Each leaf produces a class prediction or associated score.
+165. Decision trees can represent nonlinear decision boundaries.
+166. Deep trees can overfit training data.
+167. Maximum depth can limit tree complexity.
+168. Minimum leaf size can prevent overly specific branches.
+169. Feature importance estimates can help describe a fitted tree.
+170. Feature importance does not automatically establish causation.
+171. Random forests combine predictions from multiple decision trees.
+172. Random forests introduce randomness through data sampling and feature selection.
+173. Random forests can reduce the variance of individual trees.
+174. Gradient boosting builds an ensemble through sequential model updates.
+175. Boosting can improve predictive performance on suitable tabular features.
+176. Sparse text matrices can be challenging for some tree-based implementations.
+177. Tree models may be less competitive than linear methods on high-dimensional TF-IDF data.
+178. Ensembles increase model complexity and may increase inference cost.
+179. Hyperparameters should be tuned on validation data.
+180. Tree-based models should be selected according to empirical task performance.
+
+SECTION 10: K-NEAREST NEIGHBORS
+181. K-Nearest Neighbors is commonly abbreviated as KNN.
+182. KNN predicts labels based on nearby labeled training examples.
+183. The parameter k controls how many neighbors are considered.
+184. Distance or similarity measures determine which examples are nearest.
+185. Cosine distance can be useful with text vectors.
+186. Euclidean distance can be used with suitable numerical representations.
+187. Neighbor labels can be combined through voting.
+188. Distance-weighted voting gives closer examples greater influence.
+189. Small k values can make predictions sensitive to individual examples.
+190. Large k values can smooth predictions across more neighbors.
+191. KNN has relatively little conventional model-training cost.
+192. Prediction can be expensive because many training examples may need comparison.
+193. High-dimensional sparse text can make neighbor selection challenging.
+194. Approximate nearest-neighbor indexes can speed up large-scale search.
+195. KNN can be useful for simple similarity-based classification.
+196. Duplicate or mislabeled training examples can distort predictions.
+197. Feature normalization can affect distance calculations.
+198. The best k value depends on the dataset.
+199. KNN should be evaluated for both accuracy and inference latency.
+200. KNN is a useful comparison method for text similarity and classification.
+
+SECTION 11: NEURAL NETWORKS
+201. Neural networks learn complex relationships through interconnected computational units.
+202. A neural classifier transforms numerical input through one or more layers.
+203. An activation function introduces nonlinearity into the network.
+204. ReLU is a commonly used neural-network activation function.
+205. A classification output layer produces scores for the available labels.
+206. Softmax converts multiclass scores into normalized nonnegative values.
+207. Cross-entropy loss is commonly used to train classification networks.
+208. Backpropagation calculates gradients for trainable parameters.
+209. An optimizer updates parameters using those gradients.
+210. Embedding layers can represent tokens as learned vectors.
+211. Feed-forward networks can classify pooled text features.
+212. Convolutional neural networks can learn local text patterns.
+213. Recurrent neural networks process sequences through recurrent state updates.
+214. LSTM networks are designed to model sequential information.
+215. GRU networks are another recurrent architecture.
+216. Neural networks can learn representations beyond manually counted word features.
+217. They often require careful tuning and sufficient training data.
+218. Dropout can reduce overfitting by randomly disabling selected activations during training.
+219. Early stopping can help prevent excessive fitting to training data.
+220. Neural classifiers should be compared with simpler baselines.
+
+SECTION 12: TRANSFORMER CLASSIFIERS
+221. Transformers use attention mechanisms to process token representations.
+222. Self-attention allows tokens to incorporate information from other tokens.
+223. Transformer encoders produce contextual token representations.
+224. BERT is a widely used pretrained transformer encoder.
+225. RoBERTa is another encoder model used for text understanding.
+226. DistilBERT is a smaller model distilled from a larger BERT model.
+227. Pretraining exposes transformer models to large amounts of text.
+228. Fine-tuning adapts pretrained parameters to a classification task.
+229. A classification head maps contextual representations to output labels.
+230. Input text is converted into tokens using a compatible tokenizer.
+231. Maximum input length limits the number of tokens processed at once.
+232. Truncation may remove important text from long documents.
+233. Padding can make sequences in a batch have compatible lengths.
+234. Attention masks help distinguish real tokens from padding tokens.
+235. Transformer models can capture context-sensitive word meanings.
+236. Fine-tuning usually requires more computation than training a small linear classifier.
+237. Smaller pretrained models may reduce latency and memory use.
+238. Quantization can reduce model size and inference cost.
+239. Transformer performance depends on the model, dataset, and fine-tuning procedure.
+240. Deployment should consider accuracy, speed, memory, and privacy requirements.
+
+SECTION 13: RECURRENT AND SEQUENCE MODELS
+241. Recurrent neural networks process ordered input sequences.
+242. A recurrent model updates its hidden state as it reads successive tokens.
+243. Hidden states can carry information from earlier sequence positions.
+244. Vanilla recurrent networks can struggle with long-range dependencies.
+245. LSTM networks use gates to regulate information flow.
+246. GRU networks use a simpler gated architecture than LSTMs.
+247. Bidirectional recurrent networks process sequences in both directions.
+248. Bidirectional models can use both left and right context during encoding.
+249. Sequence models can represent word order better than basic Bag of Words.
+250. Padding and masking are important when batching variable-length text.
+251. Sequence length affects computation and memory requirements.
+252. Recurrent models process tokens sequentially in their recurrent computation.
+253. Transformer attention can process token positions in parallel during training.
+254. Recurrent models may still be suitable for some resource-constrained tasks.
+255. Model choice should reflect sequence length and deployment constraints.
+256. Recurrent models require consistent preprocessing between training and inference.
+257. Gradient clipping can help control excessively large gradients.
+258. Learning-rate selection can influence training stability.
+259. Validation loss can reveal overfitting.
+260. Sequence models should be assessed on realistic text examples.
+
+SECTION 14: MULTICLASS AND MULTILABEL CLASSIFICATION
+261. Binary classification predicts one of two possible classes.
+262. Multiclass classification selects one class from several mutually exclusive categories.
+263. Multilabel classification permits multiple labels for one text.
+264. Sentiment classification may use positive, negative, and neutral classes.
+265. Topic classification may use categories such as science, sports, and business.
+266. A single news article can belong to several topics in a multilabel system.
+267. Softmax is commonly used for mutually exclusive multiclass outputs.
+268. Sigmoid outputs are commonly used for independent multilabel decisions.
+269. Multilabel thresholds determine which labels are assigned.
+270. The default threshold may not suit every label.
+271. Class-specific thresholds can improve performance when validated appropriately.
+272. Label imbalance can affect minority-category performance.
+273. Macro F1 treats class-level scores equally in the average.
+274. Weighted F1 accounts for the support of each class.
+275. Micro F1 aggregates counts across labels or classes.
+276. Per-class precision and recall help reveal specific failure patterns.
+277. Hierarchical classification uses relationships between broader and narrower categories.
+278. Hierarchical predictions may require consistency between parent and child labels.
+279. Label definitions should be clear and mutually understood by annotators.
+280. Evaluation procedures must match the multiclass or multilabel setting.
+
+SECTION 15: EVALUATION METRICS
+281. Accuracy is the proportion of examples classified correctly.
+282. Precision measures the correctness of positive predictions for a selected class.
+283. Recall measures the proportion of actual positive examples identified.
+284. F1 is the harmonic mean of precision and recall.
+285. A confusion matrix summarizes correct and incorrect class predictions.
+286. Macro F1 can reveal weak performance on minority classes.
+287. Weighted F1 weights class-level scores according to class support.
+288. Log loss evaluates the quality of probabilistic predictions.
+289. Calibration measures how predicted confidence relates to actual correctness.
+290. ROC-AUC evaluates ranking performance across classification thresholds in suitable settings.
+291. Precision-recall curves are useful for analyzing positive-class tradeoffs.
+292. Balanced accuracy averages recall across classes in common multiclass definitions.
+293. The metric should reflect the cost of different error types.
+294. Spam detection may place special importance on false-positive rates.
+295. Safety classification may require careful assessment of false negatives.
+296. A high aggregate metric can hide class-specific weaknesses.
+297. Human review can identify mistakes that numerical metrics do not explain.
+298. Test examples should be separate from model tuning data.
+299. Model comparisons require consistent test data and evaluation procedures.
+300. Evaluation results should be reported with sufficient context for interpretation.
+
+SECTION 16: APPLICATIONS AND GENERATIVE QA
+301. Intent classification identifies what a user wants to accomplish.
+302. Intent classification can route questions to appropriate tools or knowledge sources.
+303. Topic classification can organize knowledge-base documents.
+304. Sentiment classification can analyze customer feedback.
+305. Spam classification can filter unwanted messages.
+306. Language identification can select a suitable language-processing pipeline.
+307. Toxicity classification can flag text for additional review.
+308. Document classification can support automated information management.
+309. Question-answering systems can classify queries before retrieval.
+310. A query classifier can identify whether a question concerns databases, NLP, or machine learning.
+311. Routing can select the most relevant knowledge-base collection.
+312. Classification does not replace retrieving evidence for factual answers.
+313. A generative QA system can combine intent classification with semantic search.
+314. The retriever selects relevant document passages for the classified question.
+315. A generator uses retrieved passages to produce a natural-language response.
+316. The answer should remain grounded in available evidence.
+317. Classification confidence should be considered when routing ambiguous questions.
+318. Systems should support fallback behavior when no category is sufficiently reliable.
+319. Monitoring can reveal changes in user query categories over time.
+320. Text classification is a core component of many NLP pipelines but is not a complete question-answering system.
