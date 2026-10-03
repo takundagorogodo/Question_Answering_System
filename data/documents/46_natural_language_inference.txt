@@ -1,0 +1,355 @@
+TITLE: NATURAL LANGUAGE INFERENCE
+CATEGORY: NATURAL LANGUAGE PROCESSING
+PURPOSE: Knowledge base for textual entailment, semantic reasoning, contradiction detection, and retrieval-augmented question answering.
+
+SECTION 1: INTRODUCTION
+001. Natural Language Inference is commonly abbreviated as NLI.
+002. NLI determines the logical relationship between two pieces of natural language text.
+003. The first text is usually called the premise.
+004. The second text is usually called the hypothesis.
+005. The premise provides information against which the hypothesis is evaluated.
+006. The hypothesis is a statement whose relationship to the premise must be classified.
+007. Standard NLI systems commonly predict entailment, contradiction, or neutral.
+008. Entailment means that the premise supports the hypothesis as necessarily true under the task's interpretation.
+009. Contradiction means that the premise conflicts with the hypothesis.
+010. Neutral means that the premise does not establish either entailment or contradiction.
+011. NLI is used in semantic understanding and textual reasoning.
+012. It helps systems compare the meanings of sentences.
+013. NLI can detect whether one statement supports another.
+014. NLI can help identify conflicting statements in documents.
+015. NLI is useful in some fact verification pipelines.
+016. NLI models are commonly trained using labeled sentence pairs.
+017. Transformer encoders are widely used for modern NLI classification.
+018. NLI predictions are model judgments rather than guaranteed logical proofs.
+019. Context and background assumptions can affect interpretation.
+020. NLI should be used with awareness of model limitations.
+
+SECTION 2: PREMISE AND HYPOTHESIS
+021. The premise is the source statement used for inference.
+022. The hypothesis is the statement evaluated against the premise.
+023. Both texts may contain one sentence or multiple sentences.
+024. A premise can describe an event, fact, action, or situation.
+025. A hypothesis can restate the premise using different words.
+026. A hypothesis can introduce a new detail absent from the premise.
+027. A hypothesis can directly conflict with a statement in the premise.
+028. The premise and hypothesis may use different grammatical structures.
+029. Semantic similarity does not automatically establish entailment.
+030. Two sentences can discuss the same subject but have different logical relationships.
+031. A premise should be interpreted according to its stated content.
+032. A hypothesis should not receive support from facts absent from the premise unless the task permits external knowledge.
+033. Evaluation datasets generally define which reasoning assumptions are acceptable.
+034. Negation can change the relationship between premise and hypothesis.
+035. Quantifiers can affect whether a hypothesis follows from a premise.
+036. Temporal expressions can affect inference.
+037. Numerical statements require careful comparison.
+038. Pronouns may need resolution before the relationship is clear.
+039. Ambiguous text can make NLI classification difficult.
+040. Correct NLI analysis depends on understanding both statements.
+
+SECTION 3: ENTAILMENT
+041. Entailment occurs when the premise supports the hypothesis as necessarily true under the relevant interpretation.
+042. An entailed hypothesis does not introduce an unsupported factual requirement.
+043. Premise: A dog is sleeping. Hypothesis: An animal is sleeping.
+044. The example in line 43 represents entailment because a dog is an animal.
+045. Premise: Maria bought three apples. Hypothesis: Maria bought fruit.
+046. The example in line 45 represents entailment under the ordinary meaning of apples.
+047. Premise: Every student passed the exam. Hypothesis: At least one student passed the exam.
+048. The example in line 47 assumes that at least one student exists.
+049. Entailment can involve synonymy.
+050. Entailment can involve category relationships.
+051. Entailment can involve paraphrasing.
+052. Entailment can involve numerical reasoning.
+053. Entailment can involve resolving references between sentences.
+054. Entailment may require combining multiple facts in the premise.
+055. The premise may contain more information than the hypothesis.
+056. A hypothesis can be shorter than the premise and still be entailed.
+057. An entailed hypothesis must be supported by the premise rather than merely being plausible.
+058. Entailment is stronger than topical similarity.
+059. In factual question answering, entailment can help assess evidence support.
+060. NLI predictions of entailment should be checked for important high-stakes claims.
+
+SECTION 4: CONTRADICTION
+061. Contradiction occurs when the premise and hypothesis cannot both be true under the same interpretation.
+062. Contradictory statements make incompatible claims.
+063. Premise: The door is open. Hypothesis: The door is closed.
+064. The example in line 63 represents a likely contradiction in an ordinary binary door-state context.
+065. Premise: No students attended the class. Hypothesis: Some students attended the class.
+066. The example in line 65 represents contradiction under the ordinary meaning of the statements.
+067. Negation is a common source of contradiction.
+068. Opposing quantities can create contradiction.
+069. Conflicting dates can create contradiction.
+070. Conflicting identities can create contradiction.
+071. Contradiction can occur when one sentence denies an event asserted by another.
+072. Different wording does not prevent two statements from contradicting each other.
+073. A contradiction requires more than a difference in topic or emphasis.
+074. Statements can differ without being contradictory.
+075. A model should not label every unsupported hypothesis as a contradiction.
+076. Contradiction detection is useful for reviewing inconsistent documents.
+077. Contradiction detection can help compare answers with source evidence.
+078. Temporal context can determine whether two apparently conflicting statements are compatible.
+079. Qualifications and exceptions can change the interpretation of a contradiction.
+080. NLI-based contradiction detection should account for context where available.
+
+SECTION 5: NEUTRAL RELATIONSHIPS
+081. Neutral means the premise neither entails nor contradicts the hypothesis.
+082. A neutral hypothesis may be true, but the premise does not establish it.
+083. Premise: A woman is reading a book. Hypothesis: The book is a mystery novel.
+084. The example in line 83 is neutral because the genre is unspecified.
+085. Premise: Ravi owns a bicycle. Hypothesis: Ravi owns a car.
+086. The example in line 85 is neutral because car ownership is not stated.
+087. Neutrality does not mean that the hypothesis is false.
+088. Neutrality does not necessarily mean that the hypothesis is unrelated to the premise.
+089. A hypothesis can be plausible and still be neutral.
+090. Background knowledge should be handled according to the NLI task definition.
+091. Missing information often leads to neutral classification.
+092. A model should distinguish absence of evidence from evidence of contradiction.
+093. Neutral examples help train models to avoid unsupported conclusions.
+094. Neutrality is important for reliable question answering.
+095. A question-answering system should not treat every related passage as proof.
+096. Neutrality can indicate that additional evidence is required.
+097. Some hypotheses require details not contained in the premise.
+098. Ambiguous premises may prevent a confident relationship judgment.
+099. Neutral classification depends on the assumptions used by the dataset.
+100. Neutral predictions should be interpreted with the model's confidence and limitations.
+
+SECTION 6: CLASSIFICATION EXAMPLES
+101. Premise: The sun is shining. Hypothesis: The weather is bright. Relationship: likely entailment under ordinary usage.
+102. Premise: The sun is shining. Hypothesis: It is raining heavily. Relationship: neutral without additional weather information.
+103. Premise: The sun is shining. Hypothesis: The sun is not shining. Relationship: contradiction.
+104. Premise: A cat is sleeping. Hypothesis: An animal is resting. Relationship: likely entailment.
+105. Premise: A cat is sleeping. Hypothesis: The cat is playing. Relationship: likely contradiction if both refer to the same time and activity.
+106. Premise: A cat is sleeping. Hypothesis: The cat belongs to Anna. Relationship: neutral.
+107. Premise: All employees received badges. Hypothesis: An employee received a badge. Relationship: entailment if employees exist.
+108. Premise: Some employees received badges. Hypothesis: No employees received badges. Relationship: contradiction.
+109. Premise: Some employees received badges. Hypothesis: All employees received badges. Relationship: neutral.
+110. Premise: The meeting starts at noon. Hypothesis: The meeting starts at twelve o'clock midday. Relationship: entailment.
+111. Premise: The train arrived at six. Hypothesis: The train arrived at seven. Relationship: contradiction if the times refer to the same event and time zone.
+112. Premise: The train arrived at six. Hypothesis: The train was crowded. Relationship: neutral.
+113. Premise: Liam has two sisters. Hypothesis: Liam has siblings. Relationship: entailment.
+114. Premise: Liam has two sisters. Hypothesis: Liam has a brother. Relationship: neutral.
+115. Premise: The package was delivered. Hypothesis: The package was not delivered. Relationship: contradiction.
+116. Premise: The package was delivered yesterday. Hypothesis: The package was delivered before today. Relationship: entailment under ordinary date interpretation.
+117. Premise: The package was delivered yesterday. Hypothesis: The package weighed five kilograms. Relationship: neutral.
+118. Premise: Every registered participant received a certificate. Hypothesis: A registered participant received a certificate. Relationship: entailment if participants exist.
+119. Premise: No registered participants received certificates. Hypothesis: A registered participant received a certificate. Relationship: contradiction if the participant belongs to the specified group.
+120. Classification examples should state assumptions when the interpretation is not uniquely determined.
+
+SECTION 7: NLI DATASETS
+121. NLI models learn relationships from labeled premise-hypothesis pairs.
+122. An NLI dataset contains examples with expected relationship labels.
+123. The SNLI dataset is a widely known natural language inference dataset.
+124. SNLI stands for Stanford Natural Language Inference.
+125. MultiNLI is another widely used NLI dataset.
+126. MultiNLI includes examples from multiple genres of text.
+127. ANLI is an adversarial natural language inference benchmark.
+128. Different datasets vary in style, difficulty, and label distribution.
+129. Dataset labels reflect annotation instructions and task assumptions.
+130. Annotator disagreement can occur when text is ambiguous.
+131. Training data quality affects NLI model performance.
+132. Dataset artifacts can allow models to learn shortcuts.
+133. A model may perform well on a benchmark without robust reasoning.
+134. Evaluation should include examples outside the training distribution.
+135. Domain-specific NLI data can improve performance in specialized applications.
+136. Medical and legal inference may require carefully validated domain-specific evaluation.
+137. Multilingual NLI datasets support evaluation across languages.
+138. Translation-based datasets can contain language-specific artifacts.
+139. Dataset licenses and usage conditions should be reviewed before deployment.
+140. Benchmark scores should be interpreted in light of dataset characteristics.
+
+SECTION 8: NLI MODEL ARCHITECTURES
+141. An NLI model maps a premise and hypothesis to a relationship label.
+142. Early NLI systems used manually designed linguistic features.
+143. Traditional machine-learning models can use lexical and syntactic features.
+144. Neural NLI systems learn representations from labeled examples.
+145. Recurrent neural networks have been used for sentence-pair classification.
+146. Convolutional neural networks have also been applied to sentence representations.
+147. Transformer encoders are widely used for modern NLI tasks.
+148. BERT is a transformer-based language representation model.
+149. RoBERTa is a transformer-based model trained with a modified BERT training procedure.
+150. DeBERTa is another transformer-based model architecture.
+151. A cross-encoder processes the premise and hypothesis together.
+152. Cross-encoders can model interactions between the two texts.
+153. A sentence-pair classifier usually produces scores for the possible labels.
+154. The predicted label is commonly the class with the highest score.
+155. Softmax probabilities are model outputs and may not be well calibrated.
+156. Calibration evaluates how predicted confidence corresponds to observed correctness.
+157. Model selection should consider accuracy, latency, memory, and domain fit.
+158. Fine-tuning can adapt a pretrained encoder to NLI examples.
+159. A model's label order must be checked before interpreting its output.
+160. Deployment should use the model's documented inference procedure.
+
+SECTION 9: TRAINING AN NLI MODEL
+161. Supervised NLI training requires labeled premise-hypothesis pairs.
+162. Each training example contains a premise and a hypothesis.
+163. The expected label identifies entailment, contradiction, or neutral.
+164. Text is tokenized before being passed into a transformer encoder.
+165. Special tokens may separate the premise from the hypothesis.
+166. Attention masks identify which tokens should be processed as valid input.
+167. The model generates representations for the input pair.
+168. A classification layer produces scores for the relationship labels.
+169. A loss function measures the difference between predicted scores and target labels.
+170. Cross-entropy loss is commonly used for multiclass NLI classification.
+171. Gradient descent updates model parameters during training.
+172. Learning rate controls the size of optimizer updates.
+173. Batch size controls the number of training examples processed together.
+174. Training epochs represent passes through the training dataset.
+175. Validation data supports model and hyperparameter selection.
+176. Test data should be reserved for final evaluation.
+177. Data leakage can make test performance appear artificially high.
+178. Class imbalance may require class-level performance analysis.
+179. Early stopping can help reduce overfitting.
+180. Training should be reproducible through documented settings and data versions.
+
+SECTION 10: NLI EVALUATION
+181. Accuracy measures the proportion of correctly classified examples.
+182. Precision measures the correctness of predictions for a selected class.
+183. Recall measures the proportion of actual examples of a class correctly identified.
+184. F1 combines class-level precision and recall.
+185. Macro F1 averages class-level F1 scores with equal class weights.
+186. A confusion matrix shows which labels are confused.
+187. Per-class metrics reveal weaknesses hidden by overall accuracy.
+188. Balanced evaluation is important when label frequencies differ.
+189. Evaluation should use a held-out dataset.
+190. Robustness tests can evaluate sensitivity to wording changes.
+191. Paraphrase tests examine whether meaning-preserving changes alter predictions.
+192. Negation tests examine whether models recognize polarity changes.
+193. Quantifier tests examine reasoning about words such as all, some, and none.
+194. Numerical tests examine comparisons involving quantities.
+195. Temporal tests examine relationships involving dates and event order.
+196. Adversarial examples can reveal shallow pattern matching.
+197. Human review can investigate surprising model predictions.
+198. Calibration metrics can assess confidence quality.
+199. Latency tests help assess deployment feasibility.
+200. Evaluation should match the intended application and risk level.
+
+SECTION 11: NLI IN QUESTION ANSWERING
+201. Question-answering systems can use NLI to assess whether evidence supports an answer.
+202. A retrieved passage can serve as the premise for an NLI comparison.
+203. A proposed answer claim can be converted into a hypothesis.
+204. An entailment prediction suggests that the passage supports the claim.
+205. A contradiction prediction suggests that the passage conflicts with the claim.
+206. A neutral prediction suggests that the passage does not establish the claim.
+207. NLI can help filter unsupported statements in a generated response.
+208. NLI predictions should not be treated as guaranteed proof of factual correctness.
+209. A passage may omit context required to interpret a claim.
+210. A hypothesis should express one clear claim where practical.
+211. Long answers can be split into individual factual claims for checking.
+212. Each claim can be compared with relevant evidence.
+213. Multiple passages may jointly support a claim.
+214. Pairwise NLI models may fail when reasoning requires combining several documents.
+215. Evidence aggregation may be needed for multi-document question answering.
+216. Source reliability remains important even when a passage entails a claim.
+217. An outdated source may support a claim that is no longer current.
+218. A correct entailment judgment does not establish that the source itself is trustworthy.
+219. NLI can complement retrieval relevance and answer-quality evaluation.
+220. Reliable QA systems should combine evidence checking with suitable safeguards.
+
+SECTION 12: NLI IN RETRIEVAL-AUGMENTED GENERATION
+221. Retrieval-augmented generation is commonly abbreviated as RAG.
+222. RAG retrieves source passages before generating an answer.
+223. The retriever selects candidate passages related to the question.
+224. The generator uses retrieved passages as contextual evidence.
+225. An NLI model can evaluate relationships between answer claims and retrieved passages.
+226. Claim verification can identify statements that lack direct support.
+227. Entailment labels can be used as evidence-support signals.
+228. Contradiction labels can flag potential conflicts with retrieved evidence.
+229. Neutral labels can identify claims requiring additional evidence.
+230. One passage may entail one part of an answer but not another.
+231. Claim-level checking helps distinguish supported and unsupported portions of an answer.
+232. Multiple sources may agree or disagree about the same claim.
+233. Contradictory sources should not be silently treated as consistent evidence.
+234. Source dates can matter when evidence changes over time.
+235. Citation mapping can connect each claim to its supporting passage.
+236. NLI can be used after generation as part of a verification stage.
+237. Verification may trigger regeneration when unsupported claims are found.
+238. A RAG system can abstain when sufficient evidence is unavailable.
+239. NLI confidence thresholds should be calibrated on representative examples.
+240. NLI is a useful component of RAG verification rather than a complete solution.
+
+SECTION 13: SEMANTIC SIMILARITY VERSUS ENTAILMENT
+241. Semantic similarity measures how closely two texts resemble each other in meaning or representation.
+242. Entailment evaluates whether one text supports the truth of another.
+243. Similar sentences can have a contradiction relationship.
+244. Premise: The light is on. Hypothesis: The light is off. The sentences are related but contradictory.
+245. A hypothesis can be entailed without sharing many exact words with the premise.
+246. Premise: A physician examined the patient. Hypothesis: A doctor checked the patient. The relationship is likely entailment.
+247. Embedding similarity alone cannot reliably distinguish every contradiction.
+248. Negation may preserve topic similarity while reversing meaning.
+249. NLI requires directional reasoning from premise to hypothesis.
+250. Semantic similarity is often treated as a symmetric comparison.
+251. Entailment is generally directional.
+252. If a premise entails a hypothesis, the reverse relationship may not hold.
+253. A dog is an animal, but the word animal does not entail dog.
+254. A paraphrase often supports entailment in both directions.
+255. Not all related statements are paraphrases.
+256. Similarity search can retrieve candidate evidence for NLI analysis.
+257. NLI can then assess whether retrieved evidence supports a specific claim.
+258. Combining retrieval and inference can improve some question-answering workflows.
+259. The systems must be evaluated for the errors introduced by each stage.
+260. Similarity and entailment serve different but complementary purposes.
+
+SECTION 14: NEGATION, QUANTIFIERS, AND REASONING
+261. Negation reverses or denies a proposition in a sentence.
+262. Words such as not, never, and no can affect NLI labels.
+263. Premise: The server is running. Hypothesis: The server is not running. The relationship is contradictory in the same context.
+264. Quantifiers specify how many members of a set satisfy a condition.
+265. All, some, none, and most have different logical meanings.
+266. All students passed does not mean that only students passed.
+267. Some students passed does not mean that all students passed.
+268. No students passed conflicts with at least one student passing.
+269. Numerical statements require attention to units and comparison operators.
+270. A quantity of five cannot be treated as equal to a quantity of six.
+271. Dates require attention to calendar conventions and time zones.
+272. Before and after express different temporal relationships.
+273. Conditional statements require careful interpretation of their antecedents and consequents.
+274. A possibility statement does not necessarily establish an actual event.
+275. A statement about one individual does not automatically apply to every individual.
+276. Pronoun resolution may be necessary for correct inference.
+277. Coreference errors can cause incorrect premise-hypothesis relationships.
+278. Models can fail on long-distance dependencies and complex syntax.
+279. Targeted evaluation sets can measure specific reasoning abilities.
+280. NLI predictions should be reviewed when the reasoning is complex or consequential.
+
+SECTION 15: LIMITATIONS AND COMMON ERRORS
+281. NLI models can rely on superficial lexical patterns.
+282. Models may misinterpret negation.
+283. Models may fail on numerical reasoning.
+284. Models may mishandle quantifiers.
+285. Models may rely on dataset-specific artifacts.
+286. Domain shifts can reduce accuracy.
+287. Ambiguous premises can lead to inconsistent labels.
+288. Annotation guidelines can influence the meaning of neutral.
+289. Model confidence does not guarantee prediction correctness.
+290. A prediction can be wrong even when its confidence is high.
+291. A single passage may not contain enough context for correct inference.
+292. Multi-document reasoning may require evidence aggregation.
+293. External knowledge can affect judgments if the model relies on learned associations.
+294. A factual claim may be unsupported even when it is plausible.
+295. Contradiction detection can fail when statements concern different times or conditions.
+296. Entailment detection can fail when a hypothesis introduces subtle new details.
+297. Long text inputs may exceed model input limits.
+298. Truncation can remove important information.
+299. NLI should not be the only safety or factuality check in a high-risk system.
+300. Limitations should be evaluated before deployment.
+
+SECTION 16: IMPLEMENTATION AND DEPLOYMENT
+301. An NLI pipeline begins by preparing a premise-hypothesis pair.
+302. The pair should be normalized according to the selected model's input requirements.
+303. The tokenizer converts the pair into model input tokens.
+304. The model produces a score for each supported relationship label.
+305. The output label mapping must be verified from the model configuration.
+306. The highest-scoring label is commonly selected as the predicted class.
+307. The associated score can be returned as a confidence-like model output.
+308. The score should not automatically be treated as a calibrated probability.
+309. Thresholds can be selected using validation examples.
+310. The pipeline should record model and tokenizer versions.
+311. Batch inference can improve throughput for many premise-hypothesis pairs.
+312. Input lengths should be monitored to avoid unintended truncation.
+313. Model latency should be measured under realistic workloads.
+314. Resource usage should be checked before large-scale deployment.
+315. Error logging can help identify recurring inference failures.
+316. Sensitive text should be handled according to applicable privacy requirements.
+317. Predictions should preserve references to the original source passages.
+318. Model updates should trigger regression testing.
+319. Evaluation should include entailment, contradiction, and neutral examples.
+320. A well-designed NLI component supports evidence checking while acknowledging uncertainty.
