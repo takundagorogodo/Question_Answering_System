@@ -27,7 +27,7 @@ PROMPT = """Context:
 
 Question: {question}
 
-Using the context above, answer the question in your own words in one or two sentences."""
+You are answering an exam question worth 10 marks. Using ONLY the context above, write a detailed answer of 6 to 10 sentences: start with a clear definition, then explain how it works, then give an example, and finish with why it is important. Do not use facts that are not in the context."""
 
 def get_model():
     global _TOKENIZER, _MODEL
@@ -36,11 +36,17 @@ def get_model():
         _MODEL = AutoModelForSeq2SeqLM.from_pretrained(GENERATOR_MODEL, cache_dir=str(MODELS_DIR))
     return _TOKENIZER, _MODEL
 
-def generate(question: str, context: str, max_new_tokens: int = 128) -> str:
+def generate(question: str, context: str, max_new_tokens: int = 256) -> str:
     tok, model = get_model()
     prompt = PROMPT.format(context=context, question=question)
     inputs = tok(prompt, return_tensors="pt", truncation=True, max_length=1024)
-    out = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
+    out = model.generate(
+        **inputs,
+        max_new_tokens=max_new_tokens,   # room for a long answer
+        min_new_tokens=50,               # stop 1-line answers; set 0 if answers look padded
+        no_repeat_ngram_size=3,          # stops "the the the" loops in long answers
+        do_sample=False,                 # deterministic, same answer every run (good for viva)
+    )
     return tok.decode(out[0], skip_special_tokens=True).strip()
 
 def is_verbatim(answer: str, context: str) -> bool:
